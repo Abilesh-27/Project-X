@@ -1,0 +1,530 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation / Journey</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0b192c',
+              dark: '#0f2744',
+              blue: '#1a56db',
+              blueHover: '#1545b2',
+              lightBlue: '#f0f6ff',
+              surfaceBlue: '#e4efff',
+              accentGreen: '#10b981',
+              accentAmber: '#f59e0b',
+              accentRed: '#ef4444',
+              border: '#e2e8f0',
+              muted: '#64748b'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+          },
+          boxShadow: {
+            'map-float': '0 10px 25px -5px rgba(11, 25, 44, 0.18), 0 8px 10px -6px rgba(11, 25, 44, 0.1)',
+            'nav-card': '0 -10px 30px rgba(11, 25, 44, 0.12)',
+            'glow-blue': '0 0 16px rgba(26, 86, 219, 0.45)',
+            'glow-green': '0 0 14px rgba(16, 185, 129, 0.4)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Pulsing radar effect for worker GPS marker */
+    @keyframes pulse-ring {
+      0% { transform: scale(0.65); opacity: 0.9; }
+      80%, 100% { transform: scale(2.2); opacity: 0; }
+    }
+    .pulse-effect::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 9999px;
+      background-color: rgba(26, 86, 219, 0.45);
+      animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+      z-index: 0;
+    }
+    /* Animated dash line for active en route traversal */
+    @keyframes dash-animation {
+      to {
+        stroke-dashoffset: -40;
+      }
+    }
+    .animated-route {
+      stroke-dasharray: 8 6;
+      animation: dash-animation 1.6s linear infinite;
+    }
+  </style>
+</head>
+<body class="bg-[#eaf1fb] text-slate-800 font-sans antialiased min-h-screen flex justify-center items-center sm:p-4 selection:bg-blue-100">
+
+  <!-- Mobile Device Shell (390px fixed width emulation for Figma fidelity) -->
+  <div class="relative w-full max-w-[412px] h-[890px] bg-slate-100 overflow-hidden shadow-2xl rounded-none sm:rounded-[40px] border border-slate-300 flex flex-col justify-between">
+
+    <!-- Top Status Bar & Navigation Header (Deep Navy) -->
+    <header class="relative z-30 bg-[#0b192c] text-white pt-2 pb-3.5 px-4 shadow-md flex-shrink-0">
+      <!-- Status bar icons -->
+      <div class="flex justify-between items-center text-[12px] font-medium text-slate-300 mb-2 px-1">
+        <span>9:42 AM</span>
+        <div class="flex items-center space-x-2">
+          <i class="fa-solid fa-signal text-[11px]"></i>
+          <i class="fa-solid fa-wifi text-[11px]"></i>
+          <i class="fa-solid fa-battery-full text-[12px] text-emerald-400"></i>
+        </div>
+      </div>
+
+      <!-- Main Header Bar -->
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <button onclick="window.history.back()" aria-label="Go Back" class="w-9 h-9 rounded-full bg-slate-800/80 border border-slate-700/60 flex items-center justify-center text-slate-200 active:scale-95 transition-all hover:bg-slate-700">
+            <i class="fa-solid fa-arrow-left text-sm"></i>
+          </button>
+          <div>
+            <div class="flex items-center space-x-2">
+              <h1 class="text-base font-bold text-white tracking-wide">Navigation</h1>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-blue-600/30 text-blue-300 border border-blue-500/40">
+                Customer
+              </span>
+            </div>
+            <div class="flex items-center space-x-1.5 mt-0.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              <span class="text-[11px] font-semibold text-emerald-400">Live GPS Active</span>
+              <span class="text-slate-500 text-[10px]">• Updated now</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <a href="tel:+919876543210" aria-label="Direct Customer Call" class="w-9 h-9 rounded-full bg-blue-600/20 text-blue-400 border border-blue-500/30 flex items-center justify-center active:scale-95 transition-all hover:bg-blue-600 hover:text-white">
+            <i class="fa-solid fa-phone text-xs"></i>
+          </a>
+          <button id="externalMapBtn" title="Open Google Maps" class="w-9 h-9 rounded-full bg-slate-800/80 border border-slate-700/60 flex items-center justify-center text-slate-300 active:scale-95 transition-all hover:bg-slate-700">
+            <i class="fa-solid fa-diamond-turn-right text-xs text-blue-400"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- DOMINANT MAP CONTAINER (Fills entire central viewport) -->
+    <div class="relative flex-1 w-full overflow-hidden bg-[#e6edf8]">
+
+      <!-- SVG Map Background Canvas (Detailed GIS / Vector styled map) -->
+      <svg class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none" viewBox="0 0 412 550" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Subtle water gradient -->
+          <linearGradient id="waterGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#bdd7ee"></stop>
+            <stop offset="100%" stop-color="#9fc4e7"></stop>
+          </linearGradient>
+          <!-- Active Route Gradient -->
+          <linearGradient id="routeGrad" x1="60" y1="380" x2="330" y2="120" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#1a56db"></stop>
+            <stop offset="50%" stop-color="#2563eb"></stop>
+            <stop offset="100%" stop-color="#3b82f6"></stop>
+          </linearGradient>
+          <!-- Route Shadow Filter -->
+          <filter id="routeShadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#0f2744" flood-opacity="0.3"></feDropShadow>
+          </filter>
+        </defs>
+
+        <!-- City Blocks / Land Parcels -->
+        <rect width="412" height="550" fill="#edf2fa"></rect>
+        
+        <!-- Sector Parcels -->
+        <path d="M 0 0 L 170 0 L 140 160 L 0 130 Z" fill="#e2ecf9"></path>
+        <path d="M 210 0 L 412 0 L 412 180 L 250 170 Z" fill="#e5effa"></path>
+        <path d="M 0 160 L 130 180 L 110 320 L 0 300 Z" fill="#e9f1fc"></path>
+        <path d="M 260 200 L 412 210 L 412 360 L 280 340 Z" fill="#e1ecf9"></path>
+        <path d="M 120 350 L 260 360 L 230 520 L 90 510 Z" fill="#e4eef9"></path>
+        <path d="M 280 370 L 412 380 L 412 550 L 260 550 Z" fill="#e9f2fb"></path>
+        <path d="M 0 330 L 80 340 L 60 520 L 0 520 Z" fill="#e2ecf9"></path>
+
+        <!-- Green Park / Natural Areas -->
+        <path d="M 160 30 C 190 20, 210 50, 190 90 C 170 120, 140 100, 140 70 Z" fill="#d1e7dd" opacity="0.85"></path>
+        <path d="M 15 200 C 45 190, 75 220, 60 260 C 40 290, 10 270, 10 230 Z" fill="#d1e7dd" opacity="0.8"></path>
+        <path d="M 310 250 C 350 240, 390 270, 370 320 C 340 340, 300 310, 310 250 Z" fill="#d7ecdc" opacity="0.75"></path>
+
+        <!-- River / Canal Waterway -->
+        <path d="M -20 70 Q 120 110 180 180 T 420 230" fill="none" stroke="url(#waterGrad)" stroke-width="16" stroke-linecap="round"></path>
+        <text x="75" y="118" fill="#759dc3" font-size="8.5" font-weight="600" letter-spacing="1">YAMUNA CANAL FEEDER</text>
+
+        <!-- Minor Street Grid -->
+        <g stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+          <path d="M 0 60 L 412 90"></path>
+          <path d="M 0 250 L 412 280"></path>
+          <path d="M 0 440 L 412 430"></path>
+          <path d="M 60 0 L 80 550"></path>
+          <path d="M 200 0 L 230 550"></path>
+          <path d="M 340 0 L 360 550"></path>
+          <path d="M 90 120 L 320 150"></path>
+          <path d="M 110 320 L 330 350"></path>
+          <path d="M 160 230 L 280 250"></path>
+        </g>
+
+        <!-- Secondary Arterial Roads (Inner white with gray border) -->
+        <g stroke="#d5dfed" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M -10 140 C 90 150, 160 170, 200 230 C 240 290, 310 340, 420 370"></path>
+          <path d="M 150 0 L 150 550"></path>
+          <path d="M 280 0 L 270 550"></path>
+          <path d="M 0 380 Q 180 390 420 350"></path>
+        </g>
+        <g stroke="#ffffff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M -10 140 C 90 150, 160 170, 200 230 C 240 290, 310 340, 420 370"></path>
+          <path d="M 150 0 L 150 550"></path>
+          <path d="M 280 0 L 270 550"></path>
+          <path d="M 0 380 Q 180 390 420 350"></path>
+        </g>
+
+        <!-- Major Highway / Expressway -->
+        <path d="M 30 550 L 140 370 L 220 230 L 350 40" stroke="#fcd34d" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"></path>
+        <path d="M 30 550 L 140 370 L 220 230 L 350 40" stroke="#fbbf24" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+
+        <!-- Road Labels -->
+        <text x="235" y="325" fill="#94a3b8" font-size="7.5" font-weight="700" transform="rotate(12 235 325)">RING ROAD EXPRESSWAY</text>
+        <text x="155" y="470" fill="#94a3b8" font-size="7.5" font-weight="700" transform="rotate(90 155 470)">SECTOR 22 MAIN ROAD</text>
+        <text x="278" y="160" fill="#94a3b8" font-size="7" font-weight="600" transform="rotate(-6 278 160)">DWARKA LINK AVE</text>
+
+        <!-- Landmarks & Buildings -->
+        <g fill="#93c5fd" opacity="0.3">
+          <rect x="40" y="80" width="30" height="24" rx="4"></rect>
+          <rect x="230" y="75" width="45" height="35" rx="5"></rect>
+          <rect x="80" y="270" width="38" height="28" rx="4"></rect>
+          <rect x="290" y="380" width="50" height="40" rx="6"></rect>
+          <rect x="180" y="420" width="35" height="30" rx="4"></rect>
+        </g>
+        <text x="234" y="96" fill="#64748b" font-size="7" font-weight="600">METRO STATION</text>
+        <text x="82" y="287" fill="#64748b" font-size="7" font-weight="600">DWARKA MALL</text>
+        <text x="294" y="403" fill="#64748b" font-size="7" font-weight="600">COMMUNITY CENTER</text>
+
+        <!-- ============================================== -->
+        <!-- ACTIVE NAVIGATION ROUTE (Realistic Polyline) -->
+        <!-- Start: Worker GPS (95, 410) -> End: Customer (315, 135) -->
+        <!-- ============================================== -->
+        
+        <!-- Outer Route Aura / Glow -->
+        <path d="M 95 410 L 150 405 L 150 280 L 245 280 L 245 185 L 315 185 L 315 138" stroke="#93c5fd" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" filter="url(#routeShadow)"></path>
+        
+        <!-- Primary Solid Blue Navigation Path -->
+        <path d="M 95 410 L 150 405 L 150 280 L 245 280 L 245 185 L 315 185 L 315 138" stroke="url(#routeGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+
+        <!-- Animated Directional Dash overlay indicating forward motion -->
+        <path d="M 95 410 L 150 405 L 150 280 L 245 280 L 245 185 L 315 185 L 315 138" class="animated-route" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"></path>
+
+        <!-- Turn-by-Turn waypoint arrows along route -->
+        <g fill="#ffffff" opacity="0.95">
+          <!-- Waypoint 1: turn right onto Sector Road -->
+          <polygon points="150,340 146,348 154,348" transform="rotate(-90 150 340)"></polygon>
+          <!-- Waypoint 2: turn right onto Dwarka Link -->
+          <polygon points="200,280 196,288 204,288" transform="rotate(90 200 280)"></polygon>
+          <!-- Waypoint 3: north turn -->
+          <polygon points="245,230 241,238 249,238"></polygon>
+        </g>
+      </svg>
+
+      <!-- ============================================== -->
+      <!-- MAP MARKERS OVERLAY (Interactive HTML pins) -->
+      <!-- ============================================== -->
+
+      <!-- WORKER CURRENT LOCATION PIN (Live Blue Marker with Radar Pulse) -->
+      <div class="absolute left-[80px] top-[395px] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center">
+        <!-- Radar Pulsing Circle -->
+        <div class="relative w-12 h-12 flex items-center justify-center pulse-effect">
+          <!-- Main Worker Marker -->
+          <div class="w-7 h-7 rounded-full bg-blue-600 border-[3px] border-white shadow-glow-blue flex items-center justify-center text-white relative z-10">
+            <i class="fa-solid fa-location-arrow text-[10px] transform -rotate-45 translate-x-[-1px] translate-y-[-1px]"></i>
+          </div>
+        </div>
+        <!-- Tooltip Label -->
+        <div class="bg-slate-900/90 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md mt-0.5 whitespace-nowrap border border-slate-700/80 flex items-center space-x-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span>You (Ramesh)</span>
+        </div>
+      </div>
+
+      <!-- DESTINATION MARKER PIN (Customer Location) -->
+      <div class="absolute left-[315px] top-[135px] -translate-x-1/2 -translate-y-full z-10 flex flex-col items-center group cursor-pointer">
+        <!-- Pin Tooltip Bubble -->
+        <div class="bg-[#0b192c] text-white text-[11px] font-bold px-2.5 py-1 rounded-lg shadow-xl border border-slate-700 flex items-center space-x-1.5 mb-1.5 whitespace-nowrap">
+          <i class="fa-solid fa-wrench text-[9px] text-amber-400"></i>
+          <span>Flat 402, Shivani Apts</span>
+        </div>
+        <!-- High-contrast Destination Pin -->
+        <div class="relative flex items-center justify-center">
+          <div class="w-8 h-8 rounded-full bg-rose-600 border-[3px] border-white shadow-lg flex items-center justify-center text-white text-xs font-black">
+            <i class="fa-solid fa-flag text-[11px]"></i>
+          </div>
+          <!-- Pin pointer triangle -->
+          <div class="absolute -bottom-1.5 w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[7px] border-t-rose-600"></div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- TOP FLOATING MAP INFO CARD (Turn Guidance & Customer Info) -->
+      <!-- ============================================== -->
+      <div class="absolute top-3 left-3 right-3 z-20">
+        <!-- Turn Guidance Banner (Next immediate transit maneuver) -->
+        <div class="bg-[#0b192c] text-white rounded-2xl shadow-map-float p-3 border border-slate-700/80 flex items-center justify-between mb-2">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center text-lg font-bold shadow-md">
+              <i class="fa-solid fa-arrow-turn-up text-base transform rotate-90"></i>
+            </div>
+            <div>
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">In 280 meters</span>
+                <span class="text-[10px] bg-slate-800 text-slate-300 px-1.5 py-0.2 rounded border border-slate-700">Sector 22 Rd</span>
+              </div>
+              <p class="text-[13px] font-semibold text-slate-100 leading-tight">Turn right toward Shivani Apartments</p>
+            </div>
+          </div>
+          <div class="text-right pl-2">
+            <span class="text-[10px] font-bold text-emerald-400 block"><i class="fa-solid fa-circle text-[7px] mr-1"></i>Low Traffic</span>
+            <span class="text-[11px] font-bold text-slate-300">Fastest Route</span>
+          </div>
+        </div>
+
+        <!-- Customer Target Summary Card -->
+        <div class="bg-white/95 backdrop-blur-md rounded-xl shadow-md p-2.5 border border-blue-100 flex items-center justify-between">
+          <div class="flex items-center space-x-2.5">
+            <div class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 border border-blue-200 flex items-center justify-center font-bold text-xs flex-shrink-0">
+              PS
+            </div>
+            <div class="overflow-hidden">
+              <div class="flex items-center space-x-1.5">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">On the way to</span>
+                <span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-1.5 rounded">Job #C-4821</span>
+              </div>
+              <h2 class="text-xs font-bold text-slate-900 truncate">Priya Sharma • Plumbing Repair</h2>
+            </div>
+          </div>
+          <a href="tel:+919876543210" class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center justify-center text-xs active:scale-95 transition-all hover:bg-emerald-600 hover:text-white" title="Call Priya Sharma">
+            <i class="fa-solid fa-phone"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- FLOATING MAP CONTROLS (Zoom, Recenter, Traffic) -->
+      <!-- ============================================== -->
+      <div class="absolute right-3 bottom-6 z-20 flex flex-col space-y-2">
+        <!-- Recenter / My Location Button -->
+        <button id="recenterBtn" aria-label="Recenter Map to Current Location" class="w-10 h-10 rounded-xl bg-white text-slate-800 shadow-map-float border border-slate-200 flex items-center justify-center hover:bg-slate-50 active:scale-95 transition-all group">
+          <i class="fa-solid fa-crosshairs text-sm text-blue-600 group-hover:rotate-45 transition-transform"></i>
+        </button>
+
+        <!-- Traffic Layer Toggle -->
+        <button id="trafficBtn" aria-label="Toggle Live Traffic" class="w-10 h-10 rounded-xl bg-white text-slate-800 shadow-map-float border border-slate-200 flex items-center justify-center hover:bg-slate-50 active:scale-95 transition-all text-emerald-600" title="Live Traffic: Normal">
+          <i class="fa-solid fa-layer-group text-sm"></i>
+        </button>
+
+        <!-- Zoom Control Group -->
+        <div class="bg-white rounded-xl shadow-map-float border border-slate-200 overflow-hidden flex flex-col">
+          <button id="zoomInBtn" aria-label="Zoom In Map" class="w-10 h-9 flex items-center justify-center text-slate-700 hover:bg-slate-50 active:bg-slate-100 border-b border-slate-100">
+            <i class="fa-solid fa-plus text-xs"></i>
+          </button>
+          <button id="zoomOutBtn" aria-label="Zoom Out Map" class="w-10 h-9 flex items-center justify-center text-slate-700 hover:bg-slate-50 active:bg-slate-100">
+            <i class="fa-solid fa-minus text-xs"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Speed & Transit Compass Pill (Bottom Left of Map) -->
+      <div class="absolute left-3 bottom-6 z-20 bg-white/95 backdrop-blur-sm border border-slate-200 rounded-xl shadow-md px-2.5 py-1.5 flex items-center space-x-2">
+        <div class="text-center">
+          <span class="text-base font-extrabold text-slate-900 leading-none">28</span>
+          <span class="text-[9px] font-bold text-slate-500 block uppercase">km/h</span>
+        </div>
+        <div class="h-5 w-[1px] bg-slate-200"></div>
+        <div class="flex items-center space-x-1 text-slate-600">
+          <i class="fa-solid fa-compass text-blue-600 text-xs"></i>
+          <span class="text-[10px] font-bold uppercase tracking-wider">NE 38°</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ============================================== -->
+    <!-- BOTTOM NAVIGATION & ETA INFO CARD (Unified Tray) -->
+    <!-- ============================================== -->
+    <section class="relative z-30 bg-white rounded-t-[28px] shadow-nav-card border-t border-slate-200/90 px-4 pt-3.5 pb-4 flex-shrink-0">
+      
+      <!-- Drag Handle bar indicator -->
+      <div class="w-10 h-1 bg-slate-300 rounded-full mx-auto mb-3"></div>
+
+      <!-- TOP TRAY ROW: 12 MIN / 3.8 KM / 10:18 AM & EN ROUTE BADGE -->
+      <div class="flex items-start justify-between pb-3 border-b border-slate-100">
+        <div>
+          <div class="flex items-baseline space-x-2">
+            <span class="text-3xl font-black text-slate-900 tracking-tight">12</span>
+            <span class="text-base font-bold text-slate-600">min</span>
+            <span class="text-slate-300 font-light text-xl">|</span>
+            <span class="text-base font-extrabold text-blue-700">3.8 km</span>
+            <span class="text-slate-400 text-xs">remaining</span>
+          </div>
+          <div class="flex items-center space-x-2 mt-0.5">
+            <span class="text-xs font-semibold text-slate-500">Estimated Arrival:</span>
+            <span class="text-xs font-bold text-slate-800 bg-slate-100 px-1.5 py-0.5 rounded">10:18 AM</span>
+          </div>
+        </div>
+
+        <!-- Live Journey Status Badge -->
+        <div class="flex flex-col items-end">
+          <div class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span>
+            <span>EN ROUTE</span>
+          </div>
+          <span class="text-[10px] text-slate-400 mt-1">On-schedule</span>
+        </div>
+      </div>
+
+      <!-- COMPACT JOURNEY PROGRESS TIMELINE -->
+      <div class="py-2.5">
+        <div class="flex items-center justify-between relative">
+          <!-- Background track line -->
+          <div class="absolute top-1/2 left-4 right-4 -translate-y-1/2 h-0.5 bg-slate-200 z-0"></div>
+          <!-- Active fill line to step 3 -->
+          <div class="absolute top-1/2 left-4 w-[66%] -translate-y-1/2 h-0.5 bg-blue-600 z-0"></div>
+
+          <!-- Step 1: Assigned -->
+          <div class="relative z-10 flex flex-col items-center">
+            <div class="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold shadow-sm">
+              <i class="fa-solid fa-check text-[8px]"></i>
+            </div>
+            <span class="text-[9px] font-semibold text-slate-600 mt-1">Assigned</span>
+          </div>
+
+          <!-- Step 2: Journey Started -->
+          <div class="relative z-10 flex flex-col items-center">
+            <div class="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold shadow-sm">
+              <i class="fa-solid fa-check text-[8px]"></i>
+            </div>
+            <span class="text-[9px] font-semibold text-slate-600 mt-1">Started</span>
+          </div>
+
+          <!-- Step 3: En Route (CURRENT ACTIVE) -->
+          <div class="relative z-10 flex flex-col items-center">
+            <div class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold ring-4 ring-blue-100 shadow-glow-blue">
+              <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+            </div>
+            <span class="text-[10px] font-extrabold text-blue-700 mt-0.5">En Route</span>
+          </div>
+
+          <!-- Step 4: Arrived -->
+          <div class="relative z-10 flex flex-col items-center">
+            <div class="w-5 h-5 rounded-full bg-slate-100 text-slate-400 border-2 border-slate-300 flex items-center justify-center text-[9px] font-bold">
+              ○
+            </div>
+            <span class="text-[9px] font-medium text-slate-400 mt-1">Arrived</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESTINATION ADDRESS BAR -->
+      <div class="bg-slate-50 border border-slate-200 rounded-xl p-2.5 mb-3 flex items-center justify-between">
+        <div class="flex items-start space-x-2">
+          <i class="fa-solid fa-location-dot text-rose-500 text-xs mt-0.5"></i>
+          <div>
+            <p class="text-xs font-bold text-slate-800 leading-snug">Flat 402, Shivani Apartments</p>
+            <p class="text-[11px] text-slate-500 leading-tight">Sector 22, Dwarka, South West Delhi - 110077</p>
+          </div>
+        </div>
+        <button id="openGmapsApp" class="px-2 py-1 rounded-lg bg-white border border-slate-300 text-[10px] font-bold text-slate-700 shadow-sm flex items-center space-x-1 active:scale-95 transition-all hover:bg-slate-100">
+          <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-blue-600"></i>
+          <span>Maps</span>
+        </button>
+      </div>
+
+      <!-- PRIMARY & QUICK ACTION BUTTONS -->
+      <div class="space-y-2">
+        <!-- PRIMARY CTA: "ARRIVED" -->
+        <button id="arrivedBtn" class="w-full py-3.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm tracking-wide shadow-lg shadow-blue-600/30 flex items-center justify-center space-x-2 active:scale-[0.98] transition-all">
+          <i class="fa-solid fa-circle-check text-base"></i>
+          <span class="text-base uppercase">ARRIVED AT LOCATION</span>
+          <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+        </button>
+
+        <!-- Secondary Quick Actions (Calling Customer & Emergency SOS) -->
+        <div class="grid grid-cols-2 gap-2 pt-0.5">
+          <a href="tel:+919876543210" class="py-2.5 px-3 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-800 text-xs font-bold flex items-center justify-center space-x-1.5 active:scale-95 transition-all">
+            <i class="fa-solid fa-phone text-blue-600"></i>
+            <span>Call Customer</span>
+          </a>
+          <button id="shareLocationBtn" class="py-2.5 px-3 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-800 text-xs font-bold flex items-center justify-center space-x-1.5 active:scale-95 transition-all">
+            <i class="fa-solid fa-share-nodes text-slate-600"></i>
+            <span>Share Live ETA</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Bottom Home Indicator bar (iOS standard) -->
+      <div class="w-32 h-1 bg-slate-300 rounded-full mx-auto mt-3"></div>
+    </section>
+
+  </div>
+
+  <!-- Interactive Arrival Modal & Tooltip Behavior script -->
+  <script>
+    const arrivedBtn = document.getElementById('arrivedBtn');
+    const recenterBtn = document.getElementById('recenterBtn');
+    const trafficBtn = document.getElementById('trafficBtn');
+    const zoomInBtn = document.getElementById('zoomInBtn');
+    const zoomOutBtn = document.getElementById('zoomOutBtn');
+    const externalMapBtn = document.getElementById('externalMapBtn');
+    const openGmapsApp = document.getElementById('openGmapsApp');
+    const shareLocationBtn = document.getElementById('shareLocationBtn');
+
+    // Simulate arrival transition to OTP Verification workflow
+    arrivedBtn.addEventListener('click', () => {
+      const confirmArrival = confirm("Mark status as 'ARRIVED'? Active GPS navigation will complete and take you to OTP Verification.");
+      if (confirmArrival) {
+        arrivedBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin text-base"></i> <span>VERIFYING ARRIVAL...</span>';
+        arrivedBtn.classList.remove('bg-blue-600');
+        arrivedBtn.classList.add('bg-emerald-600');
+        
+        setTimeout(() => {
+          alert("Arrival confirmed! Navigating to 'OTP Verification / Verify Arrival' screen (Job #C-4821).");
+          // Proceed to OTP Verification screen if integrated
+        }, 600);
+      }
+    });
+
+    // Map controls interaction feedback
+    recenterBtn.addEventListener('click', () => {
+      recenterBtn.classList.add('bg-blue-50');
+      setTimeout(() => recenterBtn.classList.remove('bg-blue-50'), 300);
+    });
+
+    trafficBtn.addEventListener('click', () => {
+      const isGreen = trafficBtn.classList.contains('text-emerald-600');
+      if (isGreen) {
+        trafficBtn.classList.remove('text-emerald-600');
+        trafficBtn.classList.add('text-slate-400');
+        alert("Traffic overlay hidden.");
+      } else {
+        trafficBtn.classList.remove('text-slate-400');
+        trafficBtn.classList.add('text-emerald-600');
+        alert("Live traffic overlay enabled: Green (Flowing).");
+      }
+    });
+
+    const openExternal = () => {
+      window.open('https://maps.google.com/?q=28.5921,77.0460', '_blank');
+    };
+    externalMapBtn.addEventListener('click', openExternal);
+    openGmapsApp.addEventListener('click', openExternal);
+
+    shareLocationBtn.addEventListener('click', () => {
+      alert("Live ETA link copied! Customer Priya Sharma can view worker progress.");
+    });
+  </script>
+
+
+</body></html>

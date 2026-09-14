@@ -1,0 +1,531 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Worker Login - X Cooperative</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+Tamil:wght@400;500;600;700&amp;family=Noto+Sans+Devanagari:wght@400;500;600;700&amp;family=Noto+Sans+Malayalam:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans Tamil', 'Noto Sans Devanagari', 'Noto Sans Malayalam', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff4ff',
+              100: '#dbeafe',
+              500: '#1a56db',
+              600: '#1e429f',
+              700: '#1a3675',
+              800: '#142752',
+              900: '#0f172a',
+              navy: '#0d1b2a',
+            },
+            surface: {
+              bg: '#f4f7fb',
+              card: '#ffffff',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Inter', 'Noto Sans Tamil', 'Noto Sans Devanagari', 'Noto Sans Malayalam', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background-color: #0b1329;
+    }
+    .custom-shadow {
+      box-shadow: 0 10px 30px -5px rgba(26, 86, 219, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+    }
+    .btn-shadow {
+      box-shadow: 0 8px 20px -4px rgba(26, 86, 219, 0.35);
+    }
+    /* Smooth modal transition */
+    #langModalOverlay {
+      transition: opacity 0.25s ease-out;
+    }
+    #langModalSheet {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-out;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-0 sm:p-4">
+<!-- Mobile Frame Container (Standard 390px-420px mobile viewport simulation) -->
+<div class="relative w-full max-w-[400px] min-h-[852px] bg-[#f4f7fb] overflow-hidden flex flex-col justify-between shadow-2xl sm:rounded-[44px] border border-slate-800/20">
+<!-- Top Navy Header Banner with subtle curved bottom and brand mark -->
+<div class="relative bg-gradient-to-b from-[#0d1e3a] via-[#102445] to-[#152e59] text-white pt-3 pb-11 px-5 rounded-b-[36px] shadow-lg">
+<!-- Top Row: Status bar simulation & Language Switcher Pill Button -->
+<div class="flex justify-between items-center text-xs font-semibold text-slate-300/80 mb-3 px-1">
+<span>9:42 AM</span>
+<div class="flex items-center space-x-1.5">
+<svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L12 22l7.03-4.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z"></path></svg>
+<svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4z"></path></svg>
+<div class="w-5 h-2.5 border border-slate-300/80 rounded-sm p-0.5 flex items-center">
+<div class="w-full h-full bg-slate-200 rounded-[1px]"></div>
+</div>
+</div>
+</div>
+<!-- Secondary Subheader Row with Language Selector Button -->
+<div class="flex justify-end items-center mb-1">
+<button aria-label="Select Language" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 hover:bg-white/15 active:bg-white/20 border border-white/20 text-white text-xs font-medium tracking-wide shadow-sm backdrop-blur-md transition-all group" id="langSelectorBtn" onclick="openLangModal()" type="button">
+<span class="text-sm">🌐</span>
+<span class="font-semibold text-[11.5px]" id="currentLangLabel">English</span>
+<svg class="w-3.5 h-3.5 text-blue-200 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Centered X Logo & Brand introduction -->
+<div class="flex flex-col items-center text-center">
+<!-- Logo Icon Container -->
+<div class="relative mb-3">
+<div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#1a56db] to-[#3b82f6] p-[2px] shadow-lg flex items-center justify-center">
+<div class="w-full h-full bg-[#0d1e3a] rounded-[14px] flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-blue-500/10 backdrop-blur-sm"></div>
+<!-- Stylized Geometric "X" Cooperative Mark -->
+<span class="text-3xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-200 to-white">
+                ✕
+              </span>
+</div>
+</div>
+<!-- Cooperative Verified Trust Badge -->
+<div class="absolute -bottom-1 -right-1 bg-emerald-500 text-white rounded-full p-1 shadow-md border-2 border-[#102445]">
+<svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+<h1 class="text-2xl font-bold tracking-tight text-white flex items-center gap-1.5">
+<span>X</span>
+<span class="text-xs uppercase px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 font-semibold border border-blue-400/30">Worker</span>
+</h1>
+<p class="text-xs font-medium text-slate-300/90 tracking-wide mt-1 leading-snug" id="t-platform-subtitle">
+          Cooperative Worker Platform
+        </p>
+<div class="mt-2.5 flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] text-slate-300">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+<span id="t-verified-pill">Verified Field Workforce Portal</span>
+</div>
+</div>
+</div>
+<!-- Main Content Area / Floating Card Structure -->
+<div class="flex-1 px-5 -mt-6 relative z-10 flex flex-col justify-start">
+<!-- White Login Form Card -->
+<div class="bg-white rounded-[24px] p-6 custom-shadow border border-slate-100 flex flex-col">
+<!-- Header of Card -->
+<div class="mb-5 text-left">
+<h2 class="text-xl font-bold text-slate-900 tracking-tight" id="t-screen-title">Worker Login</h2>
+<p class="text-xs text-slate-500 mt-1 font-normal leading-relaxed" id="t-subtitle">
+            Sign in to manage your work, assignments and direct cooperative payouts.
+          </p>
+</div>
+<!-- Form Elements -->
+<form class="space-y-4" id="loginForm" onsubmit="event.preventDefault(); handleLogin();">
+<!-- INPUT 1: Worker ID -->
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<label class="block text-[13px] font-semibold text-slate-800" for="workerId" id="t-label-worker-id">
+                Worker ID
+              </label>
+<span class="text-[11px] text-slate-400 font-medium" id="t-placeholder-hint">e.g. WKR-2847</span>
+</div>
+<div class="relative rounded-xl shadow-sm">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+<!-- Person / ID Badge Icon -->
+<svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<input class="block w-full pl-11 pr-4 py-3.5 text-sm bg-slate-50/80 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1a56db] focus:border-transparent focus:bg-white transition-all font-medium" id="workerId" name="workerId" placeholder="Enter your Worker ID" required="" type="text" value="WKR-2847">
+</div>
+</div>
+<!-- INPUT 2: Password -->
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<label class="block text-[13px] font-semibold text-slate-800" for="password" id="t-label-password">
+                Password
+              </label>
+<button class="text-[12px] font-semibold text-[#1a56db] hover:text-[#1e429f] transition-colors" id="t-forgot-password" onclick="alert('Please contact your Cooperative Society field coordinator or supervisor at society desk to reset your credentials.');" type="button">
+                Forgot Password?
+              </button>
+</div>
+<div class="relative rounded-xl shadow-sm">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+<!-- Lock Icon -->
+<svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<input class="block w-full pl-11 pr-11 py-3.5 text-sm bg-slate-50/80 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1a56db] focus:border-transparent focus:bg-white transition-all font-medium" id="password" name="password" placeholder="Enter your password" required="" type="password" value="••••••••••••">
+<!-- Show/Hide Password Toggle Icon -->
+<button aria-label="Toggle password visibility" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 focus:outline-none" id="togglePasswordBtn" onclick="togglePasswordVisibility()" type="button">
+<svg class="h-5 w-5" fill="none" id="eyeIcon" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- PRIMARY ACTION: Large Full-Width Royal Blue Button -->
+<div class="pt-2">
+<button class="w-full bg-[#1a56db] hover:bg-[#1648bc] active:scale-[0.985] text-white font-bold text-base py-3.5 px-4 rounded-xl btn-shadow flex items-center justify-center gap-2 transition-all duration-150" id="loginBtn" type="submit">
+<span id="t-login-btn-text">LOGIN</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</form>
+<!-- Feedback alert (hidden by default) -->
+<div class="hidden mt-3 p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-[12px] text-emerald-800 text-center font-medium" id="loginFeedback">
+          ✓ Verified identity: Ramesh Kumar (Field Service Agent)
+        </div>
+</div>
+<!-- Security & Cooperative Governance Info Block -->
+<div class="mt-4 px-2 text-center flex flex-col items-center">
+<!-- Security Indication -->
+<div class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 bg-white/80 border border-slate-200/80 px-3 py-1.5 rounded-full shadow-sm mb-2">
+<span class="text-sm">🔒</span>
+<span id="t-secure-access">Secure Worker Access • 256-Bit Encrypted</span>
+</div>
+<!-- Explanatory note -->
+<p class="text-[11.5px] text-slate-500 max-w-[320px] leading-relaxed" id="t-society-note">
+          Use the credentials provided by your <strong class="text-slate-700 font-medium">Cooperative Society</strong>.
+        </p>
+<!-- Persistent Language Scope Indicator -->
+<div class="mt-2.5 px-2.5 py-1 rounded-md bg-blue-50/60 border border-blue-100 text-[10.5px] text-blue-800 flex items-center gap-1.5">
+<svg class="w-3 h-3 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="leading-tight">Selected language carries over to Dashboard, Quotations &amp; Schemes.</span>
+</div>
+<!-- Cooperative Assistance Help line -->
+<div class="mt-3.5 pt-3 border-t border-slate-200/60 w-full flex items-center justify-between text-[11px] text-slate-500 px-1">
+<span class="flex items-center gap-1" id="t-help-query">
+<svg class="w-3.5 h-3.5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+            Need help signing in?
+          </span>
+<a class="text-[#1a56db] font-semibold hover:underline" href="#" id="t-helpdesk-link" onclick="alert('Helpdesk: 1800-COOP-882 (Toll Free) or contact your Branch Desk'); return false;">
+            Society Helpdesk
+          </a>
+</div>
+</div>
+</div>
+<!-- Bottom Footer Brand & Version Marker -->
+<div class="p-4 text-center">
+<p class="text-[10px] text-slate-400 font-medium tracking-wide" id="t-footer">
+        X COOPERATIVE FEDERATION LTD • VERSION 2.4.0
+      </p>
+<div class="w-32 h-1 bg-slate-300 rounded-full mx-auto mt-2"></div>
+</div>
+<!-- LANGUAGE SELECTION BOTTOM SHEET / MODAL -->
+<div class="hidden absolute inset-0 z-50 flex flex-col justify-end" id="langModal">
+<!-- Backdrop -->
+<div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm opacity-0 transition-opacity duration-200" id="langModalOverlay" onclick="closeLangModal()"></div>
+<!-- Bottom Sheet Content -->
+<div class="relative z-10 bg-white rounded-t-[28px] p-5 shadow-2xl border-t border-slate-100 transform translate-y-full transition-transform duration-300 ease-out" id="langModalSheet">
+<!-- Sheet Handle -->
+<div class="w-10 h-1.5 bg-slate-200 rounded-full mx-auto mb-4"></div>
+<!-- Header -->
+<div class="flex items-start justify-between pb-3 border-b border-slate-100">
+<div>
+<h3 class="text-base font-bold text-slate-900">Select Language</h3>
+<p class="text-[11px] text-slate-500 mt-0.5 leading-snug">மொழியைத் தேர்ந்தெடுக்கவும் / भाषा चुनें / ഭാഷ തിരഞ്ഞെടുക്കുക</p>
+</div>
+<button aria-label="Close" class="p-1 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors" onclick="closeLangModal()">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Language Options List -->
+<div class="py-3 space-y-2" id="languageListContainer">
+<!-- English Option -->
+<button class="lang-option-btn w-full flex items-center justify-between p-3.5 rounded-xl border transition-all text-left bg-blue-50/60 border-blue-600 shadow-sm" data-lang="en" onclick="setLanguage('en')" type="button">
+<div class="flex items-center gap-3">
+<span class="text-xl">🇬🇧</span>
+<div>
+<p class="font-bold text-slate-900 text-sm">English</p>
+<p class="text-xs text-slate-500">English</p>
+</div>
+</div>
+<div class="check-icon flex items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</button>
+<!-- Tamil Option -->
+<button class="lang-option-btn w-full flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-slate-300 bg-white transition-all text-left" data-lang="ta" onclick="setLanguage('ta')" type="button">
+<div class="flex items-center gap-3">
+<span class="text-xl">🇮🇳</span>
+<div>
+<p class="font-bold text-slate-900 text-sm">தமிழ்</p>
+<p class="text-xs text-slate-500">Tamil</p>
+</div>
+</div>
+<div class="check-icon hidden items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</button>
+<!-- Hindi Option -->
+<button class="lang-option-btn w-full flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-slate-300 bg-white transition-all text-left" data-lang="hi" onclick="setLanguage('hi')" type="button">
+<div class="flex items-center gap-3">
+<span class="text-xl">🇮🇳</span>
+<div>
+<p class="font-bold text-slate-900 text-sm">हिंदी</p>
+<p class="text-xs text-slate-500">Hindi</p>
+</div>
+</div>
+<div class="check-icon hidden items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</button>
+<!-- Malayalam Option -->
+<button class="lang-option-btn w-full flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-slate-300 bg-white transition-all text-left" data-lang="ml" onclick="setLanguage('ml')" type="button">
+<div class="flex items-center gap-3">
+<span class="text-xl">🇮🇳</span>
+<div>
+<p class="font-bold text-slate-900 text-sm">മലയാളം</p>
+<p class="text-xs text-slate-500">Malayalam</p>
+</div>
+</div>
+<div class="check-icon hidden items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</button>
+</div>
+<!-- Cross-Screen Persistence Confirmation Note -->
+<div class="mt-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-[11px] text-slate-500 flex items-center gap-2">
+<span class="text-blue-600 font-bold">ℹ</span>
+<span>Preference persists across Dashboard, Customer, Quotation, Schemes and Invoice screens.</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+    // Multilingual Translations Dictionary
+    const translations = {
+      en: {
+        pillLabel: 'English',
+        screenTitle: 'Worker Login',
+        subtitle: 'Sign in to manage your work, assignments and direct cooperative payouts.',
+        workerIdLabel: 'Worker ID',
+        workerIdPlaceholder: 'e.g. WKR-2847',
+        passwordLabel: 'Password',
+        forgotPassword: 'Forgot Password?',
+        loginButton: 'LOGIN',
+        secureAccess: 'Secure Worker Access • 256-Bit Encrypted',
+        societyNote: 'Use the credentials provided by your <strong class="text-slate-700 font-medium">Cooperative Society</strong>.',
+        helpQuery: 'Need help signing in?',
+        helpdeskLink: 'Society Helpdesk',
+        footer: 'X COOPERATIVE FEDERATION LTD • VERSION 2.4.0',
+        verifiedPill: 'Verified Field Workforce Portal',
+        platformSubtitle: 'Cooperative Worker Platform',
+        alertMsg: 'Please contact your Cooperative Society field coordinator or supervisor at society desk to reset your credentials.',
+        loadingText: 'Verifying Worker Credentials...'
+      },
+      ta: {
+        pillLabel: 'தமிழ்',
+        screenTitle: 'பணியாளர் உள்நுழைவு',
+        subtitle: 'உங்கள் பணிகள், ஒதுக்கீடுகள் மற்றும் நேரடி கூட்டுறவு வருமானங்களை நிர்வகிக்க உள்நுழையவும்.',
+        workerIdLabel: 'பணியாளர் ஐடி',
+        workerIdPlaceholder: 'எ.கா. WKR-2847',
+        passwordLabel: 'கடவுச்சொல்',
+        forgotPassword: 'கடவுச்சொல்லை மறந்துவிட்டீர்களா?',
+        loginButton: 'உள்நுழைய',
+        secureAccess: 'பாதுகாப்பான பணியாளர் அணுகல் • 256-பிட் என்க்ரிப்ட் செய்யப்பட்டது',
+        societyNote: 'உங்கள் <strong class="text-slate-700 font-medium">கூட்டுறவு சங்கம்</strong> வழங்கிய உள்நுழைவு விவரங்களைப் பயன்படுத்தவும்.',
+        helpQuery: 'உள்நுழைவதில் உதவி தேவையா?',
+        helpdeskLink: 'சங்க உதவி மையம்',
+        footer: 'X கூட்டுறவு கூட்டமைப்பு • பதிப்பு 2.4.0',
+        verifiedPill: 'சரிபார்க்கப்பட்ட களப்பணியாளர் தளம்',
+        platformSubtitle: 'கூட்டுறவு பணியாளர் தளம்',
+        alertMsg: 'உங்கள் கடவுச்சொல்லை மீட்டமைக்க தயவுசெய்து உங்கள் கூட்டுறவு சங்க ஒருங்கிணைப்பாளரை தொடர்பு கொள்ளவும்.',
+        loadingText: 'விவரங்களை சரிபார்க்கிறது...'
+      },
+      hi: {
+        pillLabel: 'हिंदी',
+        screenTitle: 'कर्मचारी लॉगिन',
+        subtitle: 'अपने कार्य, असाइनमेंट और प्रत्यक्ष सहकारी भुगतान प्रबंधित करने के लिए साइन इन करें।',
+        workerIdLabel: 'कर्मचारी आईडी',
+        workerIdPlaceholder: 'उदा. WKR-2847',
+        passwordLabel: 'पासवर्ड',
+        forgotPassword: 'पासवर्ड भूल गए?',
+        loginButton: 'लॉगिन',
+        secureAccess: 'सुरक्षित कर्मचारी प्रवेश • 256-बिट एन्क्रिप्टेड',
+        societyNote: 'अपनी <strong class="text-slate-700 font-medium">सहकारी समिति</strong> द्वारा प्रदान किए गए क्रेडेंशियल्स का उपयोग करें।',
+        helpQuery: 'साइन इन करने में सहायता चाहिए?',
+        helpdeskLink: 'समिति सहायता केंद्र',
+        footer: 'X को-ऑपरेटिव फेडरेशन लिमिटेड • संस्करण 2.4.0',
+        verifiedPill: 'सत्यापित फील्ड वर्कर पोर्टल',
+        platformSubtitle: 'सहकारी कार्यकर्ता मंच',
+        alertMsg: 'कृपया अपना पासवर्ड रीसेट करने के लिए अपनी सहकारी समिति के फील्ड समन्वयक से संपर्क करें।',
+        loadingText: 'प्रमाणपत्र सत्यापित हो रहे हैं...'
+      },
+      ml: {
+        pillLabel: 'മലയാളം',
+        screenTitle: 'തൊഴിലാളി ലോഗിൻ',
+        subtitle: 'നിങ്ങളുടെ ജോലികൾ, അസൈൻമെന്റുകൾ, നേരിട്ടുള്ള സഹകരണ പേയ്‌മെന്റുകൾ എന്നിവ നിയന്ത്രിക്കാൻ പ്രവേശിക്കുക.',
+        workerIdLabel: 'തൊഴിലാളി ഐഡി',
+        workerIdPlaceholder: 'ഉദാ. WKR-2847',
+        passwordLabel: 'പാസ്‌വേഡ്',
+        forgotPassword: 'പാസ്‌വേഡ് മറന്നോ?',
+        loginButton: 'ലോഗിൻ',
+        secureAccess: 'സുരക്ഷിത തൊഴിലാളി പ്രവേശനം • 256-ബിറ്റ് എൻക്രിപ്റ്റ് ചെയ്തു',
+        societyNote: 'നിങ്ങളുടെ <strong class="text-slate-700 font-medium">കോ-ഓപ്പറേറ്റീവ് സൊസൈറ്റി</strong> നൽകിയ ക്രെഡൻഷ്യലുകൾ ഉപയോഗിക്കുക.',
+        helpQuery: 'സൈൻ ഇൻ ചെയ്യാൻ സഹായം വേണോ?',
+        helpdeskLink: 'സൊസൈറ്റി ഹെൽപ്പ്‌ഡെസ്ക്',
+        footer: 'X കോ-ഓപ്പറേറ്റീവ് ഫെഡറേഷൻ ലിമിറ്റഡ് • പതിപ്പ് 2.4.0',
+        verifiedPill: 'പരിശോധിച്ചുറപ്പിച്ച തൊഴിലാളി പോർട്ടൽ',
+        platformSubtitle: 'കോ-ഓപ്പറേറ്റീവ് വർക്കർ പ്ലാറ്റ്‌ഫോം',
+        alertMsg: 'പാസ്‌വേഡ് പുനഃസജ്ജമാക്കാൻ ദയവായി നിങ്ങളുടെ കോ-ഓപ്പറേറ്റീവ് സൊസൈറ്റി ഫീൽഡ് കോർഡിനേറ്ററെ സമീപിക്കുക.',
+        loadingText: 'വിവരങ്ങൾ പരിശോധിക്കുന്നു...'
+      }
+    };
+
+    let currentLang = 'en';
+
+    function openLangModal() {
+      const modal = document.getElementById('langModal');
+      const overlay = document.getElementById('langModalOverlay');
+      const sheet = document.getElementById('langModalSheet');
+      
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        overlay.classList.remove('opacity-0');
+        overlay.classList.add('opacity-100');
+        sheet.classList.remove('translate-y-full');
+        sheet.classList.add('translate-y-0');
+      }, 10);
+    }
+
+    function closeLangModal() {
+      const modal = document.getElementById('langModal');
+      const overlay = document.getElementById('langModalOverlay');
+      const sheet = document.getElementById('langModalSheet');
+
+      overlay.classList.remove('opacity-100');
+      overlay.classList.add('opacity-0');
+      sheet.classList.remove('translate-y-0');
+      sheet.classList.add('translate-y-full');
+
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 250);
+    }
+
+    function setLanguage(langKey) {
+      if (!translations[langKey]) return;
+      currentLang = langKey;
+      const t = translations[langKey];
+
+      // Update header pill
+      document.getElementById('currentLangLabel').textContent = t.pillLabel;
+
+      // Update UI texts
+      document.getElementById('t-platform-subtitle').textContent = t.platformSubtitle;
+      document.getElementById('t-verified-pill').textContent = t.verifiedPill;
+      document.getElementById('t-screen-title').textContent = t.screenTitle;
+      document.getElementById('t-subtitle').textContent = t.subtitle;
+      document.getElementById('t-label-worker-id').textContent = t.workerIdLabel;
+      document.getElementById('t-placeholder-hint').textContent = t.workerIdPlaceholder;
+      document.getElementById('t-label-password').textContent = t.passwordLabel;
+      document.getElementById('t-forgot-password').textContent = t.forgotPassword;
+      document.getElementById('t-login-btn-text').textContent = t.loginButton;
+      document.getElementById('t-secure-access').textContent = t.secureAccess;
+      document.getElementById('t-society-note').innerHTML = t.societyNote;
+      
+      // Update help line
+      const helpSpan = document.getElementById('t-help-query');
+      helpSpan.innerHTML = `
+        <svg class="w-3.5 h-3.5 text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        ${t.helpQuery}
+      `;
+      document.getElementById('t-helpdesk-link').textContent = t.helpdeskLink;
+      document.getElementById('t-footer').textContent = t.footer;
+
+      // Update active styling in modal options
+      const buttons = document.querySelectorAll('.lang-option-btn');
+      buttons.forEach(btn => {
+        const isSelected = btn.getAttribute('data-lang') === langKey;
+        const checkIcon = btn.querySelector('.check-icon');
+        if (isSelected) {
+          btn.className = "lang-option-btn w-full flex items-center justify-between p-3.5 rounded-xl border transition-all text-left bg-blue-50/60 border-blue-600 shadow-sm";
+          if (checkIcon) {
+            checkIcon.classList.remove('hidden');
+            checkIcon.classList.add('flex');
+          }
+        } else {
+          btn.className = "lang-option-btn w-full flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-slate-300 bg-white transition-all text-left";
+          if (checkIcon) {
+            checkIcon.classList.add('hidden');
+            checkIcon.classList.remove('flex');
+          }
+        }
+      });
+
+      // Save preference simulation
+      try {
+        localStorage.setItem('x_worker_lang', langKey);
+      } catch (e) {}
+
+      closeLangModal();
+    }
+
+    function togglePasswordVisibility() {
+      const pwdInput = document.getElementById('password');
+      const eyeIcon = document.getElementById('eyeIcon');
+      if (pwdInput.type === 'password') {
+        pwdInput.type = 'text';
+        eyeIcon.innerHTML = `
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18" />
+        `;
+      } else {
+        pwdInput.type = 'password';
+        eyeIcon.innerHTML = `
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+        `;
+      }
+    }
+
+    function handleLogin() {
+      const btn = document.getElementById('loginBtn');
+      const feedback = document.getElementById('loginFeedback');
+      const t = translations[currentLang];
+      
+      btn.innerHTML = `
+        <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+        </svg>
+        <span>${t.loadingText}</span>
+      `;
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.innerHTML = `
+          <span id="t-login-btn-text">${t.loginButton}</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        `;
+        btn.disabled = false;
+        feedback.classList.remove('hidden');
+      }, 900);
+    }
+  </script>
+</body></html>

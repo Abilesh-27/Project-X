@@ -1,0 +1,421 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#f8f9ff;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'on-tertiary': '#ffffff', 'surface-variant': '#d3e4fe', 'secondary-fixed-dim': '#bec6e0', 'inverse-surface': '#213145', 'on-background': '#0b1c30', 'on-primary': '#ffffff', 'error': '#ba1a1a', 'primary-fixed': '#dbe1ff', 'primary-fixed-dim': '#b5c4ff', 'on-secondary-container': '#5c647a', 'secondary': '#565e74', 'on-primary-fixed-variant': '#003dab', 'outline-variant': '#c3c5d7', 'on-tertiary-fixed': '#002114', 'background': '#f8f9ff', 'primary': '#003fb1', 'on-primary-container': '#d4dcff', 'surface-container-highest': '#d3e4fe', 'on-secondary-fixed-variant': '#3f465c', 'tertiary-fixed-dim': '#68dba9', 'surface-container': '#e5eeff', 'surface-container-low': '#eff4ff', 'error-container': '#ffdad6', 'surface-tint': '#1353d8', 'primary-container': '#1a56db', 'on-surface': '#0b1c30', 'surface-bright': '#f8f9ff', 'surface-container-lowest': '#ffffff', 'surface-container-high': '#dce9ff', 'secondary-fixed': '#dae2fd', 'on-tertiary-fixed-variant': '#005137', 'outline': '#737686', 'on-error-container': '#93000a', 'inverse-on-surface': '#eaf1ff', 'surface-dim': '#cbdbf5', 'tertiary-container': '#006f4d', 'tertiary-fixed': '#85f8c4', 'surface': '#f8f9ff', 'secondary-container': '#dae2fd', 'on-error': '#ffffff', 'on-tertiary-container': '#7ff2be', 'on-surface-variant': '#434654', 'on-primary-fixed': '#00174d', 'tertiary': '#005439', 'inverse-primary': '#b5c4ff', 'on-secondary': '#ffffff', 'on-secondary-fixed': '#131b2e' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'space-md': '1rem', 'space-lg': '1.25rem', 'space-2xl': '2rem', 'margin-screen': '1rem', 'space-3xl': '2.5rem', 'gutter-grid': '0.75rem', 'space-xl': '1.5rem', 'space-sm': '0.75rem', 'space-xs': '0.5rem', 'space-xxs': '0.25rem' }, fontFamily: { 'headline-sm': ['Inter'], 'label-md': ['Inter'], 'headline-lg': ['Inter'], 'body-sm': ['Inter'], 'title-md': ['Inter'], 'body-lg': ['Inter'], 'headline-md': ['Inter'], 'body-md': ['Inter'], 'metric-display': ['Inter'], 'label-lg': ['Inter'], 'label-sm': ['Inter'] }, fontSize: { 'headline-sm': ['18px', { lineHeight: '24px', letterSpacing: '-0.01em', fontWeight: '600' }], 'label-md': ['11px', { lineHeight: '14px', letterSpacing: '0.03em', fontWeight: '600' }], 'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.02em', fontWeight: '700' }], 'body-sm': ['12px', { lineHeight: '16px', fontWeight: '400' }], 'title-md': ['16px', { lineHeight: '22px', letterSpacing: '-0.005em', fontWeight: '600' }], 'body-lg': ['15px', { lineHeight: '22px', fontWeight: '400' }], 'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.015em', fontWeight: '700' }], 'body-md': ['13px', { lineHeight: '18px', fontWeight: '400' }], 'metric-display': ['20px', { lineHeight: '24px', letterSpacing: '-0.02em', fontWeight: '700' }], 'label-lg': ['13px', { lineHeight: '16px', letterSpacing: '0.01em', fontWeight: '600' }], 'label-sm': ['10px', { lineHeight: '12px', letterSpacing: '0.05em', fontWeight: '700' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(11,28,48,0.04)]"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[24px]">token</span><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight uppercase">Institution</h1></div><div class="flex items-center gap-space-xs"><button class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col w-full px-space-md pt-16 pb-24 bg-surface"><div class="flex flex-col w-full pb-8">
+<!-- Top Elevated Context Card -->
+<section class="bg-inverse-surface text-inverse-on-surface rounded-xl p-space-md shadow-md mb-space-md relative overflow-hidden">
+<div class="absolute -right-8 -bottom-8 w-36 h-36 bg-primary-container/20 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Top Action & Meta Row -->
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<button aria-label="Navigate Back" class="w-9 h-9 rounded-full bg-surface-container-highest/20 hover:bg-surface-container-highest/30 flex items-center justify-center text-inverse-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary-fixed">Institution Assignment</span>
+<p class="font-label-md text-label-md text-slate-300">Job #JB-8841-DL</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary-container/80 text-on-tertiary font-label-sm text-label-sm uppercase tracking-wider shadow-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></span>
+          En Route
+        </span>
+<button aria-label="Assignment alerts" class="relative w-9 h-9 rounded-full bg-surface-container-highest/20 flex items-center justify-center text-inverse-on-surface" type="button">
+<span class="material-symbols-outlined text-[19px]">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error ring-2 ring-inverse-surface"></span>
+</button>
+</div>
+</div>
+<!-- Core Entity Banner -->
+<div class="pt-space-xs">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center text-on-primary shadow-inner">
+<span class="material-symbols-outlined text-[26px]">local_hospital</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-on-primary tracking-tight">AIIMS New Delhi</h2>
+<span class="material-symbols-outlined text-tertiary-fixed text-[18px]">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">Sanitation &amp; Ward Hygiene Service</p>
+</div>
+</div>
+<div class="flex gap-1.5">
+<button aria-label="Call facility desk" class="w-10 h-10 rounded-lg bg-surface-container-highest/20 hover:bg-surface-container-highest/30 flex items-center justify-center text-on-primary transition-transform active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]">phone</span>
+</button>
+<button aria-label="Message facility desk" class="w-10 h-10 rounded-lg bg-surface-container-highest/20 hover:bg-surface-container-highest/30 flex items-center justify-center text-on-primary transition-transform active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</button>
+</div>
+</div>
+<div class="mt-space-sm flex flex-wrap items-center gap-2 text-slate-300 font-body-sm text-body-sm">
+<span class="inline-flex items-center gap-1 bg-surface-container-highest/20 px-2 py-0.5 rounded text-inverse-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">apartment</span>
+          GOVERNMENT HOSPITAL
+        </span>
+<span class="inline-flex items-center gap-1 text-slate-300">
+<span class="material-symbols-outlined text-[15px] text-primary-fixed">pin_drop</span>
+          Ansari Nagar • Gate 4 Service Entry
+        </span>
+</div>
+</div>
+</section>
+<!-- Shift Overview Strip (3 Metrics) -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md">
+<div class="grid grid-cols-3 divide-x divide-surface-container text-center">
+<div class="px-1">
+<span class="font-label-sm text-label-sm uppercase text-secondary tracking-wider block mb-1">Shift Hours</span>
+<span class="font-title-md text-title-md text-on-surface block">08:00 – 16:00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">8h Fixed Duty</span>
+</div>
+<div class="px-1">
+<span class="font-label-sm text-label-sm uppercase text-secondary tracking-wider block mb-1">Guaranteed Pay</span>
+<span class="font-metric-display text-metric-display text-primary block">₹650</span>
+<span class="font-body-sm text-body-sm text-tertiary">Direct Escrow</span>
+</div>
+<div class="px-1">
+<span class="font-label-sm text-label-sm uppercase text-secondary tracking-wider block mb-1">Peer Roster</span>
+<span class="font-metric-display text-metric-display text-on-surface block">4 / 4</span>
+<span class="font-body-sm text-body-sm text-secondary">All Dispatched</span>
+</div>
+</div>
+</section>
+<!-- Live Deployment Linear Stepper -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+<h3 class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface">Stage 3 of 8: En Route</h3>
+</div>
+<span class="font-label-md text-label-md text-primary font-semibold">Live Telemetry</span>
+</div>
+<!-- Stepper horizontal container -->
+<div class="overflow-x-auto pb-2 -mx-space-md px-space-md">
+<div class="flex items-center min-w-[580px] gap-1">
+<!-- Stage 1 -->
+<div class="flex items-center flex-1">
+<div class="flex flex-col items-center">
+<div class="w-7 h-7 rounded-full bg-tertiary-container text-on-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary mt-1">Assigned</span>
+</div>
+<div class="h-1 flex-1 bg-tertiary-container mx-1 rounded"></div>
+</div>
+<!-- Stage 2 -->
+<div class="flex items-center flex-1">
+<div class="flex flex-col items-center">
+<div class="w-7 h-7 rounded-full bg-tertiary-container text-on-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary mt-1">Journey</span>
+</div>
+<div class="h-1 flex-1 bg-primary mx-1 rounded"></div>
+</div>
+<!-- Stage 3 (Active) -->
+<div class="flex items-center flex-1">
+<div class="flex flex-col items-center">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary ring-4 ring-primary-fixed flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[15px]">near_me</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold mt-1">En Route</span>
+</div>
+<div class="h-1 flex-1 bg-surface-container mx-1 rounded"></div>
+</div>
+<!-- Stage 4 -->
+<div class="flex items-center flex-1">
+<div class="flex flex-col items-center">
+<div class="w-7 h-7 rounded-full bg-surface-container text-secondary flex items-center justify-center">
+<span class="font-label-sm text-label-sm">4</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary mt-1">Arrived</span>
+</div>
+<div class="h-1 flex-1 bg-surface-container mx-1 rounded"></div>
+</div>
+<!-- Stage 5 -->
+<div class="flex items-center flex-1">
+<div class="flex flex-col items-center">
+<div class="w-7 h-7 rounded-full bg-surface-container text-secondary flex items-center justify-center">
+<span class="font-label-sm text-label-sm">5</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary mt-1">Gate OTP</span>
+</div>
+<div class="h-1 flex-1 bg-surface-container mx-1 rounded"></div>
+</div>
+<!-- Stage 6 -->
+<div class="flex items-center">
+<div class="flex flex-col items-center">
+<div class="w-7 h-7 rounded-full bg-surface-container text-secondary flex items-center justify-center">
+<span class="font-label-sm text-label-sm">6</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary mt-1">Shift Start</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Live Telemetry & Proximity Map Preview -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md overflow-hidden">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">explore</span>
+<h3 class="font-title-md text-title-md text-on-surface">Transit Route Tracking</h3>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
+        Live GPS Active
+      </span>
+</div>
+<!-- Map viewport container with static styling and visual mock overlay -->
+<div class="w-full h-44 rounded-lg relative overflow-hidden bg-cover bg-center mb-space-sm shadow-inner" data-location="All India Institute of Medical Sciences, New Delhi" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCSIwo0k7xT-UFeZJygiUhyfwQmwYXOTh4wGi7MAMpxYqmwDxWDZ_T06_-fmaHydE9yIrB1c82TNw6kZvvBund_HLOLaXj0yqSdSlnKT7G4oQLc5AUPsZrZ_VzeyJMoICEMMMBz-nFO5UPIIUHkCSxcBNiFtZnyvoyVywbRaB2JsE08Taxn73B-_yvTdcUELxROiN8m9_xmW9Tt0Yp4QsQ8j3A5M3AbvDpxcI1fDRx3BnLLMUr-dnqF')">
+<!-- Gradient Scrim for Contrast -->
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-inverse-surface/20"></div>
+<!-- Live GPS Marker overlay -->
+<div class="absolute top-4 left-4 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[16px]">navigation</span>
+<span class="font-label-sm text-label-sm text-on-surface">Transit via Ring Road</span>
+</div>
+<!-- Floating Destination Tag -->
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between bg-surface-container-lowest/95 backdrop-blur-md px-3 py-2 rounded-lg shadow">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[20px]">location_on</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-bold leading-tight">AIIMS Sanitation Desk</p>
+<p class="font-body-sm text-body-sm text-secondary leading-tight">Gate No. 4 (Emergency Wing)</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-metric-display text-metric-display text-primary leading-none block">2.1 km</span>
+<span class="font-label-sm text-label-sm text-tertiary">14m early</span>
+</div>
+</div>
+</div>
+<!-- Route Quick Facts -->
+<div class="grid grid-cols-2 gap-space-xs bg-surface-container-low rounded-lg p-space-xs">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-secondary text-[18px]">alarm</span>
+<div>
+<span class="font-label-sm text-label-sm text-secondary block">Projected Arrival</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">07:46 AM</span>
+</div>
+</div>
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified_user</span>
+<div>
+<span class="font-label-sm text-label-sm text-secondary block">Telemetry Security</span>
+<span class="font-label-md text-label-md text-tertiary font-semibold">Geo-fenced OTP</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Equal Peer Worker Crew (Strictly No Hierarchy / Leader) -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md">
+<div class="flex items-start justify-between mb-space-xs">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">group</span>
+<h3 class="font-title-md text-title-md text-on-surface">Assigned Worker Crew</h3>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Equal cooperative peer deployment (4/4 members)</p>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+        Peer Pod #4B
+      </span>
+</div>
+<!-- 4-Peer Worker Roster Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-xs mt-space-sm">
+<!-- Worker 1 (Self) -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between shadow-xs">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-title-md text-title-md relative shadow-sm">
+            R
+            <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-primary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1">
+<p class="font-label-lg text-label-lg text-on-surface truncate">Ramesh Kumar</p>
+<span class="font-label-sm text-label-sm text-primary font-bold">(You)</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">WKR-2847 • Sanitation</p>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+            2.1 km away
+          </span>
+</div>
+</div>
+<!-- Worker 2 (Peer) -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between shadow-xs">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-title-md text-title-md relative">
+            S
+            <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-tertiary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate">Suresh Verma</p>
+<p class="font-body-sm text-body-sm text-secondary">WKR-1904 • Sanitation</p>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+            At Gate 4
+          </span>
+</div>
+</div>
+<!-- Worker 3 (Peer) -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between shadow-xs">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-title-md text-title-md relative">
+            A
+            <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-primary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate">Amit Patel</p>
+<p class="font-body-sm text-body-sm text-secondary">WKR-3112 • Sanitation</p>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm">
+            1.5 km away
+          </span>
+</div>
+</div>
+<!-- Worker 4 (Peer) -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between shadow-xs">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-title-md text-title-md relative">
+            V
+            <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-primary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate">Vikram Singh</p>
+<p class="font-body-sm text-body-sm text-secondary">WKR-2540 • Sanitation</p>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm">
+            In Transit
+          </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Next Required Operational Action -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md">
+<div class="flex items-center gap-2 mb-2">
+<span class="px-2 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm font-bold uppercase tracking-wider">
+        Next Required Action
+      </span>
+<span class="font-label-sm text-label-sm text-secondary">Upon arrival at premises</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-1">Gate 4 Attendance Check-In</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-sm">
+      Walk directly to AIIMS Gate 4 Sanitation Control Desk. Click the button below when physically present to exchange the mutual 4-digit biometric verification passcode.
+    </p>
+<!-- Checklist items -->
+<div class="space-y-1.5 bg-surface-container-low rounded-lg p-space-sm">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span class="font-body-sm text-body-sm">Sanitation PPE Kit ready &amp; worn</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span class="font-body-sm text-body-sm">Cooperative Duty Insurance active</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span class="font-body-sm text-body-sm">Automated dual sign-out enabled</span>
+</div>
+</div>
+</section>
+<!-- Hospital Protocol & Operational Briefing -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">assignment</span>
+<h3 class="font-title-md text-title-md text-on-surface">Institutional Guidelines</h3>
+</div>
+<span class="font-label-sm text-label-sm text-secondary uppercase">Ward 4B</span>
+</div>
+<ul class="space-y-2 text-on-surface-variant font-body-sm text-body-sm mt-space-xs">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[17px] mt-0.5">badge</span>
+<span>Present Digital Cooperative Worker ID at Security Turnstile #4.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[17px] mt-0.5">masks</span>
+<span>Sanitation equipment and disinfectant refill carts are staged at Basement 1, Bay C.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[17px] mt-0.5">contact_emergency</span>
+<span>Institutional Duty Coordinator: Medical Superintendent Desk (Ext. 4102).</span>
+</li>
+</ul>
+<!-- Escrow Protection Banner -->
+<div class="mt-space-sm p-2.5 rounded-lg bg-tertiary-container/10 flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">shield_with_heart</span>
+<p class="font-body-sm text-body-sm text-on-surface">
+<strong class="font-semibold text-tertiary">Guaranteed Shift Credit:</strong> ₹650 is held in municipal cooperative escrow and automatically unlocks at 16:00.
+      </p>
+</div>
+</section>
+<!-- Sticky Mobile Action Deck -->
+<div class="sticky bottom-0 -mx-space-md px-space-md pt-2 pb-2 bg-surface-container-lowest/95 backdrop-blur-xl shadow-2xl z-40 flex items-center gap-2">
+<!-- Quick Emergency Contact -->
+<button aria-label="Emergency Facility Coordinator" class="w-12 h-12 rounded-xl bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant flex-shrink-0 transition-transform active:scale-95 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[22px]">sos</span>
+</button>
+<!-- Primary Action: Arrival Verification -->
+<button class="flex-1 h-12 rounded-xl bg-primary hover:bg-primary-container text-on-primary flex items-center justify-center gap-2 font-label-lg text-label-lg tracking-wide uppercase transition-all shadow-md active:scale-[0.98]" id="arrivalBtn" type="button">
+<span class="material-symbols-outlined text-[20px]">how_to_reg</span>
+<span>I Have Arrived — Verify OTP</span>
+</button>
+</div>
+<!-- Interactive OTP Modal Trigger Simulation (Lightweight Vanilla JS) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm hidden items-center justify-center p-space-md" id="otpModal">
+<div class="bg-surface-container-lowest rounded-xl max-w-sm w-full p-space-lg shadow-2xl relative text-center">
+<div class="w-12 h-12 rounded-full bg-primary-fixed text-primary mx-auto flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[28px]">pin</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Gate 4 Attendance OTP</h3>
+<p class="font-body-sm text-body-sm text-secondary mb-4">Show this 4-digit code to AIIMS Ward Incharge or enter their terminal token.</p>
+<div class="flex justify-center gap-2 mb-4">
+<span class="w-12 h-12 rounded-lg bg-surface-container-low text-on-surface font-headline-lg text-headline-lg flex items-center justify-center font-bold">8</span>
+<span class="w-12 h-12 rounded-lg bg-surface-container-low text-on-surface font-headline-lg text-headline-lg flex items-center justify-center font-bold">4</span>
+<span class="w-12 h-12 rounded-lg bg-surface-container-low text-on-surface font-headline-lg text-headline-lg flex items-center justify-center font-bold">2</span>
+<span class="w-12 h-12 rounded-lg bg-surface-container-low text-on-surface font-headline-lg text-headline-lg flex items-center justify-center font-bold">1</span>
+</div>
+<button class="w-full h-11 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg uppercase tracking-wider" id="closeModalBtn" type="button">
+        Acknowledge &amp; Dismiss
+      </button>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const arrivalBtn = document.getElementById('arrivalBtn');
+    const otpModal = document.getElementById('otpModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    if (arrivalBtn && otpModal && closeModalBtn) {
+      arrivalBtn.addEventListener('click', function() {
+        otpModal.classList.remove('hidden');
+        otpModal.classList.add('flex');
+      });
+
+      closeModalBtn.addEventListener('click', function() {
+        otpModal.classList.add('hidden');
+        otpModal.classList.remove('flex');
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-2px_12px_rgba(11,28,48,0.05)]" data-active-classes="text-primary-container font-semibold"><div class="h-[68px] px-space-xs grid grid-cols-5 items-center"><a class="flex flex-col items-center justify-center gap-1 py-1 h-full min-h-[44px] text-secondary hover:text-on-surface transition-colors" data-path="home" href="#"><span class="material-symbols-outlined text-[22px]">home</span><span class="font-label-sm text-label-sm tracking-wider uppercase">HOME</span></a><a class="flex flex-col items-center justify-center gap-1 py-1 h-full min-h-[44px] text-secondary hover:text-on-surface transition-colors" data-path="customer" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm tracking-wider uppercase">CUSTOMER</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-1 py-1 h-full min-h-[44px] transition-colors text-primary-container font-semibold" data-path="institution" href="#"><span class="material-symbols-outlined text-[22px]">account_balance</span><span class="font-label-sm text-label-sm tracking-wider uppercase">INSTITUTION</span></a><a class="flex flex-col items-center justify-center gap-1 py-1 h-full min-h-[44px] text-secondary hover:text-on-surface transition-colors" data-path="courses" href="#"><span class="material-symbols-outlined text-[22px]">school</span><span class="font-label-sm text-label-sm tracking-wider uppercase">COURSES</span></a><a class="flex flex-col items-center justify-center gap-1 py-1 h-full min-h-[44px] text-secondary hover:text-on-surface transition-colors" data-path="schemes" href="#"><span class="material-symbols-outlined text-[22px]">verified_user</span><span class="font-label-sm text-label-sm tracking-wider uppercase">SCHEMES</span></a></div></nav></body></html>

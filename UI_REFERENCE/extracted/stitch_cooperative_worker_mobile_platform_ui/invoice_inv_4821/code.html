@@ -1,0 +1,410 @@
+<!DOCTYPE html><html class="h-full" lang="en" style="width: 390px; height: 2546px; overflow: hidden; position: relative;"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;height:100%;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-background": "#0b1c30", "surface-bright": "#f8f9ff", "tertiary": "#005439", "tertiary-fixed": "#85f8c4", "on-primary-fixed": "#00174d", "primary-container": "#1a56db", "on-primary": "#ffffff", "surface-container-highest": "#d3e4fe", "on-primary-container": "#d4dcff", "surface": "#f8f9ff", "on-secondary-fixed-variant": "#3f465c", "secondary": "#565e74", "background": "#f8f9ff", "tertiary-fixed-dim": "#68dba9", "primary-fixed-dim": "#b5c4ff", "on-error": "#ffffff", "surface-variant": "#d3e4fe", "outline-variant": "#c3c5d7", "surface-tint": "#1353d8", "on-surface-variant": "#434654", "surface-container-low": "#eff4ff", "surface-dim": "#cbdbf5", "on-tertiary-fixed": "#002114", "inverse-on-surface": "#eaf1ff", "on-primary-fixed-variant": "#003dab", "outline": "#737686", "on-secondary-fixed": "#131b2e", "error-container": "#ffdad6", "on-secondary": "#ffffff", "inverse-primary": "#b5c4ff", "on-error-container": "#93000a", "on-secondary-container": "#5c647a", "tertiary-container": "#006f4d", "on-surface": "#0b1c30", "on-tertiary-container": "#7ff2be", "surface-container-high": "#dce9ff", "primary": "#003fb1", "surface-container": "#e5eeff", "surface-container-lowest": "#ffffff", "inverse-surface": "#213145", "secondary-container": "#dae2fd", "on-tertiary-fixed-variant": "#005137", "on-tertiary": "#ffffff", "primary-fixed": "#dbe1ff", "secondary-fixed": "#dae2fd", "error": "#ba1a1a", "secondary-fixed-dim": "#bec6e0" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-3xl": "2.5rem", "space-lg": "1.25rem", "space-xxs": "0.25rem", "gutter-grid": "0.75rem", "space-md": "1rem", "margin-screen": "1rem", "space-xl": "1.5rem", "space-sm": "0.75rem", "space-2xl": "2rem", "space-xs": "0.5rem" }, fontFamily: { "label-lg": ["Inter"], "body-md": ["Inter"], "label-md": ["Inter"], "headline-sm": ["Inter"], "headline-md": ["Inter"], "label-sm": ["Inter"], "headline-lg": ["Inter"], "body-lg": ["Inter"], "metric-display": ["Inter"], "title-md": ["Inter"], "body-sm": ["Inter"] }, fontSize: { "label-lg": ["13px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "label-md": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700" }], "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-lg": ["15px", { "lineHeight": "22px", "fontWeight": "400" }], "metric-display": ["20px", { "lineHeight": "24px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "title-md": ["16px", { "lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }] } } } };</script></head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-full"><header class="fixed top-0 w-full z-50 pt-safe bg-on-background shadow-[0_4px_14px_rgba(11,28,48,0.2)]"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="Go Back" class="w-11 h-11 flex items-center justify-center text-on-primary rounded-full hover:bg-white/10 active:scale-95 transition-all" onclick="history.back()"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button><h1 class="font-title-md text-title-md text-on-primary font-semibold tracking-tight">Invoice Details</h1></div><div class="flex items-center gap-space-xs"><button aria-label="Share or Print" class="w-11 h-11 flex items-center justify-center text-on-primary/80 hover:text-on-primary rounded-full hover:bg-white/10 transition-colors"><span class="material-symbols-outlined text-[20px]">print</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 w-full bg-surface pt-16 pb-safe"><div class="flex flex-col w-full">
+<!-- Content Body Container with safe margins -->
+<div class="px-space-md py-space-md flex flex-col gap-space-md">
+<!-- 1. TOP HEADER & INVOICE STATUS CARD -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden">
+<!-- Decorative Verified Watermark Overlay -->
+<div class="absolute -right-4 -bottom-4 opacity-[0.04] text-primary select-none pointer-events-none">
+<span class="material-symbols-outlined text-[140px]">verified_user</span>
+</div>
+<div class="flex items-start justify-between gap-space-xs relative z-10">
+<div>
+<div class="flex items-center gap-space-xxs">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">TAX INVOICE</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-md text-label-md text-primary font-semibold">ORIGINAL FOR RECIPIENT</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight mt-0.5">INV-4821</h2>
+</div>
+<!-- Paid Status Pill Badge -->
+<div class="bg-tertiary-fixed text-on-tertiary-fixed flex items-center gap-1.5 px-space-xs py-1 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+<span class="font-label-lg text-label-lg tracking-wider text-on-tertiary-fixed font-bold">PAID</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-sm bg-surface-container-low rounded-lg p-space-xs flex items-center justify-between relative z-10">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Verified Cooperative Digital Receipt</p>
+<p class="font-body-sm text-body-sm text-secondary">Paid on Oct 24, 2024 at 11:58 AM</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm uppercase px-1.5 py-0.5 rounded bg-surface-container-highest text-on-primary-fixed-variant">GSTIN ACTIVE</span>
+</div>
+</div>
+</div>
+<!-- 2. CUSTOMER & WORKER SUMMARY (Stacked High-Fidelity Cards) -->
+<div class="grid grid-cols-1 gap-space-sm">
+<!-- Customer Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center gap-space-xs mb-space-xs">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+<div class="flex-1 min-w-0">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Billed To (Customer)</span>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold truncate">Priya Sharma</h3>
+</div>
+<a aria-label="Call Customer" class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+919871234567">
+<span class="material-symbols-outlined text-[16px]">call</span>
+</a>
+</div>
+<div class="space-y-1.5 text-on-surface">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px] mt-0.5">location_on</span>
+<p class="font-body-sm text-body-sm text-secondary flex-1">
+              Flat 402, Shivani Apts, Sector 22, Dwarka, New Delhi - 110077
+            </p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">calendar_today</span>
+<p class="font-body-sm text-body-sm text-secondary">
+              Date: <span class="text-on-surface font-medium">24 October 2024</span>
+</p>
+</div>
+</div>
+</div>
+<!-- Worker Details Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center gap-space-xs mb-space-xs">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">handyman</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-space-xxs">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Fulfilled By</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.2 rounded bg-surface-container-high text-primary font-bold">WKR-2847</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold truncate">Ramesh Kumar</h3>
+</div>
+<div class="flex items-center gap-0.5 bg-tertiary-fixed text-on-tertiary-fixed px-1.5 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[12px] text-tertiary" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="font-label-sm text-label-sm font-bold">4.9</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-space-xs space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-secondary">Domain / Trade</span>
+<span class="font-label-md text-label-md text-on-surface">Licensed Field Plumbing Tech</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-secondary">Assigned Node</span>
+<span class="font-label-md text-label-md text-primary font-medium">Cooperative Node #04 (Dwarka)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. SERVICE DETAILS MODULE -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-start justify-between gap-space-xs mb-space-xs">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">JOB SPECIFICATION</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mt-0.5">
+            Sanitary P-Trap Dismantling &amp; Replacement
+          </h3>
+</div>
+<span class="font-label-md text-label-md bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded font-mono font-bold">
+          #C-4821
+        </span>
+</div>
+<div class="flex flex-wrap items-center gap-x-space-md gap-y-1 py-space-xs">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">category</span>
+<span class="font-body-sm text-body-sm text-secondary">Plumbing Repair • Kitchen Drainage</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold uppercase">ON-SITE SERVICE (Physical)</span>
+</div>
+</div>
+<div class="mt-space-xs pt-space-xs bg-surface-container-low rounded-lg p-space-xs flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">schedule</span>
+<span class="font-body-sm text-body-sm text-secondary">Completed at <strong class="text-on-surface">11:48 AM</strong></span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold bg-surface-container-lowest px-2 py-0.5 rounded shadow-sm">
+          Ahead of Schedule (Slot 2-3:30 PM)
+        </span>
+</div>
+</div>
+<!-- 4. BILLING BREAKDOWN (Strict Constraint Compliant) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Billing Breakdown</h3>
+<span class="font-label-sm text-label-sm text-secondary font-mono">CURRENCY: INR (₹)</span>
+</div>
+<!-- Itemized Service Rows -->
+<div class="space-y-space-sm">
+<!-- Row 1: Labour -->
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex-1 min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface">1. Labour / Service Charge</p>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">
+              Sanitary P-Trap Dismantling, Fitting &amp; Calibration (55 mins)
+            </p>
+</div>
+<span class="font-title-md text-title-md text-on-surface font-semibold font-mono whitespace-nowrap">₹350.00</span>
+</div>
+<!-- Row 2: Material Cost -->
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5">
+<p class="font-label-lg text-label-lg text-on-surface">2. Material Cost (Itemized)</p>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant px-1 rounded">2 Items</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">
+              Heavy-duty 32mm PVC P-Trap (₹220) + High-Grade Anti-fungal Silicone Sealant &amp; Tape (₹80)
+            </p>
+</div>
+<span class="font-title-md text-title-md text-on-surface font-semibold font-mono whitespace-nowrap">₹300.00</span>
+</div>
+<!-- Row 3: Other Applicable -->
+<div class="flex items-start justify-between gap-space-xs opacity-60">
+<div class="flex-1 min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface">3. Other Applicable Service Charges</p>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">Standard disposal &amp; prep</p>
+</div>
+<span class="font-title-md text-title-md text-on-surface font-semibold font-mono whitespace-nowrap">₹0.00</span>
+</div>
+<!-- Subtotal Section with visual fill separator -->
+<div class="pt-space-xs mt-space-xs bg-surface-container-low rounded-lg p-space-xs space-y-1">
+<div class="flex items-center justify-between text-secondary font-body-sm">
+<span class="">Service Subtotal</span>
+<span class="font-mono text-on-surface font-semibold">₹650.00</span>
+</div>
+<div class="flex items-center justify-between text-secondary font-body-sm">
+<span class="flex items-center gap-1">
+              Cooperative Platform Fee (10%)
+              <span class="material-symbols-outlined text-[14px] text-secondary" title="App tech &amp; support infrastructure">info</span>
+</span>
+<span class="font-mono text-on-surface font-semibold">₹65.00</span>
+</div>
+</div>
+<!-- Final Total Amount Box -->
+<div class="bg-primary-container text-on-primary rounded-xl p-space-md shadow-md flex items-center justify-between mt-space-xs">
+<div>
+<span class="font-label-sm text-label-sm text-on-primary-container uppercase font-bold tracking-wider">TOTAL PAID (INCL. TAXES)</span>
+<p class="font-headline-lg text-headline-lg font-bold font-mono tracking-tight text-on-primary">₹715.00</p>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center gap-1 bg-surface-container-lowest text-primary px-space-xs py-1 rounded-full font-label-md text-label-md font-bold shadow-sm">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+              Settled in Full
+            </span>
+</div>
+</div>
+<!-- Customer Exemption & Transparency Note -->
+<div class="bg-surface-container-low rounded-lg p-space-xs flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary mt-0.5">shield</span>
+<p class="font-body-sm text-body-sm text-secondary">
+<strong>Clear Billing Policy:</strong> 10% Platform fee is included in the total paid amount. On-site visit charges are handled separately and not part of this service invoice.
+          </p>
+</div>
+</div>
+</div>
+<!-- 5. PAYMENT TRANSACTION DETAILS -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between pb-space-xs mb-space-xs">
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Transaction Record</h3>
+<span class="flex items-center gap-1 text-tertiary font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+          Payment Successful
+        </span>
+</div>
+<div class="space-y-2 text-body-sm">
+<div class="flex items-center justify-between">
+<span class="text-secondary">Payment Method</span>
+<span class="text-on-surface font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">account_balance_wallet</span>
+            UPI / PhonePe • Axis Escrow
+          </span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-secondary">Transaction ID</span>
+<div class="flex items-center gap-1">
+<span class="text-on-surface font-mono font-medium">TXN-98421098234</span>
+<button aria-label="Copy Transaction ID" class="text-primary hover:opacity-80 active:scale-95 transition-transform" onclick="navigator.clipboard?.writeText('TXN-98421098234')">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-secondary">Bank UTR Reference</span>
+<span class="text-on-surface font-mono font-medium">429810842109</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-secondary">Transaction Timestamp</span>
+<span class="text-on-surface font-medium">24 Oct 2024, 11:52:14 AM</span>
+</div>
+</div>
+</div>
+<!-- 6. SERVICE SCOPE & WARRANTY -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-sm">
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Service Information &amp; Scope</h3>
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Reported Issue</span>
+<p class="font-body-sm text-body-sm text-on-surface bg-surface-container-low p-space-xs rounded-lg">
+          "Kitchen sink drain pipe leak and water seepage under cabinet with damp odor."
+        </p>
+</div>
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Technical Work Performed</span>
+<p class="font-body-sm text-body-sm text-on-surface bg-surface-container-low p-space-xs rounded-lg">
+          Replaced fractured 32mm PVC P-Trap with commercial heavy-duty assembly, sealed with anti-fungal silicone, tested under 15-minute continuous water pressure test (Zero leaks verified).
+        </p>
+</div>
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Materials Verified &amp; Installed</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-surface-container-high text-on-surface font-label-md text-label-md px-2 py-1 rounded">
+            Heavy-duty 32mm PVC P-Trap (1 Unit)
+          </span>
+<span class="bg-surface-container-high text-on-surface font-label-md text-label-md px-2 py-1 rounded">
+            Anti-fungal Silicone Sealant
+          </span>
+<span class="bg-surface-container-high text-on-surface font-label-md text-label-md px-2 py-1 rounded">
+            Waterproof Teflon Tape
+          </span>
+</div>
+</div>
+<!-- Warranty Badge Card -->
+
+</div>
+<!-- 7. PROOF OF SERVICE (Photo Verification Thumbnails) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Proof of Service</h3>
+<p class="font-body-sm text-body-sm text-secondary">Verified On-Site Work Evidence</p>
+</div>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold uppercase">
+          3 Photos Verified
+        </span>
+</div>
+<!-- 3 Visual Proof Thumbnails Grid -->
+<div class="grid grid-cols-3 gap-space-xs mt-space-xs">
+<!-- Thumbnail 1: Before -->
+<div class="flex flex-col bg-surface-container-low rounded-lg overflow-hidden">
+<div class="relative aspect-square w-full">
+<img class="w-full h-full object-cover" data-alt="Close-up photograph of cracked PVC plumbing pipe joint under an apartment kitchen sink showing active water droplet seepage and moisture stain, natural indoor documentary lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4v0HWXIueQrSptHyilRUYcEG2KZwTdsgNOR-5Pp4NhvDDss9VHGzDy1G38tTKMzP742TSB3tpcFgC0_onVecbz5QoUQDL3Q_MWxUNj6kzIZ4nglNVRkjkxh7V2tZ4j8K8iB9oX9vTtV4IKY6jSaDqTt7wU7ma6E8zCwjsm0VQKZpDR_Nb2u2oOhjKz3HCCq-rG5CCP0T41zTsh0eCT42V6y4SWwuhjBYeGW3GTgIy5uM208XdABsq">
+<span class="absolute top-1 left-1 bg-on-background/80 text-surface-bright font-label-sm text-[9px] px-1 py-0.2 rounded backdrop-blur-xs font-bold">
+              BEFORE
+            </span>
+</div>
+<div class="p-1 text-center">
+<p class="font-label-sm text-[10px] text-on-surface font-medium truncate">PVC Joint Leak</p>
+<p class="font-body-sm text-[9px] text-secondary">Reported State</p>
+</div>
+</div>
+<!-- Thumbnail 2: Installed -->
+<div class="flex flex-col bg-surface-container-low rounded-lg overflow-hidden">
+<div class="relative aspect-square w-full">
+<img class="w-full h-full object-cover" data-alt="Close-up crisp photo of freshly installed clean white PVC P-trap pipe assembly under kitchen counter with clean silicone gasket seals, brightly lit professional plumbing craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9splzigJ2a2FgIFCNv4f8ihYvDDR1B2m75S-U5KWG8nPqzI98Q-O9JvfKSULYinY2GsQg2uwlBKV1anxLz1VOOxQNqjWtgU7n1qR5kG5cVzzUV2giWs5GUxsONm146BqXRRGx-d-ti0SyPYjjAIDk_PKhlmPvCdVGix92X02X4j5J9Lk-GjFlNwFcRSHuUsqYreBc1sRnOxIo8eB1nWbyz64Ioe654sgzidJLfYwf6PiawLkqQnUY">
+<span class="absolute top-1 left-1 bg-primary text-on-primary font-label-sm text-[9px] px-1 py-0.2 rounded font-bold">
+              AFTER
+            </span>
+</div>
+<div class="p-1 text-center">
+<p class="font-label-sm text-[10px] text-on-surface font-medium truncate">Installed P-Trap</p>
+<p class="font-body-sm text-[9px] text-secondary">11:42 AM</p>
+</div>
+</div>
+<!-- Thumbnail 3: Flow Test -->
+<div class="flex flex-col bg-surface-container-low rounded-lg overflow-hidden">
+<div class="relative aspect-square w-full">
+<img class="w-full h-full object-cover" data-alt="Plumber technician hand holding a digital dry test meter against water pipes with flowing sink faucet in background, completely dry surfaces, bright clear focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARV7hi_vaby8MNNx5Vbyd4MjPYXcxja_-pJD4zjG645K5rpyDFUy1-Zju-dEEhevOnDFSsUpCzWLl-4Kj59kqd_tVb6qh_eR1mygkDRn4U3VOgCBliAUtpEw39wwnUL_FmRTTUGELc1AbsYc7MvHDtcRwrJ97r5pNo4LDcxHaFnchKwapeoTAbZu1xUdeDNN3or1s4XbL0EMZbdbWmxtHUW47eize9MvTKzW5iEw1810xU7ekLTe5u">
+<span class="absolute top-1 left-1 bg-tertiary text-on-tertiary font-label-sm text-[9px] px-1 py-0.2 rounded font-bold">
+              PASSED
+            </span>
+</div>
+<div class="p-1 text-center">
+<p class="font-label-sm text-[10px] text-on-surface font-medium truncate">Flow Test (0 Leak)</p>
+<p class="font-body-sm text-[9px] text-secondary">11:48 AM</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 8. INVOICE FOOTER & COOPERATIVE TRUST BADGE -->
+<div class="p-space-md text-center flex flex-col items-center gap-space-xs">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">handshake</span>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface">Thank you for using the cooperative service platform.</p>
+<p class="font-body-sm text-body-sm text-secondary max-w-xs">
+        For warranty claims or queries, please reference Job <strong class="text-on-surface font-mono">#C-4821</strong> or Invoice <strong class="text-on-surface font-mono">#INV-4821</strong>.
+      </p>
+<div class="flex flex-wrap items-center justify-center gap-2 mt-1">
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded">GSTIN: 07AAAAC1234F1Z8</span>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded">MSME Reg: DL-03-0098471</span>
+</div>
+</div>
+<!-- SPACING BUFFER FOR STICKY BOTTOM ACTION BAR -->
+<div class="h-24"></div>
+</div>
+<!-- 9. PRIMARY FLOATING ACTION BAR (STICKY MOBILE BOTTOM) -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface-container-lowest p-space-md shadow-[0_-4px_16px_rgba(11,28,48,0.08)] flex flex-col gap-2 pb-safe">
+<div class="flex items-center gap-space-xs">
+<!-- Secondary Action: Share -->
+<button aria-label="Share Invoice" class="h-12 w-14 rounded-xl bg-surface-container text-on-surface flex items-center justify-center active:scale-95 transition-all hover:bg-surface-container-high" id="shareBtn">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+<!-- Primary Action: Download PDF -->
+<button class="flex-1 h-12 rounded-xl bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md active:scale-98 transition-all hover:opacity-95" id="downloadPdfBtn">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span class="">DOWNLOAD INVOICE (PDF)</span>
+</button>
+</div>
+<!-- Tertiary Action: View Details -->
+<div class="text-center">
+<button class="font-label-md text-label-md text-primary hover:underline inline-flex items-center gap-1 active:opacity-75">
+<span class="">View Full Service History &amp; Diagnostics</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // Micro-interactions for Invoice Actions
+  document.getElementById('downloadPdfBtn')?.addEventListener('click', function() {
+    const btn = this;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span> Generating PDF...';
+    btn.classList.add('pointer-events-none');
+    
+    setTimeout(() => {
+      btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span> Downloaded!';
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('pointer-events-none');
+      }, 1600);
+    }, 1000);
+  });
+
+  document.getElementById('shareBtn')?.addEventListener('click', async function() {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Invoice #INV-4821 - Dwarka Cooperative Plumbing',
+          text: 'Verified Digital Invoice for Job #C-4821 (₹715.00 PAID)',
+          url: window.location.href,
+        });
+      } catch (err) {
+        // Dismissed share sheet
+      }
+    } else {
+      // Fallback feedback
+      const originalHtml = this.innerHTML;
+      this.innerHTML = '<span class="material-symbols-outlined text-[18px]">done</span>';
+      setTimeout(() => {
+        this.innerHTML = originalHtml;
+      }, 1200);
+    }
+  });
+</script></main>
+
+</body></html>

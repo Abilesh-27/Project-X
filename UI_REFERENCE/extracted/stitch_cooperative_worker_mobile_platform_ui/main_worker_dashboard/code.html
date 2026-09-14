@@ -1,0 +1,735 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Worker Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              navy: '#0f223d',
+              header: '#0d1d36',
+              blue: '#1a56db',
+              blueDark: '#1442a6',
+              lightBlue: '#eff4ff',
+              surface: '#f6f9fc',
+              card: '#ffffff',
+              border: '#e2e8f0',
+              textPrimary: '#0f172a',
+              textSecondary: '#64748b',
+              textMuted: '#94a3b8',
+              emerald: '#059669',
+              emeraldBg: '#ecfdf5',
+              amber: '#d97706',
+              amberBg: '#fffbeb',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background-color: #0b1524;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-0 sm:p-4 bg-slate-900">
+
+  <!-- Mobile Frame Container (iPhone 15/16 Pro style 390px wide canvas) -->
+  <div class="w-full max-w-[400px] h-[852px] bg-brand-surface rounded-[40px] shadow-2xl overflow-hidden flex flex-col relative border border-slate-800 select-none">
+    
+    <!-- TOP STATUS BAR & HEADER SECTION (Deep Navy) -->
+    <header class="bg-brand-navy text-white pt-3 pb-5 px-5 shrink-0 relative overflow-hidden">
+      <!-- Ambient decorative glow -->
+      <div class="absolute -right-10 -top-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl pointer-events-none"></div>
+      
+      <!-- System Status Bar -->
+      <div class="flex items-center justify-between text-xs font-semibold text-slate-300 pb-3 pt-1">
+        <span class="tracking-tight">09:42 AM</span>
+        <div class="flex items-center space-x-1.5 text-[11px]">
+          <!-- Cellular Signal -->
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+            <path d="M2 20h20L12 4 2 20z"></path>
+          </svg>
+          <!-- Wifi -->
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+            <path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4zm0 3.5c3.67 0 6.99 1.45 9.44 3.82L12 18.77 2.56 11.32C5.01 8.95 8.33 7.5 12 7.5z"></path>
+          </svg>
+          <!-- Battery -->
+          <div class="flex items-center">
+            <div class="w-5 h-2.5 border border-slate-400 rounded-sm p-0.5 flex items-center">
+              <div class="w-3.5 h-1.5 bg-emerald-400 rounded-2xs"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Worker Identity Row -->
+      <div class="flex items-center justify-between mt-1">
+        <div class="flex items-center space-x-3.5">
+          <!-- Worker Avatar with Initials & Verified badge -->
+          <div class="relative">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-700 to-indigo-500 border-2 border-white/20 flex items-center justify-center font-bold text-base text-white shadow-md">
+              RK
+            </div>
+            <div class="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-emerald-500 border-2 border-brand-navy rounded-full flex items-center justify-center">
+              <svg class="w-2.5 h-2.5 text-white stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Greeting & Worker Info -->
+          <div>
+            <div class="text-[11px] font-medium tracking-wider uppercase text-blue-200/90 flex items-center gap-1.5">
+              <span class="">Good Morning</span>
+              <span class="inline-block w-1 h-1 rounded-full bg-blue-400"></span>
+              <span class="text-emerald-400 font-semibold text-[10px]">Verified</span>
+            </div>
+            <h1 class="text-lg font-bold tracking-tight text-white leading-tight">Ramesh Kumar</h1>
+            <p class="text-[11px] text-slate-300 font-normal">WKR-2847 • Senior Field Electrician</p>
+          </div>
+        </div>
+
+        <!-- Notification Bell with Active Indicator -->
+        <button class="relative w-10 h-10 rounded-full bg-white/10 hover:bg-white/15 border border-white/10 flex items-center justify-center text-white transition-all active:scale-95">
+          <svg class="w-5 h-5 text-slate-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+          </svg>
+          <span class="absolute top-2 right-2 w-2 h-2 bg-amber-400 rounded-full ring-2 ring-brand-navy"></span>
+        </button>
+      </div>
+
+    </header>
+
+    <!-- SCROLLABLE CONTENT BODY -->
+    <main class="flex-1 overflow-y-auto px-4 py-3.5 space-y-3.5 no-scrollbar bg-[#f6f9fc]">
+
+      <!-- 1. ACTIVE DAY COMPACT CONTROL (Two-State ONLY) -->
+      <section class="bg-white rounded-2xl p-3.5 border border-slate-200/80 shadow-sm flex items-center justify-between transition-all">
+        <div class="flex items-center space-x-3">
+          <div id="active-status-icon" class="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+            </span>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span id="active-status-label" class="text-xs font-bold text-slate-900 uppercase tracking-wide">🟢 Active Day</span>
+              <span class="text-[10px] font-semibold bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded">ON-CALL</span>
+            </div>
+            <p id="active-status-desc" class="text-[11px] text-slate-500 font-medium">Ready to receive work</p>
+          </div>
+        </div>
+
+        <!-- Custom Interactive Native Switch -->
+        <button id="active-day-toggle" onclick="toggleActiveDay()" class="w-12 h-7 bg-brand-blue rounded-full p-0.5 transition-colors duration-200 ease-in-out focus:outline-none shadow-inner relative flex items-center" aria-pressed="true">
+          <span id="toggle-knob" class="translate-x-5 w-6 h-6 bg-white rounded-full shadow-md transform transition-transform duration-200 ease-in-out flex items-center justify-center">
+            <svg class="w-3.5 h-3.5 text-brand-blue" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+          </span>
+        </button>
+      </section>
+
+      <!-- 2. LIVE TODAY'S ACTIVITY STATUS BAR -->
+      <section id="readiness-checkin-card" class="bg-gradient-to-br from-white via-blue-50/40 to-indigo-50/30 rounded-2xl p-3.5 border-2 border-blue-200 shadow-md relative overflow-hidden transition-all duration-200">  <div class="flex items-center justify-between gap-2 mb-2.5">
+    <div class="inline-flex items-center gap-1.5 bg-blue-100 text-brand-blue px-2.5 py-1 rounded-full border border-blue-200">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-blue"></span>
+      </span>
+      <span class="text-[10px] font-extrabold uppercase tracking-wide">SERVICE STARTS IN 1 HOUR</span>
+    </div>
+    <span class="text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">Starts in 58m</span>
+  </div>
+
+  <!-- Job Details Container -->
+  <div class="bg-white/80 rounded-xl p-3 border border-blue-100 shadow-2xs space-y-1.5">
+    <div class="flex items-center justify-between">
+      <h3 class="text-sm font-bold text-slate-900 leading-tight">Plumbing Repair</h3>
+      <span class="text-[10px] font-bold uppercase tracking-wider text-brand-blue bg-blue-50 px-2 py-0.5 rounded border border-blue-200">Customer Job #C-4821</span>
+    </div>
+    <div class="space-y-1 text-[11px] text-slate-600 pt-0.5">
+      <div class="flex items-center space-x-2">
+        <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+        </svg>
+        <span class="font-medium text-slate-800">Customer: Priya Sharma</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <span class="">Scheduled: 10:00 AM – 11:30 AM</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        </svg>
+        <span class="truncate">Sector 14, Noida</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Prominent Primary START JOURNEY Button -->
+  <button class="w-full mt-2.5 py-2.5 px-4 bg-brand-blue hover:bg-brand-blueDark text-white font-bold text-xs rounded-xl shadow-md transition-all active:scale-[0.98] flex items-center justify-center space-x-2">
+    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+    </svg>
+    <span class="tracking-wide">START JOURNEY</span>
+  </button>
+
+  <!-- Live Status Message Feedback (hidden by default) -->
+  <div id="readiness-status-feedback" class="hidden mt-2.5 p-2 rounded-xl text-[11px] font-semibold transition-all"></div>
+
+  <!-- 3 Action Buttons below START JOURNEY -->
+  <div id="readiness-actions-group" class="grid grid-cols-3 gap-1.5 mt-2.5 pt-2.5 border-t border-slate-200/80">
+    <button onclick="handleOnTimeAction()" class="py-2 px-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] rounded-xl shadow-sm transition-all active:scale-95 flex items-center justify-center gap-1">
+      <span class="w-2 h-2 rounded-full bg-emerald-200"></span>
+      <span class="">ON TIME</span>
+    </button>
+    <button onclick="openDelayModal()" class="py-2 px-1 bg-amber-500 hover:bg-amber-600 text-white font-bold text-[11px] rounded-xl shadow-sm transition-all active:scale-95 flex items-center justify-center gap-1">
+      <span class="w-2 h-2 rounded-full bg-amber-200"></span>
+      <span class="">DELAYED</span>
+    </button>
+    <button onclick="openCancelModal()" class="py-2 px-1 bg-white hover:bg-rose-50 text-rose-600 border border-rose-200 font-bold text-[11px] rounded-xl shadow-2xs transition-all active:scale-95 flex items-center justify-center gap-1">
+      <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+      <span class="">CANCEL</span>
+    </button>
+  </div></section><section class="bg-gradient-to-r from-blue-900 to-indigo-950 rounded-2xl p-3.5 text-white shadow-sm border border-blue-800/40 relative overflow-hidden">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center space-x-2">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-blue-200">Today's Live Activity</span>
+          </div>
+          <span class="text-[11px] font-semibold bg-amber-500/20 text-amber-300 border border-amber-400/30 px-2 py-0.5 rounded-full">
+            Service In Progress
+          </span>
+        </div>
+
+        <!-- Micro Journey Stepper -->
+        <div class="grid grid-cols-4 gap-1.5 mt-2.5 pt-1 border-t border-white/10 text-center">
+          <div class="flex flex-col items-center">
+            <div class="w-full h-1 bg-emerald-400 rounded-full mb-1"></div>
+            <span class="text-[9px] font-semibold text-emerald-300">En Route</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-full h-1 bg-emerald-400 rounded-full mb-1"></div>
+            <span class="text-[9px] font-semibold text-emerald-300">Arrived</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-full h-1 bg-amber-400 rounded-full mb-1 shadow-[0_0_8px_rgba(251,191,36,0.6)]"></div>
+            <span class="text-[9px] font-bold text-amber-300">In Progress</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-full h-1 bg-white/20 rounded-full mb-1"></div>
+            <span class="text-[9px] font-medium text-slate-400">Completed</span>
+          </div>
+        </div>
+
+        <!-- Current Live Job Quick Action Hook -->
+        <div class="mt-2.5 bg-white/10 rounded-xl p-2.5 flex items-center justify-between">
+          <div class="truncate mr-2">
+            <p class="text-xs font-semibold text-white truncate">Plumbing Repair &amp; P-Trap Setup</p>
+            <p class="text-[10px] text-blue-200">Sector 14, Noida • OTP Verified at 10:15 AM</p>
+          </div>
+          <a href="#" class="shrink-0 text-[11px] font-bold bg-white text-blue-900 px-2.5 py-1.5 rounded-lg shadow-sm hover:bg-blue-50 transition active:scale-95">
+            Open Job →
+          </a>
+        </div>
+      </section>
+
+      <!-- 3. IMPORTANT ALERTS (Compact Scannable Banner) -->
+      <section class="bg-amber-50 border border-amber-200 rounded-2xl p-3 flex items-start space-x-2.5 shadow-2xs">
+        <div class="w-6 h-6 rounded-lg bg-amber-500 text-white flex items-center justify-center shrink-0 mt-0.5">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+          </svg>
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-bold text-amber-950">Important Alert: OTP Required</h4>
+            <span class="text-[10px] text-amber-700 font-medium">Just now</span>
+          </div>
+          <p class="text-[11px] text-amber-800 leading-snug mt-0.5">
+            Customer OTP verified. Please enter completion OTP before generating final invoice.
+          </p>
+        </div>
+      </section>
+
+      <!-- 4. CUSTOMER WORK CARD (Distinct White Card) -->
+      <section class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm relative">
+        <!-- Card Header -->
+        <div class="flex items-start justify-between pb-3 border-b border-slate-100">
+          <div class="flex items-center space-x-2.5">
+            <div class="w-9 h-9 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue">
+              <!-- Customer Person Icon -->
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-1.5">
+                <h3 class="text-sm font-bold text-slate-900">Customer</h3>
+                <span class="text-[10px] font-bold bg-blue-100 text-brand-blue px-1.5 py-0.2 rounded-full">3 New</span>
+              </div>
+              <p class="text-[11px] text-slate-500 font-normal">Individual customer services</p>
+            </div>
+          </div>
+
+          <span class="text-[10px] font-bold tracking-wide uppercase px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
+            B2C Direct
+          </span>
+        </div>
+
+        <!-- Metrics Row: New Requests | Accepted | Upcoming -->
+        <div class="grid grid-cols-3 gap-2 py-3 border-b border-slate-100 text-center">
+          <div class="bg-slate-50/80 rounded-xl py-2 px-1 border border-slate-100">
+            <span class="block text-base font-extrabold text-amber-600">3</span>
+            <span class="text-[10px] font-semibold text-slate-600">New Requests</span>
+          </div>
+          <div class="bg-slate-50/80 rounded-xl py-2 px-1 border border-slate-100">
+            <span class="block text-base font-extrabold text-emerald-600">2</span>
+            <span class="text-[10px] font-semibold text-slate-600">Accepted</span>
+          </div>
+          <div class="bg-slate-50/80 rounded-xl py-2 px-1 border border-slate-100">
+            <span class="block text-base font-extrabold text-brand-blue">4</span>
+            <span class="text-[10px] font-semibold text-slate-600">Upcoming</span>
+          </div>
+        </div>
+
+        <!-- Current / Next Customer Job Details -->
+        <div class="mt-3 bg-blue-50/50 rounded-xl p-3 border border-blue-100/80">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-blue bg-white px-2 py-0.5 rounded border border-blue-200">
+              Active Job #C-4821
+            </span>
+            <span class="inline-flex items-center text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mr-1 animate-pulse"></span>
+              In Progress
+            </span>
+          </div>
+
+          <h4 class="text-xs font-bold text-slate-900">Plumbing Repair &amp; Pipeline Leakage</h4>
+          
+          <div class="mt-2 space-y-1 text-[11px] text-slate-600">
+            <div class="flex items-center space-x-2">
+              <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+              <span class="font-medium text-slate-800">Customer: Anil Sharma</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="">Today • 10:00 AM - 11:30 AM</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <span class="truncate">Sector 14, Noida (G-402, Green Meadows)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Primary Action Button -->
+        <button class="w-full mt-3 py-2.5 bg-brand-blue hover:bg-brand-blueDark text-white font-bold text-xs rounded-xl shadow-sm transition active:scale-[0.98] flex items-center justify-center space-x-1.5">
+          <span class="">VIEW CUSTOMER</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </section>
+
+      <!-- 5. INSTITUTION WORK CARD (Strictly Separate White Card) -->
+      <section class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm relative">
+        <!-- Card Header -->
+        <div class="flex items-start justify-between pb-3 border-b border-slate-100">
+          <div class="flex items-center space-x-2.5">
+            <div class="w-9 h-9 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-700">
+              <!-- Building / Institution Icon -->
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-1.5">
+                <h3 class="text-sm font-bold text-slate-900">Institution</h3>
+                <span class="text-[10px] font-bold bg-purple-100 text-purple-700 px-1.5 py-0.2 rounded-full">1 New</span>
+              </div>
+              <p class="text-[11px] text-slate-500 font-normal">Organization &amp; workforce assignments</p>
+            </div>
+          </div>
+
+          <span class="text-[10px] font-bold tracking-wide uppercase px-2 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200/60">
+            B2B / Govt
+          </span>
+        </div>
+
+        <!-- Metrics Row: New Requests | Pending | Assigned -->
+        <div class="grid grid-cols-3 gap-2 py-3 border-b border-slate-100 text-center">
+          <div class="bg-slate-50/80 rounded-xl py-2 px-1 border border-slate-100">
+            <span class="block text-base font-extrabold text-purple-700">1</span>
+            <span class="text-[10px] font-semibold text-slate-600">New Requests</span>
+          </div>
+          <div class="bg-slate-50/80 rounded-xl py-2 px-1 border border-slate-100">
+            <span class="block text-base font-extrabold text-amber-600">2</span>
+            <span class="text-[10px] font-semibold text-slate-600">Pending</span>
+          </div>
+          <div class="bg-slate-50/80 rounded-xl py-2 px-1 border border-slate-100">
+            <span class="block text-base font-extrabold text-emerald-600">3</span>
+            <span class="text-[10px] font-semibold text-slate-600">Assigned</span>
+          </div>
+        </div>
+
+        <!-- Current / Next Institution Assignment Details -->
+        <div class="mt-3 bg-purple-50/40 rounded-xl p-3 border border-purple-100/80">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-purple-800 bg-white px-2 py-0.5 rounded border border-purple-200">
+              Assignment #JB-8841-DL
+            </span>
+            <span class="inline-flex items-center text-[10px] font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full">
+              <span class="w-1.5 h-1.5 rounded-full bg-blue-600 mr-1 animate-pulse"></span>
+              En Route
+            </span>
+          </div>
+
+          <h4 class="text-xs font-bold text-slate-900">AIIMS New Delhi • Ward 4B Sanitation &amp; Electrical</h4>
+          
+          <div class="mt-2 space-y-1 text-[11px] text-slate-600">
+            <div class="flex items-center space-x-2">
+              <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+              <span class="font-medium text-slate-800">Domain: Facility Sanitation &amp; Switchgear</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-2">
+                <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="">Sat, 19 Oct • 08:00 AM - 12:00 PM</span>
+              </div>
+              <span class="text-[10px] font-bold text-purple-700 bg-purple-100/70 px-1.5 py-0.5 rounded">Team of 4</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <span class="truncate">Ansari Nagar, New Delhi (Main Hospital Block)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Primary Action Button -->
+        <button class="w-full mt-3 py-2.5 bg-purple-700 hover:bg-purple-800 text-white font-bold text-xs rounded-xl shadow-sm transition active:scale-[0.98] flex items-center justify-center space-x-1.5">
+          <span class="">VIEW INSTITUTION</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </section>
+
+      <!-- 6. WORKER SUMMARY CARD (Secondary & Compact) -->
+      <section class="bg-white rounded-2xl p-3.5 border border-slate-200/80 shadow-2xs">
+        <div class="flex items-center justify-between mb-2 pb-1.5 border-b border-slate-100">
+          <div class="flex items-center space-x-1.5">
+            <span class="text-xs font-bold text-slate-800">Summary</span>
+            <span class="text-[10px] text-slate-400">| FY 2024-25</span>
+          </div>
+          <a href="#" class="text-[11px] font-semibold text-brand-blue hover:underline">View Breakdown</a>
+        </div>
+
+        <div class="grid grid-cols-4 gap-2 text-center">
+          <div>
+            <span class="block text-sm font-bold text-slate-900">47</span>
+            <span class="text-[10px] font-medium text-slate-500">Completed</span>
+          </div>
+          <div>
+            <span class="block text-sm font-bold text-slate-900">2</span>
+            <span class="text-[10px] font-medium text-slate-500">Cancelled</span>
+          </div>
+          <div>
+            <span class="block text-sm font-bold text-emerald-600">₹48.2k</span>
+            <span class="text-[10px] font-medium text-slate-500">Earnings</span>
+          </div>
+          <div>
+            <div class="flex items-center justify-center space-x-0.5">
+              <span class="text-sm font-bold text-slate-900">4.85</span>
+              <svg class="w-3 h-3 text-amber-400 fill-current" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+            </div>
+            <span class="text-[10px] font-medium text-slate-500">Rating</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Spacer for Floating Nav -->
+      <div class="h-16"></div>
+    </main>
+
+    <!-- PERSISTENT BOTTOM NAVIGATION (HOME | CUSTOMER | INSTITUTION | COURSES | SCHEMES) -->
+    <!-- DELAY WORKFLOW SHEET (Modal Dialog) -->
+<div id="delay-modal" class="hidden absolute inset-0 z-30 bg-slate-950/60 backdrop-blur-xs flex flex-col justify-end transition-all">
+  <div class="bg-white rounded-t-3xl p-4 shadow-2xl border-t border-slate-200 max-h-[85%] overflow-y-auto space-y-3">
+    <div class="w-10 h-1 bg-slate-200 rounded-full mx-auto -mt-1 mb-2"></div>
+    <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+      <div class="flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center text-xs font-bold">⏳</span>
+        <div>
+          <h4 class="text-xs font-bold text-slate-900">Report Dispatch Delay</h4>
+          <p class="text-[10px] text-slate-500">Customer Job #C-4821</p>
+        </div>
+      </div>
+      <button onclick="closeDelayModal()" class="text-slate-400 hover:text-slate-600 text-sm font-bold p-1">✕</button>
+    </div>
+
+    <!-- Estimated Delay Time selector -->
+    <div>
+      <label class="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-1.5">Expected Delay Time</label>
+      <div class="grid grid-cols-3 gap-1.5">
+        <button type="button" onclick="selectDelayTime(this, '15m')" class="delay-time-btn py-1.5 text-xs font-bold rounded-lg border border-amber-400 bg-amber-50 text-amber-800 transition">+15 Mins</button>
+        <button type="button" onclick="selectDelayTime(this, '30m')" class="delay-time-btn py-1.5 text-xs font-semibold rounded-lg border border-slate-200 text-slate-700 bg-white transition">+30 Mins</button>
+        <button type="button" onclick="selectDelayTime(this, '45m')" class="delay-time-btn py-1.5 text-xs font-semibold rounded-lg border border-slate-200 text-slate-700 bg-white transition">+45 Mins</button>
+      </div>
+    </div>
+
+    <!-- Delay Reason selector -->
+    <div>
+      <label class="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-1.5">Select Reason</label>
+      <div class="space-y-1.5">
+        <label class="flex items-center p-2 rounded-xl border border-slate-200 bg-slate-50/60 cursor-pointer hover:bg-slate-100 transition text-xs font-medium text-slate-800">
+          <input type="radio" name="delay-reason" value="Traffic congestion on route" checked="" class="text-brand-blue mr-2">
+          🚗 Heavy traffic on route
+        </label>
+        <label class="flex items-center p-2 rounded-xl border border-slate-200 bg-slate-50/60 cursor-pointer hover:bg-slate-100 transition text-xs font-medium text-slate-800">
+          <input type="radio" name="delay-reason" value="Previous job running overtime" class="text-brand-blue mr-2">
+          ⏱️ Previous client job running late
+        </label>
+        <label class="flex items-center p-2 rounded-xl border border-slate-200 bg-slate-50/60 cursor-pointer hover:bg-slate-100 transition text-xs font-medium text-slate-800">
+          <input type="radio" name="delay-reason" value="Transit / vehicle issue" class="text-brand-blue mr-2">
+          🛵 Vehicle / transit breakdown
+        </label>
+        <label class="flex items-center p-2 rounded-xl border border-slate-200 bg-slate-50/60 cursor-pointer hover:bg-slate-100 transition text-xs font-medium text-slate-800">
+          <input type="radio" name="delay-reason" value="Parts pickup in progress" class="text-brand-blue mr-2">
+          🔧 Picking up required spare parts
+        </label>
+      </div>
+    </div>
+
+    <div class="pt-1 flex gap-2">
+      <button onclick="closeDelayModal()" class="w-1/3 py-2 text-xs font-bold text-slate-600 bg-slate-100 rounded-xl hover:bg-slate-200 transition">Dismiss</button>
+      <button onclick="confirmDelaySubmission()" class="w-2/3 py-2 text-xs font-bold text-white bg-amber-500 hover:bg-amber-600 rounded-xl shadow-sm transition active:scale-95">Notify Client of Delay</button>
+    </div>
+  </div>
+</div>
+
+<!-- CANCEL CONFIRMATION DIALOG (Modal) -->
+<div id="cancel-modal" class="hidden absolute inset-0 z-30 bg-slate-950/60 backdrop-blur-xs flex items-center justify-center p-4 transition-all">
+  <div class="bg-white rounded-3xl p-4 w-full max-w-[340px] shadow-2xl border border-rose-100 space-y-3">
+    <div class="w-10 h-10 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center mx-auto">
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+      </svg>
+    </div>
+
+    <div class="text-center">
+      <h4 class="text-sm font-bold text-slate-900">Cancel This Assignment?</h4>
+      <p class="text-[11px] text-slate-500 mt-1">
+        Are you sure you want to cancel <span class="font-semibold text-slate-700">Customer Job #C-4821</span>? Cancelling within 1 hour impacts your worker response score.
+      </p>
+    </div>
+
+    <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+      <label class="text-[10px] font-bold text-slate-500 block mb-1 uppercase tracking-wide">Reason for cancellation</label>
+      <select id="cancel-reason-select" class="w-full bg-white border border-slate-200 rounded-lg p-1.5 text-xs text-slate-700 font-medium focus:outline-none focus:border-brand-blue">
+        <option value="Emergency personal issue">Emergency personal issue</option>
+        <option value="Severe health issue">Health / Medical unwell</option>
+        <option value="Equipment / vehicle critical failure">Tools / Vehicle breakdown</option>
+        <option value="Customer uncontactable">Unable to reach customer location</option>
+      </select>
+    </div>
+
+    <div class="flex gap-2 pt-1">
+      <button onclick="closeCancelModal()" class="w-1/2 py-2 text-xs font-bold text-slate-600 bg-slate-100 rounded-xl hover:bg-slate-200 transition">Keep Job</button>
+      <button onclick="confirmCancelSubmission()" class="w-1/2 py-2 text-xs font-bold text-white bg-rose-600 hover:bg-rose-700 rounded-xl shadow-sm transition active:scale-95">Confirm Cancel</button>
+    </div>
+  </div>
+</div><nav class="absolute bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-slate-200 px-3 py-2 flex items-center justify-around z-20 shadow-lg">
+      
+      <!-- HOME (Active) -->
+      <a href="#" class="flex flex-col items-center justify-center flex-1 py-1 text-brand-blue group">
+        <div class="relative">
+          <svg class="w-5 h-5 text-brand-blue" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
+          </svg>
+          <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-blue"></span>
+        </div>
+        <span class="text-[10px] font-bold tracking-tight mt-1">HOME</span>
+      </a>
+
+      <!-- CUSTOMER -->
+      <a href="#" class="flex flex-col items-center justify-center flex-1 py-1 text-slate-400 hover:text-slate-700 transition">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+        </svg>
+        <span class="text-[10px] font-medium tracking-tight mt-1">CUSTOMER</span>
+      </a>
+
+      <!-- INSTITUTION -->
+      <a href="#" class="flex flex-col items-center justify-center flex-1 py-1 text-slate-400 hover:text-slate-700 transition">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+        </svg>
+        <span class="text-[10px] font-medium tracking-tight mt-1">INSTITUTION</span>
+      </a>
+
+      <!-- COURSES -->
+      <a href="#" class="flex flex-col items-center justify-center flex-1 py-1 text-slate-400 hover:text-slate-700 transition">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+          <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5"></path>
+        </svg>
+        <span class="text-[10px] font-medium tracking-tight mt-1">COURSES</span>
+      </a>
+
+      <!-- SCHEMES -->
+      <a href="#" class="flex flex-col items-center justify-center flex-1 py-1 text-slate-400 hover:text-slate-700 transition">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+        </svg>
+        <span class="text-[10px] font-medium tracking-tight mt-1">SCHEMES</span>
+      </a>
+
+    </nav>
+  </div>
+
+  <script>
+    let isActive = true;
+    function toggleActiveDay() {
+      isActive = !isActive;
+      const toggle = document.getElementById('active-day-toggle');
+      const knob = document.getElementById('toggle-knob');
+      const label = document.getElementById('active-status-label');
+      const desc = document.getElementById('active-status-desc');
+      const iconContainer = document.getElementById('active-status-icon');
+
+      if (isActive) {
+        toggle.className = "w-12 h-7 bg-brand-blue rounded-full p-0.5 transition-colors duration-200 ease-in-out focus:outline-none shadow-inner relative flex items-center";
+        knob.className = "translate-x-5 w-6 h-6 bg-white rounded-full shadow-md transform transition-transform duration-200 ease-in-out flex items-center justify-center";
+        knob.innerHTML = '<svg class="w-3.5 h-3.5 text-brand-blue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>';
+        label.textContent = "🟢 ACTIVE DAY";
+        desc.textContent = "Ready to receive work";
+        iconContainer.className = "w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center";
+        iconContainer.innerHTML = '<span class="relative flex h-3 w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span></span>';
+      } else {
+        toggle.className = "w-12 h-7 bg-slate-300 rounded-full p-0.5 transition-colors duration-200 ease-in-out focus:outline-none shadow-inner relative flex items-center";
+        knob.className = "translate-x-0 w-6 h-6 bg-white rounded-full shadow-md transform transition-transform duration-200 ease-in-out flex items-center justify-center";
+        knob.innerHTML = '<svg class="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
+        label.textContent = "⚪ INACTIVE DAY";
+        desc.textContent = "New work requests are paused";
+        iconContainer.className = "w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center";
+        iconContainer.innerHTML = '<span class="w-3 h-3 rounded-full bg-slate-400"></span>';
+      }
+    }
+  </script>
+
+
+
+
+<script>
+  let selectedDelay = '15m';
+
+  function handleOnTimeAction() {
+    const feedback = document.getElementById('readiness-status-feedback');
+    const actions = document.getElementById('readiness-actions-group');
+    if (feedback) {
+      feedback.className = 'mt-2.5 p-2.5 rounded-xl text-[11px] font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-2';
+      feedback.innerHTML = '<span class="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[10px]">✓</span><span><b>Confirmed ON TIME.</b> Customer notified. Departure countdown active.</span>';
+      feedback.classList.remove('hidden');
+    }
+    if (actions) {
+      actions.innerHTML = '<div class="col-span-3 flex items-center justify-between bg-emerald-100/70 p-2 rounded-xl border border-emerald-200 text-[11px] text-emerald-900 font-medium"><span class="flex items-center gap-1.5 font-bold">🟢 On Schedule for 10:00 AM</span><button onclick="openDelayModal()" class="text-[10px] font-bold text-emerald-800 underline hover:text-emerald-900">Change status</button></div>';
+    }
+  }
+
+  function openDelayModal() {
+    const modal = document.getElementById('delay-modal');
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function closeDelayModal() {
+    const modal = document.getElementById('delay-modal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function selectDelayTime(button, time) {
+    selectedDelay = time;
+    document.querySelectorAll('.delay-time-btn').forEach(btn => {
+      btn.className = 'delay-time-btn py-1.5 text-xs font-semibold rounded-lg border border-slate-200 text-slate-700 bg-white transition';
+    });
+    button.className = 'delay-time-btn py-1.5 text-xs font-bold rounded-lg border border-amber-400 bg-amber-50 text-amber-800 transition';
+  }
+
+  function confirmDelaySubmission() {
+    const feedback = document.getElementById('readiness-status-feedback');
+    const actions = document.getElementById('readiness-actions-group');
+    closeDelayModal();
+    if (feedback) {
+      feedback.className = 'mt-2.5 p-2.5 rounded-xl text-[11px] font-semibold bg-amber-50 text-amber-900 border border-amber-200 flex items-center gap-2';
+      feedback.innerHTML = '<span class="w-4 h-4 rounded-full bg-amber-500 text-white flex items-center justify-center text-[10px]">!</span><span><b>Delay of +' + selectedDelay + ' Reported.</b> Customer updated with revised arrival time.</span>';
+      feedback.classList.remove('hidden');
+    }
+    if (actions) {
+      actions.innerHTML = '<div class="col-span-3 flex items-center justify-between bg-amber-100/70 p-2 rounded-xl border border-amber-200 text-[11px] text-amber-900 font-medium"><span class="flex items-center gap-1.5 font-bold">⚠️ Delayed by +' + selectedDelay + '</span><button onclick="handleOnTimeAction()" class="text-[10px] font-bold text-amber-900 underline hover:text-black">Mark on-time</button></div>';
+    }
+  }
+
+  function openCancelModal() {
+    const modal = document.getElementById('cancel-modal');
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function closeCancelModal() {
+    const modal = document.getElementById('cancel-modal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function confirmCancelSubmission() {
+    const card = document.getElementById('readiness-checkin-card');
+    closeCancelModal();
+    if (card) {
+      card.className = 'bg-rose-50 rounded-2xl p-3 border border-rose-200 shadow-sm transition-all duration-200';
+      card.innerHTML = '<div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xs font-bold">✕</span><div><h4 class="text-xs font-bold text-rose-900">Job #C-4821 Cancelled</h4><p class="text-[10px] text-rose-700">Customer & institution dispatch have been notified.</p></div></div><span class="text-[10px] font-bold text-rose-700 bg-white border border-rose-200 px-2 py-0.5 rounded-full">Logged</span></div>';
+    }
+  }
+</script>
+
+</body></html>

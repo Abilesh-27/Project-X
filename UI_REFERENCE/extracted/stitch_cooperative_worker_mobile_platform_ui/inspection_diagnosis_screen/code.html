@@ -1,0 +1,572 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Inspection &amp; Diagnosis - Customer Service Tracking</title>
+<!-- Tailwind CSS v3 with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- FontAwesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<!-- Custom Style Tag for Layout and Keyframe Animations -->
+<style data-purpose="custom-animations">
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.03); }
+    }
+    .animate-pulse-ring {
+      animation: pulse-subtle 2s infinite ease-in-out;
+    }
+    /* Hide scrollbars on horizontal lists while retaining scroll */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-[#f4f7fb] text-slate-800 font-sans antialiased min-h-screen pb-32 selection:bg-blue-100">
+<!-- BEGIN: MobileDeviceFrame -->
+<div class="max-w-md mx-auto bg-[#f8faff] min-h-screen flex flex-col shadow-2xl relative border-x border-slate-200">
+<!-- BEGIN: TopStatusBar -->
+<div class="bg-[#0b192c] text-white px-5 pt-3 pb-2 flex justify-between items-center text-xs tracking-wider border-b border-slate-800/60" data-purpose="status-bar">
+<span class="font-semibold">9:42 AM</span>
+<div class="flex items-center space-x-2">
+<i class="fa-solid fa-signal text-[11px]"></i>
+<i class="fa-solid fa-wifi text-[11px]"></i>
+<div class="flex items-center space-x-1">
+<span class="text-[11px] font-medium">94%</span>
+<i class="fa-solid fa-battery-full text-emerald-400 text-sm"></i>
+</div>
+</div>
+</div>
+<!-- END: TopStatusBar -->
+<!-- BEGIN: DeepNavyHeader -->
+<header class="bg-[#0b192c] text-white px-4 pt-3 pb-5 relative shadow-md" data-purpose="primary-header">
+<div class="flex items-center justify-between mb-3">
+<!-- Back navigation and title block -->
+<div class="flex items-center space-x-3">
+<button aria-label="Go back" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white active:bg-white/20 transition-colors" type="button">
+<i class="fa-solid fa-arrow-left text-sm"></i>
+</button>
+<div>
+<div class="flex items-center space-x-2">
+<h1 class="text-base font-bold text-white leading-tight">Inspection &amp; Diagnosis</h1>
+</div>
+<p class="text-xs text-slate-300 font-medium">Job #C-4821 • Priya Sharma</p>
+</div>
+</div>
+<!-- Quick actions (Phone & SOS Help) -->
+<div class="flex items-center space-x-2">
+<a aria-label="Call Customer" class="w-9 h-9 rounded-full bg-blue-600/30 border border-blue-400/40 text-blue-300 flex items-center justify-center active:scale-95 transition-transform" href="tel:+919876543210">
+<i class="fa-solid fa-phone text-xs"></i>
+</a>
+<button aria-label="Emergency SOS" class="w-9 h-9 rounded-full bg-rose-500/20 border border-rose-400/30 text-rose-300 flex items-center justify-center active:scale-95 transition-transform" type="button">
+<i class="fa-solid fa-shield-halved text-xs"></i>
+</button>
+</div>
+</div>
+<!-- On-Site Status Badges -->
+<div class="flex items-center flex-wrap gap-2 pt-1 text-xs">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-medium">
+<span class="w-2 h-2 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
+          ON-SITE ACTIVE
+        </span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-slate-700/60 border border-slate-600 text-slate-200 font-medium">
+<i class="fa-solid fa-circle-check text-emerald-400 mr-1.5 text-[11px]"></i>
+          Arrival OTP Verified (02:11 PM)
+        </span>
+<!-- Optional Dev State Toggle -->
+<button class="ml-auto text-[11px] text-blue-300 underline underline-offset-2 opacity-90 hover:opacity-100" id="toggleStateBtn" type="button">
+          Preview Quoting Mode
+        </button>
+</div>
+</header>
+<!-- END: DeepNavyHeader -->
+<!-- BEGIN: WorkflowStepper -->
+<section class="bg-white border-b border-slate-200 px-4 py-3.5 shadow-sm" data-purpose="workflow-stepper">
+<div class="flex items-center justify-between text-[11px] font-semibold text-slate-500 mb-2">
+<span class="text-blue-700 tracking-wide font-bold uppercase text-[10px]">Sequential Workflow</span>
+<span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded text-[10px] font-bold">Strict Progressive Disclosure</span>
+</div>
+<!-- Stepper Item Capsules -->
+<div class="grid grid-cols-4 gap-1.5">
+<!-- Step 1: Completed -->
+<div class="flex flex-col items-center bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 text-center">
+<i class="fa-solid fa-check-circle text-emerald-600 text-sm mb-0.5"></i>
+<span class="text-[10px] font-bold text-emerald-800 leading-tight">1. OTP Check</span>
+<span class="text-[9px] text-emerald-600">Done</span>
+</div>
+<!-- Step 2: Active Inspection -->
+<div class="flex flex-col items-center bg-blue-600 text-white rounded-lg p-1.5 text-center ring-2 ring-blue-400 ring-offset-1 shadow-sm" id="step2Indicator">
+<i class="fa-solid fa-magnifying-glass text-white text-sm mb-0.5 animate-pulse-ring"></i>
+<span class="text-[10px] font-bold leading-tight">2. Inspection</span>
+<span class="text-[9px] text-blue-100 font-medium">Active Now</span>
+</div>
+<!-- Step 3: Locked Quotation -->
+<div class="flex flex-col items-center bg-slate-100 border border-slate-200 rounded-lg p-1.5 text-center opacity-70" id="step3Indicator">
+<i class="fa-solid fa-lock text-slate-400 text-xs mb-0.5" id="step3Icon"></i>
+<span class="text-[10px] font-bold text-slate-700 leading-tight">3. Quotation</span>
+<span class="text-[9px] text-slate-400 font-medium" id="step3Badge">Locked</span>
+</div>
+<!-- Step 4: Locked Approval -->
+<div class="flex flex-col items-center bg-slate-100 border border-slate-200 rounded-lg p-1.5 text-center opacity-70">
+<i class="fa-solid fa-lock text-slate-400 text-xs mb-0.5"></i>
+<span class="text-[10px] font-bold text-slate-700 leading-tight">4. Approval</span>
+<span class="text-[9px] text-slate-400 font-medium">Locked</span>
+</div>
+</div>
+<div class="mt-2.5 text-[11px] text-slate-500 flex items-center justify-between bg-slate-50 px-2 py-1.5 rounded border border-slate-200/70">
+<span class="font-medium text-slate-700"><i class="fa-solid fa-info-circle text-blue-600 mr-1"></i> Stage 2 of 4: Physical Diagnosis</span>
+<span class="text-[10px] text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded font-semibold border border-amber-200/80">Pricing Locked</span>
+</div>
+</section>
+<!-- END: WorkflowStepper -->
+<!-- BEGIN: MainContentArea -->
+<main class="p-4 space-y-4 flex-1">
+<!-- Customer Details Card -->
+<!-- BEGIN: CustomerInfoCard -->
+<section class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm" data-purpose="customer-info">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-3">
+<div class="w-12 h-12 rounded-xl bg-blue-600 text-white font-bold flex items-center justify-center text-base shadow-sm">
+              PS
+            </div>
+<div>
+<div class="flex items-center space-x-2">
+<h2 class="font-bold text-slate-900 text-base">Priya Sharma</h2>
+<span class="bg-emerald-50 text-emerald-700 text-[10px] font-semibold px-2 py-0.5 rounded border border-emerald-200">
+<i class="fa-solid fa-check mr-0.5 text-[9px]"></i> Verified
+                </span>
+</div>
+<p class="text-xs font-semibold text-blue-700 mt-0.5">Plumbing Repair • Sink &amp; Pipe Leakage</p>
+</div>
+</div>
+<!-- Quick Call & Chat Action buttons -->
+<div class="flex space-x-1.5">
+<a class="w-8 h-8 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center hover:bg-slate-200 transition-colors" href="tel:+919876543210" title="Direct Phone Call">
+<i class="fa-solid fa-phone text-xs"></i>
+</a>
+<a class="w-8 h-8 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center hover:bg-slate-200 transition-colors" href="sms:+919876543210" title="SMS Customer">
+<i class="fa-solid fa-message text-xs"></i>
+</a>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t border-slate-100 space-y-1.5 text-xs text-slate-600">
+<div class="flex items-start">
+<i class="fa-solid fa-location-dot text-slate-400 mt-0.5 mr-2 w-3.5 text-center"></i>
+<span>Flat 402, Shivani Apts, Sector 22, Dwarka, New Delhi</span>
+</div>
+<div class="flex items-center">
+<i class="fa-regular fa-clock text-slate-400 mr-2 w-3.5 text-center"></i>
+<span>Agreed Slot: <strong class="text-slate-800">2:00 PM – 3:30 PM</strong> (Arrived at 02:08 PM)</span>
+</div>
+</div>
+</section>
+<!-- END: CustomerInfoCard -->
+<!-- Customer Reported Problem Card -->
+<!-- BEGIN: CustomerReportedProblem -->
+<section class="bg-indigo-50/70 rounded-xl p-4 border border-indigo-100 shadow-sm" data-purpose="customer-reported-issue">
+<div class="flex items-center space-x-2 text-indigo-900 font-bold text-xs uppercase tracking-wide mb-1.5">
+<i class="fa-solid fa-comment-dots text-indigo-600 text-sm"></i>
+<h3>Customer Reported Issue</h3>
+</div>
+<div class="bg-white/90 p-3 rounded-lg border border-indigo-100 text-slate-700 text-xs leading-relaxed italic relative">
+<i class="fa-solid fa-quote-left text-indigo-200 absolute -top-1 -left-1 text-base"></i>
+          “Kitchen sink drain pipe leak and water seepage under cabinet with damp odor. Water pools whenever faucet runs for more than 30 seconds.”
+        </div>
+</section>
+<!-- END: CustomerReportedProblem -->
+<!-- Customer Attached Photos (Pre-visit reference) -->
+<!-- BEGIN: CustomerProblemPhotos -->
+<section class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm" data-purpose="customer-photos">
+<div class="flex items-center justify-between mb-2.5">
+<div>
+<h3 class="font-bold text-slate-900 text-sm flex items-center">
+<i class="fa-regular fa-images text-blue-600 mr-2"></i>
+              Customer Attached Photos
+              <span class="ml-1.5 text-xs font-normal text-slate-500">(2)</span>
+</h3>
+<p class="text-[11px] text-slate-500">Uploaded by Priya Sharma prior to technician arrival</p>
+</div>
+<button class="text-xs font-semibold text-blue-600 hover:text-blue-800" type="button">View Full</button>
+</div>
+<!-- Photos Grid -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Customer Photo 1 -->
+<div class="group relative rounded-lg overflow-hidden border border-slate-200 bg-slate-900">
+<img alt="Under-sink PVC joint &amp; valve leakage" class="w-full h-28 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" src="https://lh3.googleusercontent.com/aida/AEtjO1VuHt6mm7XKNWqwdQSZ7gPXVjrE7D_cd902dRMHXoDKy-wIaE1pJQnQW4DeOs3bN6oucqe-qtPwX1BGtIDR6inx0h9ZFVhoAcd36uTgl_-wpM2IL-I52TuMKlcIUE4aA0ZwfSEGMI3b3s0gtpIDFTbxoMQ9BPXFOYuM8WeT3_2yGnfmuu9dABsUYePYF_EH3o9DV3K6ysrgZkv3bKVH0TLYGKdvNpLjVy3mff5OXHuqSG55-m-0OSPLfkc">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none"></div>
+<span class="absolute bottom-1.5 left-2 right-2 text-[10px] text-white font-medium leading-tight line-clamp-2">
+              Under-sink PVC joint &amp; valve leakage
+            </span>
+<div class="absolute top-1.5 right-1.5 bg-black/60 text-white rounded p-1 text-[10px]">
+<i class="fa-solid fa-magnifying-glass-plus"></i>
+</div>
+</div>
+<!-- Customer Photo 2 -->
+<div class="group relative rounded-lg overflow-hidden border border-slate-200 bg-slate-900">
+<img alt="Trap pipe leakage stain &amp; corrosion" class="w-full h-28 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" src="https://lh3.googleusercontent.com/aida/AEtjO1VYp_1XK1iryywTy-i0lRO8aZ2zluaVsYuNSAPanb0lpPu4CVL1wuxxfyuUvq5_RDr4R6Lhbk2m6y02JKQMglA1d6VO0gmOdb0237neE-sFSy2tcUqaCpjVrLsUf0fFCdXOsOQ5UYAQuCvaOvsRf5ErByNHII-fV3Cz4Q__ZKAOZ6BV17TKODSujh0hDysfH79DAuPShdvK3v706eo537_PG-mh46pAzMYdPoiq2yQePlgVmn2-_5IQeSs">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none"></div>
+<span class="absolute bottom-1.5 left-2 right-2 text-[10px] text-white font-medium leading-tight line-clamp-2">
+              Trap pipe leakage stain &amp; corrosion
+            </span>
+<div class="absolute top-1.5 right-1.5 bg-black/60 text-white rounded p-1 text-[10px]">
+<i class="fa-solid fa-magnifying-glass-plus"></i>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CustomerProblemPhotos -->
+<!-- On-Site Worker Technical Diagnosis Section -->
+<!-- BEGIN: WorkerInspectionFindings -->
+<section class="bg-white rounded-xl p-4 border-2 border-blue-500/40 shadow-sm" data-purpose="technician-diagnosis">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center space-x-2">
+<span class="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs">
+<i class="fa-solid fa-wrench"></i>
+</span>
+<div>
+<h3 class="text-sm font-bold text-slate-900">Worker Inspection Findings</h3>
+<p class="text-[11px] text-slate-500">Official technical diagnosis at location</p>
+</div>
+</div>
+<span class="text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded">
+<i class="fa-solid fa-pen-to-square text-[9px] mr-1"></i>EDITABLE
+          </span>
+</div>
+<form class="space-y-3.5" id="inspectionForm" onsubmit="event.preventDefault();">
+<!-- Field 1: Observed Physical Defect -->
+<div>
+<label class="block text-xs font-bold text-slate-700 mb-1">
+              Observed Physical Defect / Root Cause <span class="text-rose-500">*</span>
+</label>
+<textarea class="w-full text-xs text-slate-800 bg-slate-50 rounded-lg border-slate-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 font-mono leading-relaxed" placeholder="Describe the physical failure in detail..." rows="3">Hairline fracture across 32mm PVC P-Trap collar junction; severely degraded compression washer gasket causing continuous seepage into lower cabinetry under active line pressure.</textarea>
+</div>
+<!-- Field 2: Severity Selector -->
+<div>
+<label class="block text-xs font-bold text-slate-700 mb-1.5">
+              Diagnosis Severity Level
+            </label>
+<div class="grid grid-cols-3 gap-2">
+<button class="py-1.5 px-2 rounded-lg text-xs font-medium border border-slate-200 text-slate-600 bg-white hover:bg-slate-50" type="button">
+                Low (Drip)
+              </button>
+<button class="py-1.5 px-2 rounded-lg text-xs font-bold border-2 border-amber-500 bg-amber-50 text-amber-900 flex items-center justify-center" type="button">
+<span class="w-2 h-2 rounded-full bg-amber-500 mr-1.5"></span>
+                Active Leak
+              </button>
+<button class="py-1.5 px-2 rounded-lg text-xs font-medium border border-slate-200 text-slate-600 bg-white hover:bg-slate-50" type="button">
+                Shutoff Urgent
+              </button>
+</div>
+</div>
+<!-- Field 3: Recommended Solution -->
+<div>
+<label class="block text-xs font-bold text-slate-700 mb-1">
+              Required Technical Corrective Action <span class="text-rose-500">*</span>
+</label>
+<div class="p-2.5 rounded-lg bg-blue-50/50 border border-blue-200/80 text-xs text-slate-800 leading-normal">
+              Replace cracked 32mm heavy-duty P-trap assembly, install new commercial silicone gasket, apply anti-fungal waterproof sealant tape, and test flow under 5-minute continuous run.
+            </div>
+</div>
+<!-- Field 4: Technical Site Notes -->
+<div>
+<label class="block text-xs font-bold text-slate-700 mb-1">
+              On-Site Observations &amp; Pre-requisites
+            </label>
+<input class="w-full text-xs text-slate-800 bg-slate-50 rounded-lg border-slate-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-600" type="text" value="Main shutoff valve in working condition. Cabinet wood has minor dampness; dry before seal.">
+</div>
+</form>
+</section>
+<!-- END: WorkerInspectionFindings -->
+<!-- On-Site Technician Proof Photos Section -->
+<!-- BEGIN: InspectionProofPhotos -->
+<section class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm" data-purpose="technician-proof-photos">
+<div class="flex items-center justify-between mb-2">
+<div>
+<h3 class="font-bold text-slate-900 text-sm flex items-center">
+<i class="fa-solid fa-camera text-blue-600 mr-2"></i>
+              Technician Live Proof Photos
+              <span class="ml-1.5 text-xs font-semibold text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200">2 Attached</span>
+</h3>
+<p class="text-[11px] text-slate-500">Live physical evidence captured on-site</p>
+</div>
+</div>
+<div class="bg-amber-50/70 border border-amber-200/70 rounded-lg p-2.5 mb-3 text-[11px] text-amber-900 flex items-start">
+<i class="fa-solid fa-shield-cat text-amber-600 mt-0.5 mr-2 text-xs"></i>
+<span>These photos verify the pre-repair damaged state to avoid disputes before parts are dismantled.</span>
+</div>
+<!-- Thumbnail Grid for Technician Photos -->
+<div class="grid grid-cols-3 gap-2.5">
+<!-- Proof 1 with timestamp stamp -->
+<div class="relative rounded-lg overflow-hidden border border-slate-300 bg-slate-800 aspect-square group">
+<img alt="Collar crack closeup" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VuHt6mm7XKNWqwdQSZ7gPXVjrE7D_cd902dRMHXoDKy-wIaE1pJQnQW4DeOs3bN6oucqe-qtPwX1BGtIDR6inx0h9ZFVhoAcd36uTgl_-wpM2IL-I52TuMKlcIUE4aA0ZwfSEGMI3b3s0gtpIDFTbxoMQ9BPXFOYuM8WeT3_2yGnfmuu9dABsUYePYF_EH3o9DV3K6ysrgZkv3bKVH0TLYGKdvNpLjVy3mff5OXHuqSG55-m-0OSPLfkc">
+<span class="absolute bottom-1 left-1 bg-black/75 text-white text-[9px] font-mono px-1 py-0.5 rounded leading-none">
+              10:14 AM
+            </span>
+<button class="absolute top-1 right-1 bg-rose-600 text-white rounded-full w-4 h-4 flex items-center justify-center text-[8px]" title="Remove photo" type="button">
+<i class="fa-solid fa-xmark"></i>
+</button>
+</div>
+<!-- Proof 2 with timestamp stamp -->
+<div class="relative rounded-lg overflow-hidden border border-slate-300 bg-slate-800 aspect-square group">
+<img alt="Water level mark closeup" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VYp_1XK1iryywTy-i0lRO8aZ2zluaVsYuNSAPanb0lpPu4CVL1wuxxfyuUvq5_RDr4R6Lhbk2m6y02JKQMglA1d6VO0gmOdb0237neE-sFSy2tcUqaCpjVrLsUf0fFCdXOsOQ5UYAQuCvaOvsRf5ErByNHII-fV3Cz4Q__ZKAOZ6BV17TKODSujh0hDysfH79DAuPShdvK3v706eo537_PG-mh46pAzMYdPoiq2yQePlgVmn2-_5IQeSs">
+<span class="absolute bottom-1 left-1 bg-black/75 text-white text-[9px] font-mono px-1 py-0.5 rounded leading-none">
+              10:17 AM
+            </span>
+<button class="absolute top-1 right-1 bg-rose-600 text-white rounded-full w-4 h-4 flex items-center justify-center text-[8px]" title="Remove photo" type="button">
+<i class="fa-solid fa-xmark"></i>
+</button>
+</div>
+<!-- Add Photo Slot Button -->
+<button class="border-2 border-dashed border-blue-300 bg-blue-50/40 rounded-lg flex flex-col items-center justify-center text-blue-600 p-2 hover:bg-blue-50 transition-colors aspect-square" type="button">
+<i class="fa-solid fa-plus text-base mb-1"></i>
+<span class="text-[10px] font-bold text-center leading-tight">Add Photo</span>
+<span class="text-[8px] text-slate-400 mt-0.5">(Max 4)</span>
+</button>
+</div>
+<!-- Camera / File Action Buttons -->
+<div class="grid grid-cols-2 gap-2 mt-3">
+<button class="flex items-center justify-center space-x-1.5 py-2 px-3 rounded-lg border border-slate-300 bg-white text-xs font-semibold text-slate-700 hover:bg-slate-50 active:bg-slate-100 shadow-sm" type="button">
+<i class="fa-solid fa-camera text-blue-600"></i>
+<span>Take Camera Shot</span>
+</button>
+<button class="flex items-center justify-center space-x-1.5 py-2 px-3 rounded-lg border border-slate-300 bg-white text-xs font-semibold text-slate-700 hover:bg-slate-50 active:bg-slate-100 shadow-sm" type="button">
+<i class="fa-regular fa-folder-open text-slate-600"></i>
+<span>Upload File</span>
+</button>
+</div>
+</section>
+<!-- END: InspectionProofPhotos -->
+<!-- PREVIEW OF POST-INSPECTION QUOTATION BUILDER (Initially hidden until unlocked by inspection completion) -->
+<!-- BEGIN: UnlockedQuotationSection -->
+<section class="hidden transition-all duration-500 space-y-4" data-purpose="unlocked-quotation-flow" id="unlockedQuotationContainer">
+<!-- Stage Transition Alert Banner -->
+<div class="bg-emerald-600 text-white p-3.5 rounded-xl shadow-md flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-full bg-white text-emerald-700 flex items-center justify-center font-bold text-sm">
+<i class="fa-solid fa-check"></i>
+</div>
+<div>
+<p class="text-xs font-bold">Stage 2 Inspection Completed!</p>
+<p class="text-[11px] text-emerald-100">Quotation Creation has been unlocked.</p>
+</div>
+</div>
+<span class="text-[10px] bg-emerald-800/60 font-semibold px-2 py-1 rounded">Stage 3 of 4</span>
+</div>
+<!-- Worker Fixed On-Site Visit Fee info -->
+<div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm flex items-center justify-between text-xs">
+<div class="flex items-center space-x-2.5">
+<div class="w-7 h-7 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs">
+<i class="fa-solid fa-user-shield"></i>
+</div>
+<div>
+<span class="font-bold text-slate-800 block">Worker On-Site Visit Fee</span>
+<span class="text-[10px] text-slate-500">Locked after customer arrival. 100% retained.</span>
+</div>
+</div>
+<span class="font-bold text-sm text-slate-900">₹150.00</span>
+</div>
+<!-- Quotation Form Accordion Card -->
+<div class="bg-white rounded-xl p-4 border border-blue-200 shadow-md space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-xs uppercase tracking-wide">
+<i class="fa-solid fa-file-invoice-dollar text-blue-600 mr-1.5"></i>
+              Itemized Quotation Breakdown
+            </h4>
+<span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">INR (₹)</span>
+</div>
+<!-- 1. Labour / Service Charge -->
+<div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-xs space-y-2">
+<div class="flex justify-between items-center font-bold text-slate-800">
+<span>1. Labour / Service Charge</span>
+<span class="text-blue-700">Worker Editable</span>
+</div>
+<div class="text-[11px] text-slate-600">Sanitary P-Trap Dismantling, Gasket Fitment &amp; Run Test</div>
+<div class="flex items-center justify-between pt-1">
+<span class="text-slate-500 text-[11px]">Worker Quoted Labour:</span>
+<span class="font-bold text-slate-900 text-sm">₹350.00</span>
+</div>
+</div>
+<!-- 2. Material Cost Itemized -->
+<div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-xs space-y-2">
+<div class="flex justify-between items-center font-bold text-slate-800">
+<span>2. Material Cost (Itemized)</span>
+<span class="text-[10px] text-slate-500 font-normal">2 items</span>
+</div>
+<div class="flex justify-between text-[11px] border-b border-slate-200/60 pb-1">
+<span class="text-slate-700">• Heavy-duty 32mm PVC P-Trap</span>
+<span class="font-semibold text-slate-900">₹220.00</span>
+</div>
+<div class="flex justify-between text-[11px]">
+<span class="text-slate-700">• High-Grade Silicone Sealant &amp; Tape</span>
+<span class="font-semibold text-slate-900">₹80.00</span>
+</div>
+<div class="flex justify-between items-center pt-1 border-t border-slate-200 font-medium text-[11px]">
+<span class="text-slate-600">Materials Subtotal:</span>
+<span class="font-bold text-slate-900">₹300.00</span>
+</div>
+</div>
+<!-- Calculation Summary Table -->
+<div class="bg-slate-900 text-white rounded-xl p-3.5 space-y-2 text-xs">
+<div class="flex justify-between text-slate-300 text-[11px]">
+<span>Service Subtotal (Labour ₹350 + Materials ₹300):</span>
+<span class="text-white font-medium">₹650.00</span>
+</div>
+<div class="flex justify-between text-slate-300 text-[11px]">
+<span>Worker On-Site Visit Fee:</span>
+<span class="text-white font-medium">₹150.00</span>
+</div>
+<div class="flex justify-between text-slate-300 text-[11px] pb-1 border-b border-slate-800">
+<span>Platform Fee (10% on Service ₹650):</span>
+<span class="text-emerald-400 font-medium">+₹65.00</span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<div>
+<span class="font-bold text-sm block">TOTAL CUSTOMER PAYS</span>
+<span class="text-[10px] text-slate-400">Includes all taxes, materials &amp; visit fee</span>
+</div>
+<span class="font-extrabold text-xl text-emerald-400">₹865.00</span>
+</div>
+</div>
+<!-- Final Send Quotation Button -->
+<button class="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-xs rounded-lg shadow-lg flex items-center justify-center space-x-2 transition-all" type="button">
+<i class="fa-solid fa-paper-plane"></i>
+<span>SEND QUOTATION TO CUSTOMER — ₹865</span>
+</button>
+</div>
+</section>
+<!-- END: UnlockedQuotationSection -->
+</main>
+<!-- END: MainContentArea -->
+<!-- BEGIN: StickyBottomActionTray -->
+<!-- Pure inspection state tray until completed -->
+<div class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-3 shadow-[0_-8px_20px_rgba(0,0,0,0.08)] z-30" data-purpose="sticky-action-footer" id="inspectionStickyTray">
+<div class="flex items-center justify-between text-[11px] text-slate-600 mb-1.5">
+<span class="flex items-center font-medium">
+<i class="fa-solid fa-circle-arrow-right text-blue-600 mr-1.5"></i>
+          Next: Complete inspection to unlock quotation
+        </span>
+<span class="font-bold text-slate-800">Stage 2 / 4</span>
+</div>
+<div class="flex items-center space-x-2">
+<!-- Call quick dialer -->
+<a class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-300 text-slate-700 flex items-center justify-center active:scale-95 transition-transform" href="tel:+919876543210" title="Call Customer">
+<i class="fa-solid fa-phone text-sm"></i>
+</a>
+<!-- Primary Action Button: Complete Inspection -->
+<button class="flex-1 h-12 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-sm rounded-xl shadow-md hover:shadow-lg flex items-center justify-center space-x-2 active:scale-[0.99] transition-all" id="completeInspectionBtn" type="button">
+<i class="fa-regular fa-circle-check text-base"></i>
+<span id="completeBtnText">COMPLETE INSPECTION ➔</span>
+</button>
+</div>
+<p class="text-[10px] text-center text-slate-400 mt-2 font-medium" id="helperText">
+        Completing inspection unlocks the Service Quotation phase without premature pricing.
+      </p>
+</div>
+<!-- END: StickyBottomActionTray -->
+</div>
+<!-- END: MobileDeviceFrame -->
+<!-- BEGIN: InteractionScript -->
+<script data-purpose="inspection-flow-controller">
+    document.addEventListener('DOMContentLoaded', () => {
+      const completeBtn = document.getElementById('completeInspectionBtn');
+      const completeText = document.getElementById('completeBtnText');
+      const quotationContainer = document.getElementById('unlockedQuotationContainer');
+      const step2Indicator = document.getElementById('step2Indicator');
+      const step3Indicator = document.getElementById('step3Indicator');
+      const step3Icon = document.getElementById('step3Icon');
+      const step3Badge = document.getElementById('step3Badge');
+      const helperText = document.getElementById('helperText');
+      const toggleStateBtn = document.getElementById('toggleStateBtn');
+
+      let isCompleted = false;
+
+      function unlockQuotationStage() {
+        isCompleted = true;
+
+        // Animate primary button to completed state
+        completeBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+        completeBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+        completeText.innerHTML = '✓ INSPECTION COMPLETED';
+
+        // Update Stepper visually
+        step2Indicator.classList.remove('bg-blue-600', 'ring-2', 'ring-blue-400');
+        step2Indicator.classList.add('bg-emerald-50', 'border', 'border-emerald-200', 'text-emerald-800');
+        step2Indicator.innerHTML = `
+          <i class="fa-solid fa-check-circle text-emerald-600 text-sm mb-0.5"></i>
+          <span class="text-[10px] font-bold text-emerald-800 leading-tight">2. Inspected</span>
+          <span class="text-[9px] text-emerald-600 font-medium">Done</span>
+        `;
+
+        // Unlock Step 3
+        step3Indicator.classList.remove('opacity-70', 'bg-slate-100');
+        step3Indicator.classList.add('bg-blue-600', 'text-white', 'ring-2', 'ring-blue-400', 'shadow-sm');
+        step3Indicator.innerHTML = `
+          <i class="fa-solid fa-file-invoice text-white text-sm mb-0.5"></i>
+          <span class="text-[10px] font-bold leading-tight">3. Quotation</span>
+          <span class="text-[9px] text-blue-100 font-medium">Active Now</span>
+        `;
+
+        // Unhide Quotation Container and smooth scroll
+        quotationContainer.classList.remove('hidden');
+        quotationContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        helperText.innerText = 'Inspection recorded. Review itemized parts & labour to dispatch quote.';
+        toggleStateBtn.innerText = 'Switch to Pure Inspection View';
+      }
+
+      function resetToInspectionStage() {
+        isCompleted = false;
+
+        // Reset primary button
+        completeBtn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+        completeBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+        completeText.innerHTML = 'COMPLETE INSPECTION ➔';
+
+        // Reset Stepper
+        step2Indicator.className = 'flex flex-col items-center bg-blue-600 text-white rounded-lg p-1.5 text-center ring-2 ring-blue-400 ring-offset-1 shadow-sm';
+        step2Indicator.innerHTML = `
+          <i class="fa-solid fa-magnifying-glass text-white text-sm mb-0.5 animate-pulse-ring"></i>
+          <span class="text-[10px] font-bold leading-tight">2. Inspection</span>
+          <span class="text-[9px] text-blue-100 font-medium">Active Now</span>
+        `;
+
+        step3Indicator.className = 'flex flex-col items-center bg-slate-100 border border-slate-200 rounded-lg p-1.5 text-center opacity-70';
+        step3Indicator.innerHTML = `
+          <i class="fa-solid fa-lock text-slate-400 text-xs mb-0.5"></i>
+          <span class="text-[10px] font-bold text-slate-700 leading-tight">3. Quotation</span>
+          <span class="text-[9px] text-slate-400 font-medium">Locked</span>
+        `;
+
+        // Hide quotation
+        quotationContainer.classList.add('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        helperText.innerText = 'Completing inspection unlocks the Service Quotation phase without premature pricing.';
+        toggleStateBtn.innerText = 'Preview Quoting Mode';
+      }
+
+      // Action button triggers progressive unlock
+      completeBtn.addEventListener('click', () => {
+        if (!isCompleted) {
+          unlockQuotationStage();
+        } else {
+          // If already unlocked, scroll to quotation
+          quotationContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+
+      // Quick toggle in header for developer/reviewer testing
+      toggleStateBtn.addEventListener('click', () => {
+        if (!isCompleted) {
+          unlockQuotationStage();
+        } else {
+          resetToInspectionStage();
+        }
+      });
+    });
+  </script>
+<!-- END: InteractionScript -->
+</body></html>

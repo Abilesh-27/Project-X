@@ -1,0 +1,453 @@
+<!DOCTYPE html><html lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#f8f9ff;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'on-tertiary': '#ffffff', 'surface-variant': '#d3e4fe', 'secondary-fixed-dim': '#bec6e0', 'inverse-surface': '#213145', 'on-background': '#0b1c30', 'on-primary': '#ffffff', 'error': '#ba1a1a', 'primary-fixed': '#dbe1ff', 'primary-fixed-dim': '#b5c4ff', 'on-secondary-container': '#5c647a', 'secondary': '#565e74', 'on-primary-fixed-variant': '#003dab', 'outline-variant': '#c3c5d7', 'on-tertiary-fixed': '#002114', 'background': '#f8f9ff', 'primary': '#003fb1', 'on-primary-container': '#d4dcff', 'surface-container-highest': '#d3e4fe', 'on-secondary-fixed-variant': '#3f465c', 'tertiary-fixed-dim': '#68dba9', 'surface-container': '#e5eeff', 'surface-container-low': '#eff4ff', 'error-container': '#ffdad6', 'surface-tint': '#1353d8', 'primary-container': '#1a56db', 'on-surface': '#0b1c30', 'surface-bright': '#f8f9ff', 'surface-container-lowest': '#ffffff', 'surface-container-high': '#dce9ff', 'secondary-fixed': '#dae2fd', 'on-tertiary-fixed-variant': '#005137', 'outline': '#737686', 'on-error-container': '#93000a', 'inverse-on-surface': '#eaf1ff', 'surface-dim': '#cbdbf5', 'tertiary-container': '#006f4d', 'tertiary-fixed': '#85f8c4', 'surface': '#f8f9ff', 'secondary-container': '#dae2fd', 'on-error': '#ffffff', 'on-tertiary-container': '#7ff2be', 'on-surface-variant': '#434654', 'on-primary-fixed': '#00174d', 'tertiary': '#005439', 'inverse-primary': '#b5c4ff', 'on-secondary': '#ffffff', 'on-secondary-fixed': '#131b2e' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'space-md': '1rem', 'space-lg': '1.25rem', 'space-2xl': '2rem', 'margin-screen': '1rem', 'space-3xl': '2.5rem', 'gutter-grid': '0.75rem', 'space-xl': '1.5rem', 'space-sm': '0.75rem', 'space-xs': '0.5rem', 'space-xxs': '0.25rem' }, fontFamily: { 'headline-sm': ['Inter'], 'label-md': ['Inter'], 'headline-lg': ['Inter'], 'body-sm': ['Inter'], 'title-md': ['Inter'], 'body-lg': ['Inter'], 'headline-md': ['Inter'], 'body-md': ['Inter'], 'metric-display': ['Inter'], 'label-lg': ['Inter'], 'label-sm': ['Inter'] }, fontSize: { 'headline-sm': ['18px', { lineHeight: '24px', letterSpacing: '-0.01em', fontWeight: '600' }], 'label-md': ['11px', { lineHeight: '14px', letterSpacing: '0.03em', fontWeight: '600' }], 'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.02em', fontWeight: '700' }], 'body-sm': ['12px', { lineHeight: '16px', fontWeight: '400' }], 'title-md': ['16px', { lineHeight: '22px', letterSpacing: '-0.005em', fontWeight: '600' }], 'body-lg': ['15px', { lineHeight: '22px', fontWeight: '400' }], 'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.015em', fontWeight: '700' }], 'body-md': ['13px', { lineHeight: '18px', fontWeight: '400' }], 'metric-display': ['20px', { lineHeight: '24px', letterSpacing: '-0.02em', fontWeight: '700' }], 'label-lg': ['13px', { lineHeight: '16px', letterSpacing: '0.01em', fontWeight: '600' }], 'label-sm': ['10px', { lineHeight: '12px', letterSpacing: '0.05em', fontWeight: '700' }] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(11,28,48,0.04)]"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[24px]">token</span></div><h1 class="font-title-md text-title-md font-bold text-on-surface tracking-wide uppercase">OTP Verification</h1><div class="flex items-center gap-space-xs"><button class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col w-full px-space-md pt-16 pb-24 bg-surface"><div class="flex flex-col w-full gap-space-md">
+<!-- TOP WORKFLOW CONTEXT BAR -->
+<div class="bg-inverse-surface text-inverse-on-surface rounded-xl p-space-md shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<button aria-label="Go Back" class="w-9 h-9 rounded-full bg-surface-container-high/20 flex items-center justify-center text-inverse-on-surface active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div>
+<div class="flex items-center gap-space-xxs">
+<span class="font-headline-sm text-headline-sm tracking-tight text-surface-container-lowest">Verify Arrival</span>
+<span class="bg-surface-container-high/30 text-surface-container-lowest px-2 py-0.5 rounded text-[10px] font-bold tracking-wider" id="jobRefBadge">#C-4821</span>
+</div>
+<span class="font-body-sm text-body-sm text-surface-variant flex items-center gap-1 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></span>
+            Physical Geofence Acquired
+          </span>
+</div>
+</div>
+<!-- Quick Contact / Status action -->
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1 bg-tertiary-container text-on-tertiary px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wide">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed"></span>
+          ARRIVED
+        </span>
+<button aria-label="Call Customer" class="w-9 h-9 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-sm active:scale-95 transition-transform" id="callTriggerBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</button>
+</div>
+</div>
+<!-- Mode Selector: Customer Job vs Institution Assignment -->
+<div class="grid grid-cols-2 p-1 bg-surface-container-high/15 rounded-lg text-center">
+<button class="py-1.5 rounded-md font-label-md text-label-md transition-all bg-surface-container-lowest text-primary shadow-sm" id="tabCustomer" type="button">
+        Customer On-Site
+      </button>
+<button class="py-1.5 rounded-md font-label-md text-label-md transition-all text-inverse-on-surface/70 hover:text-inverse-on-surface" id="tabInstitution" type="button">
+        Institution Site
+      </button>
+</div>
+</div>
+<!-- COMPACT WORKFLOW STEPPER -->
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex items-center justify-between">
+<!-- Step 1 -->
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">Step 1</span>
+<span class="font-body-sm text-body-sm text-secondary leading-none">Arrived</span>
+</div>
+</div>
+<div class="h-0.5 flex-1 mx-2 bg-primary-container"></div>
+<!-- Step 2 -->
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-sm" id="step2IconBox">
+<span class="material-symbols-outlined text-[14px]">pin</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary font-bold">Step 2</span>
+<span class="font-body-sm text-body-sm text-primary font-semibold leading-none" id="step2Label">OTP Verify</span>
+</div>
+</div>
+<div class="h-0.5 flex-1 mx-2 bg-surface-container-highest"></div>
+<!-- Step 3 -->
+<div class="flex items-center gap-2 opacity-60">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest text-secondary flex items-center justify-center" id="step3IconBox">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">Step 3</span>
+<span class="font-body-sm text-body-sm text-secondary leading-none" id="step3Label">Inspection</span>
+</div>
+</div>
+</div>
+<!-- ARRIVAL & GPS AUDIT STRIP -->
+<div class="bg-tertiary-fixed/30 rounded-xl p-space-sm shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="">Arrived at verified location coordinates</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-bold px-2 py-0.5 bg-surface-container-lowest/80 rounded-full">
+        25 m away
+      </span>
+</div>
+<div class="grid grid-cols-2 text-on-surface-variant font-body-sm text-body-sm pt-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">schedule</span>
+<span class="">10:15 AM (On Schedule)</span>
+</div>
+<div class="flex items-center gap-1 justify-end">
+<span class="material-symbols-outlined text-[16px] text-tertiary">fmd_good</span>
+<span class="truncate">Tolerance &lt;50m Validated</span>
+</div>
+</div>
+</div>
+<!-- JOB & LOCATION PROFILE CARD -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="relative w-12 h-12 rounded-xl overflow-hidden shadow-inner flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close up professional portrait of Indian woman client with friendly expression in bright modern residential apartment hallway, daylighting, crisp natural colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtstNVdW2ZrgiZQg8I8omeEXay7Sp1lC2ZI74lu3um4rGdlY_i63V1JZWcRR4MwqrfFAnqPg7F150ljPFazZWZIva7CcRQakHnczLXR5gcUWiWXhkRsWM792ZZkyyGsFkR5YZi3GizMzlOHBHtRZnfYv8gfn6Lvj3fLDtx647DTxX7Z2jvTwsMQTXZqkunJAPwVrlEWCbn_KSxe06G64VUVDbkSzSNoPI9KE81hxLm7KMzb0Pm7inb">
+</div>
+<div>
+<div class="flex items-center gap-1">
+<h2 class="font-title-md text-title-md text-on-surface leading-tight" id="recipientName">Priya Sharma</h2>
+<span class="material-symbols-outlined text-primary text-[18px]" title="Verified Recipient">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary" id="jobHeadline">Plumbing Repair • Kitchen Drainage</p>
+</div>
+</div>
+<span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-2.5 py-1 rounded-full uppercase tracking-wider" id="serviceCategoryPill">CUSTOMER SITE</span>
+</div>
+<!-- Metadata Details -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-1.5">
+<div class="flex items-start gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px] flex-shrink-0 mt-0.5">location_on</span>
+<span class="text-on-surface" id="siteAddress">Flat 402, Shivani Apts, Sector 22, Dwarka, New Delhi</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-secondary text-[18px] flex-shrink-0">calendar_today</span>
+<span class="">Today • 10:00 AM – 11:30 AM Slot</span>
+</div>
+</div>
+</div>
+<!-- OTP VERIFICATION INTERACTIVE MODULE -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<!-- Header inside OTP section -->
+<div class="flex flex-col gap-1 text-center items-center">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined text-[22px]">password</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Enter Service OTP</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs" id="otpInstructionText">Ask <span class="font-semibold text-on-surface">Priya Sharma</span> for the 6-digit code sent to registered mobile <span class="font-semibold text-on-surface">••••• 4821</span>.</p>
+</div>
+<!-- Interactive OTP Box Grid -->
+<div class="flex flex-col items-center gap-space-xs">
+<div class="grid grid-cols-6 gap-2 w-full max-w-[340px]" id="otpGrid">
+<input class="otp-box w-full aspect-square text-center font-metric-display text-metric-display text-on-surface bg-surface-container-low rounded-lg outline-none focus:bg-surface-container-lowest focus:shadow-sm focus:text-primary transition-all duration-150" data-index="0" inputmode="numeric" maxlength="1" type="text" value="4">
+<input class="otp-box w-full aspect-square text-center font-metric-display text-metric-display text-on-surface bg-surface-container-low rounded-lg outline-none focus:bg-surface-container-lowest focus:shadow-sm focus:text-primary transition-all duration-150" data-index="1" inputmode="numeric" maxlength="1" type="text" value="8">
+<input class="otp-box w-full aspect-square text-center font-metric-display text-metric-display text-on-surface bg-surface-container-low rounded-lg outline-none focus:bg-surface-container-lowest focus:shadow-sm focus:text-primary transition-all duration-150" data-index="2" inputmode="numeric" maxlength="1" type="text" value="2">
+<input class="otp-box w-full aspect-square text-center font-metric-display text-metric-display text-on-surface bg-surface-container-low rounded-lg outline-none focus:bg-surface-container-lowest focus:shadow-sm focus:text-primary transition-all duration-150" data-index="3" inputmode="numeric" maxlength="1" type="text" value="1">
+<input class="otp-box w-full aspect-square text-center font-metric-display text-metric-display text-on-surface bg-surface-container-low rounded-lg outline-none focus:bg-surface-container-lowest focus:shadow-sm focus:text-primary transition-all duration-150" data-index="4" inputmode="numeric" maxlength="1" placeholder="•" type="text" value="">
+<input class="otp-box w-full aspect-square text-center font-metric-display text-metric-display text-on-surface bg-surface-container-low rounded-lg outline-none focus:bg-surface-container-lowest focus:shadow-sm focus:text-primary transition-all duration-150" data-index="5" inputmode="numeric" maxlength="1" placeholder="•" type="text" value="">
+</div>
+<!-- Quick Numeric Keypad Shortcut Helper -->
+<p class="font-body-sm text-body-sm text-secondary text-center mt-1">
+        Tap any box to edit. Fast paste supported.
+      </p>
+</div>
+<!-- Timer, Resend and Alternative Delivery Options -->
+<div class="flex flex-col gap-2 pt-1">
+<div class="flex items-center justify-between text-body-sm font-body-sm px-1">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[18px] text-primary">timer</span>
+<span class="">Expires in <span class="font-bold text-on-surface" id="countdownTimer">00:00</span></span>
+</div>
+<button class="font-label-md text-label-md text-primary font-bold hover:underline active:opacity-75" id="btnResend" type="button">
+          Resend OTP
+        </button>
+</div>
+<div class="bg-surface-container-low rounded-lg p-space-xs flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-secondary">chat</span>
+<span class="font-body-sm text-body-sm text-on-surface">No SMS received?</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface text-[11px] font-semibold flex items-center gap-1 shadow-sm active:scale-95 transition-transform" id="btnSendWhatsapp" type="button">
+<span class="material-symbols-outlined text-[14px] text-tertiary">send</span>
+            WhatsApp
+          </button>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface text-[11px] font-semibold flex items-center gap-1 shadow-sm active:scale-95 transition-transform" id="btnCallCode" type="button">
+<span class="material-symbols-outlined text-[14px] text-primary">phone_in_talk</span>
+            Voice Call
+          </button>
+</div>
+</div>
+</div>
+<!-- ERROR BANNER (Simulated state toggleable via simulator strip) -->
+<div class="hidden flex items-start gap-2.5 bg-error-container text-on-error-container p-space-sm rounded-lg" id="errorBanner">
+<span class="material-symbols-outlined text-[20px] text-error flex-shrink-0">error</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-error">Incorrect 6-Digit OTP</span>
+<span class="font-body-sm text-body-sm">The code does not match customer's live token. Please check with customer and retry (2 attempts left).</span>
+</div>
+</div>
+<!-- SUCCESS BANNER & AUDIT SUMMARY (Revealed on valid OTP) -->
+<div class="hidden flex flex-col gap-2.5 bg-surface-container p-space-sm rounded-xl" id="successPanel">
+<div class="flex items-center gap-2 text-tertiary">
+<span class="material-symbols-outlined text-[22px]">verified</span>
+<span class="font-title-md text-title-md font-bold" id="successBannerTitle">ARRIVAL VERIFIED • OTP MATCHED</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-body-sm font-body-sm text-on-surface bg-surface-container-lowest p-space-xs rounded-lg">
+<div>
+<span class="text-secondary text-[11px] block">Worker ID</span>
+<span class="font-bold">WKR-2847 (You)</span>
+</div>
+<div>
+<span class="text-secondary text-[11px] block">Verification Time</span>
+<span class="font-bold">10:16 AM • Geofence OK</span>
+</div>
+<div class="col-span-2">
+<span class="text-secondary text-[11px] block">Audit Token</span>
+<span class="font-mono text-[11px] text-primary">SEC-AUTH-99214-GEO-28.5355N</span>
+</div>
+</div>
+</div>
+<!-- PRIMARY ACTION BUTTON -->
+<button class="w-full h-12 rounded-xl bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md active:scale-95 transition-all" id="btnMainVerify" type="button">
+<span class="material-symbols-outlined text-[20px]">lock_open</span>
+<span id="mainBtnText" class="">VERIFY &amp; START INSPECTION</span>
+</button>
+</div>
+<!-- WORKER TESTING / SIMULATOR CONTROL BAR -->
+<div class="bg-surface-container-high/40 rounded-xl p-space-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Field Simulation Controls</span>
+<span class="text-[10px] text-secondary">Dev Helper</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="py-1.5 px-2 bg-surface-container-lowest text-on-surface rounded text-[11px] font-semibold text-center shadow-sm" id="simDefaultBtn" type="button">
+        State A (Input)
+      </button>
+<button class="py-1.5 px-2 bg-surface-container-lowest text-error rounded text-[11px] font-semibold text-center shadow-sm" id="simErrorBtn" type="button">
+        State B (Error)
+      </button>
+<button class="py-1.5 px-2 bg-surface-container-lowest text-tertiary rounded text-[11px] font-semibold text-center shadow-sm" id="simSuccessBtn" type="button">
+        State C (Success)
+      </button>
+</div>
+</div>
+<!-- SAFETY & COMPLIANCE FOOTER CARD -->
+<div class="rounded-xl p-space-sm bg-surface-container-low flex items-start gap-2.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0 mt-0.5">health_and_safety</span>
+<p class="font-body-sm text-body-sm leading-relaxed">
+      Arrival verification confirms your physical attendance and activates active job liability &amp; accident insurance. <span class="font-semibold text-on-surface">Do not start physical labor or tear-down before OTP confirmation.</span>
+</p>
+</div>
+<!-- QUICK ACTION TO CALL DISPATCH / REPORT GATEWAY ISSUE -->
+<div class="flex items-center justify-center gap-4 py-1 text-body-sm font-body-sm text-secondary">
+<button class="flex items-center gap-1 hover:text-primary transition-colors" id="btnHelp" type="button">
+<span class="material-symbols-outlined text-[16px]">support_agent</span>
+<span class="">Need Supervisor Help?</span>
+</button>
+<span class="">•</span>
+<button class="flex items-center gap-1 hover:text-primary transition-colors" id="btnDoorbell" type="button">
+<span class="material-symbols-outlined text-[16px]">doorbell</span>
+<span class="">Client Not Responding</span>
+</button>
+</div>
+</div>
+<script>
+  (function initArrivalOtpScreen() {
+    // Mode toggling: Customer vs Institution
+    let isInstitution = false;
+    let currentState = 'INPUT'; // 'INPUT', 'ERROR', 'SUCCESS'
+
+    const tabCustomer = document.getElementById('tabCustomer');
+    const tabInstitution = document.getElementById('tabInstitution');
+    const jobRefBadge = document.getElementById('jobRefBadge');
+    const recipientName = document.getElementById('recipientName');
+    const jobHeadline = document.getElementById('jobHeadline');
+    const serviceCategoryPill = document.getElementById('serviceCategoryPill');
+    const siteAddress = document.getElementById('siteAddress');
+    const otpInstructionText = document.getElementById('otpInstructionText');
+    const step3Label = document.getElementById('step3Label');
+    const step2Label = document.getElementById('step2Label');
+    const mainBtnText = document.getElementById('mainBtnText');
+    const btnMainVerify = document.getElementById('btnMainVerify');
+    const errorBanner = document.getElementById('errorBanner');
+    const successPanel = document.getElementById('successPanel');
+    const successBannerTitle = document.getElementById('successBannerTitle');
+
+    // Simulation triggers
+    const simDefaultBtn = document.getElementById('simDefaultBtn');
+    const simErrorBtn = document.getElementById('simErrorBtn');
+    const simSuccessBtn = document.getElementById('simSuccessBtn');
+
+    // OTP Inputs Auto-tabbing
+    const otpInputs = Array.from(document.querySelectorAll('.otp-box'));
+
+    otpInputs.forEach((input, idx) => {
+      input.addEventListener('input', (e) => {
+        const val = e.target.value;
+        if (val.length >= 1) {
+          e.target.value = val.slice(-1);
+          if (idx < otpInputs.length - 1) {
+            otpInputs[idx + 1].focus();
+          }
+        }
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !input.value && idx > 0) {
+          otpInputs[idx - 1].focus();
+        }
+      });
+
+      input.addEventListener('focus', () => {
+        input.select();
+      });
+    });
+
+    function applyMode() {
+      if (isInstitution) {
+        tabInstitution.className = 'py-1.5 rounded-md font-label-md text-label-md transition-all bg-surface-container-lowest text-primary shadow-sm';
+        tabCustomer.className = 'py-1.5 rounded-md font-label-md text-label-md transition-all text-inverse-on-surface/70 hover:text-inverse-on-surface';
+        
+        jobRefBadge.textContent = '#INST-9042';
+        recipientName.textContent = 'Delhi Jal Board - Substation 4';
+        jobHeadline.textContent = 'Municipal Facility • Pump Maintenance & Valve Check';
+        serviceCategoryPill.textContent = 'INSTITUTION SITE';
+        siteAddress.textContent = 'Block C Utility Compound, Near Metro Gate 3, Dwarka';
+        otpInstructionText.innerHTML = 'Ask <span class="font-semibold text-on-surface">Site In-Charge (Er. M. Verma)</span> for the 6-digit Facility Authorization Token.';
+        step3Label.textContent = 'Service';
+        if (currentState !== 'SUCCESS') {
+          mainBtnText.textContent = 'VERIFY & BEGIN SERVICE';
+        }
+      } else {
+        tabCustomer.className = 'py-1.5 rounded-md font-label-md text-label-md transition-all bg-surface-container-lowest text-primary shadow-sm';
+        tabInstitution.className = 'py-1.5 rounded-md font-label-md text-label-md transition-all text-inverse-on-surface/70 hover:text-inverse-on-surface';
+        
+        jobRefBadge.textContent = '#C-4821';
+        recipientName.textContent = 'Priya Sharma';
+        jobHeadline.textContent = 'Plumbing Repair • Kitchen Drainage';
+        serviceCategoryPill.textContent = 'CUSTOMER SITE';
+        siteAddress.textContent = 'Flat 402, Shivani Apts, Sector 22, Dwarka, New Delhi';
+        otpInstructionText.innerHTML = 'Ask <span class="font-semibold text-on-surface">Priya Sharma</span> for the 6-digit code sent to registered mobile <span class="font-semibold text-on-surface">••••• 4821</span>.';
+        step3Label.textContent = 'Inspection';
+        if (currentState !== 'SUCCESS') {
+          mainBtnText.textContent = 'VERIFY & START INSPECTION';
+        }
+      }
+    }
+
+    tabCustomer.addEventListener('click', () => {
+      isInstitution = false;
+      applyMode();
+    });
+
+    tabInstitution.addEventListener('click', () => {
+      isInstitution = true;
+      applyMode();
+    });
+
+    // States logic
+    function renderState(state) {
+      currentState = state;
+      if (state === 'INPUT') {
+        errorBanner.classList.add('hidden');
+        successPanel.classList.add('hidden');
+        btnMainVerify.classList.remove('bg-tertiary');
+        btnMainVerify.classList.add('bg-primary-container');
+        document.getElementById('step2IconBox').className = 'w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-sm';
+        document.getElementById('step3IconBox').className = 'w-6 h-6 rounded-full bg-surface-container-highest text-secondary flex items-center justify-center';
+        mainBtnText.textContent = isInstitution ? 'VERIFY & BEGIN SERVICE' : 'VERIFY & START INSPECTION';
+        otpInputs.forEach((box, i) => {
+          if (i < 4) box.classList.remove('bg-error-container', 'bg-tertiary-fixed/40');
+        });
+      } else if (state === 'ERROR') {
+        errorBanner.classList.remove('hidden');
+        successPanel.classList.add('hidden');
+        btnMainVerify.classList.remove('bg-tertiary');
+        btnMainVerify.classList.add('bg-primary-container');
+        mainBtnText.textContent = 'RETRY VERIFICATION';
+        otpInputs.forEach(box => {
+          box.classList.add('bg-error-container');
+        });
+      } else if (state === 'SUCCESS') {
+        errorBanner.classList.add('hidden');
+        successPanel.classList.remove('hidden');
+        successBannerTitle.textContent = isInstitution ? 'ATTENDANCE & SITE ACCESS VERIFIED' : 'ARRIVAL VERIFIED • OTP MATCHED';
+        btnMainVerify.classList.remove('bg-primary-container');
+        btnMainVerify.classList.add('bg-tertiary');
+        mainBtnText.textContent = isInstitution ? 'PROCEED TO SITE WORKFLOW ➔' : 'PROCEED TO INSPECTION & DIAGNOSIS ➔';
+        
+        // Fill boxes with valid visual state
+        const validMock = ['4', '8', '2', '1', '9', '0'];
+        otpInputs.forEach((box, i) => {
+          box.value = validMock[i];
+          box.classList.remove('bg-error-container');
+          box.classList.add('bg-tertiary-fixed/40');
+        });
+
+        // Step 2 turns green completed, Step 3 unlocks
+        document.getElementById('step2IconBox').className = 'w-6 h-6 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center';
+        document.getElementById('step3IconBox').className = 'w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center';
+      }
+    }
+
+    simDefaultBtn.addEventListener('click', () => renderState('INPUT'));
+    simErrorBtn.addEventListener('click', () => renderState('ERROR'));
+    simSuccessBtn.addEventListener('click', () => renderState('SUCCESS'));
+
+    btnMainVerify.addEventListener('click', () => {
+      if (currentState === 'SUCCESS') {
+        alert(isInstitution ? 'Routing to Institution Service Portal...' : 'Launching Diagnostic & Checklist Screen...');
+        return;
+      }
+      
+      const enteredCode = otpInputs.map(b => b.value).join('');
+      if (enteredCode.length === 6) {
+        if (enteredCode === '482190' || enteredCode === '123456') {
+          renderState('SUCCESS');
+        } else {
+          renderState('ERROR');
+        }
+      } else {
+        // Auto demo success if worker tapped with partials
+        renderState('SUCCESS');
+      }
+    });
+
+    // Simple countdown timer tick
+    let seconds = 114;
+    const timerEl = document.getElementById('countdownTimer');
+    const timerInterval = setInterval(() => {
+      if (seconds <= 0) {
+        clearInterval(timerInterval);
+        timerEl.textContent = '00:00';
+        return;
+      }
+      seconds--;
+      const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+      const s = String(seconds % 60).padStart(2, '0');
+      timerEl.textContent = `${m}:${s}`;
+    }, 1000);
+
+    // Minor feedback bindings
+    document.getElementById('btnResend').addEventListener('click', () => {
+      seconds = 120;
+      alert('A fresh 6-digit OTP has been sent via SMS.');
+      renderState('INPUT');
+    });
+
+    document.getElementById('btnSendWhatsapp').addEventListener('click', () => {
+      alert('Verification code dispatched through WhatsApp.');
+    });
+
+    document.getElementById('btnCallCode').addEventListener('click', () => {
+      alert('Automated IVR call placed with OTP playback.');
+    });
+
+    document.getElementById('callTriggerBtn').addEventListener('click', () => {
+      alert('Initiating masked call to client...');
+    });
+
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-2px_12px_rgba(11,28,48,0.05)]" data-active-classes="text-primary-container font-semibold"><div class="h-[68px] px-space-xs grid grid-cols-5 items-center"><a class="flex flex-col items-center justify-center gap-1 py-1 h-full min-h-[44px] text-secondary hover:text-on-surface transition-colors" data-path="home" href="#"><span class="material-symbols-outlined text-[22px]">home</span><span class="font-label-sm text-label-sm tracking-wider uppercase">HOME</span></a><a class="flex flex-col items-center justify-center gap-1 py-1 h-full min-h-[44px] text-secondary hover:text-on-surface transition-colors" data-path="customer" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm tracking-wider uppercase">CUSTOMER</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-1 py-1 h-full min-h-[44px] transition-colors text-primary-container font-semibold" data-path="institution" href="#"><span class="material-symbols-outlined text-[22px]">account_balance</span><span class="font-label-sm text-label-sm tracking-wider uppercase">INSTITUTION</span></a><a class="flex flex-col items-center justify-center gap-1 py-1 h-full min-h-[44px] text-secondary hover:text-on-surface transition-colors" data-path="courses" href="#"><span class="material-symbols-outlined text-[22px]">school</span><span class="font-label-sm text-label-sm tracking-wider uppercase">COURSES</span></a><a class="flex flex-col items-center justify-center gap-1 py-1 h-full min-h-[44px] text-secondary hover:text-on-surface transition-colors" data-path="schemes" href="#"><span class="material-symbols-outlined text-[22px]">verified_user</span><span class="font-label-sm text-label-sm tracking-wider uppercase">SCHEMES</span></a></div></nav>
+
+</body></html>

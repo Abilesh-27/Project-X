@@ -1,0 +1,669 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Service Completion &amp; Payment - X Worker App</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              navy: '#0f223d',
+              navyLight: '#162e50',
+              blue: '#1a56db',
+              blueHover: '#1442a8',
+              blueLight: '#eff4ff',
+              bgLight: '#f8fafd',
+              emerald: '#059669',
+              emeraldLight: '#ecfdf5',
+              amber: '#d97706',
+              amberLight: '#fffbeb',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0b1320;
+      font-family: 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-0 sm:p-4 md:p-6 antialiased select-none"><!-- Mobile Device Frame Wrapper -->
+<div class="w-full max-w-[420px] bg-[#f8fafd] min-h-screen sm:min-h-[920px] sm:max-h-[940px] sm:rounded-[36px] shadow-2xl overflow-hidden flex flex-col relative border border-slate-700/30">
+<!-- Deep Navy Header (#0b192c) -->
+<header class="bg-[#0b192c] text-white pt-3 pb-3.5 px-4 shrink-0 shadow-md relative z-20">
+<!-- Top Status Bar Indicators -->
+<div class="flex justify-between items-center text-xs font-semibold text-slate-300 pb-3 px-1 border-b border-slate-700/40">
+<span>09:42 AM</span>
+<div class="flex items-center space-x-2">
+<i class="fa-solid fa-signal text-[11px]"></i>
+<i class="fa-solid fa-wifi text-[11px]"></i>
+<i class="fa-solid fa-battery-full text-xs text-emerald-400"></i>
+</div>
+</div>
+<!-- App Bar Nav -->
+<div class="flex items-center justify-between mt-3">
+<button aria-label="Go Back" class="w-9 h-9 flex items-center justify-center rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 transition-colors">
+<i class="fa-solid fa-chevron-left text-sm"></i>
+</button>
+<div class="text-center">
+<h1 class="text-base font-bold tracking-tight text-white flex items-center justify-center gap-1.5">
+            Service Completion
+          </h1>
+<p class="text-[11px] font-medium text-slate-300 tracking-wide mt-0.5">Job #C-4821 • Priya Sharma</p>
+</div>
+<button aria-label="Notifications" class="w-9 h-9 flex items-center justify-center rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 relative transition-colors">
+<i class="fa-regular fa-bell text-sm"></i>
+<span class="w-2 h-2 rounded-full bg-emerald-400 absolute top-2 right-2 border-2 border-[#0b192c]"></span>
+</button>
+</div>
+<!-- Status Badges Strip -->
+<div class="flex items-center justify-between mt-3 pt-2.5 px-1 text-xs">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wide bg-emerald-500/20 text-emerald-300 border border-emerald-500/30" id="headerStatusBadge">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
+          ● WORK COMPLETED
+        </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold bg-blue-500/20 text-blue-300 border border-blue-400/30">
+<i class="fa-solid fa-shield-halved text-[10px] mr-1 text-blue-400"></i>
+          ON-SITE VERIFIED
+        </span>
+</div>
+<!-- Interactive Flow / Step Breadcrumb Indicator -->
+<div class="mt-3 bg-slate-900/80 p-1.5 rounded-xl border border-slate-700/50 flex flex-col gap-1">
+<div class="flex items-center justify-between text-[9px] font-bold tracking-tight text-slate-400 px-1">
+<span class="text-emerald-400 flex items-center gap-0.5">1. Quotation ✓</span>
+<span class="text-emerald-400 flex items-center gap-0.5">2. Service Done ✓</span>
+<span class="text-blue-400 flex items-center gap-0.5 font-extrabold" id="step3Label">3. Billing &amp; Payment ●</span>
+<span class="text-slate-500 flex items-center gap-0.5" id="step4Label">4. Invoice</span>
+</div>
+<!-- Switcher toggles between unpaid & paid views for preview -->
+<div class="grid grid-cols-2 gap-1 mt-0.5">
+<button class="py-1 px-2 rounded-lg text-[10px] font-bold text-center bg-[#1a56db] text-white shadow-sm transition-all" id="btnStateInProgress" onclick="setWorkflowState('in_progress')">
+            Awaiting Payment (Active)
+          </button>
+<button class="py-1 px-2 rounded-lg text-[10px] font-bold text-center text-slate-300 hover:text-white transition-all" id="btnStatePaid" onclick="setWorkflowState('paid')">
+            Payment Received (Preview)
+          </button>
+</div>
+</div>
+</header>
+<!-- Scrollable Screen Content Body -->
+<main class="flex-1 overflow-y-auto custom-scrollbar px-4 py-3.5 space-y-3.5 pb-24">
+<!-- SECTION 1: Customer Profile Card & Service Summary -->
+<section class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-11 h-11 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white font-bold text-sm shadow-sm">
+              PS
+            </div>
+<div>
+<div class="flex items-center gap-1.5">
+<h2 class="font-bold text-slate-900 text-sm">Priya Sharma</h2>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+<i class="fa-solid fa-check text-[9px] mr-1"></i>Verified Customer
+                </span>
+</div>
+<p class="text-xs font-semibold text-[#1a56db] mt-0.5">Plumbing Repair • Kitchen Sink Drainage</p>
+</div>
+</div>
+<span class="px-2 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-[#1a56db] border border-blue-100">
+            Job #C-4821
+          </span>
+</div>
+<div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center gap-1.5 text-xs text-slate-600 truncate">
+<i class="fa-solid fa-location-dot text-blue-500 shrink-0"></i>
+<span class="truncate">Flat 402, Shivani Apts, Sector 22, Dwarka, New Delhi</span>
+</div>
+</section>
+<!-- SECTION 1 (cont): Completed Work Details -->
+<section class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-blue-50 text-[#1a56db] flex items-center justify-center text-xs">
+<i class="fa-solid fa-clipboard-check"></i>
+</div>
+<div>
+<h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Service Summary</h3>
+<p class="text-[11px] text-slate-500 font-medium">Problem diagnosis &amp; execution log</p>
+</div>
+</div>
+<span class="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
+            Work Finished
+          </span>
+</div>
+<div class="space-y-2 text-xs">
+<div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">Problem Addressed</span>
+<p class="text-slate-700 font-medium leading-relaxed">
+              Fractured 32mm PVC P-Trap collar junction and degraded rubber gasket.
+            </p>
+</div>
+<div class="bg-blue-50/70 p-2.5 rounded-xl border border-blue-100/70">
+<span class="text-[10px] font-bold text-[#1a56db] uppercase tracking-wider block mb-0.5">Work Performed</span>
+<p class="text-slate-800 font-medium leading-relaxed">
+              Replaced fractured P-Trap with commercial heavy-duty assembly, sealed with anti-fungal high-grade silicone, tested under 15-minute continuous water pressure test (Zero leaks verified).
+            </p>
+</div>
+<div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">Completion Notes</span>
+<p class="text-slate-600 text-[11px] leading-relaxed">
+              Replaced worn assembly handed to customer. 6-Month Cooperative Workmanship Warranty activated upon invoice generation.
+            </p>
+</div>
+</div>
+</section>
+<!-- SECTION 2: PROOF OF WORK (Before vs After / Completion Proof) -->
+<section class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center text-xs">
+<i class="fa-solid fa-camera"></i>
+</div>
+<div>
+<h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Proof of Work</h3>
+<p class="text-[11px] text-slate-500 font-medium">Before vs After verification</p>
+</div>
+</div>
+<span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 flex items-center gap-1">
+<i class="fa-solid fa-circle-check text-[10px]"></i> Verified by Tech
+          </span>
+</div>
+<!-- Photo Gallery Grid -->
+<div class="grid grid-cols-3 gap-2 pt-1">
+<!-- Photo 1: Before Reference -->
+<div class="relative group rounded-xl overflow-hidden border border-amber-200 bg-amber-50/60 aspect-square flex flex-col justify-between p-1.5">
+<span class="bg-amber-500 text-white text-[8px] font-extrabold px-1 py-0.5 rounded w-fit">BEFORE</span>
+<div class="text-center">
+<i class="fa-solid fa-faucet-drip text-amber-600 text-base mb-0.5"></i>
+<p class="text-[8px] font-bold text-amber-900 leading-tight">PVC Joint Leak</p>
+</div>
+<span class="text-[7px] text-slate-500 text-right">Reported</span>
+</div>
+<!-- Photo 2: Worker Completion Proof 1 -->
+<div class="relative group rounded-xl overflow-hidden border border-slate-200 bg-slate-50 aspect-square flex flex-col justify-between p-1.5">
+<span class="bg-emerald-600 text-white text-[8px] font-extrabold px-1 py-0.5 rounded w-fit">AFTER 1</span>
+<div class="text-center">
+<i class="fa-solid fa-wrench text-blue-600 text-base mb-0.5"></i>
+<p class="text-[8px] font-bold text-slate-800 leading-tight">Installed P-Trap</p>
+</div>
+<span class="bg-black/60 text-white text-[7px] font-semibold px-1 rounded self-end">11:42 AM</span>
+</div>
+<!-- Photo 3: Worker Completion Proof 2 -->
+<div class="relative group rounded-xl overflow-hidden border border-slate-200 bg-slate-50 aspect-square flex flex-col justify-between p-1.5">
+<span class="bg-emerald-600 text-white text-[8px] font-extrabold px-1 py-0.5 rounded w-fit">AFTER 2</span>
+<div class="text-center">
+<i class="fa-solid fa-circle-check text-emerald-600 text-base mb-0.5"></i>
+<p class="text-[8px] font-bold text-slate-800 leading-tight">Flow Test (0 Leak)</p>
+</div>
+<span class="bg-black/60 text-white text-[7px] font-semibold px-1 rounded self-end">11:48 AM</span>
+</div>
+</div>
+<!-- Add Photo Action Button -->
+<button class="w-full py-2 rounded-xl border border-dashed border-blue-300 hover:border-[#1a56db] bg-blue-50/40 hover:bg-blue-50 text-[#1a56db] text-xs font-bold flex items-center justify-center gap-1.5 transition-all">
+<i class="fa-solid fa-camera text-xs"></i>
+<span>+ Add Additional Photo / Test Proof</span>
+</button>
+</section>
+<!-- SECTION 3: FINAL SERVICE COST (Strict Pricing - No On-Site Fee) -->
+<section class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs">
+<i class="fa-solid fa-receipt"></i>
+</div>
+<div>
+<h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Final Service Cost</h3>
+<p class="text-[11px] text-slate-500 font-medium">Transparent cooperative pricing</p>
+</div>
+</div>
+<span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100">
+            Job #C-4821
+          </span>
+</div>
+<!-- Detailed Fee Rows -->
+<div class="divide-y divide-slate-100 text-xs">
+<!-- 1. Labour / Service Charge -->
+<div class="py-2.5 flex items-start justify-between">
+<div>
+<span class="font-bold text-slate-800 text-xs block">1. LABOUR / SERVICE CHARGE</span>
+<p class="text-[11px] text-slate-500">Sanitary P-Trap Dismantling &amp; Replacement (55 mins)</p>
+</div>
+<span class="font-bold text-slate-900 text-sm">₹350.00</span>
+</div>
+<!-- 2. Material Cost (Itemized) -->
+<div class="py-2.5 flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-bold text-slate-800 text-xs">2. MATERIAL COST</span>
+<span class="text-[9px] bg-slate-100 text-slate-600 px-1.5 py-0.2 rounded font-semibold">2 Items</span>
+</div>
+<p class="text-[11px] text-slate-500">Heavy-duty 32mm PVC P-Trap (₹220) + Silicone Sealant &amp; Tape (₹80)</p>
+</div>
+<span class="font-bold text-slate-900 text-sm">₹300.00</span>
+</div>
+<!-- 3. Other Applicable Charges -->
+<div class="py-2 flex items-center justify-between text-slate-500">
+<span class="font-medium text-[11px]">3. OTHER APPLICABLE SERVICE CHARGES</span>
+<span class="font-semibold text-slate-700 text-xs">₹0.00</span>
+</div>
+<!-- Subtotal Row -->
+<div class="py-2 flex items-center justify-between text-slate-700 bg-slate-50/70 px-2 rounded-lg my-1">
+<span class="font-bold text-xs">Service Subtotal</span>
+<span class="font-bold text-slate-900 text-sm">₹650.00</span>
+</div>
+<!-- Platform Fee (10%) -->
+<div class="py-2 flex items-center justify-between text-blue-900">
+<span class="font-semibold text-[11px] flex items-center gap-1">
+              Platform Fee (10% of ₹650)
+              <i class="fa-solid fa-circle-info text-[9px] text-blue-500" title="Customer platform fee"></i>
+</span>
+<span class="font-bold text-blue-700 text-xs">+₹65.00</span>
+</div>
+</div>
+<!-- Prominent Policy Callout Note -->
+<div class="bg-blue-50/70 border border-blue-200/80 p-2.5 rounded-xl text-[11px] text-blue-900 leading-relaxed">
+<p class="font-medium">
+<i class="fa-solid fa-circle-info text-blue-600 mr-1"></i>
+            Platform fee (10%) is added to the service amount and paid by the customer. On-site visit charges are handled separately and are not included in this service billing.
+          </p>
+</div>
+<!-- Grand Final Service Amount Card -->
+<div class="bg-[#0b192c] text-white p-3.5 rounded-xl flex items-center justify-between shadow-md">
+<div>
+<span class="text-[10px] font-bold uppercase tracking-wider text-slate-300 block">Final Service Amount</span>
+<span class="text-xs text-slate-400">Payable by customer for service</span>
+</div>
+<div class="text-right">
+<span class="text-2xl font-extrabold text-white tracking-tight">₹715.00</span>
+<span class="block text-[10px] text-emerald-400 font-semibold">Quotation Matched</span>
+</div>
+</div>
+</section>
+<!-- SECTION 4: PAYMENT STATUS & CUSTOMER PAYMENT -->
+<!-- SECTION: MATERIAL & BILL PROOF -->
+<section class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs">
+<i class="fa-solid fa-file-invoice-dollar"></i>
+</div>
+<div>
+<h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Material &amp; Bill Proof</h3>
+<p class="text-[11px] text-slate-500 font-medium">Verification &amp; Invoices</p>
+</div>
+</div>
+<span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 flex items-center gap-1">
+<i class="fa-solid fa-circle-check text-[10px]"></i> 2 Items Verified
+    </span>
+</div>
+<!-- Itemized Material Proofs -->
+<div class="space-y-2.5">
+<!-- Material 1 -->
+<div class="bg-slate-50/70 p-2.5 rounded-xl border border-slate-200/80 text-xs space-y-2">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-bold text-slate-900 text-xs">Heavy-duty 32mm PVC P-Trap</span>
+<span class="text-[9px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200">✓ BILL ATTACHED</span>
+</div>
+<p class="text-[11px] text-slate-500 mt-0.5">Qty: 1 • Unit Price: ₹220.00 • Vendor: Kailash Hardware Mart</p>
+<p class="text-[10px] text-slate-400">Bill #KH-4821</p>
+</div>
+<span class="font-bold text-slate-900 text-sm">₹220.00</span>
+</div>
+<div class="flex items-center justify-between bg-white p-2 rounded-lg border border-slate-100">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-md bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 text-xs shrink-0">
+<i class="fa-solid fa-receipt"></i>
+</div>
+<div class="leading-tight">
+<span class="text-[11px] font-semibold text-slate-800 block">KH-4821-receipt.jpg</span>
+<span class="text-[9px] text-slate-400">182 KB • Verified hardware bill</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="px-2 py-1 rounded bg-blue-50 text-[#1a56db] text-[10px] font-bold hover:bg-blue-100 transition-colors" type="button">View</button>
+<button class="px-2 py-1 rounded bg-slate-100 text-slate-600 text-[10px] font-bold hover:bg-slate-200 transition-colors" type="button">Replace</button>
+</div>
+</div>
+</div>
+<!-- Material 2 -->
+<div class="bg-slate-50/70 p-2.5 rounded-xl border border-slate-200/80 text-xs space-y-2">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-bold text-slate-900 text-xs">Silicone Sealant &amp; Waterproof Tape</span>
+<span class="text-[9px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200">✓ BILL ATTACHED</span>
+</div>
+<p class="text-[11px] text-slate-500 mt-0.5">Qty: 1 • Unit Price: ₹80.00 • Vendor: Sanitary World</p>
+<p class="text-[10px] text-slate-400">Cash Memo #SW-109</p>
+</div>
+<span class="font-bold text-slate-900 text-sm">₹80.00</span>
+</div>
+<div class="flex items-center justify-between bg-white p-2 rounded-lg border border-slate-100">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-md bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 text-xs shrink-0">
+<i class="fa-solid fa-receipt"></i>
+</div>
+<div class="leading-tight">
+<span class="text-[11px] font-semibold text-slate-800 block">SW-109-memo.jpg</span>
+<span class="text-[9px] text-slate-400">145 KB • Verified hardware bill</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="px-2 py-1 rounded bg-blue-50 text-[#1a56db] text-[10px] font-bold hover:bg-blue-100 transition-colors" type="button">View</button>
+<button class="px-2 py-1 rounded bg-slate-100 text-slate-600 text-[10px] font-bold hover:bg-slate-200 transition-colors" type="button">Replace</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Capture / Upload Actions -->
+<div class="grid grid-cols-2 gap-2 pt-0.5">
+<button class="py-2 px-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors" type="button">
+<i class="fa-solid fa-camera text-blue-600 text-xs"></i>
+<span>Take Bill Photo</span>
+</button>
+<button class="py-2 px-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors" type="button">
+<i class="fa-solid fa-receipt text-blue-600 text-xs"></i>
+<span>Upload Receipt</span>
+</button>
+</div>
+<button class="w-full py-1.5 rounded-xl border border-dashed border-slate-300 hover:border-[#1a56db] text-slate-600 hover:text-[#1a56db] text-[11px] font-semibold flex items-center justify-center gap-1 transition-colors" type="button">
+<i class="fa-solid fa-check text-[10px]"></i>
+<span>+ Add Additional Material / Bill</span>
+</button>
+<!-- Material Cost Verification Summary -->
+<div class="pt-2 border-t border-slate-100 space-y-1 text-xs">
+<div class="flex items-center justify-between text-slate-600">
+<span>Material Subtotal (2 items)</span>
+<span class="font-semibold text-slate-800">₹300.00</span>
+</div>
+<div class="flex items-center justify-between text-emerald-700 font-bold bg-emerald-50 px-2 py-1.5 rounded-lg border border-emerald-100">
+<span class="flex items-center gap-1">
+<i class="fa-solid fa-circle-check text-[11px]"></i> Verified Material Cost
+      </span>
+<span>₹300.00</span>
+</div>
+<p class="text-[10px] text-slate-500 leading-relaxed pt-1">
+<i class="fa-solid fa-circle-info text-blue-500 mr-1"></i>
+      Material bill photos are attached as proof of actual material cost. They verify expenditure and do not add any extra charges.
+    </p>
+</div>
+</section><section class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs" id="paymentIconWrap">
+<i class="fa-solid fa-credit-card" id="paymentIcon"></i>
+</div>
+<div>
+<h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Payment Status</h3>
+<p class="text-[11px] text-slate-500 font-medium">Customer settlement confirmation</p>
+</div>
+</div>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200" id="paymentStatusBadge">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 mr-1.5 animate-pulse"></span>
+            AWAITING PAYMENT
+          </span>
+</div>
+<!-- Dynamic Payment Box -->
+<div class="bg-amber-50/60 p-3 rounded-xl border border-amber-200/80 text-xs space-y-2" id="paymentDetailsBox">
+<div class="flex items-center justify-between font-semibold text-amber-900">
+<span>Customer Payment Payable:</span>
+<span class="text-base font-extrabold text-amber-900">₹715.00</span>
+</div>
+<div class="bg-white/80 p-2 rounded-lg border border-amber-200/60 text-[11px] text-slate-700 leading-relaxed">
+<p class="font-medium text-slate-900 mb-0.5">Payment Mode Options / Status:</p>
+<p>Customer prompted via App / Cash or UPI to Cooperative Escrow.</p>
+</div>
+<div class="flex items-center justify-between pt-1 text-[11px]">
+<span class="text-slate-600 italic">Waiting for customer to confirm ₹715 on their app</span>
+<button class="text-xs font-bold text-[#1a56db] hover:underline flex items-center gap-1" onclick="simulateCustomerPayment()">
+<i class="fa-solid fa-arrows-rotate text-[10px]"></i> Refresh
+            </button>
+</div>
+</div>
+</section>
+<!-- SECTION 5: INVOICE GENERATION STATUS -->
+<section class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-blue-50 text-[#1a56db] flex items-center justify-center text-xs">
+<i class="fa-solid fa-file-invoice-dollar"></i>
+</div>
+<div>
+<h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Invoice Details</h3>
+<p class="text-[11px] text-slate-500 font-medium">Official cooperative bill</p>
+</div>
+</div>
+<span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-md border border-amber-200" id="invoiceBadge">
+            PENDING PAYMENT
+          </span>
+</div>
+<!-- Dynamic Invoice Box -->
+<div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2 text-xs" id="invoiceDetailsBox">
+<p class="text-[11px] text-slate-600 leading-relaxed">
+<i class="fa-solid fa-circle-info text-blue-500 mr-1"></i>
+            Invoice will be automatically generated after successful payment confirmation.
+          </p>
+<div class="grid grid-cols-2 gap-2 pt-1">
+<div class="bg-white p-2 rounded-lg border border-slate-100">
+<span class="text-[9px] text-slate-400 font-bold uppercase block">Invoice Status</span>
+<span class="font-bold text-amber-800">Locked</span>
+</div>
+<div class="bg-white p-2 rounded-lg border border-slate-100">
+<span class="text-[9px] text-slate-400 font-bold uppercase block">Payable</span>
+<span class="font-bold text-slate-800">₹715.00</span>
+</div>
+</div>
+</div>
+<!-- CTA Button for Invoice (Locked / Unlocked) -->
+<div id="invoiceActionWrap">
+<button class="w-full py-2.5 rounded-xl bg-slate-100 text-slate-400 text-xs font-bold flex items-center justify-center gap-1.5 cursor-not-allowed border border-slate-200" disabled="">
+<i class="fa-solid fa-lock text-xs"></i>
+<span>View Invoice (Unlocks after payment)</span>
+</button>
+</div>
+</section>
+</main>
+<!-- SECTION 7: PRIMARY ACTION / BOTTOM BAR -->
+<footer class="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md px-4 py-3 border-t border-slate-200/80 z-30 shadow-lg">
+<div class="flex items-center justify-between gap-3" id="footerActionContainer">
+<div class="shrink-0">
+<span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Final Amount</span>
+<span class="text-xl font-extrabold text-slate-900 tracking-tight leading-none">₹715.00</span>
+</div>
+<button class="flex-1 py-3 px-3 rounded-xl bg-[#1a56db] hover:bg-[#1442a8] active:scale-[0.99] text-white font-bold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all" id="btnCompleteService" onclick="handleCompleteService()">
+<i class="fa-solid fa-circle-check text-sm"></i>
+<span>CONFIRM PAYMENT (₹715)</span>
+</button>
+</div>
+<!-- Device Home Indicator Bar -->
+<div class="w-32 h-1 bg-slate-300 rounded-full mx-auto mt-2.5"></div>
+</footer>
+</div>
+<!-- Interactive Logic for State Transitions -->
+<script>
+    let currentState = 'in_progress';
+
+    function setWorkflowState(state) {
+      currentState = state;
+      const btnInProgress = document.getElementById('btnStateInProgress');
+      const btnPaid = document.getElementById('btnStatePaid');
+      const headerStatusBadge = document.getElementById('headerStatusBadge');
+      const step3Label = document.getElementById('step3Label');
+      const step4Label = document.getElementById('step4Label');
+      const paymentStatusBadge = document.getElementById('paymentStatusBadge');
+      const paymentDetailsBox = document.getElementById('paymentDetailsBox');
+      const paymentIcon = document.getElementById('paymentIcon');
+      const paymentIconWrap = document.getElementById('paymentIconWrap');
+      const invoiceBadge = document.getElementById('invoiceBadge');
+      const invoiceDetailsBox = document.getElementById('invoiceDetailsBox');
+      const invoiceActionWrap = document.getElementById('invoiceActionWrap');
+      const footerActionContainer = document.getElementById('footerActionContainer');
+
+      if (state === 'in_progress') {
+        btnInProgress.className = "py-1 px-2 rounded-lg text-[10px] font-bold text-center bg-[#1a56db] text-white shadow-sm transition-all";
+        btnPaid.className = "py-1 px-2 rounded-lg text-[10px] font-bold text-center text-slate-300 hover:text-white transition-all";
+
+        step3Label.className = "text-blue-400 flex items-center gap-0.5 font-extrabold";
+        step4Label.className = "text-slate-500 flex items-center gap-0.5";
+
+        headerStatusBadge.className = "inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wide bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+        headerStatusBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span> ● WORK COMPLETED`;
+
+        paymentStatusBadge.className = "inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200";
+        paymentStatusBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-500 mr-1.5 animate-pulse"></span> AWAITING PAYMENT`;
+
+        paymentIconWrap.className = "w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs";
+        paymentIcon.className = "fa-solid fa-credit-card";
+
+        paymentDetailsBox.className = "bg-amber-50/60 p-3 rounded-xl border border-amber-200/80 text-xs space-y-2";
+        paymentDetailsBox.innerHTML = `
+          <div class="flex items-center justify-between font-semibold text-amber-900">
+            <span>Customer Payment Payable:</span>
+            <span class="text-base font-extrabold text-amber-900">₹715.00</span>
+          </div>
+          <div class="bg-white/80 p-2 rounded-lg border border-amber-200/60 text-[11px] text-slate-700 leading-relaxed">
+            <p class="font-medium text-slate-900 mb-0.5">Payment Mode Options / Status:</p>
+            <p>Customer prompted via App / Cash or UPI to Cooperative Escrow.</p>
+          </div>
+          <div class="flex items-center justify-between pt-1 text-[11px]">
+            <span class="text-slate-600 italic">Waiting for customer to confirm ₹715 on their app</span>
+            <button onclick="simulateCustomerPayment()" class="text-xs font-bold text-[#1a56db] hover:underline flex items-center gap-1">
+              <i class="fa-solid fa-arrows-rotate text-[10px]"></i> Refresh
+            </button>
+          </div>
+        `;
+
+        invoiceBadge.className = "text-xs font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-md border border-amber-200";
+        invoiceBadge.innerText = "PENDING PAYMENT";
+
+        invoiceDetailsBox.innerHTML = `
+          <p class="text-[11px] text-slate-600 leading-relaxed">
+            <i class="fa-solid fa-circle-info text-blue-500 mr-1"></i>
+            Invoice will be automatically generated after successful payment confirmation.
+          </p>
+          <div class="grid grid-cols-2 gap-2 pt-1">
+            <div class="bg-white p-2 rounded-lg border border-slate-100">
+              <span class="text-[9px] text-slate-400 font-bold uppercase block">Invoice Status</span>
+              <span class="font-bold text-amber-800">Locked</span>
+            </div>
+            <div class="bg-white p-2 rounded-lg border border-slate-100">
+              <span class="text-[9px] text-slate-400 font-bold uppercase block">Payable</span>
+              <span class="font-bold text-slate-800">₹715.00</span>
+            </div>
+          </div>
+        `;
+
+        invoiceActionWrap.innerHTML = `
+          <button disabled class="w-full py-2.5 rounded-xl bg-slate-100 text-slate-400 text-xs font-bold flex items-center justify-center gap-1.5 cursor-not-allowed border border-slate-200">
+            <i class="fa-solid fa-lock text-xs"></i>
+            <span>View Invoice (Unlocks after payment)</span>
+          </button>
+        `;
+
+        footerActionContainer.innerHTML = `
+          <div class="shrink-0">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Final Amount</span>
+            <span class="text-xl font-extrabold text-slate-900 tracking-tight leading-none">₹715.00</span>
+          </div>
+          <button onclick="handleCompleteService()" id="btnCompleteService" class="flex-1 py-3 px-3 rounded-xl bg-[#1a56db] hover:bg-[#1442a8] active:scale-[0.99] text-white font-bold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all">
+            <i class="fa-solid fa-circle-check text-sm"></i>
+            <span>CONFIRM PAYMENT (₹715)</span>
+          </button>
+        `;
+      } else {
+        // Paid State Preview
+        btnPaid.className = "py-1 px-2 rounded-lg text-[10px] font-bold text-center bg-emerald-600 text-white shadow-sm transition-all";
+        btnInProgress.className = "py-1 px-2 rounded-lg text-[10px] font-bold text-center text-slate-300 hover:text-white transition-all";
+
+        step3Label.className = "text-emerald-400 flex items-center gap-0.5 font-bold";
+        step4Label.className = "text-emerald-400 flex items-center gap-0.5 font-extrabold";
+
+        headerStatusBadge.className = "inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wide bg-emerald-500/25 text-emerald-300 border border-emerald-400/40";
+        headerStatusBadge.innerHTML = `<i class="fa-solid fa-check text-[10px] mr-1.5 text-emerald-300"></i> SERVICE COMPLETED & PAID`;
+
+        paymentStatusBadge.className = "inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300";
+        paymentStatusBadge.innerHTML = `<i class="fa-solid fa-check-double text-[10px] mr-1.5 text-emerald-700"></i> PAYMENT RECEIVED`;
+
+        paymentIconWrap.className = "w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs";
+        paymentIcon.className = "fa-solid fa-circle-check";
+
+        paymentDetailsBox.className = "bg-emerald-50/70 p-3 rounded-xl border border-emerald-200 text-xs space-y-2";
+        paymentDetailsBox.innerHTML = `
+          <div class="flex items-center justify-between font-bold text-emerald-900">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-emerald-600"></i> ✓ PAYMENT RECEIVED • ₹715.00</span>
+            <span class="text-[10px] bg-emerald-200/70 text-emerald-900 px-2 py-0.5 rounded font-mono">UPI Confirmed</span>
+          </div>
+          <p class="text-slate-700 text-[11px] leading-relaxed">
+            ✓ SERVICE COMPLETED • Credited to Cooperative Worker Escrow Wallet.
+          </p>
+          <div class="pt-1 text-[11px] text-emerald-800 font-semibold flex items-center justify-between border-t border-emerald-200/70">
+            <span>Tech Earnings: ₹650.00</span>
+            <span class="text-slate-500 font-normal">Platform Fee: ₹65.00</span>
+          </div>
+        `;
+
+        invoiceBadge.className = "text-xs font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md border border-emerald-200";
+        invoiceBadge.innerText = "✓ GENERATED";
+
+        invoiceDetailsBox.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-slate-800">✓ INVOICE #INV-8821 GENERATED</span>
+            <span class="text-[10px] text-slate-500">24 Oct 2024</span>
+          </div>
+          <p class="text-[11px] text-slate-600 leading-relaxed">
+            Official receipt with 6-Month Cooperative Workmanship Warranty sent to customer.
+          </p>
+        `;
+
+        invoiceActionWrap.innerHTML = `
+          <button class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-colors shadow-sm">
+            <i class="fa-solid fa-file-pdf text-xs"></i>
+            <span>VIEW INVOICE & RECEIPT</span>
+          </button>
+        `;
+
+        footerActionContainer.innerHTML = `
+          <div class="w-full flex items-center justify-between gap-2">
+            <div class="shrink-0">
+              <span class="text-[10px] font-bold text-emerald-700 block uppercase">Settled</span>
+              <span class="text-lg font-extrabold text-slate-900">₹715.00</span>
+            </div>
+            <button onclick="alert('Returning to Technician Jobs')" class="flex-1 py-3 px-3 rounded-xl bg-[#1a56db] hover:bg-[#1442a8] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-sm">
+              <i class="fa-solid fa-check text-xs"></i>
+              <span>JOB COMPLETED • RETURN</span>
+            </button>
+          </div>
+        `;
+      }
+    }
+
+    function simulateCustomerPayment() {
+      setWorkflowState('paid');
+    }
+
+    function handleCompleteService() {
+      setWorkflowState('paid');
+    }
+  </script>
+</body></html>

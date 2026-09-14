@@ -1,0 +1,1194 @@
+{
+  "@@locale": "en",
+  "appTitle": "WORK SOLUTE",
+  "cooperativePlatform": "Cooperative Worker Platform",
+  "verifiedFieldPortal": "Verified Field Workforce Portal",
+  "navHome": "HOME",
+  "navCustomer": "CUSTOMER",
+  "navInstitution": "INSTITUTION",
+  "navCourses": "COURSES",
+  "navSchemes": "SCHEMES",
+  "navProfile": "Profile",
+  "loginTitle": "Worker Login",
+  "loginSubtitle": "Sign in to manage your work, assignments and direct cooperative payouts.",
+  "workerIdLabel": "Worker ID",
+  "workerIdHint": "e.g. WKR-2847",
+  "passwordLabel": "Password",
+  "forgotPassword": "Forgot Password?",
+  "loginButton": "LOGIN",
+  "secureAccess": "Secure Worker Access • 256-Bit Encrypted",
+  "societyNote": "Use the credentials provided by your Cooperative Society.",
+  "langPersistNote": "Selected language carries over to Dashboard, Quotations & Schemes.",
+  "needHelp": "Need help signing in?",
+  "societyHelpdesk": "Society Helpdesk",
+  "footerText": "X COOPERATIVE FEDERATION LTD • VERSION 2.4.0",
+  "selectLanguage": "Select Language",
+  "langSubtitle": "Choose your preferred language",
+  "langPersistInfo": "Preference persists across Dashboard, Customer, Quotation, Schemes and Invoice screens.",
+  "verifyingCredentials": "Verifying Worker Credentials...",
+  "forgotPasswordTitle": "Forgot Password",
+  "forgotPasswordSubtitle": "Enter your Worker ID to receive a verification OTP.",
+  "sendOtp": "Send OTP",
+  "enterOtp": "Enter OTP",
+  "otpSentTo": "OTP sent to your registered mobile number",
+  "newPassword": "New Password",
+  "confirmPassword": "Confirm Password",
+  "resetPassword": "Reset Password",
+  "passwordResetSuccess": "Password reset successfully! Please login with your new password.",
+  "accountLockedTitle": "Account Locked",
+  "accountLockedMsg": "Your account has been temporarily locked due to multiple failed login attempts. Please contact your cooperative society helpdesk.",
+  "sessionExpiredTitle": "Session Expired",
+  "sessionExpiredMsg": "Your session has expired. Please login again to continue.",
+  "reLogin": "Re-Login",
+  "contactSupport": "Contact Support",
+  "goodMorning": "Good Morning",
+  "goodAfternoon": "Good Afternoon",
+  "goodEvening": "Good Evening",
+  "verified": "Verified",
+  "activeDay": "ACTIVE DAY",
+  "inactiveDay": "INACTIVE DAY",
+  "onCall": "ON-CALL",
+  "readyToReceive": "Ready to receive work",
+  "requestsPaused": "New work requests are paused",
+  "serviceStartsIn": "SERVICE STARTS IN {time}",
+  "@serviceStartsIn": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "startsIn": "Starts in {minutes}m",
+  "@startsIn": {
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "customerJobId": "Customer Job #{id}",
+  "@customerJobId": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "scheduled": "Scheduled",
+  "customer": "Customer",
+  "institution": "Institution",
+  "startJourney": "START JOURNEY",
+  "onTime": "ON TIME",
+  "delayed": "DELAYED",
+  "cancel": "CANCEL",
+  "todaysLiveActivity": "Today's Live Activity",
+  "serviceInProgress": "Service In Progress",
+  "enRoute": "En Route",
+  "arrived": "Arrived",
+  "inProgress": "In Progress",
+  "completed": "Completed",
+  "openJob": "Open Job",
+  "importantAlert": "Important Alert",
+  "otpRequired": "OTP Required",
+  "newRequests": "New Requests",
+  "accepted": "Accepted",
+  "upcoming": "Upcoming",
+  "pending": "Pending",
+  "assigned": "Assigned",
+  "b2cDirect": "B2C Direct",
+  "b2bGovt": "B2B / Govt",
+  "individualServices": "Individual customer services",
+  "orgWorkforce": "Organization & workforce assignments",
+  "viewCustomer": "VIEW CUSTOMER",
+  "viewInstitution": "VIEW INSTITUTION",
+  "activeJobId": "Active Job #{id}",
+  "@activeJobId": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "assignmentId": "Assignment #{id}",
+  "@assignmentId": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "summary": "Summary",
+  "viewBreakdown": "View Breakdown",
+  "jobsCompleted": "Completed",
+  "jobsCancelled": "Cancelled",
+  "earnings": "Earnings",
+  "rating": "Rating",
+  "reportDelay": "Report Dispatch Delay",
+  "expectedDelayTime": "Expected Delay Time",
+  "selectReason": "Select Reason",
+  "heavyTraffic": "Heavy traffic on route",
+  "previousJobLate": "Previous client job running late",
+  "vehicleBreakdown": "Vehicle / transit breakdown",
+  "spareParts": "Picking up required spare parts",
+  "weather": "Weather conditions",
+  "emergency": "Emergency situation",
+  "other": "Other reason",
+  "dismiss": "Dismiss",
+  "notifyClientDelay": "Notify Client of Delay",
+  "delayConfirmed": "Delay Reported. Customer updated with revised arrival time.",
+  "onTimeConfirmed": "Confirmed ON TIME. Customer notified. Departure countdown active.",
+  "cancelJob": "Cancel This Assignment?",
+  "cancelJobWarning": "Cancelling within 1 hour impacts your worker response score.",
+  "reasonForCancellation": "Reason for cancellation",
+  "emergencyPersonal": "Emergency personal issue",
+  "healthIssue": "Health / Medical unwell",
+  "toolsBreakdown": "Tools / Vehicle breakdown",
+  "cannotReachCustomer": "Unable to reach customer location",
+  "scheduleConflict": "Schedule conflict",
+  "unsafeLocation": "Unsafe location",
+  "incorrectJobDetails": "Incorrect job details",
+  "keepJob": "Keep Job",
+  "confirmCancel": "Confirm Cancel",
+  "jobCancelled": "JOB CANCELLED",
+  "cancelledBy": "Cancelled by",
+  "penalty": "Penalty/Fee",
+  "customerNotified": "Customer notified",
+  "newServiceRequest": "New Service Request",
+  "reportedProblem": "Reported Problem",
+  "requestedDate": "Requested Date",
+  "requestedTime": "Requested Time",
+  "estimatedDuration": "Estimated Duration",
+  "distance": "Distance",
+  "location": "Location",
+  "onsiteRequired": "Onsite Required",
+  "onsiteFee": "Onsite Fee",
+  "scheduleCompatibility": "Schedule Compatibility",
+  "decline": "DECLINE",
+  "accept": "ACCEPT",
+  "cannotAccept": "CANNOT ACCEPT THIS REQUEST",
+  "waitingForCustomer": "Waiting for Customer Selection",
+  "candidateStatus": "Your candidate status is pending",
+  "selectionExpiry": "Selection expires in",
+  "customerSelectedYou": "CUSTOMER SELECTED YOU ✓",
+  "jobConfirmed": "JOB CONFIRMED",
+  "confirmedJobDetails": "Confirmed Job Details",
+  "reschedule": "Reschedule",
+  "contactCustomer": "Contact Customer",
+  "mapView": "Map View",
+  "platformFee": "Platform Fee",
+  "notes": "Notes",
+  "reminderTitle": "JOB STARTS IN 1 HOUR",
+  "liveJourneyTracking": "Live Journey Tracking",
+  "enRouteTransit": "EN ROUTE (TRANSIT)",
+  "telemetryActive": "Tele-Telemetry Active",
+  "journeyProgress": "JOURNEY PROGRESS",
+  "stageOf": "Stage {current} of {total}",
+  "@stageOf": {
+    "placeholders": {
+      "current": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "remaining": "REMAINING",
+  "travelTime": "TRAVEL TIME",
+  "targetEta": "TARGET ETA",
+  "liveGpsActive": "Live GPS Active",
+  "gpsAccuracy": "±{meters}m accuracy",
+  "@gpsAccuracy": {
+    "placeholders": {
+      "meters": {
+        "type": "String"
+      }
+    }
+  },
+  "syncedJustNow": "Synced: Just now",
+  "nextManeuver": "NEXT MANEUVER IN {distance}",
+  "@nextManeuver": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "geoFencedCheckIn": "Geo-Fenced Check-In",
+  "sosHelp": "SOS HELP",
+  "iHaveArrived": "I HAVE ARRIVED — VERIFY OTP",
+  "shiftReportingDuty": "SHIFT REPORTING DUTY",
+  "requiredBy": "Required by {time}",
+  "@requiredBy": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "aheadOfSchedule": "{minutes}m Ahead of Schedule",
+  "@aheadOfSchedule": {
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "verifyArrival": "Verify Arrival",
+  "arrivedAtSite": "ARRIVED AT SITE",
+  "proximityConfirmed": "Proximity Confirmed",
+  "attendancePasscode": "Attendance Passcode",
+  "enterOtpAtLocation": "Enter the OTP provided at the service location",
+  "otpExpiresIn": "OTP expires in {time}",
+  "@otpExpiresIn": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "resendOtp": "Resend OTP",
+  "verifyAndCheckIn": "VERIFY & CHECK IN",
+  "verificationDetails": "VERIFICATION DETAILS",
+  "locationDetected": "LOCATION DETECTED",
+  "workerId": "Worker ID",
+  "gpsAccuracyLabel": "GPS Accuracy",
+  "highPrecision": "High Precision",
+  "active": "Active",
+  "currentGeoLocation": "Current Geo-Location",
+  "arrivalTimestamp": "Arrival Timestamp",
+  "needHelpPasscode": "Need help with passcode?",
+  "callDutyCoordinator": "Call Duty Coordinator",
+  "arrivalVerified": "ARRIVAL VERIFIED",
+  "inspectionReady": "INSPECTION READY",
+  "incorrectOtp": "Incorrect OTP. Please try again.",
+  "otpExpired": "OTP has expired. Please request a new one.",
+  "customerNotResponding": "Customer Not Responding",
+  "callCustomer": "Call",
+  "messageCustomer": "Message",
+  "waitForCustomer": "Wait",
+  "reportUnavailable": "Report Customer Unavailable",
+  "inspectionDiagnosis": "Inspection & Diagnosis",
+  "onSiteActive": "ON-SITE ACTIVE",
+  "arrivalOtpVerified": "Arrival OTP Verified",
+  "sequentialWorkflow": "SEQUENTIAL WORKFLOW",
+  "otpCheck": "OTP Check",
+  "inspection": "Inspection",
+  "quotation": "Quotation",
+  "approval": "Approval",
+  "done": "Done",
+  "activeNow": "Active Now",
+  "locked": "Locked",
+  "pricingLocked": "Pricing Locked",
+  "physicalDiagnosis": "Physical Diagnosis",
+  "customerReportedIssue": "CUSTOMER REPORTED ISSUE",
+  "customerAttachedPhotos": "Customer Attached Photos",
+  "viewFull": "View Full",
+  "workerInspectionFindings": "Worker Inspection Findings",
+  "editable": "EDITABLE",
+  "observedDefect": "Observed Physical Defect / Root Cause",
+  "diagnosisSeverity": "Diagnosis Severity Level",
+  "lowDrip": "Low (Drip)",
+  "activeLeak": "Active Leak",
+  "shutoffUrgent": "Shutoff Urgent",
+  "requiredAction": "Required Technical Corrective Action",
+  "onSiteObservations": "On-Site Observations & Pre-requisites",
+  "technicianPhotos": "Technician Live Proof Photos",
+  "photosAttached": "Attached",
+  "photoVerifyNote": "These photos verify the pre-repair damaged state to avoid disputes before parts are dismantled.",
+  "completeInspection": "COMPLETE INSPECTION →",
+  "completeInspectionNote": "Completing inspection unlocks the Service Quotation phase without premature pricing.",
+  "nextUnlockQuotation": "Next: Complete inspection to unlock quotation",
+  "inspectionPrerequisitesNote": "Enter observed defect and attach at least 1 proof photo to unlock quotation.",
+  "quotationTitle": "Quotation",
+  "inspectionCompleted": "INSPECTION COMPLETED",
+  "onSiteService": "ON-SITE SERVICE",
+  "customerProblemPhotos": "CUSTOMER PROBLEM PHOTOS",
+  "inspectionSummary": "INSPECTION SUMMARY",
+  "customerReportedProblem": "CUSTOMER REPORTED PROBLEM",
+  "workerDiagnosis": "WORKER DIAGNOSIS",
+  "recommendedSolution": "RECOMMENDED SOLUTION",
+  "workerInspectionPhotos": "WORKER INSPECTION PHOTOS",
+  "verifiedOnSite": "Verified On-Site",
+  "serviceQuotation": "SERVICE QUOTATION",
+  "labourServiceCharge": "LABOUR / SERVICE CHARGE",
+  "workerEditable": "Worker Editable",
+  "materialCostItemized": "MATERIAL COST (ITEMIZED)",
+  "addMaterial": "+ Add Material",
+  "otherServiceCharges": "OTHER SERVICE CHARGES",
+  "serviceSubtotal": "Service Subtotal",
+  "platformFeePercent": "PLATFORM FEE ({percent}%)",
+  "@platformFeePercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "autoCalculated": "Auto-Calculated",
+  "totalServiceQuotation": "TOTAL SERVICE QUOTATION",
+  "customerServiceTotal": "Customer Service Total",
+  "readyForApproval": "Ready for Customer Approval",
+  "platformFeeNote": "Platform fee is added separately to the service quotation. On-site visit charges are handled separately and are not included in this quotation.",
+  "quotationStatus": "QUOTATION STATUS",
+  "waitingForApproval": "WAITING FOR CUSTOMER APPROVAL",
+  "ifApproved": "If Approved",
+  "ifRejected": "If Rejected",
+  "sendQuotation": "SEND QUOTATION",
+  "quotationApproved": "QUOTATION APPROVED ✓",
+  "quotationNotApproved": "QUOTATION NOT APPROVED",
+  "rejectionReason": "Rejection reason",
+  "startService": "START SERVICE",
+  "serviceCompletion": "Service Completion",
+  "workCompleted": "WORK COMPLETED",
+  "onSiteVerified": "ON-SITE VERIFIED",
+  "serviceSummary": "SERVICE SUMMARY",
+  "problemAddressed": "PROBLEM ADDRESSED",
+  "workPerformed": "WORK PERFORMED",
+  "completionNotes": "COMPLETION NOTES",
+  "proofOfWork": "PROOF OF WORK",
+  "beforeVsAfter": "Before vs After verification",
+  "verifiedByTech": "Verified by Tech",
+  "addPhotoTestProof": "+ Add Additional Photo / Test Proof",
+  "finalServiceCost": "FINAL SERVICE COST",
+  "labourServiceChargeLabel": "Labour / Service Charge",
+  "materialCost": "Material Cost",
+  "otherCharges": "Other Applicable Service Charges",
+  "serviceSubtotalLabel": "Service Subtotal",
+  "cooperativePlatformFee": "Cooperative Platform Fee",
+  "finalServiceAmount": "FINAL SERVICE AMOUNT",
+  "quotationMatched": "Quotation Matched",
+  "materialBillProof": "MATERIAL & BILL PROOF",
+  "itemsVerified": "{count} Items Verified",
+  "@itemsVerified": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "billAttached": "BILL ATTACHED",
+  "takeBillPhoto": "Take Bill Photo",
+  "uploadReceipt": "Upload Receipt",
+  "addMaterialBill": "+ Add Additional Material / Bill",
+  "verifiedMaterialCost": "Verified Material Cost",
+  "materialBillNote": "Material bill photos are attached as proof of actual material cost. They verify expenditures and do not add any extra charges.",
+  "paymentStatus": "PAYMENT STATUS",
+  "awaitingPayment": "AWAITING PAYMENT",
+  "customerPaymentPayable": "Customer Payment Payable",
+  "paymentModeOptions": "Payment Mode Options / Status",
+  "paymentPromptNote": "Customer prompted via App / Cash or UPI to Cooperative Escrow.",
+  "waitingForPayment": "Waiting for customer to confirm payment on their app",
+  "refresh": "Refresh",
+  "confirmPayment": "CONFIRM PAYMENT",
+  "requestPayment": "REQUEST PAYMENT",
+  "invoiceDetails": "Invoice Details",
+  "taxInvoice": "TAX INVOICE",
+  "originalForRecipient": "ORIGINAL FOR RECIPIENT",
+  "paid": "PAID",
+  "verifiedReceipt": "Verified Cooperative Digital Receipt",
+  "paidOn": "Paid on {date} at {time}",
+  "@paidOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "gstinActive": "GSTIN ACTIVE",
+  "billedTo": "Billed To (Customer)",
+  "fulfilledBy": "Fulfilled By",
+  "licensedTrade": "Licensed Field Plumbing Tech",
+  "cooperativeNode": "Cooperative Node",
+  "jobSpecification": "JOB SPECIFICATION",
+  "completedAt": "Completed at",
+  "billingBreakdown": "Billing Breakdown",
+  "currencyInr": "CURRENCY: INR (₹)",
+  "totalPaid": "TOTAL PAID (INCL. TAXES)",
+  "settledInFull": "Settled in Full",
+  "clearBillingPolicy": "Clear Billing Policy",
+  "transactionRecord": "Transaction Record",
+  "paymentSuccessful": "Payment Successful",
+  "paymentMethod": "Payment Method",
+  "transactionId": "Transaction ID",
+  "bankUtrReference": "Bank UTR Reference",
+  "transactionTimestamp": "Transaction Timestamp",
+  "serviceInfoScope": "Service Information & Scope",
+  "reportedIssue": "REPORTED ISSUE",
+  "technicalWork": "TECHNICAL WORK PERFORMED",
+  "materialsVerified": "MATERIALS VERIFIED & INSTALLED",
+  "proofOfServiceLabel": "Proof of Service",
+  "photosVerified": "{count} PHOTOS VERIFIED",
+  "@photosVerified": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadInvoice": "DOWNLOAD INVOICE (PDF)",
+  "viewServiceHistory": "View Full Service History & Diagnostics",
+  "shareInvoice": "Share",
+  "printInvoice": "Print",
+  "jobCompleted": "JOB COMPLETED ✓",
+  "completionTime": "Completion Time",
+  "finalAmount": "Final Amount",
+  "invoiceNumber": "Invoice Number",
+  "thankYou": "Thank you for using the cooperative service platform.",
+  "warrantyNote": "For warranty claims or queries, please reference Job",
+  "ratingTitle": "Rate This Service",
+  "ratingSubtitle": "Your feedback helps improve worker quality",
+  "starRating": "Star Rating",
+  "feedbackPlaceholder": "Share your feedback (optional)",
+  "submitRating": "Submit Rating",
+  "jobHistory": "Job History",
+  "all": "All",
+  "filterCompleted": "Completed",
+  "filterCancelled": "Cancelled",
+  "filterRejected": "Rejected",
+  "filterInProgress": "In Progress",
+  "service": "Service",
+  "date": "Date",
+  "amount": "Amount",
+  "status": "Status",
+  "earningsTitle": "Earnings",
+  "today": "Today",
+  "weekly": "Weekly",
+  "monthly": "Monthly",
+  "financialYear": "Financial Year",
+  "serviceEarnings": "Service Earnings",
+  "onsiteEarnings": "Onsite Earnings",
+  "reimbursements": "Reimbursements",
+  "bonuses": "Bonuses",
+  "deductions": "Deductions",
+  "pendingEarnings": "Pending Earnings",
+  "settledEarnings": "Settled Earnings",
+  "settlementTitle": "Settlements",
+  "pendingSettlement": "Pending Settlement",
+  "includedJobs": "Included Jobs",
+  "expectedSettlement": "Expected Settlement",
+  "settlementMethod": "Settlement Method",
+  "settlementHistory": "Settlement History",
+  "settlementId": "Settlement ID",
+  "notificationsTitle": "Notifications",
+  "unread": "{count} Unread",
+  "@unread": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "markRead": "Mark read",
+  "justNow": "Just now",
+  "minutesAgo": "{count}m ago",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "hoursAgo": "{count}h ago",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "myProfile": "My Profile",
+  "workerIdentity": "Worker Identity & Credentials",
+  "cooperativeTier": "Cooperative Tier",
+  "onTimeRate": "100% On-time",
+  "clientSide": "Client side",
+  "thisFy": "This FY",
+  "topPercent": "Top {percent}%",
+  "@topPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "settlementThreshold": "Settlement Threshold Alert",
+  "jobDispatchGateRule": "Job Dispatch Gate Rule",
+  "newRequestsPaused": "NEW REQUESTS PAUSED",
+  "thresholdReachedMsg": "Settlement threshold reached. New job requests are paused until settlement is processed.",
+  "pendingSettlementLabel": "PENDING SETTLEMENT",
+  "policyThreshold": "POLICY THRESHOLD",
+  "autoHoldTrigger": "Auto-hold trigger",
+  "settlementStatus": "Settlement Status",
+  "processing": "Processing",
+  "expectedSettlementTime": "Expected Settlement",
+  "lastSettlement": "Last Settlement",
+  "skills": "Skills",
+  "certifications": "Certifications",
+  "performance": "Performance",
+  "documents": "Documents",
+  "availability": "Availability",
+  "paymentDetails": "Payment Details",
+  "settings": "Settings",
+  "language": "Language",
+  "support": "Support",
+  "logout": "Logout",
+  "logoutConfirm": "Are you sure you want to logout?",
+  "yes": "Yes",
+  "no": "No",
+  "availabilityTitle": "Worker Availability",
+  "activeStatus": "ACTIVE",
+  "inactiveStatus": "INACTIVE",
+  "busyStatus": "BUSY",
+  "workingHours": "Working Hours",
+  "serviceAvailability": "Service Availability",
+  "scheduleTitle": "Schedule",
+  "calendar": "Calendar",
+  "upcomingJobs": "Upcoming Jobs",
+  "completedJobs": "Completed Jobs",
+  "blockedTimes": "Blocked Times",
+  "rescheduleTitle": "Reschedule",
+  "currentAppointment": "Current Appointment",
+  "selectNewTime": "Select New Time",
+  "reason": "Reason",
+  "customerApproval": "Customer Approval",
+  "rescheduleRequested": "Reschedule Requested",
+  "rescheduleWaiting": "Waiting for Approval",
+  "rescheduleApproved": "Reschedule Approved",
+  "rescheduleRejected": "Reschedule Rejected",
+  "coursesTraining": "Courses & Training",
+  "improveSkills": "Improve your skills & earn new certifications",
+  "enrolled": "Enrolled",
+  "total": "Total",
+  "finished": "Finished",
+  "certificates": "Certificates",
+  "recommended": "Recommended",
+  "mandatory": "Mandatory",
+  "advanced": "Advanced",
+  "courseDetails": "Course Details",
+  "enrollNow": "Enroll Now",
+  "continueTraining": "Continue Training",
+  "viewCertificate": "View Certificate",
+  "progress": "Progress",
+  "lessons": "Lessons",
+  "duration": "Duration",
+  "certificate": "Certificate",
+  "schemesWelfare": "Schemes & Welfare",
+  "benefitsProtection": "Benefits, protection & cooperative support",
+  "available": "Available",
+  "explore": "Explore",
+  "eligible": "Eligible",
+  "valid": "100% Valid",
+  "applied": "Applied",
+  "inReview": "In Review",
+  "approved": "Approved",
+  "activeCare": "Active Care",
+  "insurance": "INSURANCE",
+  "welfare": "WELFARE",
+  "pension": "PENSION",
+  "training": "TRAINING",
+  "schemeDetails": "Scheme Details",
+  "eligibility": "Eligibility",
+  "applyNow": "Apply Now",
+  "applicationSubmitted": "Application Submitted",
+  "applicationApproved": "Application Approved",
+  "applicationRejected": "Application Rejected",
+  "supportTitle": "Help & Support",
+  "helpCenter": "Help Center",
+  "faq": "FAQ",
+  "contactSupportAction": "Contact Support",
+  "paymentIssue": "Payment Issue",
+  "jobDispute": "Job Dispute",
+  "technicalIssue": "Technical Issue",
+  "customerIssue": "Customer Issue",
+  "unsafeLocationReport": "Unsafe Location",
+  "sosTitle": "Emergency SOS",
+  "emergencyAssistance": "Emergency Assistance",
+  "callEmergencyServices": "Call Emergency Services",
+  "cooperativeSupport": "Cooperative Support",
+  "shareLiveLocation": "Share Live Location",
+  "securitySettings": "Security Settings",
+  "changePassword": "Change Password",
+  "biometricLogin": "Biometric Login",
+  "sessionManagement": "Session / Device Management",
+  "accountLockInfo": "Account Lock Information",
+  "locationPermTitle": "Location Permission Required",
+  "locationPermMsg": "Location access is required for journey tracking, arrival verification, customer safety, and service verification.",
+  "cameraPermTitle": "Camera Access Required",
+  "cameraPermMsg": "Camera access is required for inspection photos, material proof, before/after evidence, and service documentation.",
+  "notifPermTitle": "Notification Permission",
+  "notifPermMsg": "Notifications are needed for new job alerts, customer selection updates, reminders, quotation results, and payment updates.",
+  "allow": "Allow",
+  "notNow": "Not Now",
+  "noRequests": "No new requests at the moment",
+  "noUpcomingJobs": "No upcoming jobs scheduled",
+  "noActiveJob": "No active job right now",
+  "noCompletedJobs": "No completed jobs yet",
+  "noNotifications": "No notifications",
+  "noCourses": "No courses available",
+  "noSchemes": "No schemes available",
+  "noEarnings": "No earnings recorded yet",
+  "noSettlements": "No settlements to show",
+  "errorServerUnavailable": "Server is temporarily unavailable. Please try again later.",
+  "errorNetworkUnavailable": "No internet connection. Please check your network settings.",
+  "errorApiFailure": "Something went wrong. Please try again.",
+  "errorTimeout": "Request timed out. Please try again.",
+  "errorInvalidOtp": "Invalid OTP. Please check and try again.",
+  "errorExpiredOtp": "OTP has expired. Please request a new one.",
+  "errorPaymentFailed": "Payment failed. Please try again or use an alternate payment method.",
+  "errorUploadFailed": "Upload failed. Please check your connection and try again.",
+  "errorGpsUnavailable": "GPS signal is not available. Please enable location services.",
+  "errorPermissionDenied": "Permission denied. This feature requires the requested permission.",
+  "errorGeofenceFailed": "Geofence verification failed. Please ensure you are at the correct location.",
+  "errorSessionExpired": "Your session has expired. Please login again.",
+  "retry": "Retry",
+  "tryAgain": "Try Again",
+  "goBack": "Go Back",
+  "paymentPending": "Payment Pending",
+  "paymentProcessing": "Payment Processing",
+  "paymentCompleted": "Payment Completed",
+  "paymentFailed": "Payment Failed",
+  "partialPayment": "Partial Payment",
+  "received": "Received",
+  "remainingAmount": "Remaining",
+  "retryPayment": "Retry Payment",
+  "alternatePayment": "Alternate Payment Method",
+  "gpsWeak": "GPS signal is weak",
+  "gpsSearching": "Searching for GPS signal...",
+  "gpsFixed": "GPS signal acquired",
+  "offline": "You are offline",
+  "syncing": "Syncing...",
+  "reconnecting": "Reconnecting...",
+  "failedAction": "Action failed. Will retry when connected.",
+  "mins": "mins",
+  "km": "km",
+  "hrs": "hrs",
+  "items": "items",
+  "rupeeSymbol": "₹",
+  "confirmAction": "Confirm",
+  "cancelAction": "Cancel",
+  "save": "Save",
+  "edit": "Edit",
+  "delete": "Delete",
+  "close": "Close",
+  "next": "Next",
+  "back": "Back",
+  "submit": "Submit",
+  "apply": "Apply",
+  "view": "View",
+  "download": "Download",
+  "share": "Share",
+  "search": "Search",
+  "filter": "Filter",
+  "sortBy": "Sort by",
+  "clearAll": "Clear All",
+  "seeAll": "See All",
+  "loadMore": "Load More",
+  "ok": "OK",
+  "newRequestBadge": "NEW REQUEST",
+  "verifiedClient": "Verified Client",
+  "memberSince": "Member since {year} • {count} completed services",
+  "@memberSince": {
+    "placeholders": {
+      "year": {
+        "type": "String"
+      },
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "viewAllPhotos": "View All Photos ({count})",
+  "@viewAllPhotos": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "photoTapToView": "Tap to view",
+  "photoDisambiguationNote": "Customer pre-visit photos help assess tools & spare parts. Worker inspection photos are recorded separately after arrival & OTP verification.",
+  "scheduleLogistics": "Schedule & Logistics",
+  "travelTimeApprox": "~{minutes} mins travel time",
+  "@travelTimeApprox": {
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "editFee": "Edit Fee",
+  "youReceiveFullPayout": "You Receive: {amount} (100% Payout)",
+  "@youReceiveFullPayout": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "totalCustomerPays": "Total Customer Pays",
+  "guaranteedPayoutNote": "Your visit fee is credited even if the customer doesn't proceed after inspection.",
+  "customerInstructionsTitle": "Customer Instructions",
+  "jobAcceptedWaitingNote": "Waiting for customer confirmation & selection.",
+  "conflictExplanation": "This request could not be validated against your current schedule, working hours, or service zone.",
+  "institutionAssignment": "INSTITUTION ASSIGNMENT",
+  "customerJobRequest": "CUSTOMER JOB REQUEST",
+  "viaMainRoad": "Via main road (Traffic flowing normally)",
+  "askCustomerForOtp": "Ask {name} for the 6-digit code sent to their registered mobile.",
+  "@askCustomerForOtp": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "otpAttemptsLeft": "{count} attempts left",
+  "@otpAttemptsLeft": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "verifyAndStartService": "VERIFY & START SERVICE",
+  "strictProgressiveDisclosure": "Strict Progressive Disclosure",
+  "inspectionFindingsSubtitle": "Official technical diagnosis at location",
+  "uploadedPriorToArrival": "Uploaded by {name} prior to technician arrival",
+  "@uploadedPriorToArrival": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "takeCameraShot": "Take Camera Shot",
+  "uploadFile": "Upload File",
+  "addPhoto": "Add Photo",
+  "maxPhotosNote": "(Max {count})",
+  "@maxPhotosNote": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "removePhoto": "Remove photo",
+  "inspectionCompleted": "INSPECTION COMPLETED",
+  "quotationBuilder": "Quotation Builder",
+  "quotationPreview": "Quotation Preview",
+  "quotationSent": "Quotation Sent",
+  "serviceQuotation": "SERVICE QUOTATION",
+  "createdAfterDiagnosis": "Created after technical on-site diagnosis",
+  "labourServiceCharge": "Labour / Service Charge",
+  "workerEditable": "Worker Editable",
+  "labourDescription": "Service description",
+  "labourEstimate": "Estimated duration: 45 – 60 mins",
+  "materialCostItemized": "Material Cost (Itemized)",
+  "addMaterial": "Add Material",
+  "materialName": "Material name",
+  "materialQty": "Qty",
+  "materialUnit": "unit",
+  "materialUnitPrice": "Unit price",
+  "materialSubtotal": "Material Subtotal ({count} items)",
+  "@materialSubtotal": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "otherServiceCharges": "Other Service Charges",
+  "otherChargesHint": "Debris disposal, specialized tools (Optional)",
+  "serviceSubtotalBreakdown": "Service Subtotal Breakdown:",
+  "serviceSubtotal": "SERVICE SUBTOTAL",
+  "platformFeePercent": "Platform Fee ({percent}%)",
+  "@platformFeePercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "autoCalculated": "Auto-Calculated",
+  "platformFeeNote": "{percent}% of {amount} Service Subtotal • Added to customer payment",
+  "@platformFeeNote": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "totalServiceQuotation": "TOTAL SERVICE QUOTATION",
+  "customerServiceTotal": "Customer Service Total",
+  "readyForApproval": "Ready for Customer Approval",
+  "platformFeePolicy": "Platform fee is added separately to the service quotation. On-site visit charges are handled separately and are not included in this quotation.",
+  "quotationNotes": "Quotation Notes",
+  "quotationNotesHint": "Add any notes for the customer (optional)",
+  "quotationValidity": "Valid for 24 hours from time of submission",
+  "sendQuotation": "SEND QUOTATION",
+  "sendQuotationAmount": "SEND QUOTATION — {amount}",
+  "@sendQuotationAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "digitalPushNote": "Prompt digital push sent directly to customer's app",
+  "quotationStatus": "Quotation Status",
+  "waitingForApproval": "WAITING FOR CUSTOMER APPROVAL",
+  "quotationWaitingMsg": "Customer {name} will receive this itemized quotation of {amount} on their mobile app for immediate one-tap review and digital authorization.",
+  "@quotationWaitingMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ifApproved": "If Approved:",
+  "ifRejected": "If Rejected:",
+  "approvedAction": "Tap \"START SERVICE\" to begin the repair work.",
+  "rejectedAction": "Job closure handled according to standard cooperative policy.",
+  "paymentAfterApproval": "Payment & invoice will generate strictly after quotation is approved and physical service is completed.",
+  "quotationAmount": "Service Quotation Amount:",
+  "previewQuotation": "PREVIEW QUOTATION",
+  "confirmAndSend": "CONFIRM & SEND QUOTATION",
+  "quotationSentSuccess": "Quotation sent successfully to customer",
+  "backToHome": "BACK TO HOME",
+  "removeMaterial": "Remove material",
+  "inr": "INR (₹)",
+  "labourChargeAmount": "Labour charge amount",
+  "otherChargesAmount": "Other charges amount",
+  "quotationSentWaiting": "Your quotation has been sent. Waiting for customer response.",
+  "customerAccepted": "CUSTOMER ACCEPTED",
+  "customerRejected": "CUSTOMER REJECTED",
+  "quotationAcceptedMsg": "Customer has approved your quotation. You can now start the service.",
+  "quotationRejectedMsg": "Customer has declined the quotation. Job will be closed per cooperative policy.",
+  "startService": "START SERVICE",
+  "onSiteService": "ON-SITE SERVICE",
+  "serviceExecution": "Service Execution",
+  "workInProgress": "WORK IN PROGRESS",
+  "workCompleted": "WORK COMPLETED",
+  "serviceSummary": "Service Summary",
+  "problemAddressed": "Problem Addressed",
+  "workPerformed": "Work Performed",
+  "completionNotes": "Completion Notes",
+  "proofOfWork": "Proof of Work",
+  "beforeVsAfter": "Before vs After verification",
+  "verifiedByTech": "Verified by Tech",
+  "addProofPhoto": "+ Add Additional Photo / Test Proof",
+  "materialAndBillProof": "Material & Bill Proof",
+  "billAttached": "BILL ATTACHED",
+  "viewBill": "View",
+  "replaceBill": "Replace",
+  "takeBillPhoto": "Take Bill Photo",
+  "uploadReceipt": "Upload Receipt",
+  "addMaterialBill": "+ Add Additional Material / Bill",
+  "verifiedMaterialCost": "Verified Material Cost",
+  "materialProofNote": "Material bill photos are attached as proof of actual material cost. They verify expenditure and do not add any extra charges.",
+  "finalServiceCost": "Final Service Cost",
+  "completeService": "COMPLETE SERVICE",
+  "requestPayment": "REQUEST PAYMENT",
+  "paymentStatus": "Payment Status",
+  "awaitingPayment": "AWAITING PAYMENT",
+  "paymentProcessing": "PAYMENT PROCESSING",
+  "paymentSuccess": "PAYMENT SUCCESSFUL",
+  "paymentFailed": "PAYMENT FAILED",
+  "paymentDetails": "Payment Details",
+  "paymentMethod": "Payment Method",
+  "transactionId": "Transaction ID",
+  "bankUtr": "Bank UTR Reference",
+  "timestamp": "Timestamp",
+  "totalPaid": "TOTAL PAID (INCL. TAXES)",
+  "settledInFull": "Settled in Full",
+  "invoiceDetails": "Invoice Details",
+  "taxInvoice": "TAX INVOICE",
+  "originalForRecipient": "ORIGINAL FOR RECIPIENT",
+  "jobSpecification": "JOB SPECIFICATION",
+  "billingBreakdown": "Billing Breakdown",
+  "shareOrPrint": "Share / Print",
+  "downloadInvoice": "DOWNLOAD INVOICE",
+  "ratingFeedback": "Rating & Feedback",
+  "rateCustomer": "Rate Customer Experience",
+  "jobCompletedSuccess": "Job Completed Successfully!",
+  "viewInvoice": "VIEW INVOICE",
+  "submitRating": "SUBMIT RATING & CLOSE",
+  "cleanWorkArea": "Clean Work Area & Handover",
+  "customerInstructionFollowed": "Customer instructions adhered to during repair",
+  "earningsTitle": "Earnings & Settlements",
+  "todayEarnings": "Today",
+  "weekEarnings": "This Week",
+  "monthEarnings": "This Month",
+  "fyEarnings": "Financial Year",
+  "pendingEarnings": "Pending Payout",
+  "settledEarnings": "Settled Payout",
+  "serviceEarnings": "Service / Labour",
+  "onsiteEarnings": "On-site Visit Fees",
+  "materialReimbursements": "Material Reimbursement",
+  "bonuses": "Performance Bonus",
+  "deductions": "TDS / Cooperative Fee",
+  "settlementHistory": "Settlement History",
+  "settlementId": "Settlement ID",
+  "settlementDate": "Settlement Date",
+  "settlementAmount": "Amount",
+  "settledToBank": "Settled to Bank Account",
+  "inEscrow": "In Escrow",
+  "transactions": "Transactions",
+  "reportDelayTitle": "Report Dispatch Delay",
+  "delayExpectedTime": "Expected Delay Time",
+  "min15": "+15 Mins",
+  "min30": "+30 Mins",
+  "min45": "+45 Mins",
+  "customTime": "Custom",
+  "selectDelayReason": "Select Delay Reason",
+  "trafficCongestion": "Heavy traffic on route",
+  "prevJobLate": "Previous client job running late",
+  "vehicleIssue": "Vehicle / transit breakdown",
+  "partsPickup": "Picking up required spare parts",
+  "weatherDelay": "Severe weather disruption",
+  "emergencyDelay": "Personal / family emergency",
+  "notifyDelay": "Notify Customer of Delay",
+  "delayReportedSuccess": "Delay reported. Customer has been notified.",
+  "dismiss": "Dismiss",
+  "cancelAssignmentTitle": "Cancel This Assignment?",
+  "cancelWarning": "Are you sure you want to cancel? Cancelling within 1 hour impacts your worker response score.",
+  "cancelReasonLabel": "Reason for cancellation",
+  "reasonConflict": "Schedule conflict",
+  "reasonEmergency": "Emergency / family urgency",
+  "reasonVehicle": "Vehicle / transit problem",
+  "reasonCustomerUnavailable": "Customer unavailable at site",
+  "reasonUnsafeLocation": "Unsafe / inaccessible location",
+  "reasonIncorrectJob": "Incorrect job details / scope mismatch",
+  "reasonOther": "Other reason",
+  "keepJob": "Keep Job",
+  "confirmCancel": "Confirm Cancel",
+  "jobCancelledLogged": "Job Cancelled",
+  "cancelNotificationSent": "Customer & cooperative dispatch have been notified.",
+  "logged": "Logged",
+  "rescheduleTitle": "Reschedule Appointment",
+  "currentAppointment": "Current Appointment",
+  "selectNewSlot": "Select New Date & Time",
+  "rescheduleReason": "Reason for Reschedule",
+  "requestCustomerApproval": "Request Customer Approval",
+  "rescheduleStatusRequested": "Requested",
+  "rescheduleStatusWaiting": "Waiting for Customer",
+  "rescheduleStatusApproved": "Approved",
+  "rescheduleStatusRejected": "Declined",
+  "rescheduleSuccess": "Reschedule request sent to customer",
+  "customerUnavailableTitle": "Customer Unavailable at Site",
+  "stepCallCustomer": "Call Customer",
+  "stepSendMessage": "Send In-App Message",
+  "stepWaitTimer": "Waiting Protocol Timer",
+  "stepArrivalEvidence": "Verify GPS Arrival Evidence",
+  "claimOnsiteFee": "Claim Guaranteed Onsite Fee (₹150)",
+  "recordUnavailable": "Report Customer Unavailable & Close",
+  "unavailableLogged": "Customer unavailable logged. ₹150 onsite fee credited to your pending settlement.",
+  "callNow": "Call Now",
+  "messageNow": "Send Message",
+  "waitingRemaining": "10:00 Waiting Time Remaining",
+  "notificationsTitle": "Notifications",
+  "unread": "Unread",
+  "markAllRead": "Mark read",
+  "filterAll": "All",
+  "filterCustomer": "Customer",
+  "filterInstitution": "Institution",
+  "filterSystem": "System",
+  "noNotifications": "No notifications available",
+  "myProfile": "My Profile",
+  "workerCredentials": "Worker Identity & Credentials",
+  "completedStat": "Completed",
+  "cancelledStat": "Cancelled",
+  "earningsStat": "Earnings",
+  "ratingStat": "Rating",
+  "clientSide": "Client side",
+  "onTimeRate": "100% On-time",
+  "skillsAndCertifications": "Skills & Certifications",
+  "accountQuickLinks": "Account & Work Settings",
+  "workerSchedule": "Worker Schedule",
+  "availabilityStatus": "Availability Status",
+  "bankAndPayouts": "Bank & Payout Accounts",
+  "documentsKyc": "Documents & KYC Verification",
+  "settingsTitle": "Settings",
+  "helpAndSupport": "Help & Support",
+  "emergencySos": "Emergency SOS",
+  "statusActive": "ACTIVE",
+  "statusInactive": "INACTIVE",
+  "statusBusy": "BUSY",
+  "statusPaused": "REQUESTS PAUSED",
+  "scheduleTitle": "Worker Schedule",
+  "workHours": "Working Hours",
+  "upcomingAppointments": "Upcoming Appointments",
+  "blockedTime": "Blocked Time Slots",
+  "noUpcomingJobs": "No upcoming jobs for this date",
+  "appPreferences": "App Preferences",
+  "pushNotifications": "Push Notifications",
+  "smsAlerts": "SMS Alerts",
+  "locationServices": "Location Services (Always Allow)",
+  "cameraPermission": "Camera & Media Access",
+  "cooperativeHelpline": "Cooperative Helpline",
+  "logout": "Logout",
+  "logoutConfirm": "Are you sure you want to log out?",
+  "supportTitle": "Help & Support",
+  "emergencySosTitle": "Emergency SOS",
+  "call112": "National Emergency Services (112)",
+  "callDispatch": "Cooperative Emergency Dispatch",
+  "shareLiveLocation": "Share Live GPS Location",
+  "faqTitle": "Frequently Asked Questions",
+  "paymentDispute": "Payment Dispute",
+  "jobDispute": "Job Scope Dispute",
+  "unsafeLocation": "Report Unsafe Location",
+  "sosAlertSent": "SOS alert & current location dispatched to cooperative control center.",
+  "institutionDashboard": "Institution Assignments",
+  "shiftHours": "Shift Hours",
+  "fixedDuty": "8h Fixed Duty",
+  "guaranteedPay": "Guaranteed Pay",
+  "directEscrow": "Direct Escrow",
+  "peerRoster": "Peer Roster",
+  "allDispatched": "All Dispatched",
+  "liveDeployment": "Live Deployment",
+  "stageAssigned": "Assigned",
+  "stageJourney": "Journey",
+  "stageEnRoute": "En Route",
+  "stageArrived": "Arrived",
+  "stageToolInspection": "Tool Check",
+  "stageServiceWork": "Service Work",
+  "stageSupervisorSignoff": "Sign-off",
+  "stageCompleted": "Completed",
+  "siteSupervisor": "Site Supervisor",
+  "equipmentChecklist": "Equipment Checklist",
+  "allToolsVerified": "All safety & sanitization equipment verified",
+  "coursesTitle": "Training & Upskilling",
+  "enrolled": "Enrolled",
+  "inProgress": "In Progress",
+  "certificatesEarned": "Certificates",
+  "recommendedForYou": "Recommended for You",
+  "technicalCourses": "Technical",
+  "safetyCourses": "Safety",
+  "startCourse": "Start Course",
+  "resumeCourse": "Resume",
+  "viewCertificate": "View Certificate",
+  "hours": "hours",
+  "modules": "modules",
+  "schemesTitle": "Cooperative Welfare & Schemes",
+  "eligibleSchemes": "Eligible",
+  "appliedSchemes": "Applied",
+  "approvedSchemes": "Approved",
+  "featuredScheme": "Featured Scheme",
+  "applyNow": "Apply Now",
+  "viewStatus": "View Status",
+  "coverage": "Coverage",
+  "insuranceCategory": "Insurance",
+  "welfareCategory": "Welfare",
+  "financialCategory": "Financial",
+  "noRequestsMsg": "No new service requests available right now",
+  "networkErrorTitle": "No Internet Connection",
+  "networkErrorMsg": "Please check your mobile data or Wi-Fi connection and retry.",
+  "gpsErrorTitle": "Location Permission Required",
+  "gpsErrorMsg": "GPS access is required to track journeys and verify on-site arrival.",
+  "enableGps": "Enable GPS",
+  "cameraErrorTitle": "Camera Permission Required",
+  "cameraErrorMsg": "Camera access is needed to capture inspection and bill proof photos.",
+  "grantPermission": "Grant Permission",
+  "disputeTitle": "Job Dispute Reported",
+  "disputeMsg": "A dispute has been raised on this job. Cooperative support is reviewing the case.",
+  "retry": "Retry",
+  "close": "Close",
+  "cancellationReasonLabel": "Reason",
+  "cancellationTimestampLabel": "Timestamp",
+  "cancellationStatusLabel": "Status",
+  "connectingSupportHotline": "Connecting to Society Helpdesk Hotline...",
+  "callSupportNumber": "Call 1800-425-9988",
+  "supportTicketCreated": "Support ticket created successfully! Ticket #TKT-8421",
+  "logTicket": "Log Ticket",
+  "telemetryDispatched": "Live location telemetry dispatched!",
+  "dialingNumber": "Dialing {number}...",
+  "@dialingNumber": {
+    "placeholders": {
+      "number": { "type": "String" }
+    }
+  },
+  "activeCoverage": "Active Coverage",
+  "viewHealthCardAndHospitals": "View Health Card & Hospitals",
+  "schemeVerificationCard": "Scheme Verification Card",
+  "policyNumberLabel": "Cooperative Society Policy: COOP-MED-84920",
+  "policyStatusLabel": "Status: Active • Auto-renewed annually",
+  "tpaHelplineLabel": "TPA Helpline: 1800-22-9988",
+  "customerServicesTitle": "Customer Services",
+  "customerServicesB2C": "Customer Services (B2C)",
+  "urgentCount": "{count} urgent",
+  "@urgentCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "nextScheduledAt": "Next: {time}",
+  "@nextScheduledAt": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "thisMonth": "This Month",
+  "reviewsCount": "({count} reviews)",
+  "@reviewsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "jobInProgress": "Job In Progress",
+  "estFee": "₹{amount} Est.",
+  "@estFee": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "jobDetailsAndBill": "Job Details & Bill",
+  "mapNavigation": "Map Navigation",
+  "incomingRequestsDirect": "Incoming Requests (Direct)",
+  "yourProposedOnsiteFee": "Your Proposed On-Site Fee:",
+  "setOnsiteFee": "Set On-Site Fee:",
+  "acceptWithFee": "Accept with ₹{amount}",
+  "@acceptWithFee": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "reviewAndProposeFee": "Review & Propose Fee",
+  "confirmedVisitsNext24h": "Confirmed Visits (Next 24h)",
+  "remainingCount": "{count} Remaining",
+  "@remainingCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "fieldHelpSafetySos": "Field Help & Safety SOS",
+  "directAgentResolutionLine": "Direct 24/7 Agent Resolution Line",
+  "otpAlertDescription": "Customer OTP verified. Please enter completion OTP before generating final invoice.",
+  "viewAllCount": "View All ({count})",
+  "@viewAllCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "confirmed": "Confirmed",
+  "serviceCompletionOtpTitle": "Service Completion OTP",
+  "serviceCompletionOtpSubtitle": "Customer Service Sign-Off",
+  "askCustomerForCompletionOtp": "Ask {customerName} for the 4-digit completion OTP to verify satisfactory service.",
+  "@askCustomerForCompletionOtp": {
+    "placeholders": {
+      "customerName": { "type": "String" }
+    }
+  },
+  "completionOtpVerified": "Service Completion OTP Verified",
+  "proceedToPayment": "PROCEED TO BILLING & PAYMENT",
+  "verifyEndOtpAndComplete": "VERIFY END OTP & COMPLETE",
+  "signedOff": "Signed Off",
+  "serviceCompletedProofAttached": "Proof Photos Attached & Area Cleaned"
+}

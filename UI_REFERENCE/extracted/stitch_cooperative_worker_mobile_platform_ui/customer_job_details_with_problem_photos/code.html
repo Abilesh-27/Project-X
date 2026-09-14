@@ -1,0 +1,516 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Customer Job Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff4ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#1d4ed8',
+              700: '#1a56db',
+              900: '#0f172a',
+              navy: '#0d1b2a',
+              navyLight: '#1b263b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0b132b;
+      -webkit-font-smoothing: antialiased;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-0 sm:p-4 md:p-6 bg-slate-950">
+<!-- Mobile Frame / Screen Container -->
+<div class="w-full max-w-[420px] bg-[#f4f7fb] text-slate-800 min-h-screen sm:min-h-[880px] sm:max-h-[920px] sm:rounded-[36px] shadow-2xl overflow-hidden flex flex-col relative border-0 sm:border-[8px] sm:border-slate-800">
+<!-- 1. TOP APP HEADER (Deep Navy) -->
+<header class="bg-[#0f1d36] text-white pt-4 pb-4 px-4 relative z-20 shadow-md">
+<!-- Status bar simulation -->
+<div class="flex items-center justify-between text-xs font-semibold text-slate-300 mb-3 px-1">
+<span class="">9:42 AM</span>
+<div class="flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 18.25A9.97 9.97 0 0 1 2 12C2 6.48 6.48 2 12 2c3.08 0 5.86 1.39 7.73 3.6l-.68.68C17.3 4.29 14.81 3 12 3zm0 4c-2.76 0-5 2.24-5 5 0 1.25.46 2.39 1.22 3.27l-.68.68C6.52 14.93 6 13.53 6 12c0-3.31 2.69-6 6-6 1.87 0 3.53.85 4.63 2.19l-.73.68C14.99 7.8 13.58 7 12 7zm0 4c-.55 0-1 .45-1 1 0 .28.11.53.29.71l.71.71.71-.71c.18-.18.29-.43.29-.71 0-.55-.45-1-1-1z"></path></svg>
+<svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4z"></path></svg>
+<div class="w-5 h-2.5 border border-slate-300 rounded-sm p-0.5 flex items-center">
+<div class="w-full h-full bg-slate-300 rounded-xs"></div>
+</div>
+</div>
+</div>
+<!-- Header Nav & Title -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button aria-label="Go Back" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 transition flex items-center justify-center text-white" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<div>
+<div class="flex items-center gap-2">
+<h1 class="text-base font-bold tracking-tight text-white">Customer Job Details</h1>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-400/20 text-amber-300 border border-amber-400/40">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400 mr-1.5 animate-pulse"></span>
+                NEW REQUEST
+              </span>
+</div>
+<p class="text-[11px] text-slate-300">Direct Customer Request • Job #C-4825</p>
+</div>
+</div>
+<button aria-label="Notifications" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center relative text-white" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-2 right-2 w-2 h-2 bg-blue-400 rounded-full ring-2 ring-[#0f1d36]"></span>
+</button>
+</div>
+</header>
+<!-- SCROLLABLE CONTENT BODY -->
+<main class="flex-1 overflow-y-auto custom-scrollbar px-4 py-3.5 space-y-3 pb-28">
+<!-- 2. CUSTOMER IDENTITY CARD -->
+<section class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 relative">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-500 text-white font-bold flex items-center justify-center text-base shadow-inner">
+                PS
+              </div>
+<span class="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white flex items-center justify-center text-[9px] text-white">✓</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<h2 class="text-[15px] font-bold text-slate-900 leading-tight">Priya Sharma</h2>
+<span class="text-[10px] font-medium text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">Verified Client</span>
+</div>
+<p class="text-xs font-semibold text-blue-600 mt-0.5">Job Request #C-4825</p>
+<p class="text-[11px] text-slate-500">Member since 2023 • 14 completed services</p>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="flex items-center gap-1.5">
+<a class="w-9 h-9 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center hover:bg-blue-100 transition" href="tel:+919876543210" title="Call Customer">
+<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.28-.27.36-.67.25-1.02A11.36 11.36 0 019 5.31c0-.55-.45-1-1-1H4.5c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"></path></svg>
+</a>
+<button class="w-9 h-9 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center hover:bg-slate-100 transition" title="Chat Customer" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t border-slate-100 flex items-start gap-2 text-slate-600">
+<svg class="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<div class="text-xs">
+<span class="font-medium text-slate-800">Flat 402, Shivani Apartments, Sector 22</span>, Dwarka, South West Delhi - 110077
+          </div>
+</div>
+</section>
+<!-- 3. SERVICE & DOMAIN SPECIFICATION -->
+<section class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+<div class="flex items-start justify-between mb-2">
+<div>
+<span class="text-[11px] font-bold tracking-wider text-blue-600 uppercase">HOME SERVICES • ON-SITE INSPECTION</span>
+<h3 class="text-base font-bold text-slate-900 mt-0.5">Plumbing Repair &amp; Pipeline Leakage</h3>
+</div>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-bold bg-blue-100 text-blue-800 border border-blue-200 shadow-2xs">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-600 mr-1.5"></span>
+            ON-SITE
+          </span>
+</div>
+<p class="text-xs text-slate-600 leading-relaxed bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+          Main kitchen sink pipe dripping continuously and water pressure dropped across bathroom fixtures. Requires diagnosis, pipe resealing/replacement, and quick system flush.
+        </p>
+<div class="mt-3 flex items-center justify-between bg-slate-50 px-3 py-2 rounded-lg border border-slate-100 text-xs">
+<span class="text-[10px] text-slate-500 font-medium">Service Code</span>
+<span class="font-mono font-semibold text-slate-800 text-xs">PLMB-HK-09</span>
+</div>
+</section>
+<!-- 4. NEW SECTION: PROBLEM PHOTOS (Customer Photos) -->
+<section class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-2">
+<h4 class="text-xs font-bold text-slate-900 tracking-wider uppercase">PROBLEM PHOTOS</h4>
+<span class="text-[10px] font-bold px-2 py-0.5 bg-blue-50 text-blue-700 rounded-full border border-blue-100">Customer Photos (2)</span>
+</div>
+<button class="text-[11px] font-bold text-blue-600 hover:text-blue-800 flex items-center gap-0.5" onclick="openLightbox(0)" type="button">
+            View All Photos (2)
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+<p class="text-[11px] text-slate-500 mb-3">
+          Clear photos uploaded by Priya Sharma to describe the issue before worker arrival.
+        </p>
+<!-- 2-Column Grid of customer photos -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Photo 1 -->
+<div class="relative group cursor-pointer" onclick="openLightbox(0)">
+<div class="relative overflow-hidden rounded-xl border border-slate-200 bg-slate-100 aspect-4/3">
+<img alt="Customer Photo 1: PVC kitchen sink leak" class="w-full h-32 object-cover rounded-xl border border-slate-200 group-hover:scale-105 transition duration-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuRVkrOctHeIdn-GHWW7G_ZbRgnEjPZxNl9j-t4IyeGUYdKtEy1W95xJaTp938zVzH0b0AV2g56Ms63NJ_PHn2GpMWRCqjI1NjcPXZV13dxbF1YxOtFhzSgU2MAWLgAZnE4ekcMeZxsnkRPx44qpsFL1GbjOgQbvcabsGLtEQHvkR9JeUV3_mlmPnSb4RZGKpoOt1SBbaK9pxZzDCHLaT11zjL1GELc07vIOj0xjaJNaHhAGJxrOld">
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
+<!-- Expand Icon Badge -->
+<span class="absolute top-2 right-2 w-6 h-6 rounded-full bg-black/60 backdrop-blur-xs text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[14px]">fullscreen</span>
+</span>
+</div>
+<div class="mt-1.5 flex items-center justify-between px-0.5">
+<span class="text-[11px] font-semibold text-slate-800">1 of 2 • Sink Drain Leak</span>
+<span class="text-[10px] text-blue-600 font-medium">Tap to view</span>
+</div>
+</div>
+<!-- Photo 2 -->
+<div class="relative group cursor-pointer" onclick="openLightbox(1)">
+<div class="relative overflow-hidden rounded-xl border border-slate-200 bg-slate-100 aspect-4/3">
+<img alt="Customer Photo 2: Bathroom trap corrosion" class="w-full h-32 object-cover rounded-xl border border-slate-200 group-hover:scale-105 transition duration-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwmdY-2sCfe9g-jVR0KkWM7aZExI25lJEEjblPDPw4a149BHFQR_RFUBQfYi46KF858HCfp4a4e5p7UK4RpmjJ4M13Q7-_u5F0rf7cgYDwCafpAg4h0R43ndO1z5FUX7m1EAZ9pB4lVWYXhmK-kc7a7XL-fri-HruhMZXaw0IpFXDFA9FuGRnM_KxUtEIPmz3YhmWKxk5OiAo4JE5ejFSzgFxNsnD8pEnVx5JnEM_sWK3lm6u_jGQZ">
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
+<!-- Expand Icon Badge -->
+<span class="absolute top-2 right-2 w-6 h-6 rounded-full bg-black/60 backdrop-blur-xs text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[14px]">fullscreen</span>
+</span>
+</div>
+<div class="mt-1.5 flex items-center justify-between px-0.5">
+<span class="text-[11px] font-semibold text-slate-800">2 of 2 • Valve Drip</span>
+<span class="text-[10px] text-blue-600 font-medium">Tap to view</span>
+</div>
+</div>
+</div>
+<!-- Disambiguation Note Box -->
+<div class="mt-3 p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-start gap-2 text-slate-600">
+<span class="material-symbols-outlined text-blue-600 text-[18px] shrink-0 mt-0.5">info</span>
+<p class="text-[11px] leading-relaxed">
+<strong class="text-slate-800">Customer Pre-Visit Photos:</strong> Provided to help assess tools &amp; spare parts. Worker inspection photos and proof of service are recorded separately after arrival &amp; OTP verification.
+          </p>
+</div>
+</section>
+<!-- 5. SCHEDULE & DISTANCE / TRAVEL CHECK -->
+<section class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+<h4 class="text-xs font-bold text-slate-400 tracking-wider uppercase mb-2.5 flex items-center justify-between">
+<span class="">Schedule &amp; Logistics</span>
+<span class="text-blue-600 font-semibold text-[11px]">Today's Slot</span>
+</h4>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Date & Time -->
+<div class="bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+<div class="flex items-center gap-1.5 text-slate-500 mb-1">
+<svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-medium">Service Time</span>
+</div>
+<div class="text-xs font-bold text-slate-900">Today, 02:30 PM</div>
+<div class="text-[10px] text-slate-500 mt-0.5">Est. duration: 60 - 90 mins</div>
+</div>
+<!-- Distance & Travel -->
+<div class="bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+<div class="flex items-center gap-1.5 text-slate-500 mb-1">
+<svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-medium">Distance &amp; ETA</span>
+</div>
+<div class="text-xs font-bold text-slate-900">3.8 km away</div>
+<div class="text-[10px] text-emerald-600 font-medium mt-0.5">~14 mins travel time</div>
+</div>
+</div>
+</section>
+<!-- 6. TRANSPARENT SERVICE FEE & EARNINGS -->
+<section class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 space-y-3">
+<div class="flex items-center justify-between">
+<div>
+<span class="text-[10px] font-bold text-blue-600 tracking-wider uppercase block">Worker Customizable</span>
+<h4 class="text-xs font-bold text-slate-900 tracking-wider uppercase">ON-SITE VISIT FEE</h4>
+</div>
+<span class="text-[10px] font-bold px-2 py-0.5 bg-emerald-50 text-emerald-700 rounded-full border border-emerald-200">100% Payout • 0% Deduction</span>
+</div>
+<!-- Interactive / Editable Fee Card -->
+<div class="bg-slate-50 border border-slate-200/80 rounded-xl p-3">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-xs font-semibold text-slate-700">Your On-Site Fee</span>
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200 text-xs font-bold transition shadow-xs cursor-pointer" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="">Edit Fee</span>
+</button>
+</div>
+<div class="flex items-baseline justify-between pt-1 pb-1">
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-black text-slate-900">₹150.00</span>
+<span class="text-[11px] text-slate-500 font-medium">/ inspection visit</span>
+</div>
+<div class="text-right text-[11px] text-emerald-700 font-bold bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200">
+              You Receive: ₹150 (Full 100% Payout • Zero Deduction)
+            </div>
+</div>
+<!-- Transparent Pricing Breakdown -->
+<div class="mt-3 pt-2.5 border-t border-slate-200/80 space-y-1.5 text-xs">
+<div class="flex items-center justify-between text-slate-600">
+<span class="">Worker On-Site Visit Fee</span>
+<span class="font-semibold text-slate-800">₹150.00</span>
+</div>
+<div class="flex items-center justify-between text-slate-600">
+<span class="flex items-center gap-1">
+                Platform Fee (10%)
+                <span class="text-[9px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded font-semibold">Added on top</span>
+</span>
+<span class="font-semibold text-slate-800">+ ₹15.00</span>
+</div>
+<div class="flex items-center justify-between pt-1.5 border-t border-dashed border-slate-200 text-slate-900 font-bold">
+<span class="">Total Customer Visit Fee (Customer Pays)</span>
+<span class="text-blue-700 font-extrabold">₹165.00</span>
+</div>
+</div>
+<div class="text-[11px] text-slate-500 leading-relaxed mt-2.5 pt-2 border-t border-slate-200/80 space-y-1">
+<p class="font-medium text-slate-700">Worker Fee: ₹150.00 | Platform Fee (10%): ₹15.00 | Total Customer Pays: ₹165.00</p>
+<p class="">10% Platform Fee is auto-calculated and added on top. Zero deduction from worker earnings.</p>
+<p class="">Worker can edit visit fee prior to acceptance; locks upon customer confirmation. Separate quotation created after on-site inspection.</p>
+</div>
+</div>
+<!-- Workflow & Safeguard Explainer Card -->
+<div class="bg-blue-50/80 rounded-xl border border-blue-100 p-3 space-y-2">
+<div class="flex items-center gap-1.5 text-blue-900 font-bold text-xs">
+<svg class="w-4 h-4 text-blue-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" fill-rule="evenodd"></path></svg>
+<span class="">Guaranteed Visit Payout Policy</span>
+</div>
+<p class="text-[11px] text-slate-700 pl-1 leading-normal">
+            You are fully covered: the ₹150 visit fee is credited even if the customer decides not to proceed with actual repairs after on-site inspection.
+          </p>
+</div>
+</section>
+<!-- 7. IMPORTANT CUSTOMER REQUIREMENTS -->
+<section class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+<h4 class="text-xs font-bold text-slate-400 tracking-wider uppercase mb-2">Customer Instructions</h4>
+<ul class="space-y-1.5 text-xs text-slate-700">
+<li class="flex items-start gap-2">
+<span class="text-blue-600 mt-0.5 font-bold">•</span>
+<span class="">Please bring a <strong>pipe wrench, Teflon sealant tape</strong>, and replacement washer kit.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-600 mt-0.5 font-bold">•</span>
+<span class="">Building has elevator access; ring bell 402 on the 4th floor.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-blue-600 mt-0.5 font-bold">•</span>
+<span class="">Mask and cooperative ID card recommended during visit.</span>
+</li>
+</ul>
+</section>
+</main>
+<!-- 8. FIXED BOTTOM ACTION BAR -->
+<footer class="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200/80 p-3.5 z-30 shadow-lg">
+<!-- Acceptance confirmation banner (Hidden by default, shown on Accept) -->
+<div class="hidden mb-3 p-3 bg-emerald-50 border border-emerald-200 rounded-xl transition-all" id="acceptedNotice">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold">✓</span>
+<div>
+<h5 class="text-xs font-bold text-emerald-900">JOB ACCEPTED</h5>
+<p class="text-[11px] text-emerald-700">Waiting for customer confirmation &amp; OTP arrival slot.</p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<!-- DECLINE BUTTON (Secondary/Outlined Red) -->
+<button class="flex-1 py-3 px-3 rounded-xl border-2 border-rose-200 text-rose-600 hover:bg-rose-50 active:scale-[0.98] font-bold text-sm transition flex items-center justify-center gap-1.5 bg-white" id="btnDecline" onclick="openDeclineModal()" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="">DECLINE</span>
+</button>
+<!-- ACCEPT BUTTON (Primary Royal Blue) -->
+<button class="flex-[1.4] py-3.5 px-4 rounded-xl bg-[#1a56db] hover:bg-blue-700 active:scale-[0.98] text-white font-bold text-sm shadow-md shadow-blue-500/25 transition flex items-center justify-center gap-2" id="btnAccept" onclick="handleAcceptJob()" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="">ACCEPT JOB — ₹150 VISIT FEE</span>
+</button>
+</div>
+</footer>
+<!-- INTERACTIVE FULLSCREEN PHOTO LIGHTBOX MODAL -->
+<div class="hidden absolute inset-0 bg-slate-950/90 backdrop-blur-md z-50 flex flex-col justify-between p-4 transition-opacity duration-200" id="photoLightbox">
+<!-- Lightbox Header -->
+<div class="flex items-center justify-between text-white pt-2 pb-3 border-b border-white/10">
+<div>
+<span class="text-sm font-bold text-white tracking-wide" id="lightboxIndex">Customer Photo 1 of 2</span>
+<p class="text-[11px] text-slate-400">Uploaded by Priya Sharma</p>
+</div>
+<!-- Controls: Zoom & Close -->
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-sm font-bold" onclick="zoomImage(-0.2)" title="Zoom Out" type="button">−</button>
+<button class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-sm font-bold" onclick="zoomImage(0.2)" title="Zoom In" type="button">+</button>
+<button aria-label="Close Lightbox" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center ml-1 text-sm font-bold" onclick="closeLightbox()" type="button">✕</button>
+</div>
+</div>
+<!-- Main Image Display Container -->
+<div class="relative flex-1 flex items-center justify-center overflow-hidden my-auto py-2">
+<div class="transition-transform duration-150 ease-out flex items-center justify-center max-w-full max-h-full" id="imageWrapper">
+<img alt="Expanded customer view" class="max-h-[60vh] max-w-full object-contain mx-auto rounded-lg shadow-2xl border border-white/10" id="lightboxImg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuRVkrOctHeIdn-GHWW7G_ZbRgnEjPZxNl9j-t4IyeGUYdKtEy1W95xJaTp938zVzH0b0AV2g56Ms63NJ_PHn2GpMWRCqjI1NjcPXZV13dxbF1YxOtFhzSgU2MAWLgAZnE4ekcMeZxsnkRPx44qpsFL1GbjOgQbvcabsGLtEQHvkR9JeUV3_mlmPnSb4RZGKpoOt1SBbaK9pxZzDCHLaT11zjL1GELc07vIOj0xjaJNaHhAGJxrOld">
+</div>
+<!-- Navigation Arrows -->
+<button aria-label="Previous Photo" class="absolute left-1 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center border border-white/20 transition active:scale-95 shadow-lg" onclick="prevPhoto()" type="button">
+          ‹
+        </button>
+<button aria-label="Next Photo" class="absolute right-1 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center border border-white/20 transition active:scale-95 shadow-lg" onclick="nextPhoto()" type="button">
+          ›
+        </button>
+</div>
+<!-- Caption & Thumbnails Bottom Panel -->
+<div class="bg-black/40 backdrop-blur-sm rounded-xl p-3 border border-white/10 text-white space-y-2">
+<p class="text-xs text-slate-200 text-center leading-relaxed" id="lightboxCaption">
+          Dampness and steady drip under main kitchen cabinet. Pipe seal worn out.
+        </p>
+<!-- Thumbnail Selector -->
+<div class="flex items-center justify-center gap-2 pt-1">
+<button class="w-12 h-12 rounded-lg overflow-hidden border-2 border-blue-500 opacity-100 transition" id="thumb-0" onclick="openLightbox(0)" type="button">
+<img alt="Thumb 1" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuRVkrOctHeIdn-GHWW7G_ZbRgnEjPZxNl9j-t4IyeGUYdKtEy1W95xJaTp938zVzH0b0AV2g56Ms63NJ_PHn2GpMWRCqjI1NjcPXZV13dxbF1YxOtFhzSgU2MAWLgAZnE4ekcMeZxsnkRPx44qpsFL1GbjOgQbvcabsGLtEQHvkR9JeUV3_mlmPnSb4RZGKpoOt1SBbaK9pxZzDCHLaT11zjL1GELc07vIOj0xjaJNaHhAGJxrOld">
+</button>
+<button class="w-12 h-12 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition" id="thumb-1" onclick="openLightbox(1)" type="button">
+<img alt="Thumb 2" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwmdY-2sCfe9g-jVR0KkWM7aZExI25lJEEjblPDPw4a149BHFQR_RFUBQfYi46KF858HCfp4a4e5p7UK4RpmjJ4M13Q7-_u5F0rf7cgYDwCafpAg4h0R43ndO1z5FUX7m1EAZ9pB4lVWYXhmK-kc7a7XL-fri-HruhMZXaw0IpFXDFA9FuGRnM_KxUtEIPmz3YhmWKxk5OiAo4JE5ejFSzgFxNsnD8pEnVx5JnEM_sWK3lm6u_jGQZ">
+</button>
+</div>
+</div>
+</div>
+<!-- DECLINE REASON MODAL / BOTTOM SHEET -->
+<div class="hidden absolute inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-end justify-center transition-opacity duration-200" id="declineModal">
+<div class="w-full bg-white rounded-t-3xl p-5 shadow-2xl space-y-4 max-h-[85%] overflow-y-auto">
+<div class="flex items-center justify-between pb-2 border-b border-slate-100">
+<div>
+<h3 class="text-base font-bold text-slate-900">Decline Service Request</h3>
+<p class="text-xs text-slate-500">Please select a reason to release Job #C-4825.</p>
+</div>
+<button class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center hover:bg-slate-200" onclick="closeDeclineModal()" type="button">✕</button>
+</div>
+<form class="space-y-2 text-xs" onsubmit="confirmDecline(event)">
+<label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
+<input checked="" class="text-blue-600 focus:ring-blue-500" name="declineReason" type="radio" value="distance">
+<span class="font-medium text-slate-700">Distance or travel logistics too far</span>
+</label>
+<label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
+<input class="text-blue-600 focus:ring-blue-500" name="declineReason" type="radio" value="tool">
+<span class="font-medium text-slate-700">Specialized tools / replacement parts unavailable</span>
+</label>
+<label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
+<input class="text-blue-600 focus:ring-blue-500" name="declineReason" type="radio" value="schedule">
+<span class="font-medium text-slate-700">Timing conflicts with current personal schedule</span>
+</label>
+<label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
+<input class="text-blue-600 focus:ring-blue-500" name="declineReason" type="radio" value="other">
+<span class="font-medium text-slate-700">Other operational reason</span>
+</label>
+<div class="pt-3 flex items-center gap-2.5">
+<button class="flex-1 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold" onclick="closeDeclineModal()" type="button">Keep Job</button>
+<button class="flex-1 py-2.5 rounded-xl bg-rose-600 text-white font-bold hover:bg-rose-700" type="submit">Confirm Decline</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<script>
+    // Photo Lightbox Data & Controls
+    const photoData = [
+      {
+        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDuRVkrOctHeIdn-GHWW7G_ZbRgnEjPZxNl9j-t4IyeGUYdKtEy1W95xJaTp938zVzH0b0AV2g56Ms63NJ_PHn2GpMWRCqjI1NjcPXZV13dxbF1YxOtFhzSgU2MAWLgAZnE4ekcMeZxsnkRPx44qpsFL1GbjOgQbvcabsGLtEQHvkR9JeUV3_mlmPnSb4RZGKpoOt1SBbaK9pxZzDCHLaT11zjL1GELc07vIOj0xjaJNaHhAGJxrOld",
+        title: "Customer Photo 1 of 2",
+        caption: "Dampness and steady drip under main kitchen cabinet. Pipe seal worn out."
+      },
+      {
+        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBwmdY-2sCfe9g-jVR0KkWM7aZExI25lJEEjblPDPw4a149BHFQR_RFUBQfYi46KF858HCfp4a4e5p7UK4RpmjJ4M13Q7-_u5F0rf7cgYDwCafpAg4h0R43ndO1z5FUX7m1EAZ9pB4lVWYXhmK-kc7a7XL-fri-HruhMZXaw0IpFXDFA9FuGRnM_KxUtEIPmz3YhmWKxk5OiAo4JE5ejFSzgFxNsnD8pEnVx5JnEM_sWK3lm6u_jGQZ",
+        title: "Customer Photo 2 of 2",
+        caption: "Secondary bathroom trap joint corrosion and valve dripping onto bottom shelf."
+      }
+    ];
+
+    let currentPhotoIndex = 0;
+    let currentZoom = 1;
+
+    function openLightbox(index) {
+      currentPhotoIndex = index;
+      currentZoom = 1;
+      updateLightboxContent();
+      document.getElementById('photoLightbox').classList.remove('hidden');
+    }
+
+    function closeLightbox() {
+      document.getElementById('photoLightbox').classList.add('hidden');
+      currentZoom = 1;
+      document.getElementById('imageWrapper').style.transform = `scale(1)`;
+    }
+
+    function updateLightboxContent() {
+      const data = photoData[currentPhotoIndex];
+      document.getElementById('lightboxImg').src = data.src;
+      document.getElementById('lightboxIndex').textContent = data.title;
+      document.getElementById('lightboxCaption').textContent = data.caption;
+      
+      // Update thumbnail borders
+      document.getElementById('thumb-0').className = currentPhotoIndex === 0 
+        ? "w-12 h-12 rounded-lg overflow-hidden border-2 border-blue-500 opacity-100 transition" 
+        : "w-12 h-12 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition";
+      document.getElementById('thumb-1').className = currentPhotoIndex === 1 
+        ? "w-12 h-12 rounded-lg overflow-hidden border-2 border-blue-500 opacity-100 transition" 
+        : "w-12 h-12 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition";
+      
+      currentZoom = 1;
+      document.getElementById('imageWrapper').style.transform = `scale(1)`;
+    }
+
+    function prevPhoto() {
+      currentPhotoIndex = (currentPhotoIndex - 1 + photoData.length) % photoData.length;
+      updateLightboxContent();
+    }
+
+    function nextPhoto() {
+      currentPhotoIndex = (currentPhotoIndex + 1) % photoData.length;
+      updateLightboxContent();
+    }
+
+    function zoomImage(delta) {
+      currentZoom = Math.max(0.8, Math.min(2.5, currentZoom + delta));
+      document.getElementById('imageWrapper').style.transform = `scale(${currentZoom})`;
+    }
+
+    // Job Acceptance & Decline flow
+    function handleAcceptJob() {
+      const notice = document.getElementById('acceptedNotice');
+      const btnAccept = document.getElementById('btnAccept');
+      const btnDecline = document.getElementById('btnDecline');
+      
+      notice.classList.remove('hidden');
+      btnAccept.classList.remove('bg-[#1a56db]', 'hover:bg-blue-700');
+      btnAccept.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+      btnAccept.innerHTML = '<span class="flex items-center gap-1.5">✓ ACCEPTED</span>';
+      btnDecline.disabled = true;
+      btnDecline.classList.add('opacity-50', 'cursor-not-allowed');
+    }
+
+    function openDeclineModal() {
+      document.getElementById('declineModal').classList.remove('hidden');
+    }
+
+    function closeDeclineModal() {
+      document.getElementById('declineModal').classList.add('hidden');
+    }
+
+    function confirmDecline(e) {
+      e.preventDefault();
+      closeDeclineModal();
+      const btnAccept = document.getElementById('btnAccept');
+      const btnDecline = document.getElementById('btnDecline');
+      btnDecline.innerHTML = '<span>DECLINED</span>';
+      btnDecline.classList.add('bg-rose-50', 'border-rose-400');
+      btnAccept.disabled = true;
+      btnAccept.classList.add('opacity-40', 'cursor-not-allowed');
+    }
+  </script>
+
+
+</body></html>

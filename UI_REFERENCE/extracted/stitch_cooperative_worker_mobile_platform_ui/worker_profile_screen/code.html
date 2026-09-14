@@ -1,0 +1,726 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Worker Profile - X Cooperative</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0f223d',
+              dark: '#0a1628',
+              blue: '#1a56db',
+              blueHover: '#1441a6',
+              lightBlue: '#eff4ff',
+              surface: '#f8faff',
+              emerald: '#10b981',
+              emeraldLight: '#e6f7f0',
+              amber: '#f59e0b',
+              amberLight: '#fffbeb',
+              rose: '#ef4444',
+              roseLight: '#fef2f2',
+              slate: '#64748b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #0b1320;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" data-snapdom="injected-import"></head>
+<body class="min-h-screen flex items-center justify-center p-0 md:p-6 text-slate-800">
+
+  <!-- Mobile Device Frame Container -->
+  <div class="w-full max-w-[412px] bg-[#f4f7fb] min-h-screen md:min-h-[915px] md:h-[915px] md:rounded-[44px] shadow-2xl overflow-hidden flex flex-col relative border-0 md:border-[10px] md:border-[#1e293b]">
+
+    <!-- Status Bar (Telemetry) -->
+    <div class="bg-[#0f223d] pt-3 px-6 pb-2 text-white text-xs flex justify-between items-center select-none shrink-0 z-30">
+      <span class="font-semibold text-xs tracking-tight">09:42 AM</span>
+      <div class="flex items-center space-x-2 text-[11px]">
+        <i class="fa-solid fa-signal text-[10px]"></i>
+        <i class="fa-solid fa-wifi text-[10px]"></i>
+        <div class="flex items-center space-x-0.5">
+          <span class="text-[10px] font-medium">94%</span>
+          <i class="fa-solid fa-battery-full text-xs text-emerald-400"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sticky / Top Nav Header -->
+    <div class="bg-[#0f223d] text-white px-5 pt-1 pb-6 shrink-0 z-20 shadow-md">
+      <div class="flex items-center justify-between mb-4">
+        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/15 active:bg-white/20 flex items-center justify-center text-white/90 transition-colors">
+          <i class="fa-solid fa-chevron-left text-sm"></i>
+        </button>
+        <div class="text-center">
+          <h1 class="text-base font-bold tracking-tight">My Profile</h1>
+          <p class="text-[11px] text-blue-200/80">Worker Identity &amp; Credentials</p>
+        </div>
+        <button class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/15 active:bg-white/20 flex items-center justify-center text-white/90 transition-colors">
+          <i class="fa-solid fa-gear text-sm"></i>
+        </button>
+      </div>
+
+      <!-- Hero Identity Card -->
+      <div class="flex items-center space-x-4 bg-white/5 border border-white/10 rounded-2xl p-3.5 backdrop-blur-sm">
+        <!-- Worker Photo / Avatar -->
+        <div class="relative shrink-0">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-indigo-700 p-0.5 shadow-inner">
+            <div class="w-full h-full rounded-full bg-[#0a1b33] flex items-center justify-center text-white font-bold text-xl border-2 border-white/20">
+              RK
+            </div>
+          </div>
+          <span class="absolute bottom-0 right-0 w-5 h-5 bg-emerald-500 border-2 border-[#0f223d] rounded-full flex items-center justify-center text-[9px] text-white" title="Verified Worker">
+            <i class="fa-solid fa-check"></i>
+          </span>
+        </div>
+
+        <!-- Meta Information -->
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center space-x-2">
+            <h2 class="text-base font-bold text-white truncate">Ramesh Kumar</h2>
+            <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-semibold rounded-full flex items-center space-x-1 shrink-0">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="">VERIFIED</span>
+            </span>
+          </div>
+          <p class="text-xs text-blue-200 font-medium mt-0.5 flex items-center gap-1.5">
+            <span class="">WKR-2847</span>
+            <span class="text-white/40">•</span>
+            <span class="text-blue-100">Senior Field Electrician</span>
+          </p>
+          <div class="flex items-center gap-2 mt-1 text-[11px] text-white/70">
+            <span class="flex items-center gap-1 text-amber-300 font-medium">
+              <i class="fa-solid fa-star text-[10px]"></i> 4.85 Rating
+            </span>
+            <span class="">•</span>
+            <span class="text-white/80">Cooperative Tier 1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrollable Profile Content -->
+    <div class="flex-1 overflow-y-auto px-4 py-4 space-y-4 no-scrollbar pb-24">
+
+      <!-- 1. Compact Profile Summary Metrics -->
+      <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-slate-100 grid grid-cols-4 divide-x divide-slate-100 text-center">
+        <div class="px-1">
+          <p class="text-[10px] uppercase font-semibold tracking-wider text-slate-400">Completed</p>
+          <p class="text-base font-bold text-slate-800 mt-0.5">47</p>
+          <span class="text-[9px] text-emerald-600 font-medium">100% On-time</span>
+        </div>
+        <div class="px-1">
+          <p class="text-[10px] uppercase font-semibold tracking-wider text-slate-400">Cancelled</p>
+          <p class="text-base font-bold text-slate-700 mt-0.5">2</p>
+          <span class="text-[9px] text-slate-400">Client side</span>
+        </div>
+        <div class="px-1">
+          <p class="text-[10px] uppercase font-semibold tracking-wider text-slate-400">Earnings</p>
+          <p class="text-base font-bold text-blue-600 mt-0.5">₹48.2k</p>
+          <span class="text-[9px] text-slate-400">This FY</span>
+        </div>
+        <div class="px-1">
+          <p class="text-[10px] uppercase font-semibold tracking-wider text-slate-400">Rating</p>
+          <div class="flex items-center justify-center gap-0.5 mt-0.5">
+            <p class="text-base font-bold text-slate-800">4.85</p>
+            <i class="fa-solid fa-star text-amber-400 text-xs"></i>
+          </div>
+          <span class="text-[9px] text-emerald-600 font-medium">Top 5%</span>
+        </div>
+      </div><div class="bg-amber-50/60 rounded-2xl p-4 border border-amber-200/70 shadow-sm relative overflow-hidden">
+  <div class="flex items-center justify-between mb-3">
+    <div class="flex items-center space-x-2">
+      <div class="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center text-xs">
+        <i class="fa-solid fa-wallet"></i>
+      </div>
+      <div>
+        <h3 class="text-xs font-bold text-slate-800">Settlement Threshold Alert</h3>
+        <p class="text-[10px] text-slate-500 font-medium">Job Dispatch Gate Rule (₹1,000 Cap)</p>
+      </div>
+    </div>
+    <span class="px-2 py-0.5 bg-amber-100 border border-amber-200/70 text-amber-700 text-[10px] font-bold rounded-full flex items-center gap-1 shrink-0 animate-pulse">
+      <i class="fa-solid fa-lock text-[9px]"></i>
+      <span class="">⚠ NEW REQUESTS PAUSED</span>
+    </span>
+  </div>
+
+  <div class="bg-white rounded-xl p-3 border border-amber-200/70 shadow-sm mb-3">
+    <div class="flex items-start gap-2.5">
+      <div class="w-5 h-5 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-[10px] shrink-0 mt-0.5">
+        <i class="fa-solid fa-shield-virus"></i>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="text-xs font-bold text-amber-700 leading-snug">
+          Settlement threshold reached. New job requests are paused until settlement is processed.
+        </p>
+        <p class="text-[10px] text-slate-500 mt-1 leading-relaxed">
+          Applies to new customer &amp; institution requests. Existing confirmed assignments remain active.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 gap-2 mb-3 text-xs">
+    <div class="bg-white/80 p-2.5 rounded-xl border border-amber-200/70">
+      <p class="text-[10px] text-slate-400 font-semibold uppercase">Pending Settlement</p>
+      <p class="text-base font-bold text-amber-700 mt-0.5">₹4,250</p>
+      <span class="text-[9px] text-rose-500 font-medium">Exceeds ₹1,000 Cap</span>
+    </div>
+    <div class="bg-white/80 p-2.5 rounded-xl border border-amber-200/70">
+      <p class="text-[10px] text-slate-400 font-semibold uppercase">Policy Threshold</p>
+      <p class="text-base font-bold text-slate-800 mt-0.5">₹1,000</p>
+      <span class="text-[9px] text-slate-500 font-medium">Auto-hold trigger</span>
+    </div>
+  </div>
+
+  <div class="bg-white/90 rounded-xl p-2.5 border border-amber-200/70 space-y-1.5 text-[11px] mb-3">
+    <div class="flex justify-between items-center">
+      <span class="text-slate-500">Settlement Status:</span>
+      <span class="font-semibold text-slate-800 flex items-center gap-1">
+        <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
+        ⏳ Processing
+      </span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-slate-500">Expected Settlement:</span>
+      <span class="font-bold text-emerald-700">Today by 02:00 PM</span>
+    </div>
+    <div class="flex justify-between items-center pt-1 border-t border-slate-100">
+      <span class="text-slate-500">Last Settlement:</span>
+      <span class="font-medium text-slate-700">₹12,400 • Yesterday, 06:30 PM</span>
+    </div>
+  </div>
+
+  <!-- Policy State Reference Indicators -->
+  <div class="bg-slate-50/80 rounded-xl p-2.5 border border-slate-200/60 mb-3 space-y-1.5 text-[10px]">
+    <p class="font-bold text-slate-600 uppercase tracking-wider text-[9px]">Policy States Reference:</p>
+    <div class="flex items-center justify-between text-slate-500">
+      <span class="flex items-center gap-1"><span class="text-emerald-600 font-bold">✓</span> Below ₹1,000:</span>
+      <span class="font-medium text-emerald-700">Eligible for new requests</span>
+    </div>
+    <div class="flex items-center justify-between text-slate-500 bg-amber-100/50 px-1.5 py-0.5 rounded border border-amber-200/50 font-semibold text-amber-800">
+      <span class="flex items-center gap-1"><span class="text-amber-600">⚠</span> ₹1,000 or above (Current):</span>
+      <span class="">New requests paused</span>
+    </div>
+    <div class="flex items-center justify-between text-slate-500">
+      <span class="flex items-center gap-1"><span class="text-blue-600 font-bold">✓</span> After Payout:</span>
+      <span class="font-medium text-slate-700">Settlement completed</span>
+    </div>
+  </div>
+
+  <a href="#" class="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-blue-600 text-white hover:bg-blue-700 text-xs font-semibold shadow-sm transition-colors">
+    <span class="">VIEW SETTLEMENT DETAILS</span>
+    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+  </a>
+</div>
+
+      <!-- 2. Personal Information Section -->
+      <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center space-x-2">
+            <div class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs">
+              <i class="fa-regular fa-user"></i>
+            </div>
+            <h3 class="text-sm font-bold text-slate-800">Personal Information</h3>
+          </div>
+          <button class="text-xs font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 bg-blue-50 px-2.5 py-1 rounded-lg">
+            <i class="fa-solid fa-pen text-[10px]"></i>
+            <span class="">EDIT</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-2 gap-y-3 gap-x-4 text-xs">
+          <div>
+            <p class="text-slate-400 text-[10px] font-medium uppercase">Full Name</p>
+            <p class="text-slate-800 font-semibold mt-0.5">Ramesh Kumar</p>
+          </div>
+          <div>
+            <p class="text-slate-400 text-[10px] font-medium uppercase">Phone Number</p>
+            <p class="text-slate-800 font-semibold mt-0.5">+91 98765 43210</p>
+          </div>
+          <div>
+            <p class="text-slate-400 text-[10px] font-medium uppercase">Email Address</p>
+            <p class="text-slate-800 font-semibold mt-0.5 truncate">ramesh.k@xcoop.in</p>
+          </div>
+          <div>
+            <p class="text-slate-400 text-[10px] font-medium uppercase">Date of Birth</p>
+            <p class="text-slate-800 font-semibold mt-0.5">14 Aug 1989 (35 yrs)</p>
+          </div>
+          <div class="col-span-2 pt-1 border-t border-slate-50">
+            <p class="text-slate-400 text-[10px] font-medium uppercase">Registered Location / Base Hub</p>
+            <p class="text-slate-700 font-medium mt-0.5 flex items-center gap-1">
+              <i class="fa-solid fa-location-dot text-rose-500 text-[11px]"></i>
+              <span class="">Sector 14, Noida, Uttar Pradesh (NCR Hub #4)</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Professional Details Section -->
+      <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center space-x-2">
+            <div class="w-7 h-7 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <h3 class="text-sm font-bold text-slate-800">Professional Details</h3>
+          </div>
+          <span class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+            ACTIVE ON-CALL
+          </span>
+        </div>
+
+        <div class="space-y-3 text-xs">
+          <div class="flex justify-between items-center">
+            <span class="text-slate-500">Primary Domain:</span>
+            <span class="font-semibold text-slate-800 bg-slate-100 px-2.5 py-0.5 rounded-md">Electrical &amp; HVAC Services</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-slate-500">Field Experience:</span>
+            <span class="font-semibold text-slate-800">8+ Years Professional</span>
+          </div>
+          
+          <div>
+            <p class="text-slate-500 mb-1.5 font-medium">Core Verified Skills:</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="bg-blue-50 text-blue-700 border border-blue-100 px-2 py-0.5 rounded-md font-medium text-[11px] flex items-center gap-1">
+                <i class="fa-solid fa-bolt text-[10px]"></i> Industrial Wiring
+              </span>
+              <span class="bg-blue-50 text-blue-700 border border-blue-100 px-2 py-0.5 rounded-md font-medium text-[11px] flex items-center gap-1">
+                <i class="fa-solid fa-gauge-high text-[10px]"></i> Multimeter Diagnostics
+              </span>
+              <span class="bg-blue-50 text-blue-700 border border-blue-100 px-2 py-0.5 rounded-md font-medium text-[11px] flex items-center gap-1">
+                <i class="fa-solid fa-shield-halved text-[10px]"></i> Earthing &amp; MCB Setup
+              </span>
+              <span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded-md font-medium text-[11px]">
+                Leakage Diagnosis
+              </span>
+              <span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded-md font-medium text-[11px]">
+                HVAC Filter Check
+              </span>
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-slate-50">
+            <p class="text-slate-500 mb-1 font-medium">Allocated Service Zones:</p>
+            <p class="text-slate-700 font-medium text-[11px]">Noida Sec 1-62 • Greater Noida West • Mayur Vihar</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Certifications Section -->
+      <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center space-x-2">
+            <div class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <h3 class="text-sm font-bold text-slate-800">Verified Certifications</h3>
+          </div>
+          <span class="text-[11px] font-semibold text-slate-500">3 Active</span>
+        </div>
+
+        <div class="space-y-2.5">
+          <!-- Cert 1 -->
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex items-start justify-between">
+            <div class="flex items-start space-x-2.5">
+              <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-certificate text-sm"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-slate-800 flex items-center gap-1">
+                  <span class="">Electrical Safety &amp; Industrial Standards</span>
+                  <i class="fa-solid fa-circle-check text-emerald-500 text-[10px]"></i>
+                </h4>
+                <p class="text-[10px] text-slate-500 mt-0.5">National Skill Dev. Corp (NSDC) • ID #NSD-88219</p>
+                <p class="text-[10px] text-slate-400 mt-0.5">Issued: Oct 2023 • Valid till: Dec 2026</p>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[9px] font-bold rounded uppercase shrink-0">VALID</span>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex items-start justify-between">
+            <div class="flex items-start space-x-2.5">
+              <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-certificate text-sm"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-slate-800 flex items-center gap-1">
+                  <span class="">Cooperative Quality &amp; Safety Protocol</span>
+                  <i class="fa-solid fa-circle-check text-emerald-500 text-[10px]"></i>
+                </h4>
+                <p class="text-[10px] text-slate-500 mt-0.5">X Federation Standards • Credential #X-CERT-8841</p>
+                <p class="text-[10px] text-slate-400 mt-0.5">Issued: Aug 2024 • Life Validity</p>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[9px] font-bold rounded uppercase shrink-0">VALID</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Training & Skill Development -->
+      <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center space-x-2">
+            <div class="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h3 class="text-sm font-bold text-slate-800">Training Progress</h3>
+          </div>
+          <button class="text-xs font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1">
+            <span class="">VIEW TRAINING</span>
+            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </button>
+        </div>
+
+        <div class="space-y-3">
+          <!-- In Progress Course -->
+          <div class="bg-amber-50/60 border border-amber-200/70 rounded-xl p-3">
+            <div class="flex justify-between items-center mb-1.5">
+              <span class="text-xs font-bold text-slate-800 truncate pr-2">Customer Communication &amp; Ethics</span>
+              <span class="text-[10px] font-bold text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">65% IN PROGRESS</span>
+            </div>
+            <div class="w-full bg-amber-200/60 h-2 rounded-full overflow-hidden mb-1.5">
+              <div class="bg-amber-500 h-full rounded-full" style="width: 65%"></div>
+            </div>
+            <div class="flex justify-between text-[10px] text-slate-500">
+              <span class="">8 of 12 Modules Completed</span>
+              <span class="">1h 15m remaining</span>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between text-xs text-slate-600 pt-1">
+            <span class="flex items-center gap-1.5 font-medium">
+              <i class="fa-solid fa-check-double text-emerald-600"></i>
+              <span class="">6 Completed cooperative courses</span>
+            </span>
+            <span class="text-[11px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">5 Verified Badges</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Performance & Quality Metrics -->
+      <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center space-x-2">
+            <div class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3 class="text-sm font-bold text-slate-800">Performance &amp; Quality</h3>
+          </div>
+          <span class="text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">GRADE A+</span>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Metric 1: Customer Satisfaction -->
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-slate-600 font-medium">Customer Satisfaction Rate</span>
+              <span class="font-bold text-slate-800">98.2% (46/47 5★)</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+              <div class="bg-emerald-500 h-full rounded-full" style="width: 98%"></div>
+            </div>
+          </div>
+
+          <!-- Metric 2: SLA & Arrival Punctuality -->
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-slate-600 font-medium">Arrival Punctuality (Within ETA)</span>
+              <span class="font-bold text-slate-800">96.0%</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+              <div class="bg-blue-600 h-full rounded-full" style="width: 96%"></div>
+            </div>
+          </div>
+
+          <!-- Metric 3: First-time Fix Ratio -->
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-slate-600 font-medium">First-Visit Resolution Rate</span>
+              <span class="font-bold text-slate-800">94.5%</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+              <div class="bg-indigo-600 h-full rounded-full" style="width: 94%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Earnings & Settlement Overview -->
+      <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center space-x-2">
+            <div class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+            <h3 class="text-sm font-bold text-slate-800">Earnings &amp; Settlement</h3>
+          </div>
+          <button class="text-xs font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1">
+            <span class="">VIEW EARNINGS</span>
+            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 mb-3">
+  <div class="p-3 bg-amber-50/60 border border-amber-200/70 rounded-xl">
+    <div class="flex items-center justify-between">
+      <p class="text-[10px] text-amber-700 font-bold uppercase">Pending Settlement</p>
+      <span class="text-[9px] font-bold text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">THRESHOLD HIT</span>
+    </div>
+    <p class="text-lg font-bold text-amber-700 mt-0.5">₹4,250</p>
+    <p class="text-[10px] text-slate-500 mt-0.5 flex items-center gap-1">
+      <span class="">Settlement Status:</span>
+      <span class="font-semibold text-slate-700">⏳ Processing</span>
+    </p>
+  </div>
+  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+    <p class="text-[10px] text-slate-500 font-semibold uppercase">Last Settlement</p>
+    <p class="text-lg font-bold text-slate-800 mt-0.5">₹12,400</p>
+    <p class="text-[10px] text-emerald-600 font-medium mt-0.5">✓ Settled Yesterday, 06:30 PM</p>
+  </div>
+</div>
+
+        <div class="flex items-center justify-between text-[11px] text-slate-500 bg-slate-50 p-2.5 rounded-lg">
+          <span class="flex items-center gap-1.5">
+            <i class="fa-solid fa-building-columns text-slate-400"></i>
+            <span class="">Primary A/C: HDFC Bank •••• 4019</span>
+          </span>
+          <span class="text-emerald-700 font-semibold">VERIFIED ECS</span>
+        </div>
+      </div>
+
+      <!-- 8. Work History (Customer vs Institution Distinguished) -->
+      <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center space-x-2">
+            <div class="w-7 h-7 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+            </div>
+            <h3 class="text-sm font-bold text-slate-800">Recent Work History</h3>
+          </div>
+          <span class="text-xs text-slate-400 font-medium">Last 3 Completed</span>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Job 1: Customer Service -->
+          <div class="p-3 rounded-xl border border-blue-100 bg-blue-50/30">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800 uppercase tracking-wide">
+                CUSTOMER SERVICE
+              </span>
+              <span class="text-xs font-bold text-emerald-600">+₹834.00</span>
+            </div>
+            <div class="flex justify-between items-start mt-1.5">
+              <div>
+                <p class="text-xs font-bold text-slate-800">Anil Sharma • Bathroom P-Trap Repair</p>
+                <p class="text-[10px] text-slate-500 mt-0.5 flex items-center gap-1">
+                  <i class="fa-solid fa-location-dot text-slate-400"></i>
+                  <span class="">Sector 14, Noida • Flat 402</span>
+                </p>
+              </div>
+              <span class="text-[10px] text-slate-400 font-medium">Today</span>
+            </div>
+          </div>
+
+          <!-- Job 2: Institution Assignment -->
+          <div class="p-3 rounded-xl border border-purple-100 bg-purple-50/30">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-purple-100 text-purple-800 uppercase tracking-wide">
+                INSTITUTION ASSIGNMENT
+              </span>
+              <span class="text-xs font-bold text-purple-700">+₹2,400.00</span>
+            </div>
+            <div class="flex justify-between items-start mt-1.5">
+              <div>
+                <p class="text-xs font-bold text-slate-800">Delhi Metro Rail Corp • Electrical Inspection</p>
+                <p class="text-[10px] text-slate-500 mt-0.5 flex items-center gap-1">
+                  <i class="fa-solid fa-building text-slate-400"></i>
+                  <span class="">Botanical Garden Metro Substation</span>
+                </p>
+              </div>
+              <span class="text-[10px] text-slate-400 font-medium">18 Nov</span>
+            </div>
+          </div>
+
+          <!-- Job 3: Customer Service -->
+          <div class="p-3 rounded-xl border border-blue-100 bg-blue-50/30">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800 uppercase tracking-wide">
+                CUSTOMER SERVICE
+              </span>
+              <span class="text-xs font-bold text-emerald-600">+₹1,250.00</span>
+            </div>
+            <div class="flex justify-between items-start mt-1.5">
+              <div>
+                <p class="text-xs font-bold text-slate-800">Pooja Verma • MCB Tripping &amp; Rewiring</p>
+                <p class="text-[10px] text-slate-500 mt-0.5 flex items-center gap-1">
+                  <i class="fa-solid fa-location-dot text-slate-400"></i>
+                  <span class="">Sector 29, Noida • Villa #12</span>
+                </p>
+              </div>
+              <span class="text-[10px] text-slate-400 font-medium">16 Nov</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Official Documents & Verification -->
+      <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center space-x-2">
+            <div class="w-7 h-7 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-file-shield"></i>
+            </div>
+            <h3 class="text-sm font-bold text-slate-800">Verified KYC &amp; Documents</h3>
+          </div>
+          <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
+            100% COMPLIANT
+          </span>
+        </div>
+
+        <div class="space-y-2">
+          <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-100 text-xs">
+            <div class="flex items-center space-x-2.5">
+              <i class="fa-solid fa-id-card text-blue-600"></i>
+              <div>
+                <p class="font-semibold text-slate-800">Aadhaar Card (UIDAI)</p>
+                <p class="text-[10px] text-slate-400">•••• •••• 8912</p>
+              </div>
+            </div>
+            <span class="text-emerald-600 font-semibold text-[11px] flex items-center gap-1">
+              <i class="fa-solid fa-circle-check text-[10px]"></i> Verified
+            </span>
+          </div>
+
+          <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-100 text-xs">
+            <div class="flex items-center space-x-2.5">
+              <i class="fa-solid fa-file-invoice text-indigo-600"></i>
+              <div>
+                <p class="font-semibold text-slate-800">PAN Card (Tax Identification)</p>
+                <p class="text-[10px] text-slate-400">ABCDE••••F</p>
+              </div>
+            </div>
+            <span class="text-emerald-600 font-semibold text-[11px] flex items-center gap-1">
+              <i class="fa-solid fa-circle-check text-[10px]"></i> Verified
+            </span>
+          </div>
+
+          <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-100 text-xs">
+            <div class="flex items-center space-x-2.5">
+              <i class="fa-solid fa-shield-virus text-purple-600"></i>
+              <div>
+                <p class="font-semibold text-slate-800">Police Verification Clearance</p>
+                <p class="text-[10px] text-slate-400">UP Police Cert #PV-2023-091</p>
+              </div>
+            </div>
+            <span class="text-emerald-600 font-semibold text-[11px] flex items-center gap-1">
+              <i class="fa-solid fa-circle-check text-[10px]"></i> Verified
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. Account Settings & Support List -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden text-xs divide-y divide-slate-100">
+        <a href="#" class="flex items-center justify-between p-3.5 hover:bg-slate-50 transition-colors">
+          <div class="flex items-center space-x-3">
+            <i class="fa-regular fa-bell text-slate-400 w-4 text-center"></i>
+            <span class="font-medium text-slate-700">Notification Settings</span>
+          </div>
+          <i class="fa-solid fa-chevron-right text-[11px] text-slate-300"></i>
+        </a>
+        <a href="#" class="flex items-center justify-between p-3.5 hover:bg-slate-50 transition-colors">
+          <div class="flex items-center space-x-3">
+            <i class="fa-solid fa-lock text-slate-400 w-4 text-center"></i>
+            <span class="font-medium text-slate-700">Privacy &amp; Security</span>
+          </div>
+          <i class="fa-solid fa-chevron-right text-[11px] text-slate-300"></i>
+        </a>
+        <a href="#" class="flex items-center justify-between p-3.5 hover:bg-slate-50 transition-colors">
+          <div class="flex items-center space-x-3">
+            <i class="fa-solid fa-language text-slate-400 w-4 text-center"></i>
+            <span class="font-medium text-slate-700">App Language (English / हिन्दी)</span>
+          </div>
+          <span class="text-[11px] text-slate-400 font-medium">English</span>
+        </a>
+        <a href="#" class="flex items-center justify-between p-3.5 hover:bg-slate-50 transition-colors">
+          <div class="flex items-center space-x-3">
+            <i class="fa-regular fa-circle-question text-slate-400 w-4 text-center"></i>
+            <span class="font-medium text-slate-700">Cooperative Help &amp; Support Desk</span>
+          </div>
+          <i class="fa-solid fa-chevron-right text-[11px] text-slate-300"></i>
+        </a>
+        <button class="w-full flex items-center justify-between p-3.5 hover:bg-rose-50 text-rose-600 transition-colors text-left font-semibold">
+          <div class="flex items-center space-x-3">
+            <i class="fa-solid fa-arrow-right-from-bracket w-4 text-center"></i>
+            <span class="">Log Out of Worker App</span>
+          </div>
+          <span class="text-[10px] text-rose-400">v2.4.1</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Bottom Persistent Navigation Bar (5-tab standard with Schemes/Profile) -->
+    <div class="absolute bottom-0 inset-x-0 bg-white border-t border-slate-200 px-3 py-2 flex justify-around items-center z-30 shadow-lg">
+      <!-- Home Tab -->
+      <a href="#" class="flex flex-col items-center py-1 px-2 text-slate-400 hover:text-slate-600 transition-colors">
+        <i class="fa-solid fa-house text-base"></i>
+        <span class="text-[10px] font-medium mt-1">Home</span>
+      </a>
+
+      <!-- Customer Tab -->
+      <a href="#" class="flex flex-col items-center py-1 px-2 text-slate-400 hover:text-slate-600 transition-colors">
+        <i class="fa-solid fa-user-gear text-base"></i>
+        <span class="text-[10px] font-medium mt-1">Customer</span>
+      </a>
+
+      <!-- Institution Tab -->
+      <a href="#" class="flex flex-col items-center py-1 px-2 text-slate-400 hover:text-slate-600 transition-colors">
+        <i class="fa-solid fa-building text-base"></i>
+        <span class="text-[10px] font-medium mt-1">Institution</span>
+      </a>
+
+      <!-- Courses Tab -->
+      <a href="#" class="flex flex-col items-center py-1 px-2 text-slate-400 hover:text-slate-600 transition-colors">
+        <i class="fa-solid fa-graduation-cap text-base"></i>
+        <span class="text-[10px] font-medium mt-1">Courses</span>
+      </a>
+
+      <!-- Profile Tab (Active) -->
+      <a href="#" class="flex flex-col items-center py-1 px-2 text-blue-600 transition-colors relative">
+        <div class="relative">
+          <i class="fa-solid fa-circle-user text-base text-blue-600"></i>
+          <span class="absolute -top-1 -right-1 w-2 h-2 bg-emerald-500 rounded-full border border-white"></span>
+        </div>
+        <span class="text-[10px] font-bold mt-1 text-blue-600">Profile</span>
+        <span class="w-1.5 h-1.5 bg-blue-600 rounded-full mt-0.5"></span>
+      </a>
+    </div>
+
+  </div>
+
+
+
+
+
+</body></html>

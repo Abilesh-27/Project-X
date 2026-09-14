@@ -1,0 +1,27 @@
+name: stitch_worker
+description: "Stitch Cooperative Worker Mobile Platform"
+publish_to: 'none'
+version: 2.4.0+1
+
+environment:
+  sdk: ^3.13.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  go_router: ^15.1.2
+  provider: ^6.1.5
+  shared_preferences: ^2.5.3
+  google_fonts: ^6.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  generate: true
+  uses-material-design: true
