@@ -1,0 +1,842 @@
+<!DOCTYPE html><html lang="en" style="width: 100%; min-height: 100%; overflow-x: hidden; overflow-y: auto; position: relative;"><head><link href="../shared.css" rel="stylesheet"/><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-fixed":"#dce1ff","on-tertiary-fixed":"#2f1500","secondary":"#006d30","on-primary-container":"#90a8ff","secondary-fixed":"#95f8a7","on-tertiary-fixed-variant":"#6e3900","on-primary-fixed":"#00164e","surface-container":"#eaedff","surface-container-high":"#e2e7ff","surface-container-low":"#f2f3ff","on-background":"#131b2e","on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","on-primary":"#ffffff","primary-container":"#1e3a8a","on-secondary-fixed-variant":"#005323","background":"#faf8ff","tertiary-fixed-dim":"#ffb77d","surface":"#faf8ff","secondary-container":"#92f5a4","inverse-primary":"#b6c4ff","primary-fixed-dim":"#b6c4ff","outline":"#757682","on-secondary":"#ffffff","on-primary-fixed-variant":"#264191","on-error-container":"#93000a","surface-variant":"#dae2fd","on-secondary-container":"#007233","on-tertiary-container":"#fc922b","on-surface":"#131b2e","inverse-surface":"#283044","surface-dim":"#d2d9f4","tertiary":"#442100","inverse-on-surface":"#eef0ff","primary":"#00236f","tertiary-container":"#653400","on-error":"#ffffff","outline-variant":"#c5c5d3","on-surface-variant":"#444651","surface-container-highest":"#dae2fd","tertiary-fixed":"#ffdcc3","on-secondary-fixed":"#00210a","error":"#ba1a1a","surface-tint":"#4059aa","error-container":"#ffdad6","surface-bright":"#faf8ff","secondary-fixed-dim":"#79db8d"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-24":"1.5rem","space-8":"0.5rem","space-20":"1.25rem","gutter-desktop":"1.5rem","gutter-mobile":"1rem","space-32":"2rem","space-16":"1rem","margin-mobile":"1rem","space-12":"0.75rem","margin-desktop":"2rem","space-4":"0.25rem","space-48":"3rem","space-40":"2.5rem","space-2":"0.125rem"},fontFamily:{"headline-sm":["Inter"],"headline-lg-mobile":["Inter"],"label-md":["Inter"],"title-sm":["Inter"],"title-md":["Inter"],"body-lg":["Inter"],"headline-lg":["Inter"],"body-sm":["Inter"],"headline-md":["Inter"],"body-md":["Inter"],"display-lg-mobile":["Inter"],"label-sm":["Inter"],"display-lg":["Inter"]},fontSize:{"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.025em","fontWeight":"600"}],"title-sm":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"headline-lg":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"display-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.035em","fontWeight":"600"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"700"}]}}}}</script><style>html,body{min-height:100%;overflow-x:hidden;overflow-y:auto!important}@media (max-width: 900px){.pl-72{padding-left:0!important}.fixed.top-0.left-72{position:relative!important;left:auto!important;right:auto!important}.pl-72 main{padding-left:1rem!important;padding-right:1rem!important}}</style></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between select-none"><div class="flex flex-col flex-1 overflow-y-auto"><div class="p-space-20 flex items-start gap-space-12 bg-surface-container-low"><img alt="Coop Labour Society Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Ur9Xxh_T7XeGAUuthO79otuysfw_1rMAmkbjQmJaiJqHH6slsP5NEz_dho-O4EEywkp7j20oC7doDBomNZHVK7r-FNabYo8QKOVrUggFV3XZ1dUWMeku-r4f-1minocpBhgedVpo5NaJTRqnWlai_GZlU8sWnTGJ9roLjw1ZE3MlH5vSiKx4C68sh7YBDLkeCFUaYp-kICEl2l1jbWlF5hrz7_UpPFUCYg-uTfRv632TVgMM_nPgH2Rw"><div class="flex flex-col"><span class="font-title-md text-title-md text-primary font-bold">Perur Workers Co-operative Scociety</span><span class="font-label-sm text-label-sm text-on-surface-variant">Perur, Coimbatore, Tamil Nadu • Reg. No. TN-CLS-4892</span></div></div><div class="px-space-16 py-space-12"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Administrative Modules</span></div><nav class="flex flex-col gap-space-4 px-space-12 flex-1" data-active-classes="bg-primary-container text-on-primary font-title-sm text-title-sm shadow-sm"><a class="flex items-center gap-space-12 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-body-md text-body-md">Overview</span></a><a aria-current="page" class="flex items-center gap-space-12 px-space-12 py-space-8 rounded-lg transition-colors bg-primary-container text-on-primary font-title-sm text-title-sm shadow-sm" data-path="worker-management" href="#"><span class="material-symbols-outlined text-[20px]">engineering</span><span class="font-body-md text-body-md">Worker Management</span></a><a class="flex items-center gap-space-12 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="bookings-services" href="#"><span class="material-symbols-outlined text-[20px]">assignment</span><span class="font-body-md text-body-md">Bookings &amp; Services</span></a><a class="flex items-center gap-space-12 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="institutional-bookings" href="#"><span class="material-symbols-outlined text-[20px]">domain</span><span class="font-body-md text-body-md">Institutional Bookings</span></a><a class="flex items-center gap-space-12 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="welfare-schemes" href="#"><span class="material-symbols-outlined text-[20px]">health_and_safety</span><span class="font-body-md text-body-md">Welfare Schemes</span></a><a class="flex items-center gap-space-12 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="payments-earnings" href="#"><span class="material-symbols-outlined text-[20px]">payments</span><span class="font-body-md text-body-md">Payments &amp; Earnings</span></a><a class="flex items-center gap-space-12 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="reports-analytics" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span class="font-body-md text-body-md">Reports &amp; Analytics</span></a><a class="flex items-center gap-space-12 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="font-body-md text-body-md">Settings</span></a></nav></div><div class="p-space-16 bg-surface-container-lowest flex flex-col gap-space-12"><div class="flex items-center justify-between p-space-8 bg-surface-container-low rounded-lg"><div class="flex items-center gap-space-8"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm text-on-surface font-semibold">Operational • Server Synced</span></div><button class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high p-space-4 rounded" title="Collapse navigation" type="button"><span class="material-symbols-outlined text-[18px]">first_page</span></button></div><div class="flex items-center justify-between text-on-surface-variant px-space-4"><div class="flex flex-col gap-1"><div class="flex items-center gap-space-4"><span class="material-symbols-outlined text-[16px]">call</span><span class="font-label-sm text-label-sm">Coop Helpline: 1800-425-9922</span></div><div class="flex items-center gap-space-4 text-[11px] text-on-surface-variant"><span class="material-symbols-outlined text-[14px]">location_city</span><span class="">Plot 12, Perur Main Road, Perur, Coimbatore, TN 641010</span></div></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-24"><div class="flex items-center gap-space-16 flex-1 max-w-xl"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-space-12 text-on-surface-variant pointer-events-none text-[20px]">search</span><input class="w-full h-10 pl-10 pr-space-12 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Search workers, bookings, institutions, welfare IDs..." type="search"></div></div><div class="flex items-center gap-space-16"><div class="flex items-center gap-space-8 px-space-12 py-space-4 bg-surface-container-low rounded-lg"><span class="material-symbols-outlined text-secondary text-[18px]">sync_saved_locally</span><span class="font-label-sm text-label-sm text-on-surface">Oct 24, 2024 • Shift Active</span></div><button class="p-space-8 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors" title="Help &amp; Documentation" type="button"><span class="material-symbols-outlined text-[22px]">help_outline</span></button><div class="relative"><button class="p-space-8 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors flex items-center" title="Notifications" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span></button><span class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-error text-on-error font-label-sm text-[10px]">3</span></div><div class="flex items-center gap-space-8 pl-space-8"><div class="flex items-center gap-space-8 p-space-4 hover:bg-surface-container-low rounded-lg cursor-pointer"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcY9anjXK5-igDJW9Zf8hOOy_wmzYX5RDcuT7UKqGr9Rp3Vigc5dDHtLcFmark46st2V4qOxEn0wz9f8Ju197KpsMAv6iHGMCJViqMyY7NoHeD2LfVXq8D3KitEv3OwjY6a30EQQ_3W92jptkQkKqCG86f42R7xzbm4m25t9GjPZmbtoBYJ8prDo0rUA9qNZxHvuqJ-Pc5LafLDCrqE2NCTK5ps9sssCaPc7Yw5q82yUO9Xf6_VEvf"><div class="flex flex-col text-left"><span class="font-title-sm text-title-sm text-on-surface leading-tight">S. Karthikeyan</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Chief Administrative Officer</span></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div></div></div></header><main class="relative pt-16 w-full min-h-screen bg-background"><div class="flex flex-col w-full">
+<!-- Content Area -->
+<div class="px-space-32 py-space-24 flex flex-col gap-space-24">
+<!-- Header Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-16 pb-space-8">
+<div class="flex flex-col gap-space-4">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-space-8 text-on-surface-variant font-label-md text-label-md">
+<span class="hover:text-primary cursor-pointer transition-colors">Home</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-primary cursor-pointer transition-colors">Workforce</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Worker Management</span>
+</nav>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Worker Directory &amp; Cooperative Membership</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">Comprehensive personnel register, statutory compliance, KYC verification and skill allocation across 348 registered members (312 active).</p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-12 self-start md:self-auto flex-wrap">
+<button class="flex items-center gap-space-8 px-space-16 py-space-8 bg-surface-container-low text-on-surface rounded-lg hover:bg-surface-container-high transition-colors font-title-sm text-title-sm shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">download</span>
+<span class="">Export Member List (CSV/Excel)</span>
+</button>
+<button class="flex items-center gap-space-8 px-space-16 py-space-8 bg-primary-container text-on-primary rounded-lg hover:bg-primary transition-all duration-150 font-title-sm text-title-sm shadow-sm hover:shadow-md" type="button">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+<span class="">+ Add New Member</span>
+</button>
+</div>
+</div>
+<!-- Summary Metric Mini-Cards (4 columns) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-16">
+<!-- Metric 1: Total Workforce -->
+<div class="bg-surface-container-lowest rounded-xl p-space-20 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow"><div class="flex items-start justify-between"><div class="flex flex-col"><span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Total Registered</span><span class="font-display-lg text-display-lg text-on-surface mt-space-4 tabular-nums font-bold">348</span></div><div class="p-space-8 bg-surface-container-low text-primary rounded-lg"><span class="material-symbols-outlined text-[24px]">groups</span></div></div><div class="mt-space-16 flex items-center justify-between"><span class="font-label-sm text-label-sm text-secondary flex items-center gap-space-4 font-semibold"><span class="material-symbols-outlined text-[14px]">arrow_upward</span> +12 this month</span><span class="font-label-sm text-label-sm text-on-surface-variant">+3.6% growth</span></div><div class="w-full bg-surface-container h-1 mt-space-8 rounded-full overflow-hidden"><div class="bg-primary h-full w-full"></div></div></div>
+<!-- Metric 2: Fully Certified & Verified -->
+<div class="bg-surface-container-lowest rounded-xl p-space-20 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow"><div class="flex items-start justify-between"><div class="flex flex-col"><span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Active in Roster</span><span class="font-display-lg text-display-lg text-secondary mt-space-4 tabular-nums font-bold">312</span></div><div class="p-space-8 bg-secondary-container text-on-secondary-container rounded-lg"><span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">verified</span></div></div><div class="mt-space-16 flex items-center justify-between"><span class="font-label-sm text-label-sm text-secondary font-semibold bg-secondary-container/40 px-space-8 py-space-2 rounded-full">89.7% of total register</span><span class="font-label-sm text-label-sm text-on-surface-variant">Ready &amp; Dispatched</span></div><div class="w-full bg-surface-container h-1 mt-space-8 rounded-full overflow-hidden"><div class="bg-secondary h-full" style="width: 89.7%;"></div></div></div>
+<!-- Metric 3: Active on Duty / Available -->
+<div class="bg-surface-container-lowest rounded-xl p-space-20 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow"><div class="flex items-start justify-between"><div class="flex flex-col"><span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Under Verification</span><span class="font-display-lg text-display-lg text-primary-container mt-space-4 tabular-nums font-bold">15</span></div><div class="p-space-8 bg-primary-fixed text-on-primary-fixed rounded-lg"><span class="material-symbols-outlined text-[24px]">pending_actions</span></div></div><div class="mt-space-16 flex items-center justify-between"><span class="font-label-sm text-label-sm text-primary font-semibold flex items-center gap-space-4"><span class="w-2 h-2 rounded-full bg-primary inline-block animate-pulse"></span> Aadhaar &amp; Police check</span><span class="font-label-sm text-label-sm text-on-surface-variant">4.3% in review</span></div><div class="w-full bg-surface-container h-1 mt-space-8 rounded-full overflow-hidden"><div class="bg-primary-container h-full" style="width: 4.3%;"></div></div></div>
+<!-- Metric 4: Pending Renewal / Training -->
+<div class="bg-surface-container-lowest rounded-xl p-space-20 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow"><div class="flex items-start justify-between"><div class="flex flex-col"><span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Suspended / On Leave</span><span class="font-display-lg text-display-lg text-on-tertiary-container mt-space-4 tabular-nums font-bold">21</span></div><div class="p-space-8 bg-tertiary-fixed text-on-tertiary-fixed rounded-lg"><span class="material-symbols-outlined text-[24px]">event_busy</span></div></div><div class="mt-space-16 flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-tertiary-container font-semibold bg-tertiary-fixed/60 px-space-8 py-space-2 rounded-full">Medical &amp; seasonal leave</span><span class="font-label-sm text-label-sm text-on-surface-variant">6.0% off-duty</span></div><div class="w-full bg-surface-container h-1 mt-space-8 rounded-full overflow-hidden"><div class="bg-on-tertiary-container h-full" style="width: 6.0%;"></div></div></div>
+</div>
+<!-- Advanced Filter & Search Toolbar -->
+<div class="bg-surface-container-lowest rounded-xl p-space-16 shadow-sm flex flex-col gap-space-12">
+<!-- Search & Primary Filter Row -->
+<div class="flex flex-col lg:flex-row gap-space-12 items-stretch lg:items-center justify-between">
+<!-- Search Field -->
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-space-12 top-2.5 text-on-surface-variant pointer-events-none text-[20px]">search</span>
+<input class="w-full h-10 pl-10 pr-space-12 bg-surface-container-low text-on-surface placeholder:text-on-surface-variant rounded-lg font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="workerSearchInput" placeholder="Search worker by name, member ID (e.g. WRK-0924), phone, or skill..." type="search">
+</div>
+<!-- View Mode Switcher -->
+<div class="flex items-center gap-space-4 bg-surface-container-low p-space-4 rounded-lg self-end lg:self-auto">
+<button class="flex items-center gap-space-4 px-space-12 py-space-4 bg-surface-container-lowest text-primary rounded shadow-sm font-label-md text-label-md font-semibold" id="tableViewBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">table_rows</span>
+<span class="">Table View</span>
+</button>
+<button class="flex items-center gap-space-4 px-space-12 py-space-4 text-on-surface-variant hover:text-on-surface rounded font-label-md text-label-md transition-colors" id="gridViewBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+<span class="">Card Grid</span>
+</button>
+</div>
+</div>
+<!-- Filter Dropdowns Pill Bar -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-space-8 pt-space-4">
+<!-- Domain -->
+<div class="relative">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-semibold">Trade Domain</label>
+<div class="relative">
+<select class="w-full h-9 pl-space-8 pr-space-24 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary"><option>All Domains (348)</option><option>Electrician (52)</option><option>Plumber (46)</option><option>Carpenter (80)</option><option>Cleaner (58)</option><option>Technician (72)</option><option>Domestic Helper (40)</option></select>
+<span class="material-symbols-outlined absolute right-space-4 top-2 text-on-surface-variant pointer-events-none text-[18px]">unfold_more</span>
+</div>
+</div>
+<!-- Location / Ward -->
+<div class="relative">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-semibold">Location / Ward</label>
+<div class="relative">
+<select class="w-full h-9 pl-space-8 pr-space-24 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary"><option>All Zones (Perur &amp; Suburbs)</option><option>Zone 1: Perur</option><option>Zone 2: Telungupalayam</option><option>Zone 2: Selvapuram</option><option>Zone 3: Kovaipudur</option><option>Zone 4: Kuniyamuthur</option><option>Zone 5: Vadavalli</option></select>
+<span class="material-symbols-outlined absolute right-space-4 top-2 text-on-surface-variant pointer-events-none text-[18px]">unfold_more</span>
+</div>
+</div>
+<!-- Membership Status -->
+<div class="relative">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-semibold">Duty Status</label>
+<div class="relative">
+<select class="w-full h-9 pl-space-8 pr-space-24 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary">
+<option>All Statuses</option>
+<option>Active / Available</option>
+<option>On-Duty (Dispatched)</option>
+<option>On Approved Leave</option>
+<option>Inactive / Suspended</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-4 top-2 text-on-surface-variant pointer-events-none text-[18px]">unfold_more</span>
+</div>
+</div>
+<!-- Rating -->
+<div class="relative">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-semibold">Min. Rating</label>
+<div class="relative">
+<select class="w-full h-9 pl-space-8 pr-space-24 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary">
+<option>Any Rating</option>
+<option>★ 4.8 &amp; Above</option>
+<option>★ 4.5 &amp; Above</option>
+<option>★ 4.0 &amp; Above</option>
+<option>Below 4.0 Stars</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-4 top-2 text-on-surface-variant pointer-events-none text-[18px]">unfold_more</span>
+</div>
+</div>
+<!-- Certification -->
+<div class="relative">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-semibold">Credential</label>
+<div class="relative">
+<select class="w-full h-9 pl-space-8 pr-space-24 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary">
+<option>All Certifications</option>
+<option>Level-3 Master Valid</option>
+<option>Level-2 Certified</option>
+<option>Level-1 Apprentice</option>
+<option>Expiring (&lt; 30 Days)</option>
+<option>Pending Verification</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-4 top-2 text-on-surface-variant pointer-events-none text-[18px]">unfold_more</span>
+</div>
+</div>
+<!-- Training Status -->
+<div class="relative">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-semibold">Training Track</label>
+<div class="relative">
+<select class="w-full h-9 pl-space-8 pr-space-24 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary">
+<option>All Training States</option>
+<option>Certified &amp; Cleared</option>
+<option>In-Training Batch</option>
+<option>Refresher Due</option>
+<option>Safety Re-eval Req.</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-4 top-2 text-on-surface-variant pointer-events-none text-[18px]">unfold_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- High-Density Cooperative Worker Data Table Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Table Header Meta -->
+<div class="px-space-20 py-space-12 bg-surface-container-low/50 flex items-center justify-between">
+<div class="flex items-center gap-space-12">
+<div class="flex items-center gap-space-8">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-primary cursor-pointer" id="selectAllWorkers" type="checkbox">
+<label class="font-title-sm text-title-sm text-on-surface cursor-pointer select-none" for="selectAllWorkers">Select All Workers (Page 1)</label>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-space-8 py-space-2 rounded font-mono">6 of 348 displayed</span>
+</div>
+<div class="flex items-center gap-space-8">
+<button class="text-on-surface-variant hover:text-primary p-space-4 rounded flex items-center text-label-md gap-space-4" title="Batch Certificate Verification" type="button">
+<span class="material-symbols-outlined text-[18px]">task_alt</span>
+<span class="">Batch Verify</span>
+</button>
+<span class="text-outline-variant">•</span>
+<button class="text-on-surface-variant hover:text-primary p-space-4 rounded flex items-center text-label-md gap-space-4" title="Bulk Ward Relocation" type="button">
+<span class="material-symbols-outlined text-[18px]">move_group</span>
+<span class="">Re-assign Ward</span>
+</button>
+</div>
+</div>
+<!-- Scrollable Data Table -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[1240px]">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<th class="py-space-12 px-space-16 w-12 text-center">
+<span class="sr-only">Select</span>
+</th>
+<th class="py-space-12 px-space-16">Worker ID &amp; Member</th>
+<th class="py-space-12 px-space-16">Domain &amp; Trade</th>
+<th class="py-space-12 px-space-16">Expertise &amp; Specialization</th>
+<th class="py-space-12 px-space-16">Ward / Zone</th>
+<th class="py-space-12 px-space-16">Performance</th>
+<th class="py-space-12 px-space-16 text-center">Jobs Done</th>
+<th class="py-space-12 px-space-16">Cancel Rate</th>
+<th class="py-space-12 px-space-16">Coop Certification</th>
+<th class="py-space-12 px-space-16">Status</th>
+<th class="py-space-12 px-space-16 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-sm text-body-sm text-on-surface">
+<!-- ROW 1: Ramesh Pawar -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group cursor-pointer" onclick="openProfileDrawer('WRK-0924', 'Ramesh Pawar', 'Senior Electrician &amp; Power Systems', 'Ward 7 - Shivaji Nagar', '4.9', '314', 'Level-3 Master')">
+<td class="py-space-12 px-space-16 text-center" onclick="event.stopPropagation()">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-primary cursor-pointer" type="checkbox">
+</td>
+<td class="py-space-12 px-space-16">
+<div class="flex items-center gap-space-12">
+<div class="relative w-10 h-10 flex-shrink-0">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="A portrait of a senior Indian male electrician with short grey hair and a confident, experienced expression wearing a professional work uniform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0GyR7FuMwHScAdwTJnzt8gPxsACoD6K-K8SzF92c54OpMBBdd97SHKQuBZLiHSOHBwGawC8TrRVV7T3VWgsjixvhAVLC3JzdrktW_L7F1iwIod2QgFdQZPHBzczTpFGiLQNIRHOjAK8lY7J-Eid4Kg5Zokvka7Ckens2sdPGNCMiX99h1YFgeXcU48PZd8O59Wvl57NrVqKW2BoWGcxSjbCV3PTdQrt_uRgVPRfRgHhjRvQBDxFXl">
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-surface-container-lowest flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface group-hover:text-primary transition-colors">Vignesh Kumar</span>
+<span class="font-label-sm text-label-sm font-mono text-on-surface-variant font-semibold">WRK-0924</span>
+</div>
+</div>
+</td>
+<td class="py-space-12 px-space-16">
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Electrician</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Industrial &amp; Domestic</span>
+</div>
+</td>
+<td class="py-space-12 px-space-16">
+<div class="flex flex-wrap gap-space-4 max-w-[200px]">
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Substation</span>
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Home Inverter</span>
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">3-Phase Wiring</span>
+</div>
+</td>
+<td class="py-space-12 px-space-16"><div class="flex items-center gap-space-4"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span><span class="font-body-sm text-body-sm font-medium">Zone 1: Perur, Coimbatore (12, Perur Main Road)</span></div></td>
+<td class="py-space-12 px-space-16">
+<div class="flex items-center gap-space-4">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-title-sm text-title-sm font-bold tabular-nums">4.9</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(248)</span>
+</div>
+</td>
+<td class="py-space-12 px-space-16 text-center font-title-sm text-title-sm tabular-nums font-semibold">
+                314
+              </td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-2 rounded-full font-label-sm text-label-sm font-semibold bg-secondary-container text-on-secondary-container">
+<span class="material-symbols-outlined text-[12px]">check</span> 0.8% Exc.
+                </span>
+</td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-4 rounded-lg font-label-sm text-label-sm font-semibold bg-secondary-fixed/50 text-secondary">
+<span class="material-symbols-outlined text-[14px]">military_tech</span> Valid / L-3 Master
+                </span>
+</td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-2 rounded-full font-label-sm text-label-sm font-semibold bg-primary-fixed text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span> On-Duty
+                </span>
+</td>
+<td class="py-space-12 px-space-16 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-space-4">
+<button class="p-space-4 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" onclick="openProfileDrawer('WRK-0924', 'Ramesh Pawar', 'Senior Electrician &amp; Power Systems', 'Ward 7 - Shivaji Nagar', '4.9', '314', 'Level-3 Master')" title="View Full Profile" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Edit Member Record" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" title="Assign Skill Training" type="button">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded transition-colors" title="More Actions" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 2: Sunita Devi -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group cursor-pointer" onclick="openProfileDrawer('WRK-1402', 'Sunita Devi', 'Senior Patient Care &amp; Geriatric Assistant', 'Ward 4 - Gandhi Rd', '4.95', '428', 'Level-3 Master')">
+<td class="py-space-12 px-space-16 text-center" onclick="event.stopPropagation()">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-primary cursor-pointer" type="checkbox">
+</td>
+<td class="py-space-12 px-space-16">
+<div class="flex items-center gap-space-12">
+<div class="relative w-10 h-10 flex-shrink-0">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="A portrait of a middle-aged South Asian woman smiling warmly with compassionate eyes, wearing a clean healthcare cooperative badge and blue tunic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuKUzqzpSQMY8d3FVrPH0sy7wFtHI5yoeoEpBj_ZHBLRz6CtRgmKCNNiy4wJcCtaZvb6Wukwnml6amUvd8KE2WDhHPgfMa7MudMe5ViCK1s8_btucXZzdIYSR7uwZf_yHnS2nk3L-3Yw-PhwwF4wXpMKCO1VhCV7ppPr2F0LjWD9xeSZC0wCbLH2-UrB-4FRCqeu4QgVcQp-QN778Vy4etcRPediMLMz2fwqZzqli3fU8ZyNVeWz3P">
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-surface-container-lowest flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface group-hover:text-primary transition-colors">Keerthana R.</span>
+<span class="font-label-sm text-label-sm font-mono text-on-surface-variant font-semibold">WRK-1402</span>
+</div>
+</div>
+</td>
+<td class="py-space-12 px-space-16">
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Elder &amp; Patient Care</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Paramedical Certified</span>
+</div>
+</td>
+<td class="py-space-12 px-space-16">
+<div class="flex flex-wrap gap-space-4 max-w-[200px]">
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Post-Op Rehab</span>
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Vitals Monitoring</span>
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Palliative Care</span>
+</div>
+</td>
+<td class="py-space-12 px-space-16"><div class="flex items-center gap-space-4"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span><span class="font-body-sm text-body-sm font-medium">Zone 2: Telungupalayam, Coimbatore</span></div></td>
+<td class="py-space-12 px-space-16">
+<div class="flex items-center gap-space-4">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-title-sm text-title-sm font-bold tabular-nums">4.95</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(312)</span>
+</div>
+</td>
+<td class="py-space-12 px-space-16 text-center font-title-sm text-title-sm tabular-nums font-semibold">
+                428
+              </td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-2 rounded-full font-label-sm text-label-sm font-semibold bg-secondary-container text-on-secondary-container">
+<span class="material-symbols-outlined text-[12px]">check</span> 0.2% Exc.
+                </span>
+</td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-4 rounded-lg font-label-sm text-label-sm font-semibold bg-secondary-fixed/50 text-secondary">
+<span class="material-symbols-outlined text-[14px]">military_tech</span> Valid / L-3 Master
+                </span>
+</td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-2 rounded-full font-label-sm text-label-sm font-semibold bg-secondary-container text-on-secondary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Active / Avail.
+                </span>
+</td>
+<td class="py-space-12 px-space-16 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-space-4">
+<button class="p-space-4 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" onclick="openProfileDrawer('WRK-1402', 'Sunita Devi', 'Senior Patient Care &amp; Geriatric Assistant', 'Ward 4 - Gandhi Rd', '4.95', '428', 'Level-3 Master')" title="View Full Profile" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Edit Member Record" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" title="Assign Skill Training" type="button">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded transition-colors" title="More Actions" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 3: Anand Kulkarni -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group cursor-pointer" onclick="openProfileDrawer('WRK-0471', 'Anand Kulkarni', 'Master Mason &amp; Concrete Specialist', 'Ward 11 - Industrial Zone', '4.82', '512', 'Level-3 Master')">
+<td class="py-space-12 px-space-16 text-center" onclick="event.stopPropagation()">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-primary cursor-pointer" type="checkbox">
+</td>
+<td class="py-space-12 px-space-16">
+<div class="flex items-center gap-space-12">
+<div class="relative w-10 h-10 flex-shrink-0">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="A portrait of a rugged South Asian man in his late 30s with safety spectacles hanging on his neck, wearing high-visibility civil work suspenders." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7I88CXAz6bIZWnFcq4Suif1vLyfat538MGaOlDyVudRQSOPObgq1HwkU6U_ZFAdu4P6E7YL03vP_GPCq_GIKFj_a_OMaol4SXG-BDGVvGeGhKn33XKC1AIExAiqVaAwHIgzOWc5VEPO_HIkNTzAMItbhAJxutB_3gbBkma1MrKt2VILRIKqRKCZP-mFlPw0Rbg8gKdFCpJS_OWbpXL1adYYHAMx2ODOagJAvPZAu2WqPvF5K1EFbh">
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-surface-container-lowest flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface group-hover:text-primary transition-colors">M. Manikandan</span>
+<span class="font-label-sm text-label-sm font-mono text-on-surface-variant font-semibold">WRK-0471</span>
+</div>
+</div>
+</td>
+<td class="py-space-12 px-space-16"><div class="flex flex-col"><span class="font-title-sm text-title-sm text-on-surface font-semibold">Carpenter</span><span class="font-label-sm text-label-sm text-on-surface-variant">Structural &amp; Foundation</span></div></td>
+<td class="py-space-12 px-space-16">
+<div class="flex flex-wrap gap-space-4 max-w-[200px]">
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">RCC Casting</span>
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Tile Waterproofing</span>
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Retaining Walls</span>
+</div>
+</td>
+<td class="py-space-12 px-space-16"><div class="flex items-center gap-space-4"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span><span class="font-body-sm text-body-sm font-medium">Zone 2: Selvapuram, Coimbatore</span></div></td>
+<td class="py-space-12 px-space-16">
+<div class="flex items-center gap-space-4">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-title-sm text-title-sm font-bold tabular-nums">4.82</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(189)</span>
+</div>
+</td>
+<td class="py-space-12 px-space-16 text-center font-title-sm text-title-sm tabular-nums font-semibold">
+                512
+              </td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-2 rounded-full font-label-sm text-label-sm font-semibold bg-surface-container text-on-surface-variant">
+                  1.4% Good
+                </span>
+</td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-4 rounded-lg font-label-sm text-label-sm font-semibold bg-secondary-fixed/50 text-secondary">
+<span class="material-symbols-outlined text-[14px]">military_tech</span> Valid / L-3 Master
+                </span>
+</td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-2 rounded-full font-label-sm text-label-sm font-semibold bg-primary-fixed text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span> On-Duty
+                </span>
+</td>
+<td class="py-space-12 px-space-16 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-space-4">
+<button class="p-space-4 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" onclick="openProfileDrawer('WRK-0471', 'Anand Kulkarni', 'Master Mason &amp; Concrete Specialist', 'Ward 11 - Industrial Zone', '4.82', '512', 'Level-3 Master')" title="View Full Profile" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Edit Member Record" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" title="Assign Skill Training" type="button">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded transition-colors" title="More Actions" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 4: Mohammed Rafiq -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group cursor-pointer" onclick="openProfileDrawer('WRK-2219', 'Mohammed Rafiq', 'Plumbing &amp; Hydraulic Technician', 'Ward 1 - Old City', '4.78', '196', 'Level-2 Certified')">
+<td class="py-space-12 px-space-16 text-center" onclick="event.stopPropagation()">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-primary cursor-pointer" type="checkbox">
+</td>
+<td class="py-space-12 px-space-16">
+<div class="flex items-center gap-space-12">
+<div class="relative w-10 h-10 flex-shrink-0">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="A portrait of a focused South Asian man in his 30s wearing a navy work cap and crisp worker society jacket with clear studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk166Oryom2UQhWtLnOxgbB88Ey0bBrE1uenq0_YijQYF4luV8f1u83nmWWZd-WBGcMlkp-7ul6DPeChQDri2_m4UkjAL6BlR35OuUyCZAMDnZ7avzwJU4K1fmnHAmswHe3gXXtYa6DjhE1FHGRH2vVNR4d_bBiZHFVNBaluU-SuJIZNX0zn2oBniBKRXAPaaCVaA4qf2xy6DUxt_hvO1T6LqseKik6O3bVKRh7ptaygaLUxpiHkPU">
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-surface-container-lowest flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface group-hover:text-primary transition-colors">R. Saravanan</span>
+<span class="font-label-sm text-label-sm font-mono text-on-surface-variant font-semibold">WRK-2219</span>
+</div>
+</div>
+</td>
+<td class="py-space-12 px-space-16">
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Plumber</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pipelines &amp; Pumps</span>
+</div>
+</td>
+<td class="py-space-12 px-space-16">
+<div class="flex flex-wrap gap-space-4 max-w-[200px]">
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Hydro-Jetting</span>
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Borewell Motors</span>
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">CPVC Splicing</span>
+</div>
+</td>
+<td class="py-space-12 px-space-16"><div class="flex items-center gap-space-4"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span><span class="font-body-sm text-body-sm font-medium">Zone 3: Kovaipudur, Coimbatore</span></div></td>
+<td class="py-space-12 px-space-16">
+<div class="flex items-center gap-space-4">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-title-sm text-title-sm font-bold tabular-nums">4.78</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(114)</span>
+</div>
+</td>
+<td class="py-space-12 px-space-16 text-center font-title-sm text-title-sm tabular-nums font-semibold">
+                196
+              </td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-2 rounded-full font-label-sm text-label-sm font-semibold bg-secondary-container text-on-secondary-container">
+<span class="material-symbols-outlined text-[12px]">check</span> 0.9% Exc.
+                </span>
+</td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-4 rounded-lg font-label-sm text-label-sm font-semibold bg-surface-container-high text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span> Valid / Level-2
+                </span>
+</td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-2 rounded-full font-label-sm text-label-sm font-semibold bg-secondary-container text-on-secondary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Active / Avail.
+                </span>
+</td>
+<td class="py-space-12 px-space-16 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-space-4">
+<button class="p-space-4 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" onclick="openProfileDrawer('WRK-2219', 'Mohammed Rafiq', 'Plumbing &amp; Hydraulic Technician', 'Ward 1 - Old City', '4.78', '196', 'Level-2 Certified')" title="View Full Profile" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Edit Member Record" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" title="Assign Skill Training" type="button">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded transition-colors" title="More Actions" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 5: Geeta Shinde -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group cursor-pointer" onclick="openProfileDrawer('WRK-3108', 'Geeta Shinde', 'Commercial Housekeeping Lead', 'Ward 15 - North Ext.', '4.88', '380', 'Level-2 Certified')">
+<td class="py-space-12 px-space-16 text-center" onclick="event.stopPropagation()">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-primary cursor-pointer" type="checkbox">
+</td>
+<td class="py-space-12 px-space-16">
+<div class="flex items-center gap-space-12">
+<div class="relative w-10 h-10 flex-shrink-0">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="A portrait of an Indian woman in her late 30s with a cheerful and determined expression, wearing a neat sanitary supervisor apron with institutional emblem." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUOYfFz7jSQDrgaNn45eOGlTgFuLxBnqNXTW0wflNN8pI_PSvbSslnMAEwsPLUIzbjeenbR_HEfBObILNeRI0BvVjlhrnTh5yV3qOZ4AKUcsC3G5L4OzgCl5AA-bt4DB4d1U3hkXMUKGD-fsuxYVI5dXc1qzCveTugS9lqNgblL9e0TvfQltc7VWws2W3eXfeupyz-WiFbJC7JlQ9tyLMj09cDyT4HdXWubLdMR5Z6YgjTKktrWdq7">
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-surface-container-lowest flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface group-hover:text-primary transition-colors">K. Nandhini</span>
+<span class="font-label-sm text-label-sm font-mono text-on-surface-variant font-semibold">WRK-3108</span>
+</div>
+</div>
+</td>
+<td class="py-space-12 px-space-16"><div class="flex flex-col"><span class="font-title-sm text-title-sm text-on-surface font-semibold">Domestic Helper</span><span class="font-label-sm text-label-sm text-on-surface-variant">Corporate &amp; Public</span></div></td>
+<td class="py-space-12 px-space-16">
+<div class="flex flex-wrap gap-space-4 max-w-[200px]">
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Chemical Safety</span>
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Crew Management</span>
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Hospital Protocols</span>
+</div>
+</td>
+<td class="py-space-12 px-space-16"><div class="flex items-center gap-space-4"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span><span class="font-body-sm text-body-sm font-medium">Zone 5: Vadavalli, Coimbatore</span></div></td>
+<td class="py-space-12 px-space-16">
+<div class="flex items-center gap-space-4">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-title-sm text-title-sm font-bold tabular-nums">4.88</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(215)</span>
+</div>
+</td>
+<td class="py-space-12 px-space-16 text-center font-title-sm text-title-sm tabular-nums font-semibold">
+                380
+              </td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-2 rounded-full font-label-sm text-label-sm font-semibold bg-secondary-container text-on-secondary-container">
+<span class="material-symbols-outlined text-[12px]">check</span> 0.5% Exc.
+                </span>
+</td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-4 rounded-lg font-label-sm text-label-sm font-semibold bg-tertiary-fixed text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[14px]">update</span> Renews in 18d
+                </span>
+</td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-2 rounded-full font-label-sm text-label-sm font-semibold bg-surface-container text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> On Leave
+                </span>
+</td>
+<td class="py-space-12 px-space-16 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-space-4">
+<button class="p-space-4 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" onclick="openProfileDrawer('WRK-3108', 'Geeta Shinde', 'Commercial Housekeeping Lead', 'Ward 15 - North Ext.', '4.88', '380', 'Level-2 Certified')" title="View Full Profile" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Edit Member Record" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" title="Assign Skill Training" type="button">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded transition-colors" title="More Actions" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 6: Suresh Patil -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group cursor-pointer" onclick="openProfileDrawer('WRK-1854', 'Suresh Patil', 'HVAC &amp; Industrial Chiller Specialist', 'Central Hub, Model Colony', '4.91', '264', 'Level-3 Master')">
+<td class="py-space-12 px-space-16 text-center" onclick="event.stopPropagation()">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-primary cursor-pointer" type="checkbox">
+</td>
+<td class="py-space-12 px-space-16">
+<div class="flex items-center gap-space-12">
+<div class="relative w-10 h-10 flex-shrink-0">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="A portrait of a skilled Indian HVAC technician with an energetic smile, holding a digital pressure manifold gauge over his shoulder in a clean engineering workshop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbH_JX-GMjBgoxFy5G3lKe4mdLs9zTVTy9Tt5-ePfNUErRAdSA6hQtHuD36R5pTNGbGBNUQiqwTX6bGt_bjogRlH9bva0_yhAdvzOEnCzy1ZCGBDj5MqPBQi106m1uLBk5vi-mNrrh5w2gulKuzon29J5_Ns1-wHlsJsLlE92jAgNoF7vAAtBtUHmsWTIG9G0ZK0_mzxmOoBzUVEfMouXgcB6zlb-K_37WfBqkYlfRKYYCmmXop9Ww">
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-surface-container-lowest flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface group-hover:text-primary transition-colors">Praveen Kumar</span>
+<span class="font-label-sm text-label-sm font-mono text-on-surface-variant font-semibold">WRK-1854</span>
+</div>
+</div>
+</td>
+<td class="py-space-12 px-space-16"><div class="flex flex-col"><span class="font-title-sm text-title-sm text-on-surface font-semibold">Technician</span><span class="font-label-sm text-label-sm text-on-surface-variant">Cooling &amp; Ventilation</span></div></td>
+<td class="py-space-12 px-space-16">
+<div class="flex flex-wrap gap-space-4 max-w-[200px]">
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">VRF Systems</span>
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Duct Fabrication</span>
+<span class="bg-surface-container px-space-8 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Compressor Serv.</span>
+</div>
+</td>
+<td class="py-space-12 px-space-16"><div class="flex items-center gap-space-4"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span><span class="font-body-sm text-body-sm font-medium">Zone 4: Kuniyamuthur, Coimbatore</span></div></td>
+<td class="py-space-12 px-space-16">
+<div class="flex items-center gap-space-4">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-title-sm text-title-sm font-bold tabular-nums">4.91</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(172)</span>
+</div>
+</td>
+<td class="py-space-12 px-space-16 text-center font-title-sm text-title-sm tabular-nums font-semibold">
+                264
+              </td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-2 rounded-full font-label-sm text-label-sm font-semibold bg-secondary-container text-on-secondary-container">
+<span class="material-symbols-outlined text-[12px]">check</span> 0.6% Exc.
+                </span>
+</td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-4 rounded-lg font-label-sm text-label-sm font-semibold bg-secondary-fixed/50 text-secondary">
+<span class="material-symbols-outlined text-[14px]">military_tech</span> Valid / L-3 Master
+                </span>
+</td>
+<td class="py-space-12 px-space-16">
+<span class="inline-flex items-center gap-space-4 px-space-8 py-space-2 rounded-full font-label-sm text-label-sm font-semibold bg-primary-fixed text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span> On-Duty
+                </span>
+</td>
+<td class="py-space-12 px-space-16 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-space-4">
+<button class="p-space-4 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" onclick="openProfileDrawer('WRK-1854', 'Suresh Patil', 'HVAC &amp; Industrial Chiller Specialist', 'Central Hub, Model Colony', '4.91', '264', 'Level-3 Master')" title="View Full Profile" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Edit Member Record" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" title="Assign Skill Training" type="button">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+</button>
+<button class="p-space-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded transition-colors" title="More Actions" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer & Pagination -->
+<div class="px-space-20 py-space-12 bg-surface-container-low/40 flex flex-col sm:flex-row items-center justify-between gap-space-12">
+<div class="flex items-center gap-space-16">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Showing <strong class="text-on-surface font-semibold">1 - 10</strong> of <strong class="text-on-surface font-semibold">348</strong> registered workers</span>
+<div class="flex items-center gap-space-8 text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Rows per page:</span>
+<select class="bg-surface-container-lowest text-on-surface font-semibold rounded px-space-8 py-1 focus:outline-none focus:ring-1 focus:ring-primary shadow-xs">
+<option selected="">10</option>
+<option>25</option>
+<option>50</option>
+<option>100</option>
+</select>
+</div>
+</div>
+<!-- Page selector -->
+<div class="flex items-center gap-space-4">
+<button class="px-space-12 py-space-4 rounded bg-surface-container-lowest text-on-surface-variant hover:text-on-surface disabled:opacity-50 text-label-md font-semibold shadow-xs flex items-center gap-1 transition-colors" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+<span class="">Previous</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary-container text-on-primary font-title-sm text-title-sm flex items-center justify-center font-bold shadow-xs" type="button">1</button>
+<button class="w-8 h-8 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container text-title-sm font-medium flex items-center justify-center transition-colors" type="button">2</button>
+<button class="w-8 h-8 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container text-title-sm font-medium flex items-center justify-center transition-colors" type="button">3</button>
+<span class="px-space-4 text-on-surface-variant font-bold">...</span>
+<button class="w-8 h-8 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container text-title-sm font-medium flex items-center justify-center transition-colors" type="button">57</button>
+<button class="px-space-12 py-space-4 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container text-label-md font-semibold shadow-xs flex items-center gap-1 transition-colors" type="button">
+<span class="">Next</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Member Detail Slide-over Modal / Preview Drawer -->
+<div class="fixed inset-0 bg-inverse-surface/40 backdrop-blur-xs z-50 transition-opacity duration-200 hidden" id="workerDrawerScrim" onclick="closeProfileDrawer()"></div>
+<div class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-surface-container-lowest shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between overflow-y-auto" id="workerDrawer">
+<!-- Drawer Header -->
+<div>
+<div class="p-space-20 bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-8">
+<span class="material-symbols-outlined text-primary text-[22px]">badge</span>
+<span class="font-title-md text-title-md text-primary font-bold">Cooperative Member Dossier</span>
+</div>
+<button class="p-space-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded transition-colors" onclick="closeProfileDrawer()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-space-24 flex flex-col gap-space-20">
+<!-- Profile Badge Area -->
+<div class="flex items-start gap-space-16 pb-space-16">
+<div class="w-16 h-16 rounded-xl bg-primary-fixed flex items-center justify-center text-primary font-bold text-headline-sm flex-shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-[36px]">account_circle</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-4">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold" id="drawerWorkerName">Ramesh Pawar</h2>
+<span class="material-symbols-outlined text-secondary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant font-medium" id="drawerWorkerTrade">Senior Electrician &amp; Power Systems</span>
+<div class="flex items-center gap-space-8 mt-space-4">
+<span class="font-label-sm text-label-sm font-mono bg-surface-container-high px-space-8 py-0.5 rounded text-on-surface font-bold" id="drawerWorkerId">WRK-0924</span>
+<span class="font-label-sm text-label-sm px-space-8 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold" id="drawerWorkerStatus">Active Member</span>
+</div>
+</div>
+</div>
+<!-- Quick Stats Grid in Drawer -->
+<div class="grid grid-cols-3 gap-space-8 p-space-12 bg-surface-container-low rounded-xl text-center">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Rating</span>
+<span class="font-title-md text-title-md font-bold text-on-surface flex items-center justify-center gap-1" id="drawerRating">
+                ★ 4.9
+              </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Completed</span>
+<span class="font-title-md text-title-md font-bold text-primary tabular-nums" id="drawerJobs">314</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Safety Rank</span>
+<span class="font-title-md text-title-md font-bold text-secondary">A+ Grade</span>
+</div>
+</div>
+<!-- Membership & Certification Credentials -->
+<div class="flex flex-col gap-space-12">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold flex items-center gap-space-8">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span> Verified Accreditation
+            </span>
+<div class="p-space-12 bg-surface-container-low rounded-lg flex flex-col gap-space-8">
+<div class="flex justify-between items-center text-body-sm">
+<span class="text-on-surface-variant">Master Certification:</span>
+<span class="font-semibold text-secondary" id="drawerCert">Level-3 Master Verified</span>
+</div>
+<div class="flex justify-between items-center text-body-sm">
+<span class="text-on-surface-variant">Society Ward Station:</span>
+<span class="font-semibold text-on-surface" id="drawerLocation">Ward 7 - Shivaji Nagar</span>
+</div>
+<div class="flex justify-between items-center text-body-sm">
+<span class="text-on-surface-variant">ESI / Welfare Registration:</span>
+<span class="font-mono text-on-surface font-medium">MH-PUN-982103-W</span>
+</div>
+<div class="flex justify-between items-center text-body-sm">
+<span class="text-on-surface-variant">Coop Provident Ledger:</span>
+<span class="font-semibold text-secondary">In Good Standing</span>
+</div>
+</div>
+</div>
+<!-- Society Welfare Scheme Status -->
+<div class="flex flex-col gap-space-8">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold flex items-center gap-space-8">
+<span class="material-symbols-outlined text-secondary text-[18px]">health_and_safety</span> Welfare Coverages
+            </span>
+<div class="flex flex-wrap gap-space-8">
+<span class="px-space-8 py-space-4 bg-secondary-container/50 text-secondary text-label-sm rounded-md font-medium">Group Accident Insured (₹5L)</span>
+<span class="px-space-8 py-space-4 bg-secondary-container/50 text-secondary text-label-sm rounded-md font-medium">Annual Health Screening (Passed)</span>
+<span class="px-space-8 py-space-4 bg-surface-container text-on-surface-variant text-label-sm rounded-md font-medium">Children Edu Scholarship (Eligible)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Drawer Footer Actions -->
+<div class="p-space-20 bg-surface-container-low flex items-center justify-between gap-space-12">
+<button class="flex-1 py-space-8 bg-surface-container-lowest text-on-surface font-title-sm text-title-sm rounded-lg hover:bg-surface-container transition-colors shadow-xs" onclick="closeProfileDrawer()" type="button">
+          Close
+        </button>
+<button class="flex-1 py-space-8 bg-primary-container text-on-primary font-title-sm text-title-sm rounded-lg hover:bg-primary transition-colors shadow-sm flex items-center justify-center gap-space-4" type="button">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+<span class="">Full Member File</span>
+</button>
+</div>
+</div>
+<!-- Floating Trigger Hint Card (Non-intrusive administrative callout) -->
+<div class="p-space-16 bg-surface-container-low rounded-xl flex items-center justify-between flex-wrap gap-space-12">
+<div class="flex items-center gap-space-12">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">touch_app</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Click on any worker row to inspect verification documents, municipal compliance certificates, and instant shift allocation history.
+        </p>
+</div>
+<button class="font-label-md text-label-md text-primary font-semibold hover:underline flex items-center gap-space-4" onclick="openProfileDrawer('WRK-0924', 'Ramesh Pawar', 'Senior Electrician &amp; Power Systems', 'Ward 7 - Shivaji Nagar', '4.9', '314', 'Level-3 Master')" type="button">
+<span class="">Quick View Member Profile</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  function openProfileDrawer(id, name, trade, location, rating, jobs, cert) {
+    const drawer = document.getElementById('workerDrawer');
+    const scrim = document.getElementById('workerDrawerScrim');
+    
+    document.getElementById('drawerWorkerId').innerText = id;
+    document.getElementById('drawerWorkerName').innerText = name;
+    document.getElementById('drawerWorkerTrade').innerText = trade;
+    document.getElementById('drawerLocation').innerText = location;
+    document.getElementById('drawerRating').innerText = '★ ' + rating;
+    document.getElementById('drawerJobs').innerText = jobs;
+    document.getElementById('drawerCert').innerText = cert + ' Verified';
+
+    scrim.classList.remove('hidden');
+    drawer.classList.remove('translate-x-full');
+  }
+
+  function closeProfileDrawer() {
+    const drawer = document.getElementById('workerDrawer');
+    const scrim = document.getElementById('workerDrawerScrim');
+    
+    drawer.classList.add('translate-x-full');
+    setTimeout(() => {
+      scrim.classList.add('hidden');
+    }, 200);
+  }
+
+  // Handle View Mode Toggles
+  const tableBtn = document.getElementById('tableViewBtn');
+  const gridBtn = document.getElementById('gridViewBtn');
+
+  if (tableBtn && gridBtn) {
+    gridBtn.addEventListener('click', () => {
+      gridBtn.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-semibold');
+      gridBtn.classList.remove('text-on-surface-variant');
+      tableBtn.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-semibold');
+      tableBtn.classList.add('text-on-surface-variant');
+    });
+
+    tableBtn.addEventListener('click', () => {
+      tableBtn.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-semibold');
+      tableBtn.classList.remove('text-on-surface-variant');
+      gridBtn.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-semibold');
+      gridBtn.classList.add('text-on-surface-variant');
+    });
+  }
+
+  // Filter search input mock interaction
+  const searchInput = document.getElementById('workerSearchInput');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const val = e.target.value.toLowerCase();
+      const rows = document.querySelectorAll('tbody tr');
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(val) ? '' : 'none';
+      });
+    });
+  }
+
+  // Select all checkboxes toggle
+  const selectAll = document.getElementById('selectAllWorkers');
+  if (selectAll) {
+    selectAll.addEventListener('change', (e) => {
+      const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
+      checkboxes.forEach(cb => { cb.checked = e.target.checked; });
+    });
+  }
+</script></main></div>
+
+
+
+
+
+</body></html>

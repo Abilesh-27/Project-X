@@ -1,0 +1,4 @@
+/* Small implementation layer over the Stitch-generated UI. */
+html,body{width:100%!important;height:auto!important;min-height:100%!important;overflow-x:hidden!important;overflow-y:auto!important;} body{overscroll-behavior:auto!important;} img{max-width:100%;} button,a{cursor:pointer;} .app-toast{font-family:Inter,sans-serif}
+body>div{min-width:0;}
+@media(max-width:900px){aside{position:relative!important;width:100%!important;height:auto!important}.pl-72{padding-left:0!important}.fixed.top-0.left-72{position:relative!important;left:auto!important;right:auto!important;width:100%!important}.grid{grid-template-columns:1fr!important}.overflow-x-auto{overflow-x:auto!important}table{min-width:760px}}

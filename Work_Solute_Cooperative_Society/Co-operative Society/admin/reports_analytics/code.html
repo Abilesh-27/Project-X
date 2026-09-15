@@ -1,0 +1,938 @@
+<!DOCTYPE html><html lang="en" style="width: 100%; min-height: 100%; overflow-x: hidden; overflow-y: auto; position: relative;"><head><link href="../shared.css" rel="stylesheet"/><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary":"#442100","secondary-container":"#92f5a4","on-primary-fixed":"#00164e","error":"#ba1a1a","inverse-surface":"#283044","primary-container":"#1e3a8a","on-tertiary-container":"#fc922b","on-surface-variant":"#444651","on-primary-container":"#90a8ff","on-tertiary-fixed-variant":"#6e3900","inverse-primary":"#b6c4ff","background":"#faf8ff","on-secondary-fixed-variant":"#005323","tertiary-container":"#653400","outline-variant":"#c5c5d3","error-container":"#ffdad6","primary-fixed-dim":"#b6c4ff","tertiary-fixed":"#ffdcc3","surface-dim":"#d2d9f4","on-secondary-container":"#007233","surface-tint":"#4059aa","tertiary-fixed-dim":"#ffb77d","surface-container-low":"#f2f3ff","surface-variant":"#dae2fd","on-primary-fixed-variant":"#264191","primary-fixed":"#dce1ff","on-surface":"#131b2e","on-tertiary-fixed":"#2f1500","surface-container-highest":"#dae2fd","secondary-fixed":"#95f8a7","secondary":"#006d30","on-error-container":"#93000a","on-primary":"#ffffff","primary":"#00236f","on-background":"#131b2e","surface-bright":"#faf8ff","surface-container-high":"#e2e7ff","surface-container":"#eaedff","on-secondary":"#ffffff","on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","on-secondary-fixed":"#00210a","surface":"#faf8ff","outline":"#757682","secondary-fixed-dim":"#79db8d","on-error":"#ffffff","inverse-on-surface":"#eef0ff"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-16":"1rem","space-12":"0.75rem","gutter-mobile":"1rem","margin-mobile":"1rem","space-20":"1.25rem","space-40":"2.5rem","space-8":"0.5rem","space-32":"2rem","gutter-desktop":"1.5rem","space-48":"3rem","space-24":"1.5rem","space-2":"0.125rem","space-4":"0.25rem","margin-desktop":"2rem"},fontFamily:{"display-lg-mobile":["Inter"],"display-lg":["Inter"],"body-sm":["Inter"],"headline-sm":["Inter"],"title-sm":["Inter"],"body-md":["Inter"],"body-lg":["Inter"],"label-md":["Inter"],"title-md":["Inter"],"headline-md":["Inter"],"label-sm":["Inter"],"headline-lg-mobile":["Inter"],"headline-lg":["Inter"]},fontSize:{"display-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"title-sm":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.025em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.035em","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"600"}]}}}}</script><style>html,body{width:100%;min-height:100%;overflow-x:hidden!important;overflow-y:auto!important}.pl-72{width:100%;min-height:100vh;box-sizing:border-box}main{width:100%;min-width:0}main>.flex{width:100%;min-width:0}main *{min-width:0}main .overflow-x-auto{max-width:100%}.max-w-7xl{max-width:none!important;width:100%}@media(max-width:900px){.pl-72{padding-left:0!important}.fixed.top-0.left-72{position:relative!important;left:auto!important;right:auto!important;width:100%!important}.pl-72>main{padding-top:0!important}}</style><style>@media (min-width:901px) and (max-width:1279px){main .lg\:grid-cols-12{grid-template-columns:minmax(0,1fr)!important}main .lg\:col-span-5,main .lg\:col-span-6,main .lg\:col-span-7,main .lg\:col-span-12{grid-column:span 1/span 1!important}main .lg\:grid-cols-4{grid-template-columns:repeat(2,minmax(0,1fr))!important}main .lg\:grid-cols-6{grid-template-columns:repeat(3,minmax(0,1fr))!important}main .grid>*{min-width:0}main h1,main h2,main h3,main h4,main p,main span,main label,main button{overflow-wrap:anywhere}}</style></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between select-none"><div class="flex flex-col flex-1 overflow-y-auto"><div class="p-space-20 flex items-start gap-space-12 bg-surface-container-low"><img alt="Coop Labour Society Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Ur9Xxh_T7XeGAUuthO79otuysfw_1rMAmkbjQmJaiJqHH6slsP5NEz_dho-O4EEywkp7j20oC7doDBomNZHVK7r-FNabYo8QKOVrUggFV3XZ1dUWMeku-r4f-1minocpBhgedVpo5NaJTRqnWlai_GZlU8sWnTGJ9roLjw1ZE3MlH5vSiKx4C68sh7YBDLkeCFUaYp-kICEl2l1jbWlF5hrz7_UpPFUCYg-uTfRv632TVgMM_nPgH2Rw"><div class="flex flex-col"><span class="font-title-md text-title-md text-primary">Perur Workers Co-operative Scociety</span><span class="font-label-sm text-label-sm text-on-surface-variant">Perur, Coimbatore, Tamil Nadu</span><span class="font-label-sm text-label-sm text-on-surface-variant">Reg. No. TN-CLS-4892</span></div></div><div class="px-space-16 py-space-12"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Administrative Modules</span></div><nav class="flex flex-col gap-space-4 px-space-12 flex-1" data-active-classes="bg-primary-container text-on-primary font-title-sm text-title-sm shadow-sm"><a class="flex items-center gap-space-12 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-body-md text-body-md">Overview</span></a><a class="flex items-center gap-space-12 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="worker-management" href="#"><span class="material-symbols-outlined text-[20px]">engineering</span><span class="font-body-md text-body-md">Worker Management</span></a><a class="flex items-center gap-space-12 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="bookings-services" href="#"><span class="material-symbols-outlined text-[20px]">assignment</span><span class="font-body-md text-body-md">Bookings &amp; Services</span></a><a class="flex items-center gap-space-12 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="institutional-bookings" href="#"><span class="material-symbols-outlined text-[20px]">domain</span><span class="font-body-md text-body-md">Institutional Bookings</span></a><a class="flex items-center gap-space-12 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="welfare-schemes" href="#"><span class="material-symbols-outlined text-[20px]">health_and_safety</span><span class="font-body-md text-body-md">Welfare Schemes</span></a><a class="flex items-center gap-space-12 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="payments-earnings" href="#"><span class="material-symbols-outlined text-[20px]">payments</span><span class="font-body-md text-body-md">Payments &amp; Earnings</span></a><a aria-current="page" class="flex items-center gap-space-12 px-space-12 py-space-8 rounded-lg bg-primary-container text-on-primary font-title-sm text-title-sm shadow-sm transition-colors" data-path="reports-analytics" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span class="font-title-sm text-title-sm">Reports &amp; Analytics</span></a><a class="flex items-center gap-space-12 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="font-body-md text-body-md">Settings</span></a></nav></div><div class="p-space-16 bg-surface-container-lowest flex flex-col gap-space-12"><div class="flex items-center justify-between p-space-8 bg-surface-container-low rounded-lg"><div class="flex items-center gap-space-8"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm text-on-surface font-semibold">Operational • Server Synced</span></div><button class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high p-space-4 rounded" title="Collapse navigation" type="button"><span class="material-symbols-outlined text-[18px]">first_page</span></button></div><div class="flex items-center justify-between text-on-surface-variant px-space-4"><div class="flex flex-col gap-space-4"><div class="flex items-center gap-space-4"><span class="material-symbols-outlined text-[16px]">call</span><span class="font-label-sm text-label-sm">Coop Helpline: 1800-425-9922</span></div><div class="flex items-center gap-space-4"><span class="material-symbols-outlined text-[16px]">location_on</span><span class="font-label-sm text-[10px] text-on-surface-variant leading-tight">Plot 12, Perur Main Road, Perur, Coimbatore, TN 641010</span></div></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-24"><div class="flex items-center gap-space-16 flex-1 max-w-xl"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-space-12 text-on-surface-variant pointer-events-none text-[20px]">search</span><input class="w-full h-10 pl-10 pr-space-12 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Search workers, bookings, institutions, welfare IDs..." type="search"></div></div><div class="flex items-center gap-space-16"><div class="flex items-center gap-space-8 px-space-12 py-space-4 bg-surface-container-low rounded-lg"><span class="material-symbols-outlined text-secondary text-[18px]">sync_saved_locally</span><span class="font-label-sm text-label-sm text-on-surface">Oct 24, 2024 • Shift Active</span></div><button class="p-space-8 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors" title="Help &amp; Documentation" type="button"><span class="material-symbols-outlined text-[22px]">help_outline</span></button><div class="relative"><button class="p-space-8 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors flex items-center" title="Notifications" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span></button><span class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-error text-on-error font-label-sm text-[10px]">3</span></div><div class="flex items-center gap-space-8 pl-space-8"><div class="flex items-center gap-space-8 p-space-4 hover:bg-surface-container-low rounded-lg cursor-pointer"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcY9anjXK5-igDJW9Zf8hOOy_wmzYX5RDcuT7UKqGr9Rp3Vigc5dDHtLcFmark46st2V4qOxEn0wz9f8Ju197KpsMAv6iHGMCJViqMyY7NoHeD2LfVXq8D3KitEv3OwjY6a30EQQ_3W92jptkQkKqCG86f42R7xzbm4m25t9GjPZmbtoBYJ8prDo0rUA9qNZxHvuqJ-Pc5LafLDCrqE2NCTK5ps9sssCaPc7Yw5q82yUO9Xf6_VEvf"><div class="flex flex-col text-left"><span class="font-title-sm text-title-sm text-on-surface leading-tight">Rajesh Sharma</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Chief Administrative Officer</span></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div></div></div></header><main class="relative pt-16 w-full min-h-screen bg-background"><div class="flex flex-col w-full">
+<!-- BREADCRUMBS & EXECUTIVE HEADER -->
+<section class="w-full bg-surface-container-lowest px-space-32 py-space-20 shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-16 w-full max-w-none">
+<div class="flex flex-col gap-space-4">
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-8 text-on-surface-variant font-label-sm text-label-sm">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Society Governance</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Reports &amp; Analytics</span>
+</nav>
+<div class="flex items-baseline gap-space-12 mt-space-2">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Reports &amp; Analytics</h1>
+<span class="px-space-8 py-0.5 rounded bg-surface-container-high text-primary-container font-label-sm text-label-sm font-semibold uppercase tracking-wider">Audit v4.2</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Operational, Workforce, Financial, Welfare &amp; Demand Intelligence • Central Administrative Ledger
+        </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-12 self-start md:self-auto">
+<button class="flex items-center gap-space-8 px-space-16 py-space-8 bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors rounded-lg font-title-sm text-title-sm shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="">Export Audit Pack (PDF/CSV)</span>
+</button>
+<button class="flex items-center gap-space-8 px-space-16 py-space-8 bg-primary text-on-primary hover:bg-primary-container transition-colors rounded-lg font-title-sm text-title-sm shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">download_for_offline</span>
+<span class="">Generate Report</span>
+</button>
+</div>
+</div>
+</section>
+<!-- CONTROLS & MULTI-DIMENSIONAL FILTER STRIP -->
+<section class="w-full bg-surface-container-low px-space-32 py-space-16 shadow-inner">
+<div class="w-full max-w-none flex flex-col gap-space-12">
+<!-- Top Row: Date Pills -->
+<div class="flex flex-wrap items-center justify-between gap-space-12">
+<div class="flex items-center gap-space-4 bg-surface-container-lowest p-space-4 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] ml-space-8">date_range</span>
+<button class="px-space-12 py-space-4 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface" type="button">Today</button>
+<button class="px-space-12 py-space-4 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface" type="button">This Week</button>
+<button class="px-space-12 py-space-4 rounded-lg font-label-md text-label-md bg-primary-container text-on-primary shadow-sm font-bold" type="button">01 Sep 2026 – 30 Sep 2026</button>
+<button class="px-space-12 py-space-4 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface" type="button">Last Month</button>
+<button class="px-space-12 py-space-4 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface flex items-center gap-space-4" type="button">
+<span class="">Custom</span>
+<span class="material-symbols-outlined text-[14px]">tune</span>
+</button>
+</div>
+<div class="flex items-center gap-space-8 text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="">Auto-sync interval: 300s</span>
+<span class="mx-space-4">•</span>
+<span class="">Society Central Registry: Active</span>
+</div>
+</div>
+<!-- Bottom Row: Filter Dropdowns -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-8 pt-space-4">
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-space-2">Society Scope</label>
+<select class="w-full h-9 px-space-8 bg-surface-container-lowest rounded-lg font-body-sm text-body-sm text-on-surface shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container"><option selected="">Perur Workers Co-operative Scociety (Coimbatore District)</option><option>Apex Labour Federation (Tamil Nadu Regional)</option></select>
+</div>
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-space-2">Zone / Area</label>
+<select class="w-full h-9 px-space-8 bg-surface-container-lowest rounded-lg font-body-sm text-body-sm text-on-surface shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container"><option selected="">All Perur Zones (Perur, Telungupalayam, Kovaipudur, Kuniyamuthur, Vadavalli, Selvapuram)</option><option>Perur Central</option><option>Telungupalayam</option><option>Kovaipudur</option><option>Kuniyamuthur</option><option>Vadavalli</option><option>Selvapuram</option></select>
+</div>
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-space-2">Service Domain</label>
+<select class="w-full h-9 px-space-8 bg-surface-container-lowest rounded-lg font-body-sm text-body-sm text-on-surface shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container">
+<option selected="">All Domains (6 Core)</option>
+<option>Electrician</option>
+<option>Plumber</option>
+<option>Carpenter</option>
+<option>Cleaner</option>
+<option>Technician</option>
+<option>Domestic Helper</option>
+</select>
+</div>
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-space-2">Worker Status</label>
+<select class="w-full h-9 px-space-8 bg-surface-container-lowest rounded-lg font-body-sm text-body-sm text-on-surface shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container">
+<option selected="">All Workers (3,420)</option>
+<option>Active &amp; Assigned</option>
+<option>Available &amp; Standing By</option>
+<option>Welfare Ineligible</option>
+</select>
+</div>
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-space-2">Booking Type</label>
+<select class="w-full h-9 px-space-8 bg-surface-container-lowest rounded-lg font-body-sm text-body-sm text-on-surface shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container">
+<option selected="">All (Household, Bulk, SOS)</option>
+<option>Household On-Demand</option>
+<option>Institutional Bulk</option>
+<option>Emergency Dispatch (SOS)</option>
+</select>
+</div>
+<div class="flex items-end gap-space-8">
+<button class="h-9 flex-1 bg-primary text-on-primary rounded-lg font-label-md text-label-md font-semibold hover:bg-primary-container transition-colors shadow-sm flex items-center justify-center gap-space-4" type="button">
+<span class="material-symbols-outlined text-[16px]">filter_alt</span>
+<span class="">Apply</span>
+</button>
+<button class="h-9 px-space-12 bg-surface-container-highest text-on-surface rounded-lg font-label-md text-label-md font-medium hover:bg-surface-container-high transition-colors" title="Reset Filters" type="button">
+            Reset
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- INTERNAL SUB-NAV TABS -->
+<section class="w-full bg-surface-container-lowest px-space-32 shadow-sm">
+<div class="w-full max-w-none flex items-center gap-space-8 overflow-x-auto py-space-8 scrollbar-none">
+<a class="flex items-center gap-space-8 px-space-12 py-space-8 rounded-lg bg-primary-container text-on-primary font-title-sm text-title-sm shadow-sm whitespace-nowrap" href="#overview">
+<span class="material-symbols-outlined text-[18px]">space_dashboard</span>
+<span class="">Overview</span>
+</a>
+<a class="flex items-center gap-space-8 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-md text-body-md whitespace-nowrap" href="#bookings">
+<span class="">Bookings</span>
+<span class="px-space-8 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">1,250</span>
+</a>
+<a class="flex items-center gap-space-8 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-md text-body-md whitespace-nowrap" href="#workers">
+<span class="">Workers</span>
+<span class="px-space-8 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">3,420</span>
+</a>
+<a class="flex items-center gap-space-8 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-md text-body-md whitespace-nowrap" href="#geo">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="">Geo Analytics (PostGIS)</span>
+</a>
+<a class="flex items-center gap-space-8 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-md text-body-md whitespace-nowrap" href="#xgboost">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container">psychology</span>
+<span class="font-semibold text-tertiary">AI Forecast (XGBoost)</span>
+</a>
+<a class="flex items-center gap-space-8 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-md text-body-md whitespace-nowrap" href="#institutional">
+<span class="">Institutional</span>
+</a>
+<a class="flex items-center gap-space-8 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-md text-body-md whitespace-nowrap" href="#financial">
+<span class="">Financial &amp; Settlement</span>
+</a>
+<a class="flex items-center gap-space-8 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-md text-body-md whitespace-nowrap" href="#welfare">
+<span class="">Welfare</span>
+</a>
+<a class="flex items-center gap-space-8 px-space-12 py-space-8 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-md text-body-md whitespace-nowrap" href="#reports">
+<span class="">Reports</span>
+<span class="px-space-8 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">24</span>
+</a>
+</div>
+</section>
+<!-- MAIN DASHBOARD CONTENT AREA -->
+<div class="w-full max-w-none w-full px-space-32 py-space-24 flex flex-col gap-space-32">
+<!-- ROW 1: 8 CONCISE TOP KPI CARDS -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-16">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest p-space-16 rounded-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-space-8">
+<span class="font-body-sm text-body-sm font-medium">Total Bookings</span>
+<span class="material-symbols-outlined text-[20px] text-primary">calendar_month</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">1,420</span>
+<span class="flex items-center font-label-sm text-label-sm text-secondary font-semibold bg-secondary-container/20 px-space-4 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +12.4%
+          </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-space-4">vs. previous 30-day window</span>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest p-space-16 rounded-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-space-8">
+<span class="font-body-sm text-body-sm font-medium">Completed Jobs</span>
+<span class="material-symbols-outlined text-[20px] text-secondary">check_circle</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">1,250</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold bg-secondary-container/20 px-space-8 py-0.5 rounded">
+            88.0% Rate
+          </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-space-4">+5.2% quality fulfilment</span>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest p-space-16 rounded-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-space-8">
+<span class="font-body-sm text-body-sm font-medium">Active Workforce Pool</span>
+<span class="material-symbols-outlined text-[20px] text-primary">group</span>
+</div>
+<div class="flex items-baseline justify-between">
+<div class="flex items-baseline gap-space-4">
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">2,840</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ 3,420</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold bg-primary-fixed px-space-8 py-0.5 rounded">
+            83.0% Active
+          </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-space-4">+3.1% registered deployed</span>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest p-space-16 rounded-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-space-8">
+<span class="font-body-sm text-body-sm font-medium">Worker Utilization</span>
+<span class="material-symbols-outlined text-[20px] text-primary">speed</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">76.4%</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold bg-secondary-container/20 px-space-8 py-0.5 rounded">
+            Target ≥75%
+          </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-space-4">+4.2% shift productivity</span>
+</div>
+<!-- KPI 5 -->
+<div class="bg-surface-container-lowest p-space-16 rounded-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-space-8">
+<span class="font-body-sm text-body-sm font-medium">Total Worker Earnings</span>
+<span class="material-symbols-outlined text-[20px] text-secondary">payments</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">₹4,20,000</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold bg-secondary-container/20 px-space-4 py-0.5 rounded">
+            +14.2% MoM
+          </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-space-4">100% gross worker rights protected</span>
+</div>
+<!-- KPI 6 -->
+<div class="bg-surface-container-lowest p-space-16 rounded-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-space-8">
+<span class="font-body-sm text-body-sm font-medium">Platform Surcharge Fees</span>
+<span class="material-symbols-outlined text-[20px] text-tertiary-container">receipt_long</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">₹65,000</span>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold bg-tertiary-fixed px-space-4 py-0.5 rounded">
+            10.36% Surcharge
+          </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-space-4">₹35k settled • ₹15k in vault transit</span>
+</div>
+<!-- KPI 7 -->
+<div class="bg-surface-container-lowest p-space-16 rounded-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-space-8">
+<span class="font-body-sm text-body-sm font-medium">Welfare Scheme Coverage</span>
+<span class="material-symbols-outlined text-[20px] text-secondary">shield</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">53.8%</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold bg-primary-fixed px-space-8 py-0.5 rounded">
+            1,842 Active
+          </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-space-4">3,120 pre-screened eligible</span>
+</div>
+<!-- KPI 8: XGBoost Demand Forecast -->
+
+</div>
+<!-- ROW 2: BOOKING PERFORMANCE & WORKER UTILIZATION -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-24">
+<!-- LEFT: Booking & Service Performance (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest p-space-24 rounded-lg shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-16">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Booking &amp; Service Performance</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2">Fulfilment velocity, dispatch windows, and category spread</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">monitoring</span>
+</div>
+<!-- Weekly Volume Visual (Inline SVG Chart) -->
+<div class="p-space-12 bg-surface-container-low rounded-lg mb-space-16">
+<div class="flex items-center justify-between mb-space-8">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Weekly Booking Volume</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1,420 Cumulative</span>
+</div>
+<div class="w-full h-24 flex items-end justify-between gap-space-8 pt-space-8 px-space-8">
+<!-- Week 1 -->
+<div class="flex-1 flex flex-col items-center gap-space-4 h-full justify-end">
+<div class="w-full bg-primary-container rounded-t" style="height: 65%;"></div>
+<span class="font-label-sm text-[10px] text-on-surface-variant">W36</span>
+</div>
+<!-- Week 2 -->
+<div class="flex-1 flex flex-col items-center gap-space-4 h-full justify-end">
+<div class="w-full bg-primary-container rounded-t" style="height: 72%;"></div>
+<span class="font-label-sm text-[10px] text-on-surface-variant">W37</span>
+</div>
+<!-- Week 3 -->
+<div class="flex-1 flex flex-col items-center gap-space-4 h-full justify-end">
+<div class="w-full bg-primary-container rounded-t" style="height: 84%;"></div>
+<span class="font-label-sm text-[10px] text-on-surface-variant">W38</span>
+</div>
+<!-- Week 4 -->
+<div class="flex-1 flex flex-col items-center gap-space-4 h-full justify-end">
+<div class="w-full bg-primary rounded-t" style="height: 96%;"></div>
+<span class="font-label-sm text-[10px] text-primary font-bold">W39</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-space-8 border-t border-surface-container mt-space-8">
+<span class="">Avg Completion: <strong class="text-on-surface">2h 15m</strong></span>
+<span class="">Cancellation: <strong class="text-on-surface">7.9%</strong> (Benchmark &lt;8%)</span>
+</div>
+</div>
+<!-- Booking Status Distribution Breakdown -->
+<div class="mb-space-16">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider block mb-space-8">Operational Pipeline State</span>
+<div class="w-full h-3 bg-surface-container rounded-full flex overflow-hidden">
+<div class="bg-surface-variant" style="width: 3.4%" title="Requested: 48"></div>
+<div class="bg-primary-fixed" style="width: 4.5%" title="Allocated: 64"></div>
+<div class="bg-primary-fixed-dim" style="width: 5.8%" title="Confirmed: 82"></div>
+<div class="bg-surface-tint" style="width: 8.2%" title="In Progress: 116"></div>
+<div class="bg-secondary" style="width: 70.2%" title="Completed: 1,250"></div>
+<div class="bg-error" style="width: 7.9%" title="Cancelled: 112"></div>
+</div>
+<div class="grid grid-cols-3 gap-space-8 mt-space-12 font-label-sm text-label-sm text-on-surface">
+<div class="flex items-center gap-space-4"><span class="w-2 h-2 rounded-full bg-secondary"></span>Completed: 1,250</div>
+<div class="flex items-center gap-space-4"><span class="w-2 h-2 rounded-full bg-surface-tint"></span>In Progress: 116</div>
+<div class="flex items-center gap-space-4"><span class="w-2 h-2 rounded-full bg-error"></span>Cancelled: 112</div>
+<div class="flex items-center gap-space-4"><span class="w-2 h-2 rounded-full bg-primary-fixed-dim"></span>Confirmed: 82</div>
+<div class="flex items-center gap-space-4"><span class="w-2 h-2 rounded-full bg-primary-fixed"></span>Allocated: 64</div>
+<div class="flex items-center gap-space-4"><span class="w-2 h-2 rounded-full bg-surface-variant"></span>Requested: 48</div>
+</div>
+</div>
+<!-- Service Demand by Domain Bars -->
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider block mb-space-8">Domain Dispatches</span>
+<div class="flex flex-col gap-space-8">
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-space-2">
+<span class="text-on-surface">Electrician</span>
+<span class="font-semibold text-on-surface">420 jobs (25.2%)</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 25.2%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-space-2">
+<span class="text-on-surface">Plumber</span>
+<span class="font-semibold text-on-surface">310 jobs (18.6%)</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 18.6%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-space-2">
+<span class="text-on-surface">Carpenter</span>
+<span class="font-semibold text-on-surface">280 jobs (16.8%)</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 16.8%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-space-2">
+<span class="text-on-surface">Technician</span>
+<span class="font-semibold text-on-surface">265 jobs (15.9%)</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 15.9%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-space-2">
+<span class="text-on-surface">Cleaner</span>
+<span class="font-semibold text-on-surface">195 jobs (11.7%)</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 11.7%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-space-2">
+<span class="text-on-surface">Domestic Helper</span>
+<span class="font-semibold text-on-surface">136 jobs (8.2%)</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 8.2%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-space-2">
+<span class="text-on-surface">Cleaner</span>
+<span class="font-semibold text-on-surface">140 jobs (11.2%)</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 11.2%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-16 pt-space-12 border-t border-surface-container flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Emergency SOS response time: <strong class="text-secondary font-semibold">18 min</strong> (245 dispatches)</span>
+<span class="text-primary font-semibold cursor-pointer hover:underline">Full Service Log</span>
+</div>
+</div>
+<!-- RIGHT: Worker Performance & Utilization (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-space-24 rounded-lg shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-16">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Worker Performance &amp; Utilization</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2">Capacity load balancing, earnings distribution, and audit flags</p>
+</div>
+<div class="flex items-center gap-space-8">
+<span class="px-space-8 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">76.4% Utilized</span>
+</div>
+</div>
+<!-- Capacity Spread Bar -->
+<div class="p-space-12 bg-surface-container-low rounded-lg mb-space-16">
+<div class="flex justify-between font-label-sm text-label-sm mb-space-4">
+<span class="text-on-surface font-semibold">Active Pool Status (2,840 Members)</span>
+<span class="text-on-surface-variant">Total Roster: 3,420</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full flex overflow-hidden">
+<div class="bg-primary" style="width: 76%" title="Assigned: 2,160 (76%)"></div>
+<div class="bg-secondary" style="width: 24%" title="Available: 680 (24%)"></div>
+</div>
+<div class="flex items-center justify-between mt-space-8 font-label-sm text-label-sm">
+<div class="flex items-center gap-space-4">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-on-surface">Assigned: <strong>2,160</strong> (76%)</span>
+</div>
+<div class="flex items-center gap-space-4">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-on-surface">Available: <strong>680</strong> (24%)</span>
+</div>
+<div class="flex items-center gap-space-4 text-tertiary">
+<span class="material-symbols-outlined text-[14px]">info</span>
+<span class="">Idle / Waiting Shifts: <strong>580</strong> (20%)</span>
+</div>
+</div>
+</div>
+<!-- Worker Performance Spotlight Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<tr>
+<th class="p-space-8 rounded-l">Worker Member</th>
+<th class="p-space-8">Domain</th>
+<th class="p-space-8 text-right">Jobs</th>
+<th class="p-space-8 text-right">Rating</th>
+<th class="p-space-8 text-right">Earnings</th>
+<th class="p-space-8 text-right">Util.</th>
+<th class="p-space-8 rounded-r text-center">Status Flag</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container"><tr class="hover:bg-surface-container-low transition-colors"><td class="p-space-8"><div class="font-title-sm text-title-sm text-on-surface">Vignesh Kumar</div><div class="font-label-sm text-label-sm text-on-surface-variant">WRK-0924 • Perur</div></td><td class="p-space-8 text-on-surface">Electrical</td><td class="p-space-8 text-right font-semibold">46 / 48</td><td class="p-space-8 text-right text-secondary font-bold">4.9 ★</td><td class="p-space-8 text-right font-medium">₹32,400</td><td class="p-space-8 text-right font-semibold">92%</td><td class="p-space-8 text-center"><span class="px-space-8 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">High Performer</span></td></tr><tr class="hover:bg-surface-container-low transition-colors"><td class="p-space-8"><div class="font-title-sm text-title-sm text-on-surface">Keerthana R.</div><div class="font-label-sm text-label-sm text-on-surface-variant">WRK-1402 • Telungupalayam</div></td><td class="p-space-8 text-on-surface">Healthcare / Elder Care</td><td class="p-space-8 text-right font-semibold">35 / 36</td><td class="p-space-8 text-right text-secondary font-bold">4.95 ★</td><td class="p-space-8 text-right font-medium">₹24,800</td><td class="p-space-8 text-right font-semibold">88%</td><td class="p-space-8 text-center"><span class="px-space-8 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">High Performer</span></td></tr><tr class="hover:bg-surface-container-low transition-colors"><td class="p-space-8"><div class="font-title-sm text-title-sm text-on-surface">M. Manikandan</div><div class="font-label-sm text-label-sm text-on-surface-variant">WRK-0471 • Selvapuram</div></td><td class="p-space-8 text-on-surface">Carpenter</td><td class="p-space-8 text-right font-semibold">16 / 22</td><td class="p-space-8 text-right text-tertiary font-semibold">4.1 ★</td><td class="p-space-8 text-right font-medium">₹28,500</td><td class="p-space-8 text-right font-semibold">52%</td><td class="p-space-8 text-center"><span class="px-space-8 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">High Cancel (4)</span></td></tr><tr class="hover:bg-surface-container-low transition-colors"><td class="p-space-8"><div class="font-title-sm text-title-sm text-on-surface">K. Nandhini</div><div class="font-label-sm text-label-sm text-on-surface-variant">WRK-3108 • Vadavalli</div></td><td class="p-space-8 text-on-surface">Domestic Helper</td><td class="p-space-8 text-right font-semibold">14 / 14</td><td class="p-space-8 text-right text-secondary font-bold">4.7 ★</td><td class="p-space-8 text-right font-medium">₹18,500</td><td class="p-space-8 text-right font-semibold">38%</td><td class="p-space-8 text-center"><span class="px-space-8 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">Under-Utilized</span></td></tr></tbody>
+</table>
+</div>
+</div>
+<div class="mt-space-16 pt-space-12 border-t border-surface-container flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Showing 4 of 3,420 registered society tradespersons</span>
+<button class="text-primary font-semibold hover:underline flex items-center gap-space-4" type="button">
+<span class="">View Full Roster Scorecards</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ROW 3: GEO-MATCHING & LOCATION ANALYTICS (POSTGRESQL + POSTGIS) -->
+
+
+
+<!-- ROW 5: FINANCIAL & WELFARE ANALYTICS -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-24">
+<!-- LEFT: Financial & Settlement Analytics (6 cols) -->
+<div class="lg:col-span-6 bg-surface-container-lowest p-space-24 rounded-lg shadow-sm flex flex-col justify-between" id="financial">
+<div>
+<div class="flex items-center justify-between mb-space-16">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Financial &amp; Settlement Analytics</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2">Gross service valuation, cooperative fee retainers, and cash-in-transit</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-[24px]">account_balance</span>
+</div>
+<!-- Gross Breakdown Strip -->
+<div class="grid grid-cols-2 gap-space-12 mb-space-16">
+<div class="p-space-12 bg-surface-container-low rounded-lg"><span class="font-label-sm text-label-sm text-on-surface-variant">Gross Value of Services</span><div class="font-headline-sm text-headline-sm text-on-surface font-bold">₹4,85,000</div><span class="font-label-sm text-label-sm text-secondary font-semibold">1,240 Invoiced Jobs</span></div>
+<div class="p-space-12 bg-surface-container-low rounded-lg"><span class="font-label-sm text-label-sm text-on-surface-variant">Direct Worker Payout</span><div class="font-headline-sm text-headline-sm text-secondary font-bold">₹4,20,000</div><span class="font-label-sm text-label-sm text-on-surface-variant">100% Gross Member Right</span></div>
+</div>
+<!-- Platform Retainer & Payment Channels -->
+<div class="p-space-12 bg-surface-container-low rounded-lg mb-space-16">
+<div class="flex justify-between font-body-sm text-body-sm mb-space-4">
+<span class="text-on-surface font-semibold">Platform Fees Collected: <strong>₹65,000</strong></span>
+<span class="text-on-surface-variant">Statutory Surcharge (10.36%)</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full flex overflow-hidden">
+<div class="bg-primary" style="width: 70%" title="Settled: ₹35,000"></div>
+<div class="bg-tertiary-fixed-variant" style="width: 15%" title="Vault Safe: ₹7,500"></div>
+<div class="bg-tertiary" style="width: 15%" title="Worker Cash Pending: ₹7,500"></div>
+</div>
+<div class="flex items-center justify-between mt-space-8 font-label-sm text-label-sm text-on-surface-variant">
+<span class="">Settled to Platform: <strong class="text-on-surface">₹35,000</strong></span>
+<span class="">Society Vault: <strong class="text-on-surface">₹7,500</strong></span>
+<span class="">Cash Pending: <strong class="text-on-surface">₹7,500</strong></span>
+</div>
+</div>
+<!-- Workers Approaching Fee Threshold Table -->
+<div>
+<div class="flex items-center justify-between mb-space-8">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Workers Approaching Cash Fee Cap (₹1,000 Threshold)</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">Audit Alert</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<tr>
+<th class="p-space-8 rounded-l">Worker Member</th>
+<th class="p-space-8 text-right">Held Fee</th>
+<th class="p-space-8 text-right">Remaining</th>
+<th class="p-space-8 text-center">Threshold</th>
+<th class="p-space-8 rounded-r text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-label-sm text-label-sm"><tr class="hover:bg-surface-container-low transition-colors"><td class="p-space-8"><div class="font-title-sm text-title-sm text-on-surface">Vignesh Kumar</div><div class="font-label-sm text-label-sm text-on-surface-variant">WRK-0924 • Perur</div></td><td class="p-space-8 text-right font-semibold text-on-surface">₹1,000</td><td class="p-space-8 text-right font-semibold text-error">₹0</td><td class="p-space-8 text-center"><span class="px-space-8 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">100% Cap</span></td><td class="p-space-8 text-right"><button class="px-space-8 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold" type="button">Collect</button></td></tr><tr class="hover:bg-surface-container-low transition-colors"><td class="p-space-8"><div class="font-title-sm text-title-sm text-on-surface">M. Manikandan</div><div class="font-label-sm text-label-sm text-on-surface-variant">WRK-0471 • Selvapuram</div></td><td class="p-space-8 text-right font-semibold text-on-surface">₹850</td><td class="p-space-8 text-right font-semibold text-on-surface">₹150</td><td class="p-space-8 text-center"><span class="px-space-8 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">85% Cap</span></td><td class="p-space-8 text-right"><button class="px-space-8 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container-high" type="button">Remind</button></td></tr><tr class="hover:bg-surface-container-low transition-colors"><td class="p-space-8"><div class="font-title-sm text-title-sm text-on-surface">K. Nandhini</div><div class="font-label-sm text-label-sm text-on-surface-variant">WRK-3108 • Vadavalli</div></td><td class="p-space-8 text-right font-semibold text-on-surface">₹780</td><td class="p-space-8 text-right font-semibold text-on-surface">₹220</td><td class="p-space-8 text-center"><span class="px-space-8 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">78% Cap</span></td><td class="p-space-8 text-right"><button class="px-space-8 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container-high" type="button">Remind</button></td></tr></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="mt-space-16 pt-space-12 border-t border-surface-container flex items-center justify-between font-label-sm text-label-sm">
+<span class="">Split: Escrow ₹3,25,000 (710 txns) • Cash ₹1,60,000 (530 txns)</span>
+<a class="text-primary font-semibold hover:underline" href="#">Reconciliation Audit</a>
+</div>
+</div>
+<!-- RIGHT: Worker Welfare Intelligence (6 cols) -->
+<div class="lg:col-span-6 bg-surface-container-lowest p-space-24 rounded-lg shadow-sm flex flex-col justify-between" id="welfare">
+<div>
+<div class="flex items-center justify-between mb-space-16">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Worker Welfare &amp; Statutory Social Security</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2">Statutory benefit enrollment, life cover, and BOCW compliance</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-[24px]">health_and_safety</span>
+</div>
+<!-- Overall Coverage Bar -->
+<div class="p-space-12 bg-surface-container-low rounded-lg mb-space-16">
+<div class="flex justify-between font-body-sm text-body-sm mb-space-4">
+<span class="text-on-surface font-semibold">Active Enrolled Benefits: <strong>1,842 Workers</strong></span>
+<span class="text-secondary font-bold">53.8% of Total</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full flex overflow-hidden">
+<div class="bg-secondary" style="width: 53.8%" title="Enrolled: 1,842"></div>
+<div class="bg-primary-fixed" style="width: 37.4%" title="Pre-screened Eligible: 1,278"></div>
+<div class="bg-surface-variant" style="width: 8.8%" title="Pending: 300"></div>
+</div>
+<div class="grid grid-cols-4 gap-space-4 mt-space-8 text-center font-label-sm text-label-sm text-on-surface">
+<div class="p-space-4 bg-surface-container-lowest rounded shadow-sm">
+<span class="text-on-surface-variant block text-[11px]">Eligible Pool</span>
+<strong>3,120</strong>
+</div>
+<div class="p-space-4 bg-surface-container-lowest rounded shadow-sm">
+<span class="text-on-surface-variant block text-[11px]">In Progress</span>
+<strong>184</strong>
+</div>
+<div class="p-space-4 bg-surface-container-lowest rounded shadow-sm">
+<span class="text-on-surface-variant block text-[11px]">Docs Pending</span>
+<strong class="text-tertiary">92</strong>
+</div>
+<div class="p-space-4 bg-surface-container-lowest rounded shadow-sm">
+<span class="text-on-surface-variant block text-[11px]">Renewals &lt;7d</span>
+<strong class="text-error">14</strong>
+</div>
+</div>
+</div>
+<!-- Scheme-Wise Enrollment Spread -->
+<div class="mb-space-16">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider block mb-space-8">Scheme-Wise Coverage Roster</span>
+<div class="flex flex-col gap-space-8">
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-space-2">
+<span class="text-on-surface font-medium">PM-SYM (Pension - ₹3,000/mo)</span>
+<span class="text-on-surface">1,420 enrolled / 3,120 eligible (45.5%)</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 45.5%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-space-2">
+<span class="text-on-surface font-medium">PMSBY (Accidental Death Shield ₹2L)</span>
+<span class="text-on-surface">1,240 enrolled / 3,180 eligible (39.0%)</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 39.0%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-space-2">
+<span class="text-on-surface font-medium">PMJJBY (Life Insurance ₹2L)</span>
+<span class="text-on-surface">950 enrolled / 2,640 eligible (36.0%)</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 36.0%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-space-2">
+<span class="text-on-surface font-medium">PM-JAY (Ayushman Bharat Hospitalization)</span>
+<span class="text-on-surface">1,874 active / 2,910 eligible (64.4%)</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 64.4%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Workers Potentially Eligible Action Strip -->
+<div class="bg-surface-container-low p-space-12 rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface font-bold block mb-space-8">Action Required: Pre-Screened Unenrolled Members</span>
+<div class="flex flex-col gap-space-4 font-label-sm text-label-sm">
+<div class="flex items-center justify-between">
+<span class="text-on-surface">Ramesh Pawar • PM-SYM (Missing e-Shram Scan)</span>
+<button class="px-space-8 py-0.5 rounded bg-primary text-on-primary font-semibold" type="button">Request Docs</button>
+</div>
+<div class="flex items-center justify-between mt-space-2">
+<span class="text-on-surface">Mohammad Ansari • BOCW Kit (Missing Contractor Cert)</span>
+<button class="px-space-8 py-0.5 rounded bg-primary text-on-primary font-semibold" type="button">Notify Worker</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-16 pt-space-12 border-t border-surface-container flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">Ruleset engine v4.2 • Verified against Government Nodal Database</span>
+<a class="text-primary font-semibold hover:underline" href="#">Welfare Desk</a>
+</div>
+</div>
+</div>
+<!-- ROW 6: INSTITUTIONAL LABOUR ANALYTICS -->
+<div class="bg-surface-container-lowest p-space-24 rounded-lg shadow-sm flex flex-col gap-space-16" id="institutional">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-12">
+<div>
+<div class="flex items-center gap-space-8">
+<span class="material-symbols-outlined text-primary text-[24px]">domain</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Institutional Labour &amp; Bulk Contracts Analytics</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2">
+            Long-term municipal contracts, infrastructure dispatches, and quota SLA tracking
+          </p>
+</div>
+<div class="flex items-center gap-space-8">
+<span class="px-space-12 py-space-4 rounded bg-secondary-container text-on-secondary-container font-title-sm text-title-sm font-bold">95.8% Fulfilment Rate</span>
+</div>
+</div>
+<!-- Institutional Metrics 4-Pack -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-12">
+<div class="p-space-12 bg-surface-container-low rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Active Institutions Served</span>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">18 Public / Corp</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">42 Bulk Master Orders</span>
+</div>
+<div class="p-space-12 bg-surface-container-low rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Requested Workforce Demand</span>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">480 Labourers</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">460 Allocated Today</span>
+</div>
+<div class="p-space-12 bg-surface-container-low rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Unfulfilled Shift Gap</span>
+<div class="font-headline-sm text-headline-sm text-error font-bold">20 Openings</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Civil Concrete Masons</span>
+</div>
+<div class="p-space-12 bg-surface-container-low rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Advance SLA Commitment</span>
+<div class="font-headline-sm text-headline-sm text-primary font-bold">99.2%</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Zero Penalty Incidents</span>
+</div>
+</div>
+<!-- Major Institutional Accounts Roster -->
+<div class="bg-surface-container-low p-space-16 rounded-lg">
+<span class="font-label-md text-label-md text-on-surface font-bold block mb-space-12">Top Institutional Engagements (Current Shift Allocation)</span>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-16"><div class="p-space-12 bg-surface-container-lowest rounded-lg shadow-sm flex flex-col justify-between"><div><div class="flex items-center justify-between mb-space-4"><span class="font-title-sm text-title-sm text-on-surface font-bold">Government Higher Secondary School, Perur</span><span class="px-space-8 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Active</span></div><p class="font-label-sm text-label-sm text-on-surface-variant">Campus Facility &amp; Electrical Overhaul • Perur</p><div class="font-label-sm text-label-sm text-primary font-semibold mt-space-4">Contract: ₹88,000/mo</div></div><div class="w-full h-1.5 bg-surface-container rounded-full mt-space-12 overflow-hidden"><div class="bg-secondary h-full" style="width: 100%"></div></div></div><div class="p-space-12 bg-surface-container-lowest rounded-lg shadow-sm flex flex-col justify-between"><div><div class="flex items-center justify-between mb-space-4"><span class="font-title-sm text-title-sm text-on-surface font-bold">Government Health Centre, Perur</span><span class="px-space-8 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Active</span></div><p class="font-label-sm text-label-sm text-on-surface-variant">Sanitization &amp; Support • Siruvani Road</p><div class="font-label-sm text-label-sm text-primary font-semibold mt-space-4">Contract: ₹1,20,000/mo</div></div><div class="w-full h-1.5 bg-surface-container rounded-full mt-space-12 overflow-hidden"><div class="bg-secondary h-full" style="width: 100%"></div></div></div><div class="p-space-12 bg-surface-container-lowest rounded-lg shadow-sm flex flex-col justify-between"><div><div class="flex items-center justify-between mb-space-4"><span class="font-title-sm text-title-sm text-on-surface font-bold">Government School, Kuniyamuthur</span><span class="px-space-8 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">Shortfall</span></div><p class="font-label-sm text-label-sm text-on-surface-variant">Structural Masonry • 80 Allocated / 100 Requisitioned</p></div><div class="w-full h-1.5 bg-surface-container rounded-full mt-space-12 overflow-hidden"><div class="bg-tertiary-container h-full" style="width: 80%"></div></div></div></div>
+</div>
+</div>
+<!-- BOTTOM ROW: STATUTORY & OPERATIONAL REPORT GENERATOR -->
+<div class="bg-surface-container-lowest p-space-24 rounded-lg shadow-sm flex flex-col gap-space-20" id="reports">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-12">
+<div>
+<div class="flex items-center gap-space-8">
+<span class="material-symbols-outlined text-primary text-[24px]">description</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Cooperative Statutory &amp; Operational Report Generator</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2">Download verified audit records stamped with Perur Workers Co-operative Scociety legal digital signatures</p>
+</div>
+<div class="flex items-center gap-space-8">
+<span class="px-space-12 py-space-4 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">Digital Certificate: Valid until 2028</span>
+</div>
+</div>
+<!-- Multi-category Report Generation Grid (6 Thematic Categories) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-16">
+<!-- Category 1: Operational -->
+<div class="bg-surface-container-low p-space-16 rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-8 mb-space-12">
+<span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+<h3 class="font-title-sm text-title-sm text-on-surface font-bold uppercase tracking-wider">1. Operational Reports</h3>
+</div>
+<ul class="flex flex-col gap-space-8 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center justify-between">
+<span class="">Daily Dispatch Ledger</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">PDF</button>
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">CSV</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">Monthly Service Summary</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">PDF</button>
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">CSV</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">Cancellation &amp; Dispute Log</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">PDF</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">Emergency SOS Response Audit</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">PDF</button>
+</div>
+</li>
+</ul>
+</div>
+<button class="mt-space-16 w-full py-space-4 text-center font-label-sm text-label-sm text-primary font-bold hover:underline" type="button">Batch Download Category</button>
+</div>
+<!-- Category 2: Workforce -->
+<div class="bg-surface-container-low p-space-16 rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-8 mb-space-12">
+<span class="material-symbols-outlined text-primary text-[20px]">engineering</span>
+<h3 class="font-title-sm text-title-sm text-on-surface font-bold uppercase tracking-wider">2. Workforce Governance</h3>
+</div>
+<ul class="flex flex-col gap-space-8 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center justify-between">
+<span class="">Worker Performance Scorecard</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">PDF</button>
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">CSV</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">Domain-wise Workforce Roster</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">XLSX</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">Zone-wise Density Audit</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">PDF</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">Worker Utilization Sheet</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">CSV</button>
+</div>
+</li>
+</ul>
+</div>
+<button class="mt-space-16 w-full py-space-4 text-center font-label-sm text-label-sm text-primary font-bold hover:underline" type="button">Batch Download Category</button>
+</div>
+<!-- Category 3: Institutional -->
+<div class="bg-surface-container-low p-space-16 rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-8 mb-space-12">
+<span class="material-symbols-outlined text-primary text-[20px]">apartment</span>
+<h3 class="font-title-sm text-title-sm text-on-surface font-bold uppercase tracking-wider">3. Institutional Contracts</h3>
+</div>
+<ul class="flex flex-col gap-space-8 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center justify-between">
+<span class="">Public Works SLA Compliance</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">PDF</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">Bulk Labour Quota Fulfilment</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">XLSX</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">Unfulfilled Demand Review</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">CSV</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">Institutional Ledger Pack</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">PDF</button>
+</div>
+</li>
+</ul>
+</div>
+<button class="mt-space-16 w-full py-space-4 text-center font-label-sm text-label-sm text-primary font-bold hover:underline" type="button">Batch Download Category</button>
+</div>
+<!-- Category 4: Financial -->
+<div class="bg-surface-container-low p-space-16 rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-8 mb-space-12">
+<span class="material-symbols-outlined text-secondary text-[20px]">account_balance_wallet</span>
+<h3 class="font-title-sm text-title-sm text-on-surface font-bold uppercase tracking-wider">4. Financial Audit</h3>
+</div>
+<ul class="flex flex-col gap-space-8 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center justify-between">
+<span class="">Worker Gross Earnings Ledger</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">PDF</button>
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">CSV</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">Platform Retainer Audit</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">PDF</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">Cash Vault Physical Safe Log</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">PDF</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">Statutory Auditor Pack (CA Verified)</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">ZIP</button>
+</div>
+</li>
+</ul>
+</div>
+<button class="mt-space-16 w-full py-space-4 text-center font-label-sm text-label-sm text-primary font-bold hover:underline" type="button">Batch Download Category</button>
+</div>
+<!-- Category 5: AI & Predictive (XGBoost Exclusive) -->
+<div class="bg-surface-container-low p-space-16 rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-8 mb-space-12">
+<span class="material-symbols-outlined text-tertiary text-[20px]">query_stats</span>
+<h3 class="font-title-sm text-title-sm text-tertiary font-bold uppercase tracking-wider">5. XGBoost Forecasts</h3>
+</div>
+<ul class="flex flex-col gap-space-8 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center justify-between">
+<span class="">XGBoost Oct 2026 Demand Proj.</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">PDF</button>
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">XLSX</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">Actual vs. Model Variance Sheet</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">CSV</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">Zone Shortage Mobilization Directive</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">PDF</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">Feature Importance Weights (v2.4)</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">JSON</button>
+</div>
+</li>
+</ul>
+</div>
+<button class="mt-space-16 w-full py-space-4 text-center font-label-sm text-label-sm text-tertiary font-bold hover:underline" type="button">Batch Download Category</button>
+</div>
+<!-- Category 6: Welfare & Social Security -->
+<div class="bg-surface-container-low p-space-16 rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-8 mb-space-12">
+<span class="material-symbols-outlined text-secondary text-[20px]">health_and_safety</span>
+<h3 class="font-title-sm text-title-sm text-on-surface font-bold uppercase tracking-wider">6. Statutory Welfare</h3>
+</div>
+<ul class="flex flex-col gap-space-8 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center justify-between">
+<span class="">State BOCW Board Master Return</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">PDF</button>
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">CSV</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">PM-SYM &amp; PMSBY Enrollment Roster</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">CSV</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">Critical Policy Renewals (&lt;7 Days)</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-error-container text-on-error-container font-bold text-[11px]" type="button">PDF</button>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="">Welfare Pre-screening Eligibility List</span>
+<div class="flex gap-space-4">
+<button class="px-space-4 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-[11px] font-bold" type="button">XLSX</button>
+</div>
+</li>
+</ul>
+</div>
+<button class="mt-space-16 w-full py-space-4 text-center font-label-sm text-label-sm text-primary font-bold hover:underline" type="button">Batch Download Category</button>
+</div>
+</div>
+<!-- Recent Generated Reports Audit Log -->
+<div class="bg-surface-container-low p-space-16 rounded-lg">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider block mb-space-8 font-semibold">Recent Stamped Audit Exports</span>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<tr>
+<th class="p-space-8 rounded-l">File Document</th>
+<th class="p-space-8">Generated By</th>
+<th class="p-space-8">Timestamp</th>
+<th class="p-space-8">Size</th>
+<th class="p-space-8 rounded-r text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-label-sm text-label-sm"><tr class="hover:bg-surface-container-low transition-colors"><td class="p-space-8"><div class="font-title-sm text-title-sm text-on-surface font-semibold">Sep 2026 Monthly Operational &amp; Settlement Master Report.pdf</div><div class="font-label-sm text-label-sm text-on-surface-variant">Perur Society Stamped Audit</div></td><td class="p-space-8 text-on-surface">Rajesh Sharma (CAO)</td><td class="p-space-8 text-on-surface">Today, 09:40 IST</td><td class="p-space-8 text-on-surface">4.2 MB</td><td class="p-space-8 text-right"><button class="text-primary font-semibold hover:underline" type="button">Download</button></td></tr><tr class="hover:bg-surface-container-low transition-colors"><td class="p-space-8"><div class="font-title-sm text-title-sm text-on-surface font-semibold">XGBoost Oct 2026 Demand Forecast &amp; Zone Deficit Plan.xlsx</div><div class="font-label-sm text-label-sm text-on-surface-variant">Perur, Kovaipudur &amp; Telungupalayam Cluster</div></td><td class="p-space-8 text-on-surface">Automated Engine Sync</td><td class="p-space-8 text-on-surface">Yesterday, 18:00 IST</td><td class="p-space-8 text-on-surface">1.8 MB</td><td class="p-space-8 text-right"><button class="text-primary font-semibold hover:underline" type="button">Download</button></td></tr><tr class="hover:bg-surface-container-low transition-colors"><td class="p-space-8"><div class="font-title-sm text-title-sm text-on-surface font-semibold">BOCW &amp; PM-SYM Statutory Welfare Audit Batch #4.csv</div><div class="font-label-sm text-label-sm text-on-surface-variant">Coimbatore District Labour Dept Return</div></td><td class="p-space-8 text-on-surface">Sunil Verma (Welfare Desk)</td><td class="p-space-8 text-on-surface">2 days ago</td><td class="p-space-8 text-on-surface">850 KB</td><td class="p-space-8 text-right"><button class="text-primary font-semibold hover:underline" type="button">Download</button></td></tr></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div></main></div>
+
+
+
+
+
+</body></html>
