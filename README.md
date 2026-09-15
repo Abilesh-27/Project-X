@@ -1,6 +1,6 @@
-# Sahayak (Work Solute) — Cooperative Home Services Platform
+# Work Solute — Cooperative Home Services Platform
 
-**Sahayak** is a cooperative-owned digital marketplace connecting verified Labour Cooperative Society workers — electricians, plumbers, cleaners, carpenters, caregivers, drivers, gardeners, and technicians — with households and institutions, while ensuring fair wages, worker welfare, and transparent, cooperative-governed service delivery.
+**work solute** is a cooperative-owned digital marketplace connecting verified Labour Cooperative Society workers — electricians, plumbers, cleaners, carpenters, caregivers, drivers, gardeners, and technicians — with households and institutions, while ensuring fair wages, worker welfare, and transparent, cooperative-governed service delivery.
 
 This repository is a monorepo containing all four applications that make up the platform.
 
@@ -35,7 +35,7 @@ The primary consumer-facing app. Households and institutions create service requ
 ```
 lib/
 ├── core/
-│   ├── theme/          # SahayakColors, typography, theme.dart
+│   ├── theme/          # work soluteColors, typography, theme.dart
 │   └── localization/   # app_strings.dart — en, hi, ta, ml
 ├── data/
 │   ├── models/          # language, service, user, booking, worker, address, invoice, coordinator
@@ -148,7 +148,7 @@ python run.py
 ```
 Open `http://127.0.0.1:8000/`
 
-**Demo login:** `admin@sahayak.coop` / `admin123`
+**Demo login:** `admin@work solute.coop` / `admin123`
 SQLite database auto-creates at `data/federation.db` with seed data for Coimbatore-area societies on first run.
 
 ---
